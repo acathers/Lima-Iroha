@@ -4,15 +4,15 @@ public class Encrypt {
 
     protected int encryDef = 4;
 
-    setEncrypt(encry) {
+    public static void setEncrypt(encry) {
         int encryDef = encry;
     }
 
-    getEncrypt() {
+    public static void getEncrypt() {
         return encryDef;
     }
 
-    encryptText(String input) {
+    public static void encryptText(String input) {
         String output = "";
         for(int i = 0; i < input; i++) {
             char place = input.charAt(i);

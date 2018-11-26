@@ -4,11 +4,11 @@ public class Decrypt {
 
     protected int decryDef = -4;
 
-    setDecrypt(decry) {
+    public static void setDecrypt(decry) {
         int decryDef = -decry;
     }
 
-    decryptText(String input) {
+    public static void decryptText(String input) {
         String output = "";
         for(int i = 0; i < input; i++) {
             char place = input.charAt(i);
