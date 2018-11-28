@@ -10,7 +10,7 @@ public class Help {
         System.out.println();
         System.out.println("Below is a list of available commands. Type the command followed by help for more help with each command. Ex: 'Encrypt help'.");
         System.out.println();
-        System.out.println("Encrypt" /n + "Decrypt" /n + "SetPassphrase");
+        System.out.println("Encrypt" + "/n" + "Decrypt" + "/n" + "SetPassphrase");
         System.out.println();
     }
 }

@@ -6,33 +6,35 @@ public class CeasarsCiph {
 
     public static void main(String args[]) {
 
-        welcomeMessage();
+        Help.welcomeMessage();
 
         Scanner sc = new Scanner(System.in);
         String command = sc.nextLine();
 
-        if (command == equalsIgnoreCase("help")) {
-            help();
+        if (command.equalsIgnoreCase("help")) {
+            Help.help();
         }
-        if (command == equalsIgnoreCase("encrypt")) {
+        if (command.equalsIgnoreCase("encrypt")) {
 
             System.out.println("Input Text.");
             System.out.println();
 
             String inputText = sc.nextLine();
-            encryptedText = encryptText(inputText);
+            Encrypt enc = new Encrypt();
+            String encryptedText = enc.encryptText(inputText);
             System.out.println(encryptedText);
         }
-        if (command == equalsIgnoreCase("decrypt")){
+        if (command.equalsIgnoreCase("decrypt")){
 
             System.out.println("Input Text.");
             System.out.println();
 
             String inputText = sc.nextLine();
-            decryptedText = decryptText(inputText);
+            Decrypt dec = new Decrypt();
+            String decryptedText = dec.decryptText(inputText);
             System.out.println(decryptedText);
 
         }
+        sc.close();
     }
-    sc.close();
 }

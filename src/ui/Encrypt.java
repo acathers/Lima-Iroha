@@ -1,24 +1,27 @@
 package ui;
 
+import java.lang.StringBuilder;
+
 public class Encrypt {
 
-    protected int encryDef = 4;
+    private static int encryDef = 1;
 
-    public static void setEncrypt(encry) {
-        int encryDef = encry;
+    public void encrypt() {
     }
 
-    public static void getEncrypt() {
-        return encryDef;
+    public static void setEncrypt(int x) {
+        Encrypt.encryDef = x;
     }
 
-    public static void encryptText(String input) {
-        String output = "";
-        for(int i = 0; i < input; i++) {
+    public String encryptText(String input) {
+
+        StringBuilder output = new StringBuilder();
+
+        for(int i = 0; i < input.length(); i++) {
             char place = input.charAt(i);
-            char encryPlace = place + encryDef;
+            char encryPlace = (char)(place + encryDef);
             output.append(encryPlace);
         }
-        System.out.println(output);
+        return output.toString();
     }
 }
