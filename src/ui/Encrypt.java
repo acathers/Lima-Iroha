@@ -4,7 +4,7 @@ import java.lang.StringBuilder;
 
 public class Encrypt {
 
-    private static int encryDef = 1;
+    private static int encryDef = 3;
 
     public void encrypt() {
     }

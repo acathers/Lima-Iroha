@@ -4,7 +4,7 @@ import java.lang.StringBuilder;
 
 public class Decrypt {
 
-    private static int decryDef = -1;
+    private static int decryDef = 3;
 
     public void decrypt() {
     }
