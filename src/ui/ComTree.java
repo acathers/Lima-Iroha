@@ -16,23 +16,23 @@ public class ComTree {
             int index1 = nativeBuilder.indexOf(breakOfCom);
 
             if (index1 >= 0) {
-                int index2 = nativeBuilder.indexOf(breakOfCom, index1);
-                this.command = nativeBuilder.substring(0, index1);
+                int index2 = nativeBuilder.indexOf(breakOfCom, index1 + 1);
+                this.command = nativeBuilder.substring(0, index1 - 1);
 
                 if (index2 >= 0) {
-                    int index3 = nativeBuilder.indexOf(breakOfCom, index2);
-                    this.function = nativeBuilder.substring(index1, index2);
+                    int index3 = nativeBuilder.indexOf(breakOfCom, index2 + 1);
+                    this.function = nativeBuilder.substring(index1 + 1, index2 - 1);
 
-                    if (index3 >=0){
-                        this.parameter = nativeBuilder.substring(index2, index3);
-                        this.helpfinal = nativeBuilder.substring(index3, nativeBuilder.length() - 1);
+                    if (index3 >=0) {
+                        this.parameter = nativeBuilder.substring(index2 + 1, index3 - 1);
+                        this.helpfinal = nativeBuilder.substring(index3 + 1, nativeBuilder.length() - 1);
                     }
-                    else{
-                        this.parameter = nativeBuilder.substring(index2, nativeBuilder.length() -1);
+                    else {
+                        this.parameter = nativeBuilder.substring(index2 + 1, nativeBuilder.length() -1);
                     }
                 }
                 else {
-                    this.function = nativeBuilder.substring(index1, nativeBuilder.length() - 1);
+                    this.function = nativeBuilder.substring(index1 + 1, nativeBuilder.length() - 1);
                 }
             }
             else {
