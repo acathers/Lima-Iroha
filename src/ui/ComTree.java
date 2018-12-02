@@ -14,8 +14,6 @@ public class ComTree {
         StringBuilder nativeBuilder = new StringBuilder(stringCommand);
         String breakOfCom = " ";
 
-        System.out.println("Constructor ComTree activated");
-
             int index1 = nativeBuilder.indexOf(breakOfCom);
 
             if (index1 >= 0) {
@@ -45,16 +43,11 @@ public class ComTree {
 
     public void execute() {
 
-        System.out.println("test 1");
-
         Scanner scom = new Scanner(System.in);
-
-        System.out.println("test2");
 
         if (command.equalsIgnoreCase("help")) {
 
-            Help help = new Help();
-            help.help();
+            Help.help();
         }
         if (command.equalsIgnoreCase("CeasarsCipher")) {
 

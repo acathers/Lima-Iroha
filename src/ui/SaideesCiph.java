@@ -11,19 +11,11 @@ public class SaideesCiph {
 
         while (choice.equalsIgnoreCase("y")) {
 
-            Help helpDisplay = new Help();
-
-            helpDisplay.welcomeMessage();
-
-            System.out.println("test a");
+            Help.welcomeMessage();
 
             String command = sc.nextLine();
 
-            System.out.println("test b");
-
             ComTree action = new ComTree(command);
-
-            System.out.println("test c");
 
             action.execute();
 
