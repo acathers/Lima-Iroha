@@ -1,6 +1,7 @@
 package ui;
 
 import java.util.Scanner;
+import database.*;
 
 public class ComTree {
 
@@ -12,6 +13,8 @@ public class ComTree {
     ComTree(String stringCommand) {
         StringBuilder nativeBuilder = new StringBuilder(stringCommand);
         String breakOfCom = " ";
+
+        System.out.println("Constructor ComTree activated");
 
             int index1 = nativeBuilder.indexOf(breakOfCom);
 
@@ -42,30 +45,26 @@ public class ComTree {
 
     public void execute() {
 
+        System.out.println("test 1");
+
         Scanner scom = new Scanner(System.in);
 
+        System.out.println("test2");
+
         if (command.equalsIgnoreCase("help")) {
-            Help.help();
+
+            Help help = new Help();
+            help.help();
         }
-        if (command.equalsIgnoreCase("encrypt")) {
+        if (command.equalsIgnoreCase("CeasarsCipher")) {
 
-            System.out.println("Input Text.");
-            System.out.println();
+            System.out.println("made it here");
 
-            String inputText = scom.nextLine();
-            Encrypt enc = new Encrypt();
-            String encryptedText = enc.encryptText(inputText);
-            System.out.println(encryptedText);
-        }
-        if (command.equalsIgnoreCase("decrypt")){
+            CeasarsCipher ccBuild = new CeasarsCipher(this.function, this.parameter, this.helpfinal);
 
-            System.out.println("Input Text.");
-            System.out.println();
+            if (this.function.equalsIgnoreCase("encrypt")) {
 
-            String inputText = scom.nextLine();
-            Decrypt dec = new Decrypt();
-            String decryptedText = dec.decryptText(inputText);
-            System.out.println(decryptedText);
+            }
         }
         scom.close();
     }
