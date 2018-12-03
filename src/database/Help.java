@@ -1,4 +1,4 @@
-package ui;
+package database;
 
 public class Help {
 

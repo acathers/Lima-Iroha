@@ -1,17 +1,25 @@
 package ui;
 
 import java.util.Scanner;
+import database.*;
 
 public class SaideesCiph {
 
+    private static String choice = "y";
+
     public static void main(String args[]) {
 
-        String choice = "y";
         Scanner sc = new Scanner(System.in);
+        boolean welcomeDisplayed = false;
 
         while (choice.equalsIgnoreCase("y")) {
 
-            Help.welcomeMessage();
+            if (welcomeDisplayed) {
+                System.out.println("Input command: ");
+            }
+            else {
+                Help.welcomeMessage();
+            }
 
             String command = sc.nextLine();
 
@@ -21,7 +29,7 @@ public class SaideesCiph {
 
             System.out.println("Would you like to continue? (y/n)");
 
-            choice = sc.nextLine();
+        SaideesCiph.choice = sc.nextLine();
 
         }
         sc.close();

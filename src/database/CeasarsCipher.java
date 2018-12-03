@@ -6,8 +6,8 @@ import java.util.Scanner;
 public class CeasarsCipher {
 
     private String ccFunction;
-    private String ccParameter;
-    private String ccHelp;
+    private String ccParameter = " ";
+    private String ccHelp = " ";
 
     public CeasarsCipher(String ccFunction, String ccParameter, String ccHelp) {
         this.ccFunction = ccFunction;
@@ -18,7 +18,7 @@ public class CeasarsCipher {
         System.out.println("Input text. Letters and spaces only.");
         System.out.println();
 
-        if (this.ccParameter != null) {
+        if (this.ccParameter != " ") {
 
             int ccParameterInt = Integer.parseInt(this.ccParameter);
 
@@ -44,7 +44,7 @@ public class CeasarsCipher {
             System.out.println(encryptText("Would you like to encrypt or decrypt a message?"));
         }
 
-        if (this.ccHelp != null) {
+        if (this.ccHelp != " ") {
             System.out.println("Help message!");
         }
         ccsc.close();
