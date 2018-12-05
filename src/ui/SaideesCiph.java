@@ -16,12 +16,12 @@ public class SaideesCiph {
 
         while (choice.equalsIgnoreCase("y")) {
 
-            if (welcomeDisplayed) {
+            if (welcomeDisplayed == true) {
                 System.out.println("Input command: ");
-                welcomeDisplayed = false;
             }
             else {
                 Help.welcomeMessage();
+                welcomeDisplayed = true;
             }
 
             String command = sc.nextLine();
