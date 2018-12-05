@@ -5,17 +5,20 @@ import database.*;
 
 public class SaideesCiph {
 
-    private static String choice = "y";
 
-    public static void main(String args[]) {
+
+    public static void main(String[] args) {
 
         Scanner sc = new Scanner(System.in);
+
         boolean welcomeDisplayed = false;
+        String choice = "y";
 
         while (choice.equalsIgnoreCase("y")) {
 
             if (welcomeDisplayed) {
                 System.out.println("Input command: ");
+                welcomeDisplayed = false;
             }
             else {
                 Help.welcomeMessage();
@@ -27,10 +30,8 @@ public class SaideesCiph {
 
             action.execute();
 
-            System.out.println("Would you like to continue? (y/n)");
-
-        SaideesCiph.choice = sc.nextLine();
-
+            System.out.print("Would you like to continue? (y/n): ");
+            choice = sc.nextLine();
         }
         sc.close();
     }

@@ -8,7 +8,9 @@ public class ComTree {
     private String command = "";
     private String function = "";
     private String parameter = "";
-    private String helpfinal = "";
+    private String helpFinal = "";
+
+    //Breaks up full command line into variables.
 
     ComTree(String stringCommand) {
         StringBuilder nativeBuilder = new StringBuilder(stringCommand);
@@ -24,9 +26,9 @@ public class ComTree {
                     int index3 = nativeBuilder.indexOf(breakOfCom, index2 + 1);
                     this.function = nativeBuilder.substring(index1 + 1, index2);
 
-                    if (index3 >=0) {
+                    if (index3 >= 0) {
                         this.parameter = nativeBuilder.substring(index2 + 1, index3);
-                        this.helpfinal = nativeBuilder.substring(index3 + 1, nativeBuilder.length());
+                        this.helpFinal = nativeBuilder.substring(index3 + 1, nativeBuilder.length());
                     }
                     else {
                         this.parameter = nativeBuilder.substring(index2 + 1, nativeBuilder.length());
@@ -43,26 +45,20 @@ public class ComTree {
 
     public void execute() {
 
-        Scanner scom = new Scanner(System.in);
-
         System.out.println(this.command);
         System.out.println(this.function);
         System.out.println(this.parameter);
-        System.out.println(this.helpfinal);
+        System.out.println(this.helpFinal);
 
         if (command.equalsIgnoreCase("help")) {
 
             Help.help();
         }
         if (command.equalsIgnoreCase("CeasarsCipher")) {
+            CeasarsCipher newCC = new CeasarsCipher(this.function, this.parameter, this.helpFinal);
 
-            CeasarsCipher ccBuild = new CeasarsCipher(this.function, this.parameter, this.helpfinal);
-
-            if (this.function.equalsIgnoreCase("encrypt")) {
-
-            }
+            newCC.runCC();
         }
-        scom.close();
     }
 
 
