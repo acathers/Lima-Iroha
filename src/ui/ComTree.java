@@ -5,10 +5,10 @@ import database.*;
 
 public class ComTree {
 
-    private String command = "";
-    private String function = "";
-    private String parameter = "";
-    private String helpFinal = "";
+    private String command;
+    private String function;
+    private String parameter;
+    private String helpFinal;
 
     //Breaks up full command line into variables.
 
@@ -44,11 +44,6 @@ public class ComTree {
     }
 
     public void execute() {
-
-        System.out.println(this.command);
-        System.out.println(this.function);
-        System.out.println(this.parameter);
-        System.out.println(this.helpFinal);
 
         if (command.equalsIgnoreCase("help")) {
 

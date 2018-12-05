@@ -2,6 +2,7 @@ package database;
 
 import java.lang.StringBuilder;
 import java.util.Scanner;
+import ui.SaideesCiph;
 
 public class CeasarsCipher {
 
@@ -23,29 +24,29 @@ public class CeasarsCipher {
         System.out.println("Input text. Letters and spaces only.");
         System.out.println();
 
-        final Scanner ccsc = new Scanner(System.in);
-        final String input = ccsc.nextLine();
+        String input = ui.SaideesCiph.sc.nextLine();
 
-        if (this.ccParameter != " ") {
+        if (this.ccParameter != null) {
             int ccParameterInt = Integer.parseInt(this.ccParameter);
             setEncrypt(ccParameterInt);
         }
+        
         if (this.ccFunction.equalsIgnoreCase("encrypt")) {
                 System.out.println(encryptText(input));
         }
-        if (this.ccFunction.equalsIgnoreCase("decrypt")) {
+        else if (this.ccFunction.equalsIgnoreCase("decrypt")) {
             System.out.println(decryptText(input));
         }
-        if (this.ccFunction.equalsIgnoreCase("help")) {
+        else if (this.ccFunction.equalsIgnoreCase("help")) {
             System.out.println("You should get help, but I have yet to develop help for this part of the program at this time.");
         }
         else {
             System.out.println(encryptText("Would you like to encrypt or decrypt a message?"));
         }
-        if (this.ccHelp != " ") {
+
+        if (this.ccHelp != null) {
             System.out.println("Help message!");
         }
-        ccsc.close();
     }
 
     public static void setEncrypt(int x) {

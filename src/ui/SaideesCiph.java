@@ -5,11 +5,9 @@ import database.*;
 
 public class SaideesCiph {
 
-
+    public static final Scanner sc = new Scanner(System.in);
 
     public static void main(String[] args) {
-
-        Scanner sc = new Scanner(System.in);
 
         boolean welcomeDisplayed = false;
         String choice = "y";
