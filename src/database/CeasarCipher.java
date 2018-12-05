@@ -4,7 +4,7 @@ import java.lang.StringBuilder;
 import java.util.Scanner;
 import ui.SaideesCiph;
 
-public class CeasarsCipher {
+public class CeasarCipher {
 
     private String ccFunction;
     private String ccParameter;
@@ -12,7 +12,7 @@ public class CeasarsCipher {
     private static int encryDef = 3;
     private static int decryDef = 3;
 
-    public CeasarsCipher(String ccFunction, String ccParameter, String ccHelp) {
+    public CeasarCipher(String ccFunction, String ccParameter, String ccHelp) {
         this.ccFunction = ccFunction;
         this.ccParameter = ccParameter;
         this.ccHelp = ccHelp;
@@ -30,7 +30,7 @@ public class CeasarsCipher {
             int ccParameterInt = Integer.parseInt(this.ccParameter);
             setEncrypt(ccParameterInt);
         }
-        
+
         if (this.ccFunction.equalsIgnoreCase("encrypt")) {
                 System.out.println(encryptText(input));
         }
@@ -50,7 +50,7 @@ public class CeasarsCipher {
     }
 
     public static void setEncrypt(int x) {
-        CeasarsCipher.encryDef = x;
+        CeasarCipher.encryDef = x;
     }
 
     public String encryptText(String input) {
@@ -66,7 +66,7 @@ public class CeasarsCipher {
     }
 
     public static void setDecrypt(int x) {
-        CeasarsCipher.decryDef = x;
+        CeasarCipher.decryDef = x;
     }
 
     public String decryptText(String input) {

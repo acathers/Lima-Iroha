@@ -49,8 +49,8 @@ public class ComTree {
 
             Help.help();
         }
-        if (command.equalsIgnoreCase("CeasarsCipher")) {
-            CeasarsCipher newCC = new CeasarsCipher(this.function, this.parameter, this.helpFinal);
+        if (command.equalsIgnoreCase("CeasarCipher")) {
+            CeasarCipher newCC = new CeasarCipher(this.function, this.parameter, this.helpFinal);
 
             newCC.runCC();
         }
