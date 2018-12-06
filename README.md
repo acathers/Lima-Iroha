@@ -35,3 +35,27 @@ The following ciphers have yet to be added but in progress:
     Straddle Checkerboard Cipher
     Trifid Cipher
     Vigenère and Gronsfeld Cipher
+
+    Future Versions Planned (Rough Draft, subject to change.):
+
+    Version 0.0.1 - Terminal program in beta with only Ceasar ciphers
+
+    Version 1 - Release, Terminal program with ~20 types of weak text encryption and decryption.
+
+    Version 2 - GUI added
+
+    Version 3 - Modern encryption added.
+
+    Version 4 - Cipher breaker.
+
+    Version 5 - File encryption.
+
+
+    Current TODO list:
+
+    Add "About" command.
+    Finish documentation.
+    Debug
+    Rename
+    Logo
+    Release and begin version 0.0.1 Beta.
