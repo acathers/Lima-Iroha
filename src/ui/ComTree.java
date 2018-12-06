@@ -46,18 +46,23 @@ public class ComTree {
 
             //Sorts out help commands to work with classes. Resets variable if it holds the help command and sends the help command to this.helfFinal.
 
-            if (this.function.equalsIgnoreCase("help")) {
-                this.helpFinal = this.function;
-                this.function = null;
+            if (this.function != null) {
+                if (this.function.equalsIgnoreCase("help")) {
+                    this.helpFinal = this.function;
+                    this.function = null;
+                }
+
             }
-            if (this.key.equalsIgnoreCase("help")) {
-                this.helpFinal = this.key;
-                this.key = null;
+            if (this.key != null) {
+                if (this.key.equalsIgnoreCase("help")) {
+                    this.helpFinal = this.key;
+                    this.key = null;
+                }
             }
     }
 
     //Method sends command to appropriate class to be executed.
-    
+
     public void execute() {
 
         if (command.equalsIgnoreCase("help")) {

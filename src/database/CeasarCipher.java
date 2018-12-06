@@ -12,7 +12,7 @@ public class CeasarCipher {
     private String ccKey;
     private String ccHelp;
     private static int encryDef = 3;
-    private static int decryDef = 3;
+    private static int decryDef = -3;
 
     //Constructor sets the variables for the class. 'ccFunction' is Encrypt or Decrypt, 'ccKey' will be the key which is 3 by default, 'ccHelp' is used for triggering help.
 
@@ -93,7 +93,7 @@ public class CeasarCipher {
     }
 
     //Used to decrypt your text.
-    
+
     public String decryptText(String input) {
 
         StringBuilder output = new StringBuilder();
