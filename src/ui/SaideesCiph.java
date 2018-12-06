@@ -15,7 +15,7 @@ public class SaideesCiph {
         while (choice.equalsIgnoreCase("y")) {
 
             if (welcomeDisplayed == true) {
-                System.out.println("Input command: ");
+                System.out.print("\n" + "Command: ");
             }
             else {
                 Help.welcomeMessage();
@@ -28,9 +28,12 @@ public class SaideesCiph {
 
             action.execute();
 
-            System.out.print("Would you like to continue? (y/n): ");
+            System.out.print("\n" + "Would you like to continue? (y/n): ");
+
             choice = sc.nextLine();
         }
+
+        System.out.println("\n" + "Program terminated.");
         sc.close();
     }
 }

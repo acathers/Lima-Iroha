@@ -33,11 +33,15 @@ public class CeasarCipher {
             else if (ccFunction != null) {
                 System.out.println("\n" + "You have entered a command for Ceasars Cipher to encrypt or decrypt a message. Since you did not specify a key, the default key of 3 will be used. Each letter in your message will be shifted three characters to the right. So an 'A' will become a 'D'. Lowercase and upercase do not matter as the message will be displayed in all uppercase. Do not use any punctuation, numbers or special characters. Letters and spaces only.");
             }
+            else{
+                System.out.println("\n" + "In cryptography, a Caesar cipher, also known as Caesar's cipher, the shift cipher, Caesar's code or Caesar shift, is one of the simplest and most widely known encryption techniques. It is a type of substitution cipher in which each letter in the plaintext is replaced by a letter some fixed number of positions down the alphabet. For example, with a left shift of 3, D would be replaced by A, E would become B, and so on. The method is named after Julius Caesar, who used it in his private correspondence" + "\n" + "\n" + "--Source: Suetonius, Vita Divi Julii 56.6");
+            }
         }
         else {
             System.out.println();
             System.out.println("Input text. Letters and spaces only.");
             System.out.println();
+            System.out.print("Input Text:      ");
 
             //This is where text to be encrypted or decrypted is put in.
 
@@ -51,10 +55,10 @@ public class CeasarCipher {
             }
 
             if (this.ccFunction.equalsIgnoreCase("encrypt")) {
-                    System.out.println(encryptText(input));
+                    System.out.print("Encrypted Text:  " + encryptText(input) + "\n");
             }
             else if (this.ccFunction.equalsIgnoreCase("decrypt")) {
-                System.out.println(decryptText(input));
+                System.out.print("Decrypted Text:  " + decryptText(input) + "\n");
             }
             else if (this.ccFunction.equalsIgnoreCase("help")) {
                 System.out.println("You should get help, but I have yet to develop help for this part of the program at this time.");
