@@ -56,8 +56,8 @@ public class ComTree {
             }
     }
 
-
     //Method sends command to appropriate class to be executed.
+    
     public void execute() {
 
         if (command.equalsIgnoreCase("help")) {
@@ -70,6 +70,4 @@ public class ComTree {
             newCC.runCC();
         }
     }
-
-
 }

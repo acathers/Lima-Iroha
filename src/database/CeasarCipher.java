@@ -66,9 +66,13 @@ public class CeasarCipher {
 
     }
 
+    //Used to set the key for encryption.
+
     public static void setEncrypt(int x) {
         CeasarCipher.encryDef = x;
     }
+
+    //Used to encrypt your text.
 
     public String encryptText(String input) {
 
@@ -82,10 +86,14 @@ public class CeasarCipher {
         return output.toString();
     }
 
+    //Used to set the key for decryption.
+
     public static void setDecrypt(int x) {
         CeasarCipher.decryDef = x;
     }
 
+    //Used to decrypt your text.
+    
     public String decryptText(String input) {
 
         StringBuilder output = new StringBuilder();
