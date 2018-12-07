@@ -69,10 +69,14 @@ public class ComTree {
 
             Help.help();
         }
-        if (command.equalsIgnoreCase("CeasarCipher")) {
+        else if (command.equalsIgnoreCase("CeasarCipher")) {
+            
             CeasarCipher newCC = new CeasarCipher(this.function, this.key, this.helpFinal);
 
             newCC.runCC();
+        }
+        else{
+            System.out.println("\n" + "Invlid command entered. Use help for more information.");
         }
     }
 }

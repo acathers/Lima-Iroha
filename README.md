@@ -53,9 +53,11 @@ The following ciphers have yet to be added but in progress:
 
     Current TODO list:
 
+    Fix letter shift wrap
+    Fix ceasarcipher.Java
     Add "About" command.
-    Finish documentation.
     Debug
     Rename
     Logo
+    How to install and run in README.
     Release and begin version 0.0.1 Beta.
