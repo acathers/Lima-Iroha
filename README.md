@@ -54,7 +54,6 @@ The following ciphers have yet to be added but in progress:
     Current TODO list:
 
     Fix letter shift wrap
-    Fix ceasarcipher.Java
     Add "About" command.
     Debug
     Rename
