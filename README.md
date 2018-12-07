@@ -52,7 +52,7 @@ The following ciphers have yet to be added but in progress:
     Current TODO list:
 
     Change output to all caps.
-    Fix letter shift wrap.
+    Fix letter shift wrap for ceasars cipher.
     Add "About" command.
     Rename.
     Logo.
