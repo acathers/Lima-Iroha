@@ -7,7 +7,6 @@ The following ciphers have been added:
 
 The following ciphers have yet to be added but in progress:
 
-
     ADFGVX Cipher
     ADFGX Cipher
     Affine Cipher
@@ -50,13 +49,12 @@ The following ciphers have yet to be added but in progress:
 
     Version 5 - File encryption.
 
-
     Current TODO list:
 
-    Fix letter shift wrap
+    Change output to all caps.
+    Fix letter shift wrap.
     Add "About" command.
-    Debug
-    Rename
-    Logo
+    Rename.
+    Logo.
     How to install and run in README.
     Release and begin version 0.0.1 Beta.

@@ -112,9 +112,6 @@ public class CeasarCipher {
                 System.out.println(encryptText("Would you like to encrypt or decrypt a message?"));
             }
         }
-
-
-
     }
 
     //Used to set the key for encryption.
@@ -134,7 +131,7 @@ public class CeasarCipher {
             char encryPlace = (char)(place + encryDef);
             output.append(encryPlace);
         }
-        return output.toString();
+        return output.toString().toUpperCase();
     }
 
     //Used to set the key for decryption.
@@ -154,6 +151,6 @@ public class CeasarCipher {
             char decryPlace = (char)(place + decryDef);
             output.append(decryPlace);
         }
-        return output.toString();
+        return output.toString().toUpperCase();
     }
 }
