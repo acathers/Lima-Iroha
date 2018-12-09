@@ -95,8 +95,15 @@ public class CeasarCipher {
             // if statment that uses the variables ccFunction and ccKey to determine what to do to the text.
 
             if (this.ccKey != null) {
-                int ccKeyInt = Integer.parseInt(this.ccKey);
-                setEncrypt(ccKeyInt);
+                if (this.ccFunction.equalsIgnoreCase("encrypt")) {
+                    int ccKeyInt = Integer.parseInt(this.ccKey);
+                    setEncryptKey(ccKeyInt);
+                }
+                else {
+                    int ccKeyInt = Integer.parseInt(this.ccKey);
+                    setDecryptKey(ccKeyInt);
+                }
+
             }
 
             if (this.ccFunction.equalsIgnoreCase("encrypt")) {
@@ -116,7 +123,7 @@ public class CeasarCipher {
 
     //Used to set the key for encryption.
 
-    public static void setEncrypt(int x) {
+    public static void setEncryptKey(int x) {
         CeasarCipher.encryDef = x;
     }
 
@@ -136,8 +143,8 @@ public class CeasarCipher {
 
     //Used to set the key for decryption.
 
-    public static void setDecrypt(int x) {
-        CeasarCipher.decryDef = x;
+    public static void setDecryptKey(int x) {
+        CeasarCipher.decryDef = -x;
     }
 
     //Used to decrypt your text.
