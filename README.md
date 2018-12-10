@@ -1,11 +1,11 @@
-# CeasarsCiph
-The development goal of this program is to add the capability to use 29 types of weak ciphers through terminal to encrypt and decrypt text. At this point the program has one type, Ceasar Cipher, and it is working. Later versions will add file encryption, code breaker, and modern encryption.
+# CaesarsCiph
+The development goal of this program is to add the capability to use 29 types of weak ciphers through terminal to encrypt and decrypt text. At this point the program has one type, Caesar Cipher, and it is working. Later versions will add file encryption, code breaker, and modern encryption.
 
 Below is a quick overview of what has been done and what still needs to be done.
 
 The following ciphers have been added:
 
-    Ceasar Cipher
+    Caesar Cipher
 
 The following ciphers have yet to be added but in progress:
 
@@ -39,7 +39,7 @@ The following ciphers have yet to be added but in progress:
 
     Future Versions Planned (Rough Draft, subject to change.):
 
-    Version 0.0.1 - Terminal program in beta with only Ceasar ciphers
+    Version 0.0.1 - Terminal program in beta with only Caesar ciphers
     Version 0.1.0 - Add ADFGVX Cipher
 
     Version 1 - Release, Terminal program with 29 types of weak text encryption and decryption.
