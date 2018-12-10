@@ -165,13 +165,27 @@ public class CeasarCipher {
 
     public String decryptText(String input) {
 
+        String inputUC = input.toUpperCase();
+
         StringBuilder output = new StringBuilder();
 
-        for(int i = 0; i < input.length(); i++) {
-            char place = input.charAt(i);
-            char decryPlace = (char)(place + decryDef);
-            output.append(decryPlace);
+        for (int i = 0; i < inputUC.length(); i++) {
+            if (inputUC.charAt(i) == 32) {
+                output.append(inputUC.charAt(i));
+            }
+            else if (inputUC.charAt(i) < 65 - decryDef) {
+                char place = inputUC.charAt(i);
+                char decryPlace = (char)(place + decryDef);
+                char decryPlaceWrap = (char)(decryPlace + 26);
+                output.append(decryPlaceWrap);
+            }
+            else {
+                char place = inputUC.charAt(i);
+                char decryPlace = (char)(place + decryDef);
+                output.append(decryPlace);
+            }
+
         }
-        return output.toString().toUpperCase();
+        return output.toString();
     }
 }
