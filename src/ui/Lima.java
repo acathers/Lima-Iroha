@@ -3,7 +3,7 @@ package ui;
 import java.util.Scanner;
 import database.*;
 
-public class SaideesCiph {
+public class Lima {
 
     public static final Scanner sc = new Scanner(System.in);
 

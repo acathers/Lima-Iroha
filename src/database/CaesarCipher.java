@@ -2,7 +2,7 @@ package database;
 
 import java.lang.StringBuilder;
 import java.util.Scanner;
-import ui.SaideesCiph;
+import ui.Lima;
 
 public class CaesarCipher {
 
@@ -48,12 +48,12 @@ public class CaesarCipher {
         else if (ccFunction == null) {
             System.out.print("\n" + "Would you like to Encrypt or Decrypt your text?: ");
 
-            this.ccFunction = ui.SaideesCiph.sc.nextLine();
+            this.ccFunction = ui.Lima.sc.nextLine();
 
             while (!this.ccFunction.equalsIgnoreCase("encrypt") && !this.ccFunction.equalsIgnoreCase("decrypt")){
                 System.out.print("\n" + "Invalid function for Caesar Cipher. Please enter 'Encrypt' or 'Decrypt':  ");
 
-                String encDecResponseNull = ui.SaideesCiph.sc.nextLine();
+                String encDecResponseNull = ui.Lima.sc.nextLine();
 
                 if (!encDecResponseNull.equalsIgnoreCase("encrypt") && !encDecResponseNull.equalsIgnoreCase("decrypt")) {
                     System.out.print("\n" + "Invalid function for Caesar Cipher. Please enter 'Encrypt' or 'Decrypt':  ");
@@ -72,7 +72,7 @@ public class CaesarCipher {
 
             while (!this.ccFunction.equalsIgnoreCase("encrypt") && !this.ccFunction.equalsIgnoreCase("decrypt")){
 
-                String encDecResponseNull = ui.SaideesCiph.sc.nextLine();
+                String encDecResponseNull = ui.Lima.sc.nextLine();
 
                 if (!encDecResponseNull.equalsIgnoreCase("encrypt") && !encDecResponseNull.equalsIgnoreCase("decrypt")) {
                     System.out.print("\n" + "Invalid function for Caesar Cipher. Please enter 'Encrypt' or 'Decrypt':  ");
@@ -93,7 +93,7 @@ public class CaesarCipher {
 
             //This is where text to be encrypted or decrypted is put in.
 
-            String input = ui.SaideesCiph.sc.nextLine();
+            String input = ui.Lima.sc.nextLine();
 
             // if statment that uses the variables ccFunction and ccKey to determine what to do to the text.
 
