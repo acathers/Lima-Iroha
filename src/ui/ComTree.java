@@ -9,10 +9,12 @@ public class ComTree {
     private String function;
     private String key;
     private String helpFinal;
+    private String about;
 
     //Breaks up full command line into variables.
 
     ComTree(String stringCommand) {
+
         StringBuilder nativeBuilder = new StringBuilder(stringCommand);
         String breakOfCom = " ";
 
@@ -44,11 +46,15 @@ public class ComTree {
                 this.command = nativeBuilder.toString();
             }
 
-            //Sorts out help commands to work with classes. Resets variable if it holds the help command and sends the help command to this.helfFinal.
+            //Sorts out 'help' and 'about' commands to work with classes. Resets variable if it holds the help  or about command and sends the help command to this.helfFinal, and the about command to this.about.
 
             if (this.function != null) {
                 if (this.function.equalsIgnoreCase("help")) {
                     this.helpFinal = this.function;
+                    this.function = null;
+                }
+                else if (this.function.equalsIgnoreCase("About")) {
+                    this.about = this.function;
                     this.function = null;
                 }
 
@@ -65,17 +71,23 @@ public class ComTree {
 
     public void execute() {
 
-        if (command.equalsIgnoreCase("help")) {
-
+        if (command.equalsIgnoreCase("Help")) {
             Help.help();
         }
+
+        else if (command.equalsIgnoreCase("About")) {
+            Help.about();
+        }
+
         else if (command.equalsIgnoreCase("CeasarCipher")) {
-            
-            CeasarCipher newCC = new CeasarCipher(this.function, this.key, this.helpFinal);
+
+            CeasarCipher newCC = new CeasarCipher(this.function, this.key, this.helpFinal, this.about);
 
             newCC.runCC();
         }
+
         else{
+
             System.out.println("\n" + "Invlid command entered. Use help for more information.");
         }
     }

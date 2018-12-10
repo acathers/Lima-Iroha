@@ -11,15 +11,17 @@ public class CeasarCipher {
     private String ccFunction;
     private String ccKey;
     private String ccHelp;
+    private String ccAbout;
     private static int encryDef = 3;
     private static int decryDef = -3;
 
     //Constructor sets the variables for the class. 'ccFunction' is Encrypt or Decrypt, 'ccKey' will be the key which is 3 by default, 'ccHelp' is used for triggering help.
 
-    public CeasarCipher(String ccFunction, String ccKey, String ccHelp) {
+    public CeasarCipher(String ccFunction, String ccKey, String ccHelp, String ccAbout) {
         this.ccFunction = ccFunction;
         this.ccKey = ccKey;
         this.ccHelp = ccHelp;
+        this.ccAbout = ccAbout;
     }
 
     //Class is ran from here, this method should execute anything in the class needed from the command. The if statment sorts out the command and executes the methods as needed.
@@ -35,9 +37,10 @@ public class CeasarCipher {
             else if (ccFunction != null) {
                 System.out.println("\n" + "You have entered a command for Ceasars Cipher to encrypt or decrypt a message. Since you did not specify a key, the default key of 3 will be used. Each letter in your message will be shifted three characters to the right. So an 'A' will become a 'D'. Lowercase and upercase do not matter as the message will be displayed in all uppercase. Do not use any punctuation, numbers or special characters. Letters and spaces only.");
             }
-            else{
-                System.out.println("\n" + "In cryptography, a Caesar cipher, also known as Caesar's cipher, the shift cipher, Caesar's code or Caesar shift, is one of the simplest and most widely known encryption techniques. It is a type of substitution cipher in which each letter in the plaintext is replaced by a letter some fixed number of positions down the alphabet. For example, with a left shift of 3, D would be replaced by A, E would become B, and so on. The method is named after Julius Caesar, who used it in his private correspondence" + "\n" + "\n" + "--Source: Suetonius, Vita Divi Julii 56.6");
-            }
+        }
+
+        else if (ccAbout != null) {
+            System.out.println("\n" + "In cryptography, a Caesar cipher, also known as Caesar's cipher, the shift cipher, Caesar's code or Caesar shift, is one of the simplest and most widely known encryption techniques. It is a type of substitution cipher in which each letter in the plaintext is replaced by a letter some fixed number of positions down the alphabet. For example, with a left shift of 3, D would be replaced by A, E would become B, and so on. The method is named after Julius Caesar, who used it in his private correspondence" + "\n" + "\n" + "--Source: Suetonius, Vita Divi Julii 56.6");
         }
 
         //Next, check to see if a function was provided. if not, get the function.
@@ -82,7 +85,7 @@ public class CeasarCipher {
 
         // Get input text and complete the encryption or decryption. ccHelp == null in the if statement is necessary to prevent it from running after a help command is entered.
 
-        if (ccHelp == null) {
+        if (ccHelp == null && ccAbout == null) {
             System.out.println();
             System.out.println("Input text. Letters and spaces only.");
             System.out.println();

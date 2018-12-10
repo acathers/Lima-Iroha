@@ -55,7 +55,6 @@ The following ciphers have yet to be added but in progress:
     Current TODO list:
 
     Change output to all caps.
-    Add "About" command.
     Rename.
     Logo.
     How to install and run in README.
