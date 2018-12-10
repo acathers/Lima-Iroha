@@ -131,14 +131,28 @@ public class CeasarCipher {
 
     public String encryptText(String input) {
 
+        String inputUC = input.toUpperCase();
+
         StringBuilder output = new StringBuilder();
 
-        for(int i = 0; i < input.length(); i++) {
-            char place = input.charAt(i);
-            char encryPlace = (char)(place + encryDef);
-            output.append(encryPlace);
+        for (int i = 0; i < inputUC.length(); i++) {
+            if (inputUC.charAt(i) == 32) {
+                output.append(inputUC.charAt(i));
+            }
+            else if (inputUC.charAt(i) > 90 - encryDef) {
+                char place = inputUC.charAt(i);
+                char encryPlace = (char)(place + encryDef);
+                char encryPlaceWrap = (char)(encryPlace - 26);
+                output.append(encryPlaceWrap);
+            }
+            else {
+                char place = inputUC.charAt(i);
+                char encryPlace = (char)(place + encryDef);
+                output.append(encryPlace);
+            }
+
         }
-        return output.toString().toUpperCase();
+        return output.toString();
     }
 
     //Used to set the key for decryption.
