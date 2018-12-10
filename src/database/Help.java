@@ -5,7 +5,7 @@ public class Help {
     //method for the welcome message which is displayed at the begginning of the program and should only be displayed once.
 
     public static void welcomeMessage(){
-        System.out.println("\n" + "Welcome to the CaesarCiph program. Enter the command for what you would like to do. Type 'help' for a list of commands and information on the capabilities of CeaserCiph.");
+        System.out.println("\n" + "Welcome to the Lima program. Enter the command for what you would like to do. Type 'help' for a list of commands and information on the capabilities of Lima.");
         System.out.println();
         System.out.print("Command: ");
     }

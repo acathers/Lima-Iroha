@@ -1,4 +1,5 @@
-# CaesarsCiph
+# Lima
+
 The development goal of this program is to add the capability to use 29 types of weak ciphers through terminal to encrypt and decrypt text. At this point the program has one type, Caesar Cipher, and it is working. Later versions will add file encryption, code breaker, and modern encryption.
 
 Below is a quick overview of what has been done and what still needs to be done.
