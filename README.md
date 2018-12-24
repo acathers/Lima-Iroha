@@ -56,7 +56,7 @@ The following ciphers have yet to be added but in progress:
     Version 5 - File encryption.
 
     Current TODO list:
-
+    Add ability to customize key square and to input own key square.
     Fix formatting on ADFGVX print outputSB
     Add more documentation on ADFGVX
 
