@@ -74,17 +74,22 @@ public class ComTree {
         if (command.equalsIgnoreCase("Help")) {
             Help.help();
         }
-
         else if (command.equalsIgnoreCase("About")) {
             Help.about();
         }
-
         else if (command.equalsIgnoreCase("CaesarCipher")) {
 
             CaesarCipher newCC = new CaesarCipher(this.function, this.key, this.helpFinal, this.about);
 
             newCC.runCC();
         }
+        else if (command.equalsIgnoreCase("ADFGVX")) {
+
+            ADFGVXCipher newAC = new ADFGVXCipher(this.function, this.key, this.helpFinal, this.about);
+
+            newAC.runAC();
+        }
+
 
         else{
 
