@@ -332,23 +332,12 @@ public class ADFGVXCipher {
             }
         }
 
-        // --------------- test
-
-        for (int i = 0; i < this.key.length(); i++) {
-            System.out.println(fractInputCTD[1][i] + " Not Alpha");
-        }
-
         // Now move columns out of alphabetical order to the key.
 
         StringBuilder[][] fractInputCTDAlpha = new StringBuilder[2][this.key.length()];
 
         for (int i = 0; i < this.key.length(); i++) {
             fractInputCTDAlpha[1][i] = new StringBuilder(fractInputCTD[1][sortedKey.indexOf(Character.toString(this.key.charAt(i)))]);
-        }
-
-        // ------------- test
-        for (int i = 0; i < this.key.length(); i++) {
-            System.out.println(fractInputCTDAlpha[1][i] + " Alpha");
         }
 
         //got columns in the array in the alphabetized places
@@ -369,10 +358,8 @@ public class ADFGVXCipher {
 
             for (int i = 0; i < forLength; i++) {
                 for (int j = 0; j < this.key.length(); j++) {
-                    System.out.println(fractInputCTDAlpha[1][j]);
                     if(fractInputCTDAlpha[1][j].length()  > i) {
                         outputSBD.append(Character.toString(fractInputCTDAlpha[1][j].charAt(i)));
-                        System.out.println(outputSBD);
                     }
                 }
             }
