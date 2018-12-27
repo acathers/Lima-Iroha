@@ -82,13 +82,76 @@ public class ADFGVXCipher {
             }
         }
 
+        boolean option = false;
+        String lettersDigits = "abcdefghijklmnopqrstuvwxyz1234567890";
+        StringBuilder lettersDigitsSB = new StringBuilder(lettersDigits);
+
+
+        System.out.println();
+        System.out.print("Would you like to use the default keySquare, generate a new random one, or use a custom key square?: ");
+
+        String keySqOption = ui.Lima.sc.nextLine();
+
+        while (option == false) {
+            if (keySqOption.equalsIgnoreCase("default")) {
+                option = false;
+            }
+            else if (keySqOption.equalsIgnoreCase("new")) {
+                generateKeySquare();
+                System.out.println();
+                System.out.println(this.keySquare);
+                option = false;
+            }
+            else if (keySqOption.equalsIgnoreCase("custom")) {
+
+                boolean keySqReq = false;
+
+                while (keySqReq == false) {
+                    System.out.println();
+                    System.out.print("Input custom key square: ");
+
+                    String customKeySq = ui.Lima.sc.nextLine();
+
+                    int counter = 36;
+
+                    if (customKeySq.length() == 36) {
+                        for (int i = 0; i < 36; i++) {
+                            if (!Character.isLetter(customKeySq.charAt(i)) && !Character.isDigit(customKeySq.charAt(i))) {
+                                System.out.println("The key square can contain only numbers and letters and must contain all letters of the alphabet and numbers 0-9");
+
+                                break;
+                            }
+                            else {
+                                for (int j = 0; j < counter; j++) {
+                                    if (Character.toString(customKeySq.charAt(i)).equalsIgnoreCase(Character.toString(lettersDigitsSB.charAt(j)))) {
+
+                                        lettersDigitsSB.deleteCharAt(j);
+                                        counter--;
+                                        if (lettersDigitsSB.length() == 0) {
+                                            this.keySquare = customKeySq;
+                                            keySqReq = true;
+                                            option = true;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    else {
+                        System.out.println("Key square length must be 36 characters and contain numbers 0-9 and each letter of the alphabet.");
+                    }
+                }
+            }
+            else {
+                System.out.print("Invalid Command, please enter default, new or custom: ");
+            }
+        }
+
         // Get input text and complete the encryption or decryption. ccHelp == null in the if statement is necessary to prevent it from running after a help command is entered.
 
         if (help == null && about == null) {
             System.out.println();
-            System.out.println("Input text. Letters and spaces only.");
-            System.out.println();
-            System.out.print("Input Text:      ");
+            System.out.print("Input Text: ");
 
             //This is where text to be encrypted or decrypted is put in.
 
@@ -189,7 +252,6 @@ public class ADFGVXCipher {
         * key, row 2 gets the fractionalized string.
         */
 
-
         StringBuilder[][] fractInputCT = new StringBuilder[2][this.key.length()];
 
         for (int i = 0; i < this.key.length(); i++) {
@@ -223,7 +285,6 @@ public class ADFGVXCipher {
         * first char in the sorted key and sends that char's encrypted text to a string.
         */
 
-
         char[] charAlpha = this.key.toCharArray();
         Arrays.sort(charAlpha);
         String sortedKey = new String(charAlpha);
@@ -249,11 +310,6 @@ public class ADFGVXCipher {
 
         return outputSB.toString();
     }
-
-
-
-
-
 
     // Now to decrypt encrypted message.
 
