@@ -1,4 +1,4 @@
-package Ciphers;
+package ciphers;
 
 import java.lang.StringBuilder;
 import java.util.Scanner;

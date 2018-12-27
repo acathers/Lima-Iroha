@@ -1,4 +1,4 @@
-package Ciphers;
+package ciphers;
 
 public class Help {
 

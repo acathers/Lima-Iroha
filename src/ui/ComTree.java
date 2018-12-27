@@ -1,7 +1,7 @@
 package ui;
 
 import java.util.Scanner;
-import Ciphers.*;
+import ciphers.*;
 
 public class ComTree {
 
