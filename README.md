@@ -1,8 +1,8 @@
 # Lima
 
-The development goal of this program is to add the capability to use 29 types of weak ciphers through terminal to encrypt and decrypt text. At this point the program has one type, Caesar Cipher, and it is working. Later versions will add file encryption, code breaker, and modern encryption.
+The development goal of this program is to create a program that can be used in terminal or GUI to encrypt and decrypt text with weak and modern encryptions as well as encrypt files with modern encryptions. See below to find out what has been added and what is scheduled to be added in the future.
 
-Current Version: 0.2.01
+Current Version: 0.2.04
 
 Below is a quick overview of what has been done and what still needs to be done.
 
@@ -44,6 +44,7 @@ The following ciphers have yet to be added but in progress:
 
     Version 0.0.1 - Terminal program in beta with only Caesar ciphers
     Version 0.1.0 - Add ADFGVX Cipher
+    Version 0.2.0 - Add ADFGX Cipher
 
     Version 1 - Release, Terminal program with 29 types of weak text encryption and decryption.
 
@@ -51,16 +52,14 @@ The following ciphers have yet to be added but in progress:
 
     Version 3 - Modern encryption added.
 
-    Version 4 - Cipher breaker.
+    Version 4 - File Encryption.
 
-    Version 5 - File encryption.
+    Version 5 - Cipher breaker.
 
     Current TODO list:
-    Add ability to customize key square and to input own key square.
-    Fix formatting on ADFGVX print outputSB
+    Fix formatting on ADFGVX
     Add more documentation on ADFGVX
 
     Rename.
     Logo.
     How to install and run in README.
-    Release and begin version 0.0.1 Beta.
