@@ -1,7 +1,7 @@
 package ui;
 
 import java.util.Scanner;
-import database.*;
+import Ciphers.*;
 
 public class ComTree {
 
@@ -77,7 +77,7 @@ public class ComTree {
         else if (command.equalsIgnoreCase("About")) {
             Help.about();
         }
-        else if (command.equalsIgnoreCase("CaesarCipher")) {
+        else if (command.equalsIgnoreCase("Caesar")) {
 
             CaesarCipher newCC = new CaesarCipher(this.function, this.key, this.helpFinal, this.about);
 

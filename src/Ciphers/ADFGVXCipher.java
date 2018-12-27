@@ -1,4 +1,4 @@
-package database;
+package Ciphers;
 
 import java.lang.StringBuilder;
 import java.lang.Math;
@@ -202,15 +202,10 @@ public class ADFGVXCipher {
 
             for (int i = 0; i <= 35; i++) {
                 int random = (int)(Math.random() * max - min);
-                System.out.println(random + "   random number");
                 char nextChar = charLibrarySB.charAt(random);
-                System.out.println(nextChar + "   Char selected");
                 newKeySquare.append(nextChar);
-                System.out.println(newKeySquare + "   Key Square");
                 charLibrarySB.deleteCharAt(random);
-                System.out.println(charLibrarySB + "   Library");
                 max--;
-                System.out.println(max + "   max");
             }
         return this.keySquare = newKeySquare.toString();
     }
