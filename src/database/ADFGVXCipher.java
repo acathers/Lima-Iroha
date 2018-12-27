@@ -88,19 +88,19 @@ public class ADFGVXCipher {
 
 
         System.out.println();
-        System.out.print("Would you like to use the default keySquare, generate a new random one, or use a custom key square?: ");
+        System.out.print("Key Square - Default, new, or custom?: ");
 
         String keySqOption = ui.Lima.sc.nextLine();
 
         while (option == false) {
             if (keySqOption.equalsIgnoreCase("default")) {
-                option = false;
+                option = true;
             }
             else if (keySqOption.equalsIgnoreCase("new")) {
                 generateKeySquare();
                 System.out.println();
                 System.out.println(this.keySquare);
-                option = false;
+                option = true;
             }
             else if (keySqOption.equalsIgnoreCase("custom")) {
 
@@ -195,17 +195,22 @@ public class ADFGVXCipher {
     public String generateKeySquare() {
 
         String charLibrary = "abcdefghijklmnopqrstuvwxyz1234567890";
-        int max = 35;
+        int max = 36;
         int min = 0;
         StringBuilder charLibrarySB = new StringBuilder(charLibrary);
         StringBuilder newKeySquare = new StringBuilder();
 
             for (int i = 0; i <= 35; i++) {
                 int random = (int)(Math.random() * max - min);
+                System.out.println(random + "   random number");
                 char nextChar = charLibrarySB.charAt(random);
+                System.out.println(nextChar + "   Char selected");
                 newKeySquare.append(nextChar);
+                System.out.println(newKeySquare + "   Key Square");
                 charLibrarySB.deleteCharAt(random);
+                System.out.println(charLibrarySB + "   Library");
                 max--;
+                System.out.println(max + "   max");
             }
         return this.keySquare = newKeySquare.toString();
     }
