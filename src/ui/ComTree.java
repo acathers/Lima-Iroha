@@ -89,11 +89,10 @@ public class ComTree {
 
             newAC.runAC();
         }
-
-
-        else{
+        else {
 
             System.out.println("\n" + "Invlid command entered. Use help for more information.");
+            Lima.invalid = true;
         }
     }
 }

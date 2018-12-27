@@ -6,6 +6,7 @@ import ciphers.*;
 public class Lima {
 
     public static final Scanner sc = new Scanner(System.in);
+    public static boolean invalid = false;
 
     public static void main(String[] args) {
 
@@ -27,6 +28,11 @@ public class Lima {
             ComTree action = new ComTree(command);
 
             action.execute();
+
+            if (invalid == true) {
+                invalid = false;
+                continue;
+            }
 
             System.out.print("\n" + "Would you like to continue? (y/n): ");
 
