@@ -85,7 +85,13 @@ public class ComTree {
         }
         else if (command.equalsIgnoreCase("ADFGVX")) {
 
-            ADFGVXCipher newAC = new ADFGVXCipher(this.function, this.key, this.helpFinal, this.about);
+            ADFGVXCipher newAVC = new ADFGVXCipher(this.function, this.key, this.helpFinal, this.about);
+
+            newAVC.runAVC();
+        }
+        else if (command.equalsIgnoreCase("ADFGX")) {
+
+            ADFGXCipher newAC = new ADFGXCipher(this.function, this.key, this.helpFinal, this.about);
 
             newAC.runAC();
         }
