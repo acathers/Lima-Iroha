@@ -65,6 +65,9 @@ public class ComTree {
                     this.key = null;
                 }
             }
+            if (this.help != null && this.about != null) {
+                this.command = "Invalid";
+            }
     }
 
     //Method sends command to appropriate class to be executed.

@@ -46,6 +46,7 @@ The following ciphers have yet to be added but in progress:
     Version 0.1.0 - Terminal program in beta with only Caesar ciphers
     Version 0.2.0 - Add ADFGVX Cipher
     Version 0.3.0 - Add ADFGX Cipher
+    Version 0.4.0 - Add Atbash cipher
 
     Version 1 - Release, Terminal program with 29 types of weak text encryption and decryption.
 
