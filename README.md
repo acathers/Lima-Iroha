@@ -1,8 +1,8 @@
 # Lima
 
-The development goal of this program is to create a program that can be used in terminal or GUI to encrypt and decrypt text with weak and modern encryptions as well as encrypt files with modern encryptions. See below to find out what has been added and what is scheduled to be added in the future.
+The development goal of this program is to create a program that can be used in terminal or GUI to encrypt and decrypt text with weak and modern encryption as well as encrypt files with modern encryptions. See below to find out what has been added and what is scheduled to be added in the future.
 
-Current Version: 0.3.01
+Current Version: 0.3.02
 
 Below is a quick overview of what has been done and what still needs to be done.
 
