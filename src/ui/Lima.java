@@ -1,3 +1,16 @@
+/*
+* Lima Encryption Software by Iskra#0332. Project began in December of 2018.
+*
+* The main class is fairly short at the moment and the ComTree class attemps to handle
+* as much of the command line work as possible before being sent to a cipher file.
+*
+* If you understand the Lima and ComTree class before you jump into a cipher file, it could
+* help in understanding a cipher file and why it was made the way it was.
+*
+*/
+
+
+
 package ui;
 
 import java.util.Scanner;
