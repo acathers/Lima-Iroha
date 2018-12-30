@@ -116,7 +116,7 @@ public class CaesarCipher {
                 System.out.print("Decrypted Text:  " + decryptText(input) + "\n");
             }
             else {
-                System.out.println("Function input error!");
+                System.out.println("This should be an impossible function error.");
             }
         }
     }

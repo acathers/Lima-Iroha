@@ -8,7 +8,7 @@ public class ComTree {
     private String command;
     private String function;
     private String key;
-    private String helpFinal;
+    private String help;
     private String about;
 
     //Breaks up full command line into variables.
@@ -32,7 +32,7 @@ public class ComTree {
 
                     if (index3 >= 0) {
                         this.key = nativeBuilder.substring(index2 + 1, index3);
-                        this.helpFinal = nativeBuilder.substring(index3 + 1, nativeBuilder.length());
+                        this.help = nativeBuilder.substring(index3 + 1, nativeBuilder.length());
                     }
                     else {
                         this.key = nativeBuilder.substring(index2 + 1, nativeBuilder.length());
@@ -50,23 +50,22 @@ public class ComTree {
 
             if (this.function != null) {
                 if (this.function.equalsIgnoreCase("help")) {
-                    this.helpFinal = this.function;
+                    this.help = this.function;
                     this.function = null;
                 }
                 else if (this.function.equalsIgnoreCase("About")) {
                     this.about = this.function;
                     this.function = null;
                 }
-
             }
             if (this.key != null) {
                 if (this.key.equalsIgnoreCase("help")) {
-                    this.helpFinal = this.key;
+                    this.help = this.key;
                     this.key = null;
                 }
             }
             if (this.help != null && this.about != null) {
-                this.command = "Invalid";
+                this.command = "Invalid command. Help and About can not be used in the same command.";
             }
     }
 
@@ -82,21 +81,27 @@ public class ComTree {
         }
         else if (command.equalsIgnoreCase("Caesar")) {
 
-            CaesarCipher newCC = new CaesarCipher(this.function, this.key, this.helpFinal, this.about);
+            CaesarCipher newCC = new CaesarCipher(this.function, this.key, this.help, this.about);
 
             newCC.runCC();
         }
         else if (command.equalsIgnoreCase("ADFGVX")) {
 
-            ADFGVXCipher newAVC = new ADFGVXCipher(this.function, this.key, this.helpFinal, this.about);
+            ADFGVXCipher newAVC = new ADFGVXCipher(this.function, this.key, this.help, this.about);
 
             newAVC.runAVC();
         }
         else if (command.equalsIgnoreCase("ADFGX")) {
 
-            ADFGXCipher newAC = new ADFGXCipher(this.function, this.key, this.helpFinal, this.about);
+            ADFGXCipher newAC = new ADFGXCipher(this.function, this.key, this.help, this.about);
 
             newAC.runAC();
+        }
+        else if (command.equalsIgnoreCase("Atbash")) {
+
+            AtbashCipher newAtbash = new AtbashCipher(this.function, this.help, this.about);
+
+            newAtbash.runAtbash();
         }
         else {
 

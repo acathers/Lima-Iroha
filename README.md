@@ -2,7 +2,9 @@
 
 The development goal of this program is to create a program that can be used in terminal or GUI to encrypt and decrypt text with weak and modern encryption as well as encrypt files with modern encryptions. See below to find out what has been added and what is scheduled to be added in the future.
 
-Current Version: 0.3.02
+Current Version: 0.4.00
+
+Will be working out a lot of bugs before moving on to Version 0.5.0.
 
 Below is a quick overview of what has been done and what still needs to be done.
 
@@ -11,12 +13,11 @@ The following ciphers have been added:
     Caesar Cipher
     ADFGVX Cipher
     ADFGX Cipher
+    Atbash Cipher
 
 The following ciphers have yet to be added but in progress:
 
-    ADFGX Cipher
     Affine Cipher
-    Atbash Cipher
     Autokey Cipher
     Baconian Cipher
     Base64 Cipher
@@ -71,6 +72,9 @@ The following ciphers have yet to be added but in progress:
     Fix formatting
     Add more documentation
     Add ability to quickly generate multiple new key squares.
+
+    Atbash:
+    Needs more testing and debugging.
 
     Rename.
     Logo.
