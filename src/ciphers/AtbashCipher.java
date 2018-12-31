@@ -27,7 +27,7 @@ public class AtbashCipher {
                 System.out.println("\n" + "You have entered a command for Atbash Cipher with a function. The only two options for a function is to encrypt or decrypt. ");
             }
             else {
-                System.out.println("This should contain help for the 'Atbash help' command.");
+                System.out.println("This cipher does not allow you to use a key, the key is set and the same every time because the key is the alphabet in reverse order. So you will just need to put in the text using only letters to encrypt and put in encrypted text to decrypt.");
             }
 
         }
@@ -35,7 +35,7 @@ public class AtbashCipher {
         // You no longer need to worry about a command containing about and help in the same command due to ComTree.java taking care of that. If about is not null, then help has to be null and vice versa. The about command should only work with Atbash like this, 'Atbash about'.
 
         else if (this.about != null) {
-            System.out.println("\n" + "Need to develop the about section for Atbash.");
+            System.out.println("\n" + "Atbash is one of the oldest ciphers but is also one of the easiest to break.");
         }
 
         //Next, check to see if a function was provided. if not, get the function.
