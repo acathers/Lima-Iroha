@@ -20,13 +20,13 @@ public class Lima {
 
     public static final Scanner sc = new Scanner(System.in);
     public static boolean invalid = false;
+    public static boolean exit = false;
 
     public static void main(String[] args) {
 
         boolean welcomeDisplayed = false;
-        String choice = "y";
 
-        while (choice.equalsIgnoreCase("y")) {
+        while (!exit) {
 
             if (welcomeDisplayed == true) {
                 System.out.print("\n" + "Command: ");
@@ -46,10 +46,6 @@ public class Lima {
                 invalid = false;
                 continue;
             }
-
-            System.out.print("\n" + "Would you like to continue? (y/n): ");
-
-            choice = sc.nextLine();
         }
 
         System.out.println("\n" + "Program terminated.");

@@ -64,7 +64,7 @@ public class ComTree {
                     this.help = this.function;
                     this.function = null;
                 }
-                else if (this.function.equalsIgnoreCase("About")) {
+                else if (this.function.equalsIgnoreCase("about")) {
                     this.about = this.function;
                     this.function = null;
                 }
@@ -72,6 +72,10 @@ public class ComTree {
             if (this.key != null) {
                 if (this.key.equalsIgnoreCase("help")) {
                     this.help = this.key;
+                    this.key = null;
+                }
+                else if (this.key.equalsIgnoreCase("about")) {
+                    this.about = this.key;
                     this.key = null;
                 }
             }
@@ -89,6 +93,9 @@ public class ComTree {
         }
         else if (command.equalsIgnoreCase("About")) {
             Help.about();
+        }
+        else if (command.equalsIgnoreCase("Exit")) {
+            Lima.exit = true;
         }
         else if (command.equalsIgnoreCase("Caesar")) {
 
