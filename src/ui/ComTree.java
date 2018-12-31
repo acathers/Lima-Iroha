@@ -20,6 +20,17 @@ public class ComTree {
 
             //index1 is index of first space, used to determine if there is more than one word in the command. If there is no space, then it is a one word command and it is assigned to this.command in the else. If there is no space in the command, index1 will be given the value of '-1' due to how .indexOf works and the first if statement will return false and go to the else. This is why the if statement checks if index1 >= 0. It is just asking if there was a space.
 
+            /*
+            * This section will put words into fields in this order
+            * 1. command
+            * 2. function
+            * 3. key
+            * 4. help
+            *
+            * If there are more than 4 words in a command then it is invalid and user should
+            * be prompted to enter a new command. Note: This needs to be worked on to do this.
+            */
+
             int index1 = nativeBuilder.indexOf(breakOfCom);
 
             if (index1 >= 0) {

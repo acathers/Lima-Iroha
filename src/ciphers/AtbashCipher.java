@@ -32,7 +32,7 @@ public class AtbashCipher {
 
         }
 
-        // You know longer need to worry about a command containing About and help in the same command due to ComTree.java taking care of that. If about is not null, then help has to be null and vice versa. The about command should only work with Atbash like this, 'Atbash about'.
+        // You no longer need to worry about a command containing about and help in the same command due to ComTree.java taking care of that. If about is not null, then help has to be null and vice versa. The about command should only work with Atbash like this, 'Atbash about'.
 
         else if (this.about != null) {
             System.out.println("\n" + "Need to develop the about section for Atbash.");
@@ -59,7 +59,7 @@ public class AtbashCipher {
             }
         }
 
-        //If there is a fuction and the function is not valid, get a new function.
+        //If there is a function and the function is not valid, get a new function.
 
         else if (!this.function.equalsIgnoreCase("encrypt") && !this.function.equalsIgnoreCase("decrypt")) {
             System.out.print("\n" + "Invalid function for Atbash Cipher. Please enter 'Encrypt' or 'Decrypt':  ");
@@ -112,10 +112,17 @@ public class AtbashCipher {
         StringBuilder outputSB = new StringBuilder();
 
         for (int i = 0; i < input.length(); i++) {
-            for (int j = 0; j < this.charLibrary.length(); j++){
-                if (Character.toString(inputUC.charAt(i)).equalsIgnoreCase(Character.toString(this.charLibrary.charAt(j)))) {
 
-                    outputSB.append(this.key.charAt(j));
+            if (Character.toString(inputUC.charAt(i)).equalsIgnoreCase(" ")) {
+
+                outputSB.append(Character.toString(inputUC.charAt(i)));
+            }
+            else {
+                for (int j = 0; j < this.charLibrary.length(); j++){
+                    if (Character.toString(inputUC.charAt(i)).equalsIgnoreCase(Character.toString(this.charLibrary.charAt(j)))) {
+
+                        outputSB.append(this.key.charAt(j));
+                    }
                 }
             }
         }
@@ -133,12 +140,20 @@ public class AtbashCipher {
         StringBuilder outputSB = new StringBuilder();
 
         for (int i = 0; i < input.length(); i++) {
-            for (int j = 0; j < this.charLibrary.length(); j++) {
-                if (Character.toString(inputUC.charAt(i)).equalsIgnoreCase(Character.toString(this.key.charAt(j)))) {
 
-                    outputSB.append(this.charLibrary.charAt(j));
+            if (Character.toString(inputUC.charAt(i)).equalsIgnoreCase(" ")) {
+
+                outputSB.append(Character.toString(inputUC.charAt(i)));
+            }
+            else {
+                for (int j = 0; j < this.charLibrary.length(); j++) {
+                    if (Character.toString(inputUC.charAt(i)).equalsIgnoreCase(Character.toString(this.key.charAt(j)))) {
+
+                        outputSB.append(this.charLibrary.charAt(j));
+                    }
                 }
             }
+
         }
 
     return outputSB.toString();
