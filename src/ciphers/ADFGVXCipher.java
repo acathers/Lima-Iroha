@@ -37,6 +37,9 @@ public class ADFGVXCipher {
             else if (function != null) {
                 System.out.println("\n" + "You have entered a command for ADFVGX Cipher to encrypt or decrypt a message. Since you did not specify a key, you will be prompted to do so if this same command is typed without being followed by the help command. Messages are only allowed to have the alphabet and numbers 0 through 9.");
             }
+            else {
+                System.out.println("\n" + "The ADFGVX cipher requires a key and a key square which is means that it needs two keys, however the key square must contain all letters of the alphabet once and each number, 0 through 9 once for a total of 36 characters. The order of the characters is what is used for the key square. Your key is just as important in the encryption and decryption process. Just know that you MUST remember both the key and the key square. You are prompted to either use the default key square that the program provides, generate a new one, or to use a custom key square at the first.");
+            }
         }
 
         else if (about != null) {
@@ -82,70 +85,85 @@ public class ADFGVXCipher {
             }
         }
 
-        boolean option = false;
-        String lettersDigits = "abcdefghijklmnopqrstuvwxyz1234567890";
-        StringBuilder lettersDigitsSB = new StringBuilder(lettersDigits);
+        // Determine what keysquare will be used. if new, generate new, and if custom, allow input
 
 
-        System.out.println();
-        System.out.print("Key Square - Default, new, or custom?: ");
+        if (this.help == null && this.about == null) {
 
-        String keySqOption = ui.Lima.sc.nextLine();
+            boolean option = false;
 
-        while (option == false) {
-            if (keySqOption.equalsIgnoreCase("default")) {
-                option = true;
-            }
-            else if (keySqOption.equalsIgnoreCase("new")) {
-                generateKeySquare();
-                System.out.println();
-                System.out.println(this.keySquare);
-                option = true;
-            }
-            else if (keySqOption.equalsIgnoreCase("custom")) {
+            System.out.println();
+            System.out.print("Key Square - Default, new, or custom?: ");
 
-                boolean keySqReq = false;
+            String keySqOption = ui.Lima.sc.nextLine();
 
-                while (keySqReq == false) {
+            while (option == false) {
+
+                if (keySqOption.equalsIgnoreCase("default")) {
+                    option = true;
+                }
+                else if (keySqOption.equalsIgnoreCase("new")) {
+                    generateKeySquare();
                     System.out.println();
-                    System.out.print("Input custom key square: ");
+                    System.out.println(this.keySquare);
+                    option = true;
+                }
+                else if (keySqOption.equalsIgnoreCase("custom")) {
 
-                    String customKeySq = ui.Lima.sc.nextLine();
+                    boolean keySqReq = false;
 
-                    int counter = 36;
+                    restart:
+                    while (keySqReq == false) {
 
-                    if (customKeySq.length() == 36) {
-                        for (int i = 0; i < 36; i++) {
-                            if (!Character.isLetter(customKeySq.charAt(i)) && !Character.isDigit(customKeySq.charAt(i))) {
-                                System.out.println("The key square can contain only numbers and letters and must contain all letters of the alphabet and numbers 0-9");
+                        String lettersDigits = "abcdefghijklmnopqrstuvwxyz1234567890";
+                        StringBuilder lettersDigitsSB = new StringBuilder(lettersDigits);
 
-                                break;
-                            }
-                            else {
-                                for (int j = 0; j < counter; j++) {
-                                    if (Character.toString(customKeySq.charAt(i)).equalsIgnoreCase(Character.toString(lettersDigitsSB.charAt(j)))) {
+                        System.out.println();
+                        System.out.print("Input custom key square: ");
 
-                                        lettersDigitsSB.deleteCharAt(j);
-                                        counter--;
-                                        if (lettersDigitsSB.length() == 0) {
-                                            this.keySquare = customKeySq;
-                                            keySqReq = true;
-                                            option = true;
+                        String customKeySq = ui.Lima.sc.nextLine();
+
+                        int counter = 36;
+
+                        if (customKeySq.length() == 36) {
+                            for (int i = 0; i < 36; i++) {
+                                if (!Character.isLetter(customKeySq.charAt(i)) && !Character.isDigit(customKeySq.charAt(i))) {
+                                    System.out.println("\n" + "The key square can contain only numbers and letters and must contain all letters of the alphabet and numbers 0-9");
+
+                                    break restart;
+                                }
+                                else {
+                                    for (int j = 0; j < counter; j++) {
+                                        if (Character.toString(customKeySq.charAt(i)).equalsIgnoreCase(Character.toString(lettersDigitsSB.charAt(j)))) {
+
+                                            lettersDigitsSB.deleteCharAt(j);
+                                            counter--;
+                                            if (lettersDigitsSB.length() == 0) {
+                                                this.keySquare = customKeySq;
+                                                keySqReq = true;
+                                                option = true;
+                                            }
                                         }
+                                    }
+                                    if (lettersDigitsSB.length() != 0 && i == 35) {
+                                        System.out.println("\n" + "Something went wrong, your key square may have had duplicate letters or numbers.");
                                     }
                                 }
                             }
                         }
-                    }
-                    else {
-                        System.out.println("Key square length must be 36 characters and contain numbers 0-9 and each letter of the alphabet.");
+                        else {
+                            System.out.println("\n" + "Key square length must be 36 characters and contain numbers 0-9 and each letter of the alphabet.");
+                        }
                     }
                 }
-            }
-            else {
-                System.out.print("Invalid Command, please enter default, new or custom: ");
+                else {
+                    System.out.print("\n" + "Invalid Command, please enter default, new or custom: ");
+
+                    keySqOption = ui.Lima.sc.nextLine();
+                }
             }
         }
+
 
         // Get input text and complete the encryption or decryption. ccHelp == null in the if statement is necessary to prevent it from running after a help command is entered.
 
@@ -166,10 +184,16 @@ public class ADFGVXCipher {
             }
 
             if (this.function.equalsIgnoreCase("encrypt")) {
-                    System.out.print("Encrypted Text:  " + encryptText(input) + "\n");
+                System.out.println();
+                System.out.println("Encrypted Text:  " + encryptText(input));
+                System.out.println("Key Square:      " + this.keySquare);
+                System.out.println("Key:             " + this.key);
             }
             else if (this.function.equalsIgnoreCase("decrypt")) {
-                System.out.print("Decrypted Text:  " + decryptText(input) + "\n");
+                System.out.println();
+                System.out.println("Decrypted Text:  " + decryptText(input));
+                System.out.println("Key Square:      " + this.keySquare);
+                System.out.println("Key:             " + this.key);
             }
             else if (this.function.equalsIgnoreCase("help")) {
                 System.out.println("You should get help, but I have yet to develop help for this part of the program at this time.");

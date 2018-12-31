@@ -37,6 +37,9 @@ public class CaesarCipher {
             else if (function != null) {
                 System.out.println("\n" + "You have entered a command for Caesars Cipher to encrypt or decrypt a message. Since you did not specify a key, the default key of 3 will be used. Each letter in your message will be shifted three characters to the right. So an 'A' will become a 'D'. Lowercase and upercase do not matter as the message will be displayed in all uppercase. Do not use any punctuation, numbers or special characters. Letters and spaces only.");
             }
+            else {
+                System.out.println("\n" + "Starting command for Caesar Cipher will be in the format of 'Caesar encrypt 5'. You can either encrypt or decrypt on the second word and you may edit how many characters your letters shift in the third word. If you want to edit the key which is how many characters it shifts, you need to input that when initializing Caesar Cipher like in the example");
+            }
         }
 
         else if (about != null) {

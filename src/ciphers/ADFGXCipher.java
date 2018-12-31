@@ -37,10 +37,13 @@ public class ADFGXCipher {
             else if (function != null) {
                 System.out.println("\n" + "You have entered a command for ADFVGX Cipher to encrypt or decrypt a message. Since you did not specify a key, you will be prompted to do so if this same command is typed without being followed by the help command. Messages are only allowed to have the alphabet and numbers 0 through 9.");
             }
+            else {
+                System.out.println("\n" + "The ADFGX cipher requires a key and a key square which is means that it needs two keys, however the key square must contain all letters of the alphabet once except the letter 'j'. So you should have 25 characters. The order of the characters is what is used for the key square. Your key is just as important in the encryption and decryption process. Just know that you MUST remember both the key and the key square. You are prompted to either use the default key square that the program provides, generate a new one, or to use a custom key square at the first.");
+            }
         }
 
         else if (about != null) {
-            System.out.println("\n" + "In cryptography, the ADFGX cipher was a field cipher used by the German Army on the Western Front during World War I. ADFGX was in fact an extension of an earlier cipher called ADFGX. Invented by Lieutenant[1] Fritz Nebel (1891–1977)[2] and introduced in March 1918, the cipher was a fractionating transposition cipher which combined a modified Polybius square with a single columnar transposition. The cipher is named after the six possible letters used in the ciphertext: A, D, F, G, V and X. The letters were chosen deliberately because they are very different from one another in the Morse code. That reduced the possibility of operator error. Nebel designed the cipher to provide an army on the move with encryption that was more convenient than trench codes but was still secure. In fact, the Germans believed the ADFGX cipher was unbreakable." + "\n" + "\n" + "--Source: https://en.wikipedia.org/wiki/ADFGX_cipher");
+            System.out.println("\n" + "ADFGX Cipher is an ealier version of the ADFGVX Cipher. Use command 'ADFGVX Help' for more information");
         }
 
         //Next, check to see if a function was provided. if not, get the function.
@@ -84,70 +87,90 @@ public class ADFGXCipher {
 
         // This section will allow the user to use the default key square, generate a new random keysquare, or use a custom key square.
 
-        boolean option = false;
-        String lettersDigits = "abcdefghiklmnopqrstuvwxyz";
-        StringBuilder lettersDigitsSB = new StringBuilder(lettersDigits);
+        if (this.help == null && this.about == null) {
+            boolean option = false;
 
+            System.out.println();
+            System.out.print("Key Square - Default, new, or custom?: ");
 
-        System.out.println();
-        System.out.print("Key Square - Default, new, or custom?: ");
+            String keySqOption = ui.Lima.sc.nextLine();
 
-        String keySqOption = ui.Lima.sc.nextLine();
+            while (option == false) {
 
-        while (option == false) {
-            if (keySqOption.equalsIgnoreCase("default")) {
-                option = true;
-            }
-            else if (keySqOption.equalsIgnoreCase("new")) {
-                generateKeySquare();
-                System.out.println();
-                System.out.println(this.keySquare);
-                option = true;
-            }
-            else if (keySqOption.equalsIgnoreCase("custom")) {
-
-                boolean keySqReq = false;
-
-                while (keySqReq == false) {
+                if (keySqOption.equalsIgnoreCase("default")) {
+                    option = true;
+                }
+                else if (keySqOption.equalsIgnoreCase("new")) {
+                    generateKeySquare();
                     System.out.println();
-                    System.out.print("Input custom key square: ");
+                    System.out.println(this.keySquare);
+                    option = true;
+                }
+                else if (keySqOption.equalsIgnoreCase("custom")) {
 
-                    String customKeySq = ui.Lima.sc.nextLine();
+                    boolean keySqReq = false;
 
-                    int counter = 25;
+                    restart:
+                    while (keySqReq == false) {
 
-                    if (customKeySq.length() == 25) {
-                        for (int i = 0; i < 25; i++) {
-                            if (!Character.isLetter(customKeySq.charAt(i)) && !Character.isDigit(customKeySq.charAt(i))) {
-                                System.out.println("The key square can contain only numbers and letters and must contain all letters of the alphabet and numbers 0-9");
+                        String lettersDigits = "abcdefghiklmnopqrstuvwxyz";
+                        StringBuilder lettersDigitsSB = new StringBuilder(lettersDigits);
 
-                                break;
-                            }
-                            else {
-                                for (int j = 0; j < counter; j++) {
-                                    if (Character.toString(customKeySq.charAt(i)).equalsIgnoreCase(Character.toString(lettersDigitsSB.charAt(j)))) {
+                        System.out.println();
+                        System.out.print("Input custom key square: ");
 
-                                        lettersDigitsSB.deleteCharAt(j);
-                                        counter--;
-                                        if (lettersDigitsSB.length() == 0) {
-                                            this.keySquare = customKeySq;
-                                            keySqReq = true;
-                                            option = true;
+                        String customKeySq = ui.Lima.sc.nextLine();
+
+                        int counter = 25;
+
+                        if (customKeySq.length() == 25) {
+
+                            // Check to make sure that next character is a letter and not 'j'.
+
+                            for (int i = 0; i < 25; i++) {
+
+                                if (!Character.isLetter(customKeySq.charAt(i)) || Character.toString(customKeySq.charAt(i)).equalsIgnoreCase("j")) {
+                                    System.out.println("\n" + "The key square can contain only letters and must contain all letters of the alphabet once except for the letter 'j' for a total character count of 25");
+
+                                    break restart;
+                                }
+
+                                else {
+                                    for (int j = 0; j < counter; j++) {
+                                        if (Character.toString(customKeySq.charAt(i)).equalsIgnoreCase(Character.toString(lettersDigitsSB.charAt(j)))) {
+
+                                            lettersDigitsSB.deleteCharAt(j);
+                                            counter--;
+                                            if (lettersDigitsSB.length() == 0) {
+                                                this.keySquare = customKeySq;
+                                                keySqReq = true;
+                                                option = true;
+                                            }
                                         }
+                                    }
+
+                                    // Will display when duplicate letters.
+
+                                    if (lettersDigitsSB.length() != 0 && i == 24) {
+                                        System.out.println("\n" + "Something went wrong, your key square may have had duplicate letters.");
                                     }
                                 }
                             }
                         }
-                    }
-                    else {
-                        System.out.println("Key square length must be 25 characters and contain numbers 0-9 and each letter of the alphabet.");
+                        else {
+                            System.out.println("\n" + "Key square length must be 25 characters and contain each letter of the alphabet except 'j'.");
+                        }
                     }
                 }
-            }
-            else {
-                System.out.print("Invalid Command, please enter default, new or custom: ");
+                else {
+                    System.out.print("\n" + "Invalid Command, please enter default, new or custom: ");
+
+                    keySqOption = ui.Lima.sc.nextLine();
+                }
             }
         }
+
+
 
         // Get input text and complete the encryption or decryption. ccHelp == null in the if statement is necessary to prevent it from running after a help command is entered.
 

@@ -2,7 +2,7 @@
 
 The development goal of this program is to create a program that can be used in terminal or GUI to encrypt and decrypt text with weak and modern encryption as well as encrypt files with modern encryptions. See below to find out what has been added and what is scheduled to be added in the future.
 
-Current Version: 0.4.03
+Current Version: 0.4.04
 
 Will be working out a lot of bugs before moving on to Version 0.5.0.
 
@@ -62,7 +62,6 @@ The following ciphers have yet to be added but in progress:
     Current TODO list:
 
     ADFGVX:
-
     Fix formatting
     Add more documentation
     Add ability to quickly generate multiple new key squares.
@@ -72,9 +71,6 @@ The following ciphers have yet to be added but in progress:
     Fix formatting
     Add more documentation
     Add ability to quickly generate multiple new key squares.
-
-    Atbash:
-    Needs more testing and debugging.
 
     Rename.
     Logo.
