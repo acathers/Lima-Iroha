@@ -17,7 +17,7 @@ public class Help {
         System.out.println();
         System.out.println("Below is a list of available commands. Type the command followed by help for more help with each command." + "\n" + "\n" + "Ex: CaesarCipher help"  + "\n" + "\n" + "You may also find information about this program by using command 'About' or more information about a command by typing your command followed by About. Ex: CaesarCipher About.");
         System.out.println();
-        System.out.print("Help" + "\n" + "CaesarCipher" + "\n" + "ADFGVX" + "\n" + "ADFGX" + "\n" + "Atbash" + "\n" + "About");
+        System.out.print("Help" + "\n" + "CaesarCipher" + "\n" + "ADFGVX" + "\n" + "ADFGX" + "\n" + "Atbash" + "\n" + "ROT13" + "\n" + "About");
     }
 
     public static void about() {

@@ -121,6 +121,11 @@ public class ComTree {
 
             newAtbash.runAtbash();
         }
+        else if (command.equalsIgnoreCase("ROT13")) {
+            ROT13 newROT13 = new ROT13(this.function, this.help, this.about);
+
+            newROT13.runROT13();
+        }
         else {
 
             System.out.println("\n" + "Invlid command entered. Use help for more information.");
