@@ -2,7 +2,7 @@
 
 The development goal of this program is to create a program that can be used in terminal or GUI to encrypt and decrypt text with weak and modern encryption as well as encrypt files with modern encryptions. See below to find out what has been added and what is scheduled to be added in the future.
 
-Current Version: 0.4.04
+Current Version: 0.5.0
 
 Will be working out a lot of bugs before moving on to Version 0.5.0.
 
@@ -14,6 +14,7 @@ The following ciphers have been added:
     ADFGVX Cipher
     ADFGX Cipher
     Atbash Cipher
+    ROT13 Cipher
 
 The following ciphers have yet to be added but in progress:
 
@@ -34,7 +35,6 @@ The following ciphers have yet to be added but in progress:
     Playfair Cipher
     Polybius Square Cipher
     Porta Cipher
-    ROT13 Cipher
     Rail-fence Cipher
     Running Key Cipher
     Simple Substitution Cipher
