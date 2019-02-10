@@ -75,6 +75,11 @@ The following ciphers have yet to be added but in progress:
     Version 0.4.0 - Add Atbash
     Version 0.5.0 - Add ROT13
     Version 0.6.0 - Add Affine
+    Version 0.7.0 - Add Rail-fence
+    Version 0.8.0 - Add Barconian
+    Version 0.9.0 - Add Polybius Square
+    Version 0.10.0 - Add Simple Substitution
+
 
     Version 1 - Release, Terminal program with 29 types of weak text encryption and decryption.
 
@@ -88,7 +93,12 @@ The following ciphers have yet to be added but in progress:
 
     Current TODO list:
 
+    Caesar Cipher:
+
+    Fix punctuation being encrypted.
+
     ADFGVX:
+
     Fix formatting
     Add more documentation
     Add ability to quickly generate multiple new key squares.

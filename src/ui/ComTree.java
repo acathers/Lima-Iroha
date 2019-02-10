@@ -10,6 +10,8 @@ public class ComTree {
     private String key;
     private String help;
     private String about;
+    private int iKeyA;
+    private int iKeyB;
 
     //Breaks up full command line into variables.
 
@@ -56,6 +58,27 @@ public class ComTree {
             else {
                 this.command = nativeBuilder.toString();
             }
+
+            /*
+            * If a command is put in for when two keys are put in and they are placed into this.key and this.help, then those two keys will be sent to iKeyA and iKeyB for Affine Cipher
+            */
+
+            if (this.command.equalsIgnoreCase("Affine")) {
+                
+                if (isNumeric(this.key) && isNumeric(this.help)) {
+                    this.iKeyA = Integer.parseInt(this.key);
+                    this.iKeyB = Integer.parseInt(this.help);
+
+                    if (this.about != null) {
+                        this.help = this.about;
+                        this.about = null;
+                    }
+                    else {
+                        System.out.println("The only command that can be given after two int keys is help.");
+                    }
+                }
+            }
+
 
             //Sorts out 'help' and 'about' commands to work with classes. Resets variable if it holds the help  or about command and sends the help command to this.helfFinal, and the about command to this.about.
 
@@ -122,14 +145,33 @@ public class ComTree {
             newAtbash.runAtbash();
         }
         else if (command.equalsIgnoreCase("ROT13")) {
+
             ROT13 newROT13 = new ROT13(this.function, this.help, this.about);
 
             newROT13.runROT13();
+        }
+        else if (command.equalsIgnoreCase("Affine")) {
+
+            AffineCipher newAffine = new AffineCipher(this.function, this.iKeyA, this.iKeyB, this.help, this.about);
+
+            newAffine.runAffine();
         }
         else {
 
             System.out.println("\n" + "Invlid command entered. Use help for more information.");
             Lima.invalid = true;
         }
+    }
+
+    public boolean isNumeric(String input) {
+
+        boolean isNumeric = true;
+
+        for (int i = 0; i < input.length(); i++) {
+            if (!Character.isDigit(input.charAt(i))) {
+                isNumeric = false;
+            }
+        }
+        return isNumeric;
     }
 }
