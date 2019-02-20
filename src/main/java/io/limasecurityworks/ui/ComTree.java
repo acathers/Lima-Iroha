@@ -1,4 +1,4 @@
-package ui;
+package io.limasecurityworks.ui;
 
 import java.util.Scanner;
 import ciphers.*;
@@ -64,7 +64,7 @@ public class ComTree {
             */
 
             if (this.command.equalsIgnoreCase("Affine")) {
-                
+
                 if (isNumeric(this.key) && isNumeric(this.help)) {
                     this.iKeyA = Integer.parseInt(this.key);
                     this.iKeyB = Integer.parseInt(this.help);

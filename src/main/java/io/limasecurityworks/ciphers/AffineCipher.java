@@ -1,4 +1,4 @@
-package ciphers;
+package io.limasecurityworks.ciphers;
 
 public class AffineCipher {
 

@@ -1,4 +1,4 @@
-package ciphers;
+package io.limasecurityworks.ciphers;
 
 import java.lang.StringBuilder;
 import java.lang.Math;
@@ -322,7 +322,7 @@ public class ADFGVXCipher {
             for (int i = 0; i < this.key.length(); i++) {
                 String testChar = Character.toString(this.key.charAt(i));
                 String testCharAlpha = Character.toString(sortedKey.charAt(sortedKeyPlace));
-                if (testChar.equalsIgnoreCase(testCharAlpha) && fractInputCT[1][i] != null){
+                if (testChar.equalsIgnoreCase(testCharAlpha) && fractInputCT[1][i] != null) {
 
                     outputSB.append(fractInputCT[1][i]);
                     sortedKeyPlace++;

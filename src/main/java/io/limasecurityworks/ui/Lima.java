@@ -11,7 +11,7 @@
 
 
 
-package ui;
+package io.limasecurityworks.ui;
 
 import java.util.Scanner;
 import ciphers.*;

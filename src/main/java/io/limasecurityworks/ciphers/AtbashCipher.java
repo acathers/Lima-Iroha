@@ -1,4 +1,4 @@
-package ciphers;
+package io.limasecurityworks.ciphers;
 
 import java.lang.StringBuilder;
 import java.util.Scanner;
