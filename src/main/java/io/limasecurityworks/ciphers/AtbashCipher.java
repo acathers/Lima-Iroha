@@ -2,7 +2,7 @@ package io.limasecurityworks.ciphers;
 
 import java.lang.StringBuilder;
 import java.util.Scanner;
-import ui.Lima;
+import io.limasecurityworks.ui.Iroha;
 
 public class AtbashCipher {
 
@@ -43,12 +43,12 @@ public class AtbashCipher {
         else if (this.function == null) {
             System.out.print("\n" + "Would you like to Encrypt or Decrypt your text?: ");
 
-            this.function = ui.Lima.sc.nextLine();
+            this.function = io.limasecurityworks.ui.Iroha.sc.nextLine();
 
             while (!this.function.equalsIgnoreCase("encrypt") && !this.function.equalsIgnoreCase("decrypt")){
                 System.out.print("\n" + "Invalid function for Atbash Cipher. Please enter 'Encrypt' or 'Decrypt':  ");
 
-                String encDecResponseNull = ui.Lima.sc.nextLine();
+                String encDecResponseNull = io.limasecurityworks.ui.Iroha.sc.nextLine();
 
                 if (!encDecResponseNull.equalsIgnoreCase("encrypt") && !encDecResponseNull.equalsIgnoreCase("decrypt")) {
                     System.out.print("\n" + "Invalid function for Atbash Cipher. Please enter 'Encrypt' or 'Decrypt':  ");
@@ -66,7 +66,7 @@ public class AtbashCipher {
 
             while (!this.function.equalsIgnoreCase("encrypt") && !this.function.equalsIgnoreCase("decrypt")){
 
-                String encDecResponseNull = ui.Lima.sc.nextLine();
+                String encDecResponseNull = io.limasecurityworks.ui.Iroha.sc.nextLine();
 
                 if (!encDecResponseNull.equalsIgnoreCase("encrypt") && !encDecResponseNull.equalsIgnoreCase("decrypt")) {
                     System.out.print("\n" + "Invalid function for Atbash Cipher. Please enter 'Encrypt' or 'Decrypt':  ");
@@ -87,7 +87,7 @@ public class AtbashCipher {
 
             //This is where text to be encrypted or decrypted is put in.
 
-            String input = ui.Lima.sc.nextLine();
+            String input = io.limasecurityworks.ui.Iroha.sc.nextLine();
 
             // if statment that uses the variables function and key to determine what to do to the text.
 

@@ -44,13 +44,13 @@ public class AffineCipher {
 
                 System.out.print("Would you like to encrypt or decrypt?: ");
 
-                String functionChoice = ui.Lima.sc.nextLine();
+                String functionChoice = io.limasecurityworks.ui.Iroha.sc.nextLine();
 
                 while (!functionChoice.equalsIgnoreCase("encrypt") && !functionChoice.equalsIgnoreCase("decrypt")) {
 
                     System.out.print("\n" + "Invalid command for function, use either encrypt or decrypt: ");
 
-                    functionChoice = ui.Lima.sc.nextLine();
+                    functionChoice = io.limasecurityworks.ui.Iroha.sc.nextLine();
                 }
 
                 this.function = functionChoice;
@@ -65,7 +65,7 @@ public class AffineCipher {
 
             System.out.print("Input number of characters to be used: ");
 
-            String moduloChoice = ui.Lima.sc.nextLine();
+            String moduloChoice = io.limasecurityworks.ui.Iroha.sc.nextLine();
 
             while (!validModulo) {
 
@@ -79,7 +79,7 @@ public class AffineCipher {
                 else {
                     System.out.print("Invalid input, enter either 26, 52, or 127: ");
 
-                    moduloChoice = ui.Lima.sc.nextLine();
+                    moduloChoice = io.limasecurityworks.ui.Iroha.sc.nextLine();
                 }
             }
 
@@ -95,7 +95,7 @@ public class AffineCipher {
 
             System.out.print("Input text: ");
 
-            String inputText = ui.Lima.sc.nextLine();
+            String inputText = io.limasecurityworks.ui.Iroha.sc.nextLine();
 
         }
 

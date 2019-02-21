@@ -5,7 +5,7 @@ import java.lang.Math;
 import java.util.Scanner;
 import java.util.Arrays;
 import java.util.Comparator;
-import ui.Lima;
+import io.limasecurityworks.ui.Iroha;
 
 
 public class ADFGVXCipher {
@@ -51,12 +51,12 @@ public class ADFGVXCipher {
         else if (function == null) {
             System.out.print("\n" + "Would you like to Encrypt or Decrypt your text?: ");
 
-            this.function = ui.Lima.sc.nextLine();
+            this.function = io.limasecurityworks.ui.Iroha.sc.nextLine();
 
             while (!this.function.equalsIgnoreCase("encrypt") && !this.function.equalsIgnoreCase("decrypt")){
                 System.out.print("\n" + "Invalid function for ADFVGX Cipher. Please enter 'Encrypt' or 'Decrypt':  ");
 
-                String encDecResponseNull = ui.Lima.sc.nextLine();
+                String encDecResponseNull = io.limasecurityworks.ui.Iroha.sc.nextLine();
 
                 if (!encDecResponseNull.equalsIgnoreCase("encrypt") && !encDecResponseNull.equalsIgnoreCase("decrypt")) {
                     System.out.print("\n" + "Invalid function for ADFVGX Cipher. Please enter 'Encrypt' or 'Decrypt':  ");
@@ -74,7 +74,7 @@ public class ADFGVXCipher {
 
             while (!this.function.equalsIgnoreCase("encrypt") && !this.function.equalsIgnoreCase("decrypt")){
 
-                String encDecResponseNull = ui.Lima.sc.nextLine();
+                String encDecResponseNull = io.limasecurityworks.ui.Iroha.sc.nextLine();
 
                 if (!encDecResponseNull.equalsIgnoreCase("encrypt") && !encDecResponseNull.equalsIgnoreCase("decrypt")) {
                     System.out.print("\n" + "Invalid function for ADFVGX Cipher. Please enter 'Encrypt' or 'Decrypt':  ");
@@ -95,7 +95,7 @@ public class ADFGVXCipher {
             System.out.println();
             System.out.print("Key Square - Default, new, or custom?: ");
 
-            String keySqOption = ui.Lima.sc.nextLine();
+            String keySqOption = io.limasecurityworks.ui.Iroha.sc.nextLine();
 
             while (option == false) {
 
@@ -121,7 +121,7 @@ public class ADFGVXCipher {
                         System.out.println();
                         System.out.print("Input custom key square: ");
 
-                        String customKeySq = ui.Lima.sc.nextLine();
+                        String customKeySq = io.limasecurityworks.ui.Iroha.sc.nextLine();
 
                         int counter = 36;
 
@@ -159,7 +159,7 @@ public class ADFGVXCipher {
                 else {
                     System.out.print("\n" + "Invalid Command, please enter default, new or custom: ");
 
-                    keySqOption = ui.Lima.sc.nextLine();
+                    keySqOption = io.limasecurityworks.ui.Iroha.sc.nextLine();
                 }
             }
         }
@@ -173,13 +173,13 @@ public class ADFGVXCipher {
 
             //This is where text to be encrypted or decrypted is put in.
 
-            String input = ui.Lima.sc.nextLine();
+            String input = io.limasecurityworks.ui.Iroha.sc.nextLine();
 
             // if statment that uses the variables ccFunction and ccKey to determine what to do to the text.
 
             if (this.key == null) {
                 System.out.print("Enter key: ");
-                setKey(ui.Lima.sc.nextLine());
+                setKey(io.limasecurityworks.ui.Iroha.sc.nextLine());
 
             }
 

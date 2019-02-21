@@ -2,7 +2,7 @@ package io.limasecurityworks.ciphers;
 
 import java.lang.StringBuilder;
 import java.util.Scanner;
-import ui.Lima;
+import io.limasecurityworks.ui.Iroha;
 
 public class ROT13 {
 
@@ -45,12 +45,12 @@ public class ROT13 {
         else if (function == null) {
             System.out.print("\n" + "Would you like to Encrypt or Decrypt your text?: ");
 
-            this.function = ui.Lima.sc.nextLine();
+            this.function = io.limasecurityworks.ui.Iroha.sc.nextLine();
 
             while (!this.function.equalsIgnoreCase("encrypt") && !this.function.equalsIgnoreCase("decrypt")){
                 System.out.print("\n" + "Invalid function for ROT13. Please enter 'Encrypt' or 'Decrypt':  ");
 
-                String encDecResponseNull = ui.Lima.sc.nextLine();
+                String encDecResponseNull = io.limasecurityworks.ui.Iroha.sc.nextLine();
 
                 if (!encDecResponseNull.equalsIgnoreCase("encrypt") && !encDecResponseNull.equalsIgnoreCase("decrypt")) {
                     System.out.print("\n" + "Invalid function for ROT13. Please enter 'Encrypt' or 'Decrypt':  ");
@@ -69,7 +69,7 @@ public class ROT13 {
 
             while (!this.function.equalsIgnoreCase("encrypt") && !this.function.equalsIgnoreCase("decrypt")){
 
-                String encDecResponseNull = ui.Lima.sc.nextLine();
+                String encDecResponseNull = io.limasecurityworks.ui.Iroha.sc.nextLine();
 
                 if (!encDecResponseNull.equalsIgnoreCase("encrypt") && !encDecResponseNull.equalsIgnoreCase("decrypt")) {
                     System.out.print("\n" + "Invalid function for ROT13. Please enter 'Encrypt' or 'Decrypt':  ");
@@ -90,7 +90,7 @@ public class ROT13 {
 
             //This is where text to be encrypted or decrypted is put in.
 
-            String input = ui.Lima.sc.nextLine();
+            String input = io.limasecurityworks.ui.Iroha.sc.nextLine();
 
             // if statment that uses the variables function and key to determine what to do to the text.
 

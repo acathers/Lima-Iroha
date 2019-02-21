@@ -1,7 +1,7 @@
 package io.limasecurityworks.ui;
 
 import java.util.Scanner;
-import ciphers.*;
+import io.limasecurityworks.ciphers.*;
 
 public class ComTree {
 
@@ -118,7 +118,7 @@ public class ComTree {
             Help.about();
         }
         else if (command.equalsIgnoreCase("Exit")) {
-            Lima.exit = true;
+            Iroha.exit = true;
         }
         else if (command.equalsIgnoreCase("Caesar")) {
 
@@ -159,7 +159,7 @@ public class ComTree {
         else {
 
             System.out.println("\n" + "Invlid command entered. Use help for more information.");
-            Lima.invalid = true;
+            Iroha.invalid = true;
         }
     }
 
