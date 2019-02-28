@@ -122,6 +122,10 @@ public class AffineCipher {
 
             if (this.function.equalsIgnoreCase("encrypt")) {
 
+                if (modulo == 26) {
+                    inputText = inputText.toLowerCase();
+                }
+
                 String encryptedText = encryptText(inputText);
 
                 System.out.println("\n" + "Function: " + this.function + "\n" + "Key 1:    " + this.iKeyA + "\n" + "Key 2:    " + this.iKeyB + "\n" + "Mod:      " + this.modulo + "\n" + "Input:    " + inputText + "\n" + "Output:   " + encryptedText);
@@ -130,6 +134,10 @@ public class AffineCipher {
             else if (this.function.equalsIgnoreCase("decrypt")) {
 
                 String decryptedText = decryptText(inputText);
+
+                if (modulo == 26) {
+                    inputText = inputText.toLowerCase();
+                }
 
                 System.out.println("\n" + "Function: " + this.function + "\n" + "Key 1:    " + this.iKeyA + "\n" + "Key 2:    " + this.iKeyB + "\n" + "Mod:      " + this.modulo + "\n" + "Input:    " + inputText + "\n" + "Output:   " + decryptedText);
             }
@@ -207,7 +215,7 @@ public class AffineCipher {
         char[] output = new char[input.length()];
 
         for (int i = 0; i < input.length(); i++) {
-            if (charArray[i] != ' ') {
+            if (charArray[i] != ' ' && modulo95.indexOf(charArray[i]) < modulo) {
                 output[i] = modulo95.charAt(((iKeyA * modulo95.indexOf(charArray[i])) + iKeyB) % modulo);
             }
         }
@@ -244,7 +252,7 @@ public class AffineCipher {
                 }
                 else {
 
-                    //Brain Buster!! Will explain later. 26+ needed to be added to make this work right.
+                    //Brain Buster!! Will explain later. Modulo + at the first needed to be added to make this work right.
 
                     output[i] = modulo95.charAt(modulo + ((iKeyAInverse * (modulo95.indexOf(charArray[i]) - iKeyB)) % modulo));
                 }
