@@ -10,7 +10,8 @@ public class AffineCipher {
     private String about;
 
     private String modulo95 = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ!\"#$%&\'()*+,-./0123456789:;<=>?@[\\]^_`{|}~";
-    public AffineCipher(String function, int iKeyA, int iKeyB, String help, String about) {
+
+    public AffineCipher (String function, int iKeyA, int iKeyB, String help, String about) {
         this.function = function;
         this.iKeyA = iKeyA;
         this.iKeyB = iKeyB;
