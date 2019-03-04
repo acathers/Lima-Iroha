@@ -15,9 +15,9 @@ public class Help {
     public static void help() {
         System.out.println("\n" +"========== Help ==========" + "\n" + "Iroha is a simple text encryption and decryption program. With the following commands you can encrypt or decrypt a message with the default encryption of +3 to the char value.");
         System.out.println();
-        System.out.println("Below is a list of available commands. Type the command followed by help for more help with each command." + "\n" + "\n" + "Ex: CaesarCipher help"  + "\n" + "\n" + "You may also find information about this program by using command 'About' or more information about a command by typing your command followed by About. Ex: CaesarCipher About.");
+        System.out.println("Below is a list of available commands. Type the command followed by help for more help with each command." + "\n" + "\n" + "Ex: Caesar help"  + "\n" + "\n" + "You may also find information about this program by using command 'About' or more information about a command by typing your command followed by About. Ex: CaesarCipher About.");
         System.out.println();
-        System.out.print("Help" + "\n" + "CaesarCipher" + "\n" + "ADFGVX" + "\n" + "ADFGX" + "\n" + "Atbash" + "\n" + "ROT13" + "\n" + "About");
+        System.out.print("About" + "\n" + "Help" + "\n" + "ADFGVX" + "\n" + "ADFGX" + "\n" + "Affine" + "\n" + "Atbash" + "\n" + "Caesar" + "\n" + "Help");
     }
 
     public static void about() {

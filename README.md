@@ -96,6 +96,7 @@ The following ciphers have yet to be added but in progress:
     Caesar Cipher:
 
     Fix punctuation being encrypted.
+    Is not ignoring periods on input for encryption.
 
     ADFGVX:
 
