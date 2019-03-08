@@ -51,6 +51,15 @@ public class AutokeyCipher {
         return String.valueOf(output);
     }
 
+    /*
+    *
+    * Steps below to decrypt Autokey Cipher.
+    * 1. Change input and key to upper case.
+    * 2. nested for loop finds the row for key and sends that entire row to a string.
+    * 3. for loops finds the index number of the encrypted char in that rowString.
+    * 4. Output[i] is the index of that char in the row in the alphabet(or the column number).
+    */
+
     public String decryptText(String input) {
 
         String inputUC = input.toUpperCase();
