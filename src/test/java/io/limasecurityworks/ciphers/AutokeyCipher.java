@@ -56,19 +56,22 @@ public class AutokeyCipher {
         String inputUC = input.toUpperCase();
         String keyUC = this.key.toUpperCase();
 
-        String keyPlusInputUC = keyUC + inputUC.substring(0, (inputUC.length() - keyUC.length() - 1));
+        String keyPlusDecryptText = keyUC;
         String alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
-        char[] keyPlusInputArray = keyPlusInputUC.toCharArray();
-        char[] inputArray = inputUC.toCharArray();
         char[] output = new char[inputUC.length()];
 
-        for (int i = 0; i < input.length(); i++) {
+        for (int i = 0; i < inputUC.length(); i++) {
 
-            int indexKey = alphabet.indexOf(keyPlusInputArray[i]);
-            int indexInput = alphabet.indexOf(inputArray[i]);
+            String rowString = "";
 
-            output[i] = this.tabulaRecta[indexInput][indexKey];
+            for (int j = 0; j < 26; j++) {
+
+                rowString = rowString + tabulaRecta[alphabet.indexOf(keyUC.charAt(i))][j];
+            }
+
+            output[i] = alphabet.charAt(rowString.indexOf(inputUC.charAt(i)));
+            keyUC = keyUC + alphabet.charAt(rowString.indexOf(inputUC.charAt(i)));
         }
 
         return String.valueOf(output);
