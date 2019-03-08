@@ -20,13 +20,57 @@ public class AutokeyCipher {
 
     }
 
+    /*
+    *
+    * steps needed for encryption
+    * 1. take the key and add text to it to make it the same length as the input text.
+    * 2. key char 0 = x, input char 0 = y. Key equals colums, input equals rows.
+    *    encrypted char 0 = tabulaRecta[y][x].
+    */
+
     public String encryptText(String input) {
 
-        return output;
+        String inputUC = input.toUpperCase();
+        String keyUC = this.key.toUpperCase();
+
+        String keyPlusInputUC = keyUC + inputUC.substring(0, (inputUC.length() - keyUC.length() - 1));
+        String alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+
+        char[] keyPlusInputArray = keyPlusInputUC.toCharArray();
+        char[] inputArray = inputUC.toCharArray();
+        char[] output = new char[inputUC.length()];
+
+        for (int i = 0; i < input.length(); i++) {
+
+            int indexKey = alphabet.indexOf(keyPlusInputArray[i]);
+            int indexInput = alphabet.indexOf(inputArray[i]);
+
+            output[i] = this.tabulaRecta[indexInput][indexKey];
+        }
+
+        return String.valueOf(output);
     }
 
     public String decryptText(String input) {
 
-        return output;
+        String inputUC = input.toUpperCase();
+        String keyUC = this.key.toUpperCase();
+
+        String keyPlusInputUC = keyUC + inputUC.substring(0, (inputUC.length() - keyUC.length() - 1));
+        String alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+
+        char[] keyPlusInputArray = keyPlusInputUC.toCharArray();
+        char[] inputArray = inputUC.toCharArray();
+        char[] output = new char[inputUC.length()];
+
+        for (int i = 0; i < input.length(); i++) {
+
+            int indexKey = alphabet.indexOf(keyPlusInputArray[i]);
+            int indexInput = alphabet.indexOf(inputArray[i]);
+
+            output[i] = this.tabulaRecta[indexInput][indexKey];
+        }
+
+        return String.valueOf(output);
     }
 }
