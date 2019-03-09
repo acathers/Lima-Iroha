@@ -66,7 +66,7 @@ public class ComTree {
             if (this.command.equalsIgnoreCase("Affine")) {
 
                 if (this.key != null && this.help != null) {
-                    
+
                     if (isNumeric(this.key) && isNumeric(this.help)) {
                         this.iKeyA = Integer.parseInt(this.key);
                         this.iKeyB = Integer.parseInt(this.help);
@@ -158,6 +158,12 @@ public class ComTree {
             AffineCipher newAffine = new AffineCipher(this.function, this.iKeyA, this.iKeyB, this.help, this.about);
 
             newAffine.runAffine();
+        }
+        else if (command.equalsIgnoreCase("Autokey")) {
+
+            AutokeyCipher newAutokey = new AutokeyCipher(this.function, this.key, this.help, this.about);
+
+            newAutokey.runAutokey();
         }
         else {
 

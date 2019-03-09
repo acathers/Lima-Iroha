@@ -2,7 +2,25 @@
 
 The development goal of this program is to create a program that can be used in terminal or GUI to encrypt and decrypt text with weak and modern encryption as well as encrypt files with modern encryptions. See below to find out what has been added and what is scheduled to be added in the future.
 
-Current Version: 0.6.1
+Current Version: 0.7.0
+
+--------------------------------------
+How to run this program on Linux.
+--------------------------------------
+
+Download the repository Lima-Iroha. Once downloaded, cd to the java folder within the main folder in the program. I have the Lima-Iroha folder in /Documents/JAtom so cd for my looks like this.
+
+/Documents/JAtom/Lima-Iroha/src/main/java
+
+Next compile the packages with the following.
+
+javac io/limasecurityworks/ciphers/*.java io/limasecurityworks/ui/*.java
+
+Next run the program with the follwing.
+
+java io/limasecurityworks/ui/Iroha
+
+-------------------------------------
 
 Below is a quick overview of what has been done and what still needs to be done.
 
@@ -14,10 +32,10 @@ The following ciphers have been added:
     Atbash Cipher
     ROT13 Cipher
     Affine Cipher
+    Autokey Cipher
 
 The following ciphers have yet to be added but in progress:
 
-    Autokey
     Baconian
     Base64
     Beaufort
