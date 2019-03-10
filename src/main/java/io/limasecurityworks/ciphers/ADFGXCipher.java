@@ -2,10 +2,7 @@ package io.limasecurityworks.ciphers;
 
 import java.lang.StringBuilder;
 import java.lang.Math;
-import java.util.Scanner;
 import java.util.Arrays;
-import java.util.Comparator;
-import io.limasecurityworks.ui.Iroha;
 
 
 public class ADFGXCipher {

@@ -1,6 +1,5 @@
 package io.limasecurityworks.ui;
 
-import java.util.Scanner;
 import io.limasecurityworks.ciphers.*;
 
 public class ComTree {
@@ -164,6 +163,10 @@ public class ComTree {
             AutokeyCipher newAutokey = new AutokeyCipher(this.function, this.key, this.help, this.about);
 
             newAutokey.runAutokey();
+        }
+        else if (command.equalsIgnoreCase("Baconian")) {
+
+            BaconianCipher newBaconian = new BaconianCipher(this.function, this.help, this.about);
         }
         else {
 

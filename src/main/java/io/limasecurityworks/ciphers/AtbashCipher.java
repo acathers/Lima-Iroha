@@ -1,8 +1,6 @@
 package io.limasecurityworks.ciphers;
 
 import java.lang.StringBuilder;
-import java.util.Scanner;
-import io.limasecurityworks.ui.Iroha;
 
 public class AtbashCipher {
 

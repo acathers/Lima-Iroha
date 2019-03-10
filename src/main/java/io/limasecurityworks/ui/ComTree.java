@@ -1,6 +1,5 @@
 package io.limasecurityworks.ui;
 
-import java.util.Scanner;
 import io.limasecurityworks.ciphers.*;
 
 public class ComTree {
