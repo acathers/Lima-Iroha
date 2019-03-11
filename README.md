@@ -2,7 +2,7 @@
 
 The development goal of this program is to create a program that can be used in terminal or GUI to encrypt and decrypt text with weak and modern encryption as well as encrypt files with modern encryptions. See below to find out what has been added and what is scheduled to be added in the future.
 
-Current Version: 0.7.0
+Current Version: 0.7.1
 
 --------------------------------------
 How to run this program on Linux.

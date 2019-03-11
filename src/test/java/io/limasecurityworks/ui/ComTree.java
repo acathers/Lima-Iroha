@@ -167,6 +167,8 @@ public class ComTree {
         else if (command.equalsIgnoreCase("Baconian")) {
 
             BaconianCipher newBaconian = new BaconianCipher(this.function, this.help, this.about);
+
+            newBaconian.runBaconian();
         }
         else {
 

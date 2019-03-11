@@ -1,13 +1,72 @@
 package io.limasecurityworks.ciphers;
 
 import java.util.HashMap;
-import java.util.Map;
 
 public class BaconianCipher {
 
-    String function;
-    String help;
-    String about;
+    private String function;
+    private String help;
+    private String about;
+
+    private HashMap<Character, Integer> encryptionMap = new HashMap<>(26, 1); {{
+
+        encryptionMap.put('A', 00000);
+        encryptionMap.put('B', 00001);
+        encryptionMap.put('C', 00010);
+        encryptionMap.put('D', 00011);
+        encryptionMap.put('E', 00100);
+        encryptionMap.put('F', 00101);
+        encryptionMap.put('G', 00110);
+        encryptionMap.put('G', 00111);
+        encryptionMap.put('I', 01000);
+        encryptionMap.put('J', 01001);
+        encryptionMap.put('K', 01010);
+        encryptionMap.put('L', 01011);
+        encryptionMap.put('M', 01100);
+        encryptionMap.put('N', 01101);
+        encryptionMap.put('O', 01110);
+        encryptionMap.put('P', 01111);
+        encryptionMap.put('Q', 10000);
+        encryptionMap.put('R', 10001);
+        encryptionMap.put('S', 10010);
+        encryptionMap.put('T', 10011);
+        encryptionMap.put('U', 10100);
+        encryptionMap.put('V', 10101);
+        encryptionMap.put('W', 10110);
+        encryptionMap.put('X', 10111);
+        encryptionMap.put('Y', 11000);
+        encryptionMap.put('Z', 11001);
+    }}
+
+    private HashMap<Integer, Character> decryptionMap = new HashMap<>(26, 1); {{
+
+        decryptionMap.put(00000, 'A');
+        decryptionMap.put(00001, 'B');
+        decryptionMap.put(00010, 'C');
+        decryptionMap.put(00011, 'D');
+        decryptionMap.put(00100, 'E');
+        decryptionMap.put(00101, 'F');
+        decryptionMap.put(00110, 'G');
+        decryptionMap.put(00111, 'H');
+        decryptionMap.put(01000, 'I');
+        decryptionMap.put(01001, 'J');
+        decryptionMap.put(01010, 'K');
+        decryptionMap.put(01011, 'L');
+        decryptionMap.put(01100, 'M');
+        decryptionMap.put(01101, 'N');
+        decryptionMap.put(01110, 'O');
+        decryptionMap.put(01111, 'P');
+        decryptionMap.put(10000, 'Q');
+        decryptionMap.put(10001, 'R');
+        decryptionMap.put(10010, 'S');
+        decryptionMap.put(10011, 'T');
+        decryptionMap.put(10100, 'U');
+        decryptionMap.put(10101, 'V');
+        decryptionMap.put(10110, 'W');
+        decryptionMap.put(10111, 'X');
+        decryptionMap.put(11000, 'Y');
+        decryptionMap.put(11001, 'Z');
+    }}
 
     public BaconianCipher(String function, String help, String about) {
         this.function = function;
@@ -17,42 +76,124 @@ public class BaconianCipher {
 
     public void runBaconian() {
 
-        HashMap<String, Integer> encryptionMap = new HashMap<>();
+        if (this.help != null) {
 
-        encryptionMap.put("a", 00000);
-        encryptionMap.put("b", 00000);
-        encryptionMap.put("c", 00000);
-        encryptionMap.put("d", 00000);
-        encryptionMap.put("e", 00000);
-        encryptionMap.put("f", 00000);
-        encryptionMap.put("g", 00000);
-        encryptionMap.put("h", 00000);
-        encryptionMap.put("i", 00000);
-        encryptionMap.put("j", 00000);
-        encryptionMap.put("k", 00000);
-        encryptionMap.put("l", 00000);
-        encryptionMap.put("m", 00000);
-        encryptionMap.put("n", 00000);
-        encryptionMap.put("o", 00000);
-        encryptionMap.put("p", 00000);
-        encryptionMap.put("q", 00000);
-        encryptionMap.put("r", 00000);
-        encryptionMap.put("s", 00000);
-        encryptionMap.put("t", 00000);
-        encryptionMap.put("u", 00000);
-        encryptionMap.put("v", 00000);
-        encryptionMap.put("w", 00000);
-        encryptionMap.put("x", 00000);
-        encryptionMap.put("y", 00000);
-        encryptionMap.put("z", 00000);
+            if (this.function != null) {
+                System.out.println("You have entered a command with a function to either encrypt or decrypt. There are no keys for the Baconian Cipher at this time. The translation of a letter to 1s and 0s can be found on the wikipedia page for Baconian Cipher. May add a feature to change that up in the future.");
+            }
+            else {
+                System.out.println("Baconian Cipher will ask you if you would like to encrypt or decrypt and then it will ask for input. There is not a key to be input for this cipher. The translation of a letter to 1s and 0s can be found on the wikipedia page for Baconian Cipher. May add a feature to change that up in the future.");
+            }
+        }
+
+        else if (this.about != null) {
+            System.out.println("Bacon’s cipher or the Baconian cipher is a method of steganography (a method of hiding a secret message as opposed to just a cipher) devised by Francis Bacon in 1605. Geeks for Geeks. Baconian Cipher.");
+        }
+
+        else {
+
+            // Find out if there is a function, if not, get it.
+
+            if (this.function == null) {
+
+                System.out.print("Would you like to encrypt or decrypt?: ");
+
+                String functionChoice = io.limasecurityworks.ui.Iroha.sc.nextLine();
+
+                while (!functionChoice.equalsIgnoreCase("encrypt") && !functionChoice.equalsIgnoreCase("decrypt")) {
+
+                    System.out.print("\n" + "Invalid command for function, use either encrypt or decrypt: ");
+
+                    functionChoice = io.limasecurityworks.ui.Iroha.sc.nextLine();
+                }
+
+                this.function = functionChoice;
+            }
+
+            // Get input text and execute cipher.
+
+            System.out.print("Input text: ");
+
+            String inputText = io.limasecurityworks.ui.Iroha.sc.nextLine();
+
+            if (this.function.equalsIgnoreCase("encrypt")) {
+
+                String encryptedText = encryptText(inputText);
+
+                System.out.println("\n" + "Function: " + this.function + "\n" + "Input:    " + inputText + "\n" + "Output:   " + encryptedText);
+            }
+
+            else if (this.function.equalsIgnoreCase("decrypt")) {
+
+                String decryptedText = decryptText(inputText);
+
+                System.out.println("\n" + "Function: " + this.function + "\n" + "Input:    " + inputText + "\n" + "Output:   " + decryptedText);
+            }
+
+            else {
+                System.out.println("Something has gone terribly wrong. Please report this to iskra0332@gmx.com");
+            }
+        }
     }
+
+    /*
+    * This encryption method will take in any string, remove any non letters, and complete the encryption.
+    */
 
     public String encryptText(String input) {
+
+        input.toUpperCase();
+
+        int counter = 0;
+
+        char[] inputArray = input.toCharArray();
+        char[] inputLetters = new char[input.length()];
         String output = "";
 
+        for (int i = 0; i < input.length(); i++) {
+
+            if (Character.isLetter(inputArray[i])) {
+
+                inputLetters[counter] = inputArray[i];
+
+                counter++;
+            }
+        }
+
+        for (int i = 0; i < input.length(); i++) {
+
+            output = output + encryptionMap.get(inputLetters[i]).toString();
+        }
+        
+        return output;
     }
+
     public String decryptText(String input) {
+
+        String indexValue = "";
         String output = "";
+        int indexValueInt;
+
+        char[] inputArray = input.toCharArray();
+
+        int counter = 0;
+
+        for (int i = 0; i < input.length(); i++) {
+
+            indexValue = indexValue + inputArray[i];
+
+            counter++;
+
+            if (counter == 4) {
+
+                indexValueInt = Integer.parseInt(indexValue);
+
+                output = output + decryptionMap.get(indexValueInt);
+
+                indexValue = "";
+                counter = 0;
+            }
+        }
 
         return output;
     }
