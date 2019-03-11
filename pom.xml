@@ -6,7 +6,8 @@
 
   <groupId>io.limasecurityworks</groupId>
   <artifactId>Lima-Iroha</artifactId>
-  <version>1.0-SNAPSHOT</version>
+  <version>0.8.0-SNAPSHOT</version>
+  <packaging>jar</packaging>
 
   <name>Lima-Iroha</name>
   <!-- FIXME change it to the project's website -->
