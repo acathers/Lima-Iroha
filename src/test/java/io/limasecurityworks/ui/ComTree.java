@@ -124,25 +124,25 @@ public class ComTree {
         }
         else if (command.equalsIgnoreCase("Caesar")) {
 
-            CaesarCipher newCC = new CaesarCipher(this.function, this.key, this.help, this.about);
+            Caesar newCC = new Caesar(this.function, this.key, this.help, this.about);
 
             newCC.runCC();
         }
         else if (command.equalsIgnoreCase("ADFGVX")) {
 
-            ADFGVXCipher newAVC = new ADFGVXCipher(this.function, this.key, this.help, this.about);
+            ADFGVX newAVC = new ADFGVX(this.function, this.key, this.help, this.about);
 
             newAVC.runAVC();
         }
         else if (command.equalsIgnoreCase("ADFGX")) {
 
-            ADFGXCipher newAC = new ADFGXCipher(this.function, this.key, this.help, this.about);
+            ADFGX newAC = new ADFGX(this.function, this.key, this.help, this.about);
 
             newAC.runAC();
         }
         else if (command.equalsIgnoreCase("Atbash")) {
 
-            AtbashCipher newAtbash = new AtbashCipher(this.function, this.help, this.about);
+            Atbash newAtbash = new Atbash(this.function, this.help, this.about);
 
             newAtbash.runAtbash();
         }
@@ -154,19 +154,19 @@ public class ComTree {
         }
         else if (command.equalsIgnoreCase("Affine")) {
 
-            AffineCipher newAffine = new AffineCipher(this.function, this.iKeyA, this.iKeyB, this.help, this.about);
+            Affine newAffine = new Affine(this.function, this.iKeyA, this.iKeyB, this.help, this.about);
 
             newAffine.runAffine();
         }
         else if (command.equalsIgnoreCase("Autokey")) {
 
-            AutokeyCipher newAutokey = new AutokeyCipher(this.function, this.key, this.help, this.about);
+            Autokey newAutokey = new Autokey(this.function, this.key, this.help, this.about);
 
             newAutokey.runAutokey();
         }
         else if (command.equalsIgnoreCase("Baconian")) {
 
-            BaconianCipher newBaconian = new BaconianCipher(this.function, this.help, this.about);
+            Baconian newBaconian = new Baconian(this.function, this.help, this.about);
 
             newBaconian.runBaconian();
         }

@@ -1,10 +1,8 @@
 package io.limasecurityworks.ciphers;
 
 import java.lang.StringBuilder;
-import java.util.Scanner;
-import io.limasecurityworks.ui.Iroha;
 
-public class CaesarCipher {
+public class Caesar {
 
     //variables for the constructor and the encryption and decryption key. Default is set to 3 but there are methods to customize the key.
 
@@ -17,7 +15,7 @@ public class CaesarCipher {
 
     //Constructor sets the variables for the class. 'function' is Encrypt or Decrypt, 'key' will be the key which is 3 by default, 'help' is used for triggering help.
 
-    public CaesarCipher(String function, String key, String help, String about) {
+    public Caesar(String function, String key, String help, String about) {
         this.function = function;
         this.key = key;
         this.help = help;
@@ -127,7 +125,7 @@ public class CaesarCipher {
     //Used to set the key for encryption.
 
     public static void setEncryptKey(int x) {
-        CaesarCipher.encryDef = x;
+        Caesar.encryDef = x;
     }
 
     //Used to encrypt your text.
@@ -161,7 +159,7 @@ public class CaesarCipher {
     //Used to set the key for decryption.
 
     public static void setDecryptKey(int x) {
-        CaesarCipher.decryDef = -x;
+        Caesar.decryDef = -x;
     }
 
     //Used to decrypt your text.

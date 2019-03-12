@@ -5,42 +5,42 @@ import java.lang.Math;
 import java.util.Arrays;
 
 
-public class ADFGXCipher {
+public class ADFGVX {
 
     private String function;
     private String key;
-    private String keySquare = "avztniwgmuqdhbrfcxykespol";
+    private String keySquare = "avjzt7n5iwgm8u0q9dhb2rfcxyke4s13p6ol";
     private String help;
     private String about;
 
-    private String[] keySquareOutput = {"AA", "AD", "AF", "AG", "AX", "DA", "DD", "DF", "DG", "DX", "FA", "FD", "FF", "FG", "FX", "GA", "GD", "GF", "GG", "GX", "XA", "XD", "XF", "XG", "XX"};
+    private String[] keySquareOutput = {"AA", "AD", "AF", "AG", "AV", "AX", "DA", "DD", "DF", "DG", "DV", "DX", "FA", "FD", "FF", "FG", "FV", "FX", "GA", "GD", "GF", "GG", "GV", "GX", "VA", "VD", "VF", "VG", "VV", "VX", "XA", "XD", "XF", "XG", "XV", "XX"};
 
 
-    public ADFGXCipher (String function, String key, String help, String about) {
+    public ADFGVX(String function, String key, String help, String about) {
         this.function = function;
         this.key = key;
         this.help = help;
         this.about = about;
     }
 
-    public void runAC() {
+    public void runAVC() {
 
         //First check if the command requests help and act on in appropriately.
 
         if (help != null) {
             if (function != null && key != null) {
-                System.out.println("\n" + "You have entered a command for ADFVGX Cipher with a function and a key. The only two options for a function is to encrypt or decrypt. The key is only one part of the encryption. The key square is like a second key that is equally important.");
+                System.out.println("\n" + "You have entered a command for ADFVGX Cipher with a function and a key. The only two options for a function is to encrypt or decrypt. The key is only one part of the encryption. The key square is sort of a second key that is equally important.");
             }
             else if (function != null) {
                 System.out.println("\n" + "You have entered a command for ADFVGX Cipher to encrypt or decrypt a message. Since you did not specify a key, you will be prompted to do so if this same command is typed without being followed by the help command. Messages are only allowed to have the alphabet and numbers 0 through 9.");
             }
             else {
-                System.out.println("\n" + "The ADFGX cipher requires a key and a key square which is means that it needs two keys, however the key square must contain all letters of the alphabet once except the letter 'j'. So you should have 25 characters. The order of the characters is what is used for the key square. Your key is just as important in the encryption and decryption process. Just know that you MUST remember both the key and the key square. You are prompted to either use the default key square that the program provides, generate a new one, or to use a custom key square at the first.");
+                System.out.println("\n" + "The ADFGVX cipher requires a key and a key square which is means that it needs two keys, however the key square must contain all letters of the alphabet once and each number, 0 through 9 once for a total of 36 characters. The order of the characters is what is used for the key square. Your key is just as important in the encryption and decryption process. Just know that you MUST remember both the key and the key square. You are prompted to either use the default key square that the program provides, generate a new one, or to use a custom key square at the first.");
             }
         }
 
         else if (about != null) {
-            System.out.println("\n" + "ADFGX Cipher is an ealier version of the ADFGVX Cipher. Use command 'ADFGVX Help' for more information");
+            System.out.println("\n" + "In cryptography, the ADFGVX cipher was a field cipher used by the German Army on the Western Front during World War I. ADFGVX was in fact an extension of an earlier cipher called ADFGX. Invented by Lieutenant[1] Fritz Nebel (1891–1977)[2] and introduced in March 1918, the cipher was a fractionating transposition cipher which combined a modified Polybius square with a single columnar transposition. The cipher is named after the six possible letters used in the ciphertext: A, D, F, G, V and X. The letters were chosen deliberately because they are very different from one another in the Morse code. That reduced the possibility of operator error. Nebel designed the cipher to provide an army on the move with encryption that was more convenient than trench codes but was still secure. In fact, the Germans believed the ADFGVX cipher was unbreakable." + "\n" + "\n" + "--Source: https://en.wikipedia.org/wiki/ADFGVX_cipher");
         }
 
         //Next, check to see if a function was provided. if not, get the function.
@@ -67,14 +67,14 @@ public class ADFGXCipher {
         //If there is a fuction and the function is not valid, get a new function.
 
         else if (!this.function.equalsIgnoreCase("encrypt") && !this.function.equalsIgnoreCase("decrypt")) {
-            System.out.print("\n" + "Invalid function for ADFGX Cipher. Please enter 'Encrypt' or 'Decrypt':  ");
+            System.out.print("\n" + "Invalid function for ADFVGX Cipher. Please enter 'Encrypt' or 'Decrypt':  ");
 
             while (!this.function.equalsIgnoreCase("encrypt") && !this.function.equalsIgnoreCase("decrypt")){
 
                 String encDecResponseNull = io.limasecurityworks.ui.Iroha.sc.nextLine();
 
                 if (!encDecResponseNull.equalsIgnoreCase("encrypt") && !encDecResponseNull.equalsIgnoreCase("decrypt")) {
-                    System.out.print("\n" + "Invalid function for ADFGX Cipher. Please enter 'Encrypt' or 'Decrypt':  ");
+                    System.out.print("\n" + "Invalid function for ADFVGX Cipher. Please enter 'Encrypt' or 'Decrypt':  ");
                 }
                 else {
                     this.function = encDecResponseNull;
@@ -82,9 +82,11 @@ public class ADFGXCipher {
             }
         }
 
-        // This section will allow the user to use the default key square, generate a new random keysquare, or use a custom key square.
+        // Determine what keysquare will be used. if new, generate new, and if custom, allow input
+
 
         if (this.help == null && this.about == null) {
+
             boolean option = false;
 
             System.out.println();
@@ -110,7 +112,7 @@ public class ADFGXCipher {
                     restart:
                     while (keySqReq == false) {
 
-                        String lettersDigits = "abcdefghiklmnopqrstuvwxyz";
+                        String lettersDigits = "abcdefghijklmnopqrstuvwxyz1234567890";
                         StringBuilder lettersDigitsSB = new StringBuilder(lettersDigits);
 
                         System.out.println();
@@ -118,20 +120,15 @@ public class ADFGXCipher {
 
                         String customKeySq = io.limasecurityworks.ui.Iroha.sc.nextLine();
 
-                        int counter = 25;
+                        int counter = 36;
 
-                        if (customKeySq.length() == 25) {
-
-                            // Check to make sure that next character is a letter and not 'j'.
-
-                            for (int i = 0; i < 25; i++) {
-
-                                if (!Character.isLetter(customKeySq.charAt(i)) || Character.toString(customKeySq.charAt(i)).equalsIgnoreCase("j")) {
-                                    System.out.println("\n" + "The key square can contain only letters and must contain all letters of the alphabet once except for the letter 'j' for a total character count of 25");
+                        if (customKeySq.length() == 36) {
+                            for (int i = 0; i < 36; i++) {
+                                if (!Character.isLetter(customKeySq.charAt(i)) && !Character.isDigit(customKeySq.charAt(i))) {
+                                    System.out.println("\n" + "The key square can contain only numbers and letters and must contain all letters of the alphabet and numbers 0-9");
 
                                     break restart;
                                 }
-
                                 else {
                                     for (int j = 0; j < counter; j++) {
                                         if (Character.toString(customKeySq.charAt(i)).equalsIgnoreCase(Character.toString(lettersDigitsSB.charAt(j)))) {
@@ -145,17 +142,14 @@ public class ADFGXCipher {
                                             }
                                         }
                                     }
-
-                                    // Will display when duplicate letters.
-
-                                    if (lettersDigitsSB.length() != 0 && i == 24) {
-                                        System.out.println("\n" + "Something went wrong, your key square may have had duplicate letters.");
+                                    if (lettersDigitsSB.length() != 0 && i == 35) {
+                                        System.out.println("\n" + "Something went wrong, your key square may have had duplicate letters or numbers.");
                                     }
                                 }
                             }
                         }
                         else {
-                            System.out.println("\n" + "Key square length must be 25 characters and contain each letter of the alphabet except 'j'.");
+                            System.out.println("\n" + "Key square length must be 36 characters and contain numbers 0-9 and each letter of the alphabet.");
                         }
                     }
                 }
@@ -166,7 +160,6 @@ public class ADFGXCipher {
                 }
             }
         }
-
 
 
         // Get input text and complete the encryption or decryption. ccHelp == null in the if statement is necessary to prevent it from running after a help command is entered.
@@ -188,10 +181,16 @@ public class ADFGXCipher {
             }
 
             if (this.function.equalsIgnoreCase("encrypt")) {
-                    System.out.print("Encrypted Text:  " + encryptText(input) + "\n");
+                System.out.println();
+                System.out.println("Encrypted Text:  " + encryptText(input));
+                System.out.println("Key Square:      " + this.keySquare);
+                System.out.println("Key:             " + this.key);
             }
             else if (this.function.equalsIgnoreCase("decrypt")) {
-                System.out.print("Decrypted Text:  " + decryptText(input) + "\n");
+                System.out.println();
+                System.out.println("Decrypted Text:  " + decryptText(input));
+                System.out.println("Key Square:      " + this.keySquare);
+                System.out.println("Key:             " + this.key);
             }
             else if (this.function.equalsIgnoreCase("help")) {
                 System.out.println("You should get help, but I have yet to develop help for this part of the program at this time.");
@@ -204,7 +203,7 @@ public class ADFGXCipher {
 
     public void setKeySquare(String input) {
 
-        if (input.length() == 25) {
+        if (input.length() == 36) {
             this.keySquare = input;
         }
 
@@ -216,13 +215,13 @@ public class ADFGXCipher {
 
     public String generateKeySquare() {
 
-        String charLibrary = "abcdefghiklmnopqrstuvwxyz";
-        int max = 25;
+        String charLibrary = "abcdefghijklmnopqrstuvwxyz1234567890";
+        int max = 36;
         int min = 0;
         StringBuilder charLibrarySB = new StringBuilder(charLibrary);
         StringBuilder newKeySquare = new StringBuilder();
 
-            for (int i = 0; i <= 24; i++) {
+            for (int i = 0; i <= 35; i++) {
                 int random = (int)(Math.random() * max - min);
                 char nextChar = charLibrarySB.charAt(random);
                 newKeySquare.append(nextChar);
@@ -262,13 +261,7 @@ public class ADFGXCipher {
         for (int i = 0; i < input.length(); i++) {
             String currentChar = Character.toString(inputLC.charAt(i));
             if (Character.isLetter(currentChar.charAt(0)) || Character.isDigit(currentChar.charAt(0))) {
-                if (Character.toString(currentChar.charAt(0)).equalsIgnoreCase("j")) {
-                    fractionatedInput.append(this.keySquareOutput[keySquareSB.indexOf("i")]);
-                }
-                else {
-                    fractionatedInput.append(this.keySquareOutput[keySquareSB.indexOf(currentChar)]);
-                }
-
+                fractionatedInput.append(this.keySquareOutput[keySquareSB.indexOf(currentChar)]);
             }
         }
 
@@ -326,7 +319,7 @@ public class ADFGXCipher {
             for (int i = 0; i < this.key.length(); i++) {
                 String testChar = Character.toString(this.key.charAt(i));
                 String testCharAlpha = Character.toString(sortedKey.charAt(sortedKeyPlace));
-                if (testChar.equalsIgnoreCase(testCharAlpha) && fractInputCT[1][i] != null){
+                if (testChar.equalsIgnoreCase(testCharAlpha) && fractInputCT[1][i] != null) {
 
                     outputSB.append(fractInputCT[1][i]);
                     sortedKeyPlace++;
@@ -460,7 +453,7 @@ public class ADFGXCipher {
             currentCharD.append(Character.toString(outputSBD.charAt(i + 1)));
             String currentCharDS = currentCharD.toString();
 
-            for (int j = 0; j < 25; j++) {
+            for (int j = 0; j < 36; j++) {
                 if (currentCharDS.equalsIgnoreCase(this.keySquareOutput[j])) {
                     outputSBDU.append(this.keySquare.charAt(j));
                     break;

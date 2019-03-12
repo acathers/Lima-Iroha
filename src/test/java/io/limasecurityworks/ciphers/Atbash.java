@@ -3,7 +3,7 @@ package io.limasecurityworks.ciphers;
 import java.lang.StringBuilder;
 
 
-public class AtbashCipher {
+public class Atbash {
 
     private String function;
     private String key = "ZYXWVUTSRQPONMLKJIHGFEDCBA";
@@ -11,7 +11,7 @@ public class AtbashCipher {
     private String about;
     private String charLibrary = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
-    public AtbashCipher (String function, String help, String about) {
+    public Atbash(String function, String help, String about) {
         this.function = function;
         this.help = help;
         this.about = about;

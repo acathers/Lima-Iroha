@@ -1,6 +1,6 @@
 package io.limasecurityworks.ciphers;
 
-public class AffineCipher {
+public class Affine {
 
     private String function;
     private int iKeyA;
@@ -11,7 +11,7 @@ public class AffineCipher {
 
     private String modulo95 = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ!\"#$%&\'()*+,-./0123456789:;<=>?@[\\]^_`{|}~";
 
-    public AffineCipher (String function, int iKeyA, int iKeyB, String help, String about) {
+    public Affine(String function, int iKeyA, int iKeyB, String help, String about) {
         this.function = function;
         this.iKeyA = iKeyA;
         this.iKeyB = iKeyB;

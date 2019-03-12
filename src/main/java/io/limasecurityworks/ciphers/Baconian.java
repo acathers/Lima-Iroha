@@ -2,73 +2,73 @@ package io.limasecurityworks.ciphers;
 
 import java.util.HashMap;
 
-public class BaconianCipher {
+public class Baconian {
 
     private String function;
     private String help;
     private String about;
 
-    private HashMap<Character, Integer> encryptionMap = new HashMap<>(26, 1); {{
+    private HashMap<Character, String> encryptionMap = new HashMap<>(26, 1); {{
 
-        encryptionMap.put('A', 00000);
-        encryptionMap.put('B', 00001);
-        encryptionMap.put('C', 00010);
-        encryptionMap.put('D', 00011);
-        encryptionMap.put('E', 00100);
-        encryptionMap.put('F', 00101);
-        encryptionMap.put('G', 00110);
-        encryptionMap.put('G', 00111);
-        encryptionMap.put('I', 01000);
-        encryptionMap.put('J', 01001);
-        encryptionMap.put('K', 01010);
-        encryptionMap.put('L', 01011);
-        encryptionMap.put('M', 01100);
-        encryptionMap.put('N', 01101);
-        encryptionMap.put('O', 01110);
-        encryptionMap.put('P', 01111);
-        encryptionMap.put('Q', 10000);
-        encryptionMap.put('R', 10001);
-        encryptionMap.put('S', 10010);
-        encryptionMap.put('T', 10011);
-        encryptionMap.put('U', 10100);
-        encryptionMap.put('V', 10101);
-        encryptionMap.put('W', 10110);
-        encryptionMap.put('X', 10111);
-        encryptionMap.put('Y', 11000);
-        encryptionMap.put('Z', 11001);
+        encryptionMap.put('A', "00000");
+        encryptionMap.put('B', "00001");
+        encryptionMap.put('C', "00010");
+        encryptionMap.put('D', "00011");
+        encryptionMap.put('E', "00100");
+        encryptionMap.put('F', "00101");
+        encryptionMap.put('G', "00110");
+        encryptionMap.put('H', "00111");
+        encryptionMap.put('I', "01000");
+        encryptionMap.put('J', "01001");
+        encryptionMap.put('K', "01010");
+        encryptionMap.put('L', "01011");
+        encryptionMap.put('M', "01100");
+        encryptionMap.put('N', "01101");
+        encryptionMap.put('O', "01110");
+        encryptionMap.put('P', "01111");
+        encryptionMap.put('Q', "10000");
+        encryptionMap.put('R', "10001");
+        encryptionMap.put('S', "10010");
+        encryptionMap.put('T', "10011");
+        encryptionMap.put('U', "10100");
+        encryptionMap.put('V', "10101");
+        encryptionMap.put('W', "10110");
+        encryptionMap.put('X', "10111");
+        encryptionMap.put('Y', "11000");
+        encryptionMap.put('Z', "11001");
     }}
 
-    private HashMap<Integer, Character> decryptionMap = new HashMap<>(26, 1); {{
+    private HashMap<String, String> decryptionMap = new HashMap<>(26, 1); {{
 
-        decryptionMap.put(00000, 'A');
-        decryptionMap.put(00001, 'B');
-        decryptionMap.put(00010, 'C');
-        decryptionMap.put(00011, 'D');
-        decryptionMap.put(00100, 'E');
-        decryptionMap.put(00101, 'F');
-        decryptionMap.put(00110, 'G');
-        decryptionMap.put(00111, 'H');
-        decryptionMap.put(01000, 'I');
-        decryptionMap.put(01001, 'J');
-        decryptionMap.put(01010, 'K');
-        decryptionMap.put(01011, 'L');
-        decryptionMap.put(01100, 'M');
-        decryptionMap.put(01101, 'N');
-        decryptionMap.put(01110, 'O');
-        decryptionMap.put(01111, 'P');
-        decryptionMap.put(10000, 'Q');
-        decryptionMap.put(10001, 'R');
-        decryptionMap.put(10010, 'S');
-        decryptionMap.put(10011, 'T');
-        decryptionMap.put(10100, 'U');
-        decryptionMap.put(10101, 'V');
-        decryptionMap.put(10110, 'W');
-        decryptionMap.put(10111, 'X');
-        decryptionMap.put(11000, 'Y');
-        decryptionMap.put(11001, 'Z');
+        decryptionMap.put("00000", "A");
+        decryptionMap.put("00001", "B");
+        decryptionMap.put("00010", "C");
+        decryptionMap.put("00011", "D");
+        decryptionMap.put("00100", "E");
+        decryptionMap.put("00101", "F");
+        decryptionMap.put("00110", "G");
+        decryptionMap.put("00111", "H");
+        decryptionMap.put("01000", "I");
+        decryptionMap.put("01001", "J");
+        decryptionMap.put("01010", "K");
+        decryptionMap.put("01011", "L");
+        decryptionMap.put("01100", "M");
+        decryptionMap.put("01101", "N");
+        decryptionMap.put("01110", "O");
+        decryptionMap.put("01111", "P");
+        decryptionMap.put("10000", "Q");
+        decryptionMap.put("10001", "R");
+        decryptionMap.put("10010", "S");
+        decryptionMap.put("10011", "T");
+        decryptionMap.put("10100", "U");
+        decryptionMap.put("10101", "V");
+        decryptionMap.put("10110", "W");
+        decryptionMap.put("10111", "X");
+        decryptionMap.put("11000", "Y");
+        decryptionMap.put("11001", "Z");
     }}
 
-    public BaconianCipher(String function, String help, String about) {
+    public Baconian(String function, String help, String about) {
         this.function = function;
         this.help = help;
         this.about = about;
@@ -142,13 +142,13 @@ public class BaconianCipher {
 
     public String encryptText(String input) {
 
-        input.toUpperCase();
+        input = input.toUpperCase();
 
         int counter = 0;
 
         char[] inputArray = input.toCharArray();
         char[] inputLetters = new char[input.length()];
-        String output = "";
+        
 
         for (int i = 0; i < input.length(); i++) {
 
@@ -160,9 +160,11 @@ public class BaconianCipher {
             }
         }
 
-        for (int i = 0; i < input.length(); i++) {
+        String output = "";
+        
+        for (int i = 0; i < counter; i++) {
 
-            output = output + encryptionMap.get(inputLetters[i]).toString();
+            output = output + encryptionMap.get(inputLetters[i]);
         }
         
         return output;
@@ -172,7 +174,6 @@ public class BaconianCipher {
 
         String indexValue = "";
         String output = "";
-        int indexValueInt;
 
         char[] inputArray = input.toCharArray();
 
@@ -184,11 +185,9 @@ public class BaconianCipher {
 
             counter++;
 
-            if (counter == 4) {
+            if (counter == 5) {
 
-                indexValueInt = Integer.parseInt(indexValue);
-
-                output = output + decryptionMap.get(indexValueInt);
+                output = output + decryptionMap.get(indexValue);
 
                 indexValue = "";
                 counter = 0;
