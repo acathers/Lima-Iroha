@@ -8,7 +8,7 @@ public class Baconian {
     private String help;
     private String about;
 
-    private HashMap<Character, String> encryptionMap = new HashMap<>(26, 1); {{
+    private HashMap<Character, String> encryptionMap = new HashMap<Character, String>(26, 1); {{
 
         encryptionMap.put('A', "00000");
         encryptionMap.put('B', "00001");
@@ -38,7 +38,7 @@ public class Baconian {
         encryptionMap.put('Z', "11001");
     }}
 
-    private HashMap<String, String> decryptionMap = new HashMap<>(26, 1); {{
+    private HashMap<String, String> decryptionMap = new HashMap<String, String>(26, 1); {{
 
         decryptionMap.put("00000", "A");
         decryptionMap.put("00001", "B");
