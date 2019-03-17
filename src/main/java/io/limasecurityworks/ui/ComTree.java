@@ -170,6 +170,12 @@ public class ComTree {
 
             newBaconian.runBaconian();
         }
+        else if (command.equalsIgnoreCase("Base64")) {
+
+            Base64 newBase64 = new Base64(this.function, this.help, this.about);
+
+            newBase64.runBase64();
+        }
         else {
 
             System.out.println("\n" + "Invlid command entered. Use help for more information.");

@@ -4,7 +4,7 @@ The development goal of this program is to create a program that can be used in 
 
 Check out the webpage for Lima Security Works at limasecurityworks.io
 
-Current Version: 0.8.1
+Current Version: 0.9.0
 
 --------------------------------------
 How to run this program on Linux.
@@ -36,10 +36,10 @@ The following ciphers have been added:
     Version 0.6.0 - Affine
     Version 0.7.0 - Autokey
     Version 0.8.0 - Baconian
+    Version 0.9.0 -  Base 64
 
 The following ciphers have yet to be added but in progress:
 
-    Version 0.9.0 -  Base 64
     Version 0.10.0 - Beaufort
     Version 0.11.0 - Bifid
     Version 0.12.0 - Codes and Nomenclators
