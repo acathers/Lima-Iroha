@@ -1,6 +1,6 @@
 package io.limasecurityworks.ciphers;
 
-public class Autokey {
+public class Vegenere {
 
     private String function;
     private String key;
@@ -9,14 +9,14 @@ public class Autokey {
 
     private char tabulaRecta[][] = {{'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'}, {'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', 'A'}, {'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', 'A', 'B'}, {'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', 'A', 'B', 'C'}, {'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', 'A', 'B', 'C', 'D'}, {'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', 'A', 'B', 'C', 'D', 'E'}, {'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', 'A', 'B', 'C', 'D', 'E', 'F'}, {'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', 'A', 'B', 'C', 'D', 'E', 'F', 'G'}, {'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H'}, {'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I'}, {'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J'}, {'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K'}, {'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L'}, {'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M'}, {'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N'}, {'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O'}, {'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P'}, {'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q'}, {'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R'}, {'T', 'U', 'V', 'W', 'X', 'Y', 'Z', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S'}, {'U', 'V', 'W', 'X', 'Y', 'Z', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T'}, {'V', 'W', 'X', 'Y', 'Z', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U'}, {'W', 'X', 'Y', 'Z', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V'}, {'X', 'Y', 'Z', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W'}, {'Y', 'Z', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X'}, {'Z', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y'}};
 
-    public Autokey(String function, String key, String help, String about) {
+    public Vegenere(String function, String key, String help, String about) {
         this.function = function;
         this.key = key;
         this.help = help;
         this.about = about;
     }
 
-    public void runAutokey() {
+    public void runVegenere() {
 
         if (this.help != null) {
 
@@ -24,19 +24,17 @@ public class Autokey {
                 System.out.println("You have entered a command with a function to either encrypt or decrypt with a key. The key must be shorter than the input text to be encrypted or decrypted.");
             }
             else if (this.function != null) {
-                System.out.println("You may choose to either 'encrypt' or 'decrypt' a message with the Autokey Cipher. This cipher will require a key which you will be promted to enter later if you did not specify at the main command line.");
+                System.out.println("You may choose to either 'encrypt' or 'decrypt' a message with the Vegenere Cipher. This cipher will require a key which you will be promted to enter later if you did not specify at the main command line.");
             }
             else {
-                System.out.println("Autokey Cipher will ask you to encrypt or decrypt and will require a key, the key must contain only letters. Uppercase or lowercase does not matter. The key must also be less characters than the input text to be encrypted or decrypted");
+                System.out.println("Vegenere Cipher will ask you to encrypt or decrypt and will require a key, the key must contain only letters. Uppercase or lowercase does not matter. The key must also be less characters than the input text to be encrypted or decrypted");
             }
         }
 
         else if (this.about != null) {
-            System.out.println("\n" + "This cipher was invented in 1586 by Blaise de Vigenère with a reciprocal table of ten alphabets. Vigenère's version used an agreed-upon letter of the alphabet as a primer, making the key by writing down that letter and then the rest of the message. " + "\n" + "\n" +
+            System.out.println("\n" + "First described in 1553, the cipher is easy to understand and implement, but it resisted all attempts to break it for three centuries until 1863. This earned it the description le chiffre indéchiffrable (French for 'the indecipherable cipher'). Many people have tried to implement encryption schemes that are essentially Vigenère ciphers.[3] In 1863, Friedrich Kasiski was the first to publish a general method of deciphering Vigenère ciphers." + "\n" + "\n" +
 
-            "More popular autokeys use a tabula recta, a square with 26 copies of the alphabet, the first line starting with 'A', the next line starting with 'B' etc. Instead of a single letter, a short agreed-on keyword is used, and the key is generated by writing down the primer and then the rest of the message, as in Vigenère's version. To encrypt a plaintext, the row with the first letter of the message and the column with the first letter of the key are located. The letter in which the row and the column cross is the ciphertext letter. " + "(\"Autokey cipher,\" n.d.) " + "\n" + "\n" +
-
-            "This program uses the more pupular version which uses the tabula recta and allows full words as a key.");
+            "The Vigenère cipher was originally described by Giovan Battista Bellaso in his 1553 book La cifra del. Sig. Giovan Battista Bellaso, but the scheme was later misattributed to Blaise de Vigenère (1523–1596) in the 19th century and so acquired its present name. " + "(\"Vegenere cipher,\" n.d.)");
         }
 
         else {
@@ -124,11 +122,27 @@ public class Autokey {
 
         String inputUC = input.toUpperCase();
         String keyUC = this.key.toUpperCase();
-
-        String keyPlusInputUC = keyUC + inputUC.substring(0, (inputUC.length() - keyUC.length()));
         String alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+        String keyExtended = keyUC;
+        int counter = 0;
 
-        char[] keyPlusInputArray = keyPlusInputUC.toCharArray();
+        //Makes the key repeat itself until the length of input.
+
+        for (int i = 0; i < input.length() - keyUC.length(); i++) {
+
+            if (keyUC.length() < input.length()) {
+
+                keyExtended += Character.toString(keyUC.charAt(counter));
+                counter++;
+
+                if (counter == keyUC.length()) {
+
+                    counter = 0;
+                }
+            }
+        }
+
+        char[] keyPlusInputArray = keyExtended.toCharArray();
         char[] inputArray = inputUC.toCharArray();
         char[] output = new char[inputUC.length()];
 
@@ -144,7 +158,7 @@ public class Autokey {
     }
 
     /*
-    * Steps below to decrypt Autokey Cipher.
+    * Steps below to decrypt Vegenere Cipher.
     * 1. Change input and key to upper case.
     * 2. nested for loop finds the row for key and sends that entire row to a string.
     * 3. for loops finds the index number of the encrypted char in that rowString.
@@ -155,9 +169,25 @@ public class Autokey {
 
         String inputUC = input.toUpperCase();
         String keyUC = this.key.toUpperCase();
-
         String alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+        String keyExtended = keyUC;
+        int counter = 0;
 
+        //Makes the key repeat itself until the length of input.
+
+        for (int i = 0; i < input.length() - keyUC.length(); i++) {
+
+            if (keyUC.length() < input.length()) {
+
+                keyExtended += Character.toString(keyUC.charAt(counter));
+                counter++;
+
+                if (counter == keyUC.length()) {
+
+                    counter = 0;
+                }
+            }
+        }
         char[] output = new char[inputUC.length()];
 
         for (int i = 0; i < inputUC.length(); i++) {
@@ -166,11 +196,10 @@ public class Autokey {
 
             for (int j = 0; j < 26; j++) {
 
-                rowString = rowString + tabulaRecta[alphabet.indexOf(keyUC.charAt(i))][j];
+                rowString = rowString + tabulaRecta[alphabet.indexOf(keyExtended.charAt(i))][j];
             }
 
             output[i] = alphabet.charAt(rowString.indexOf(inputUC.charAt(i)));
-            keyUC = keyUC + alphabet.charAt(rowString.indexOf(inputUC.charAt(i)));
         }
 
         return String.valueOf(output);

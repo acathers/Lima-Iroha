@@ -182,6 +182,12 @@ public class ComTree {
 
             newBeaufort.runBeaufort();
         }
+        else if (command.equalsIgnoreCase("Vegenere")) {
+
+            Vegenere newVegenere = new Vegenere(this.function, this.key, this.help, this.about);
+
+            newVegenere.runVegenere();
+        }
         else {
 
             System.out.println("\n" + "Invlid command entered. Use help for more information.");
