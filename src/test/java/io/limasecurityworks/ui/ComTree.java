@@ -176,6 +176,12 @@ public class ComTree {
 
             newBase64.runBase64();
         }
+        else if (command.equalsIgnoreCase("Beaufort")) {
+
+            Beaufort newBeaufort = new Beaufort(this.function, this.key, this.help, this.about);
+
+            newBeaufort.runBeaufort();
+        }
         else {
 
             System.out.println("\n" + "Invlid command entered. Use help for more information.");

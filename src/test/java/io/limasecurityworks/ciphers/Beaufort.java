@@ -1,6 +1,6 @@
 package io.limasecurityworks.ciphers;
 
-public class Autokey {
+public class Beaufort {
 
     private String function;
     private String key;
@@ -9,14 +9,14 @@ public class Autokey {
 
     private char tabulaRecta[][] = {{'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'}, {'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', 'A'}, {'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', 'A', 'B'}, {'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', 'A', 'B', 'C'}, {'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', 'A', 'B', 'C', 'D'}, {'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', 'A', 'B', 'C', 'D', 'E'}, {'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', 'A', 'B', 'C', 'D', 'E', 'F'}, {'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', 'A', 'B', 'C', 'D', 'E', 'F', 'G'}, {'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H'}, {'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I'}, {'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J'}, {'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K'}, {'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L'}, {'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M'}, {'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N'}, {'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O'}, {'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P'}, {'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q'}, {'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R'}, {'T', 'U', 'V', 'W', 'X', 'Y', 'Z', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S'}, {'U', 'V', 'W', 'X', 'Y', 'Z', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T'}, {'V', 'W', 'X', 'Y', 'Z', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U'}, {'W', 'X', 'Y', 'Z', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V'}, {'X', 'Y', 'Z', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W'}, {'Y', 'Z', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X'}, {'Z', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y'}};
 
-    public Autokey(String function, String key, String help, String about) {
+    public Beaufort(String function, String key, String help, String about) {
         this.function = function;
         this.key = key;
         this.help = help;
         this.about = about;
     }
 
-    public void runAutokey() {
+    public void runBeaufort() {
 
         if (this.help != null) {
 
@@ -24,19 +24,15 @@ public class Autokey {
                 System.out.println("You have entered a command with a function to either encrypt or decrypt with a key. The key must be shorter than the input text to be encrypted or decrypted.");
             }
             else if (this.function != null) {
-                System.out.println("You may choose to either 'encrypt' or 'decrypt' a message with the Autokey Cipher. This cipher will require a key which you will be promted to enter later if you did not specify at the main command line.");
+                System.out.println("You may choose to either 'encrypt' or 'decrypt' a message with the Beaufort Cipher. This cipher will require a key which you will be promted to enter later if you did not specify at the main command line.");
             }
             else {
-                System.out.println("Autokey Cipher will ask you to encrypt or decrypt and will require a key, the key must contain only letters. Uppercase or lowercase does not matter. The key must also be less characters than the input text to be encrypted or decrypted");
+                System.out.println("Beaufort Cipher will ask you to encrypt or decrypt and will require a key, the key must contain only letters. Uppercase or lowercase does not matter. The key must also be less characters than the input text to be encrypted or decrypted");
             }
         }
 
         else if (this.about != null) {
-            System.out.println("\n" + "This cipher was invented in 1586 by Blaise de Vigenère with a reciprocal table of ten alphabets. Vigenère's version used an agreed-upon letter of the alphabet as a primer, making the key by writing down that letter and then the rest of the message. " + "\n" + "\n" +
-
-            "More popular autokeys use a tabula recta, a square with 26 copies of the alphabet, the first line starting with 'A', the next line starting with 'B' etc. Instead of a single letter, a short agreed-on keyword is used, and the key is generated by writing down the primer and then the rest of the message, as in Vigenère's version. To encrypt a plaintext, the row with the first letter of the message and the column with the first letter of the key are located. The letter in which the row and the column cross is the ciphertext letter. " + "(\"Autokey cipher,\" n.d.) " + "\n" + "\n" +
-
-            "This program uses the more pupular version which uses the tabula recta and allows full words as a key.");
+            System.out.println("\n" + "The Beaufort cipher, created by Sir Francis Beaufort, is a substitution cipher similar to the Vigenère cipher, with a slightly modified enciphering mechanism and tableau. Its most famous application was in a rotor-based cipher machine, the Hagelin M-209. The Beaufort cipher is based on the Beaufort square which is essentially the same as a Vigenère square but in reverse order starting with the letter \"Z\" in the first row, where the first row and the last column serve the same purpose. "  + "(\"Beaufort cipher,\" n.d.) ");
         }
 
         else {
@@ -115,62 +111,98 @@ public class Autokey {
 
     /*
     * steps needed for encryption
-    * 1. take the key and add text to it to make it the same length as the input text.
-    * 2. key char 0 = x, input char 0 = y. Key equals colums, input equals rows.
-    *    encrypted char 0 = tabulaRecta[y][x].
+    * 1. take the key and repeat the key until it is the same length as the input.
+    * 2. Take column(input char) and find position of (key char) and produce row char that matches.
+    * Note: tabulaRecta[y][x]. or tabulaRecta[column][row]
     */
 
     public String encryptText(String input) {
 
+        System.out.println(input);
+
         String inputUC = input.toUpperCase();
         String keyUC = this.key.toUpperCase();
-
-        String keyPlusInputUC = keyUC + inputUC.substring(0, (inputUC.length() - keyUC.length()));
         String alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+        String keyExtended = keyUC;
+        int counter = 0;
 
-        char[] keyPlusInputArray = keyPlusInputUC.toCharArray();
-        char[] inputArray = inputUC.toCharArray();
+        //Makes the key repeat itself until the length of input.
+
+        for (int i = 0; i < input.length() - keyUC.length(); i++) {
+
+            if (keyUC.length() < input.length()) {
+
+                keyExtended += Character.toString(keyUC.charAt(counter));
+                counter++;
+
+                if (counter == keyUC.length()) {
+
+                    counter = 0;
+                }
+            }
+        }
+
         char[] output = new char[inputUC.length()];
 
-        for (int i = 0; i < input.length(); i++) {
+        //Makes a string of column (input char), and finds key char in string, then identifies row char for encryption.
 
-            int indexKey = alphabet.indexOf(keyPlusInputArray[i]);
-            int indexInput = alphabet.indexOf(inputArray[i]);
+        for (int i = 0; i < inputUC.length(); i++) {
 
-            output[i] = this.tabulaRecta[indexInput][indexKey];
+            String columnString = "";
+
+            for (int j = 0; j < 26; j++) {
+
+                columnString = columnString + tabulaRecta[alphabet.indexOf(inputUC.charAt(i))][j];
+            }
+
+            output[i] = alphabet.charAt(columnString.indexOf(keyExtended.charAt(i)));
         }
 
         return String.valueOf(output);
     }
 
     /*
-    * Steps below to decrypt Autokey Cipher.
-    * 1. Change input and key to upper case.
-    * 2. nested for loop finds the row for key and sends that entire row to a string.
-    * 3. for loops finds the index number of the encrypted char in that rowString.
-    * 4. Output[i] is the index of that char in the row in the alphabet(or the column number).
+    * Same algorithm to decrypt.
     */
 
     public String decryptText(String input) {
 
         String inputUC = input.toUpperCase();
         String keyUC = this.key.toUpperCase();
-
         String alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+        String keyExtended = keyUC;
+        int counter = 0;
+
+        //Makes the key repeat itself until the length of input.
+
+        for (int i = 0; i < input.length() - keyUC.length(); i++) {
+
+            if (keyUC.length() < input.length()) {
+
+                keyExtended += Character.toString(keyUC.charAt(counter));
+                counter++;
+
+                if (counter == keyUC.length()) {
+
+                    counter = 0;
+                }
+            }
+        }
 
         char[] output = new char[inputUC.length()];
 
+        //Makes a string of column (input char), and finds key char in string, then identifies row char for encryption.
+
         for (int i = 0; i < inputUC.length(); i++) {
 
-            String rowString = "";
+            String columnString = "";
 
             for (int j = 0; j < 26; j++) {
 
-                rowString = rowString + tabulaRecta[alphabet.indexOf(keyUC.charAt(i))][j];
+                columnString = columnString + tabulaRecta[alphabet.indexOf(inputUC.charAt(i))][j];
             }
 
-            output[i] = alphabet.charAt(rowString.indexOf(inputUC.charAt(i)));
-            keyUC = keyUC + alphabet.charAt(rowString.indexOf(inputUC.charAt(i)));
+            output[i] = alphabet.charAt(columnString.indexOf(keyExtended.charAt(i)));
         }
 
         return String.valueOf(output);
