@@ -36,11 +36,11 @@ The following ciphers have been added:
     Version 0.6.0 - Affine
     Version 0.7.0 - Autokey
     Version 0.8.0 - Baconian
-    Version 0.9.0 -  Base 64
+    Version 0.9.0 - Base 64
+    Version 0.10.0 - Beaufort
 
 The following ciphers have yet to be added but in progress:
 
-    Version 0.10.0 - Beaufort
     Version 0.11.0 - Bifid
     Version 0.12.0 - Codes and Nomenclators
     Version 0.13.0 - Columnar Transposition
