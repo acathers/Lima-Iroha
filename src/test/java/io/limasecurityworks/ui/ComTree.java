@@ -188,6 +188,12 @@ public class ComTree {
 
             newVegenere.runVegenere();
         }
+        else if (command.equalsIgnoreCase("Bifid")) {
+
+            Bifid newBifid = new Bifid(this.function, this.key, this.help, this.about);
+
+            newBifid.runBifid();
+        }
         else {
 
             System.out.println("\n" + "Invlid command entered. Use help for more information.");

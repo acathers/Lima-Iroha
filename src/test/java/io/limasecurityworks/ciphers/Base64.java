@@ -156,7 +156,7 @@ public class Base64 {
 
             padding = 1;
 
-            if (input.charAt(input.length() -2) == 61) {
+            if (input.charAt(input.length() - 2) == 61) {
 
                 padding = 2;
             }
