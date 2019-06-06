@@ -1,5 +1,7 @@
 package io.limasecurityworks.ciphers;
 
+import io.limasecurityworks.tools.*;
+
 public class Autokey {
 
     private String function;
@@ -67,7 +69,7 @@ public class Autokey {
 
                 this.key = io.limasecurityworks.ui.Iroha.sc.nextLine();
 
-                while (!isAlpha(this.key) || hasSpaces(this.key)) {
+                while (!StringBoolean.isAlpha(this.key) || StringBoolean.hasSpaces(this.key)) {
 
                     System.out.print("The key must contain only letters with no spaces and it must be shorter than the text to be encrypted. Enter key: ");
 
@@ -174,39 +176,5 @@ public class Autokey {
         }
 
         return String.valueOf(output);
-    }
-
-    /*
-    * Method to ensure that all characters in a string are letters.
-    *
-    */
-
-    public boolean isAlpha(String input) {
-
-        char[] chars = input.toCharArray();
-
-        boolean allLetters = true;
-
-        for (char c : chars) {
-            if (!Character.isLetter(c) && c != ' ') {
-                allLetters = false;
-                break;
-            }
-        }
-        return allLetters;
-    }
-
-    public boolean hasSpaces(String input) {
-
-        char[] chars = input.toCharArray();
-
-        boolean hasSpaces = false;
-
-        for (char c : chars) {
-            if (c == ' ') {
-                hasSpaces = true;
-            }
-        }
-        return hasSpaces;
     }
 }

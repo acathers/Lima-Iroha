@@ -6,12 +6,12 @@ package io.limasecurityworks.tools;
 
 public class ReChars {
 
-    public static String output = "";
-
     public static String reSpaces(String input) {
 
+        String output = "";
+
         for (int i = 0; i < input.length(); i++) {
-            if (Character.toString(input.charAt(i)) != " ") {
+            if (!Character.toString(input.charAt(i)).equalsIgnoreCase(" ")) {
                 output += Character.toString(input.charAt(i));
             }
         }
@@ -20,6 +20,8 @@ public class ReChars {
     }
 
     public String reAllNonLetters(String input) {
+
+        String output = "";
 
         for (int i = 0; i < input.length(); i++) {
             if (Character.isLetter(i)) {

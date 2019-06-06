@@ -3,7 +3,7 @@ package io.limasecurityworks.ciphers;
 import java.lang.StringBuilder;
 import java.lang.Math;
 import java.util.HashMap;
-import io.limasecurityworks.tools.ReChars;
+import io.limasecurityworks.tools.*;
 
 
 public class Bifid {
@@ -168,8 +168,6 @@ public class Bifid {
             }
         }
 
-
-
         // Get input text and complete the encryption or decryption. ccHelp == null in the if statement is necessary to prevent it from running after a help command is entered.
 
         if (help == null && about == null) {
@@ -179,6 +177,12 @@ public class Bifid {
             String input = io.limasecurityworks.ui.Iroha.sc.nextLine();
             
             input = ReChars.reSpaces(input);
+
+            input = input.toLowerCase();
+
+            input = RepChars.replaceCharacter(input, "j", "i");
+
+            System.out.println(input);
 
             if (this.key == null) {
                 System.out.print("Enter key: ");
@@ -254,6 +258,8 @@ public class Bifid {
             }
         }}
 
+        System.out.println(input);
+
         return toLetter.get(input);
     }
 
@@ -270,8 +276,10 @@ public class Bifid {
         String output = "";
         String numberOutput = "";
         String index = "";
-        String[] periodArrayRow = new String[Integer.parseInt(this.key)];
-        String[] periodArrayColumn = new String[Integer.parseInt(this.key)];
+        int counter = 0;
+        int period = 0;
+        String[] periodArrayRow = new String[input.length()];
+        String[] periodArrayColumn = new String[input.length()];
 
         for (int i = 0; i < Integer.parseInt(this.key); i++) {
 
@@ -279,29 +287,14 @@ public class Bifid {
             periodArrayColumn[i] = "";
         }
 
-        int counter = 0;
-        int period = 0;
-        int indexCount = 0;
-
         for (int i = 0; i < input.length(); i++) {
             
             periodArrayRow[period] += toNumber(Character.toString(input.charAt(i))).charAt(0);
             periodArrayColumn[period] += toNumber(Character.toString(input.charAt(i))).charAt(1);
-
-            System.out.println(toNumber(Character.toString(input.charAt(i))).charAt(0));
-            System.out.println(toNumber(Character.toString(input.charAt(i))).charAt(1));
-
-            /*
-            * periodArrayRow[period] += Character.toString(keySquareOutput[keySquare.indexOf(input.charAt(i))].charAt(0));
-            * periodArrayColumn[period] += Character.toString(keySquareOutput[keySquare.indexOf(input.charAt(i))].charAt(1));
-            */
             
             counter++;
 
             if (counter == Integer.parseInt(this.key)) {
-
-                System.out.println(periodArrayRow[period]);
-                System.out.println(periodArrayColumn[period]);
 
                 counter = 0;
                 period ++;
@@ -313,17 +306,16 @@ public class Bifid {
             numberOutput += periodArrayRow[i];
             numberOutput += periodArrayColumn[i];
         }
-
-        System.out.println(numberOutput);
         
         for (int i = 0; i < numberOutput.length(); i++) {
 
             index += Character.toString(numberOutput.charAt(i));
-            indexCount++;
 
-            if (indexCount == 1) {
+            if (index.length() == 2) {
 
                 output += toLetter(index);
+
+                index = "";
             }
         }
         return output;
@@ -336,45 +328,66 @@ public class Bifid {
         String output = "";
         String numberOutput = "";
         String index = "";
-        String[] periodArrayRow = new String[Integer.parseInt(this.key)];
-        String[] periodArrayColumn = new String[Integer.parseInt(this.key)];
-
         int counter = 0;
         int period = 0;
-        int indexCount = 0;
+        String[] periodArrayRow = new String[input.length()];
+        String[] periodArrayColumn = new String[input.length()];
+
+        //Convert text to be decrypted into a number string.
 
         for (int i = 0; i < input.length(); i++) {
-            
-            periodArrayRow[period] += toNumber(Character.toString(input.charAt(i))).charAt(0);
-            periodArrayColumn[period] += toNumber(Character.toString(input.charAt(i))).charAt(1);
 
-            /*
-            * periodArrayRow[period] += Character.toString(keySquareOutput[keySquare.indexOf(input.charAt(i))].charAt(0));
-            * periodArrayColumn[period] += Character.toString(keySquareOutput[keySquare.indexOf(input.charAt(i))].charAt(1));
-            */
-            
+            numberOutput += toNumber(Character.toString(input.charAt(i)));
+        }
+
+        //Split number string in groups of numbers period(key) length. row first, then column.
+
+        for (int i = 0; i < numberOutput.length(); i++) {
+
+            if (OddEven.isOdd(i)) {
+                periodArrayRow[period] += Character.toString(numberOutput.charAt(i));
+            }
+            else {
+                periodArrayColumn[period] += Character.toString(numberOutput.charAt(i));
+            }
+    
             counter++;
+
+            if (counter == Integer.parseInt(this.key) * 2) {
+                counter = 0;
+                period++;
+            }
+        }
+
+        //Produce a new string of numbers.
+
+        period = 0;
+        counter = 0;
+        String outputDigits = "";
+
+        for (int i = 0; i < input.length(); i++) {
+            outputDigits += Character.toString(periodArrayRow[period].charAt(counter));
+            outputDigits += Character.toString(periodArrayColumn[period].charAt(counter));
+
+            counter ++;
 
             if (counter == Integer.parseInt(this.key)) {
                 counter = 0;
                 period ++;
             }
         }
- 
-        for (int i = 0; i < Integer.parseInt(this.key); i++) {
 
-            numberOutput += periodArrayRow[i];
-            numberOutput += periodArrayColumn[i];
-        }
+        //Now take outputDigits and complete the decryption.
 
-        for (int i = 0; i < numberOutput.length(); i++) {
+        for (int i = 0; i < outputDigits.length(); i++) {
 
-            index += Character.toString(numberOutput.charAt(i));
-            indexCount++;
+            index += Character.toString(outputDigits.charAt(i));
 
-            if (indexCount == 1) {
+            if (index.length() == 2) {
 
                 output += toLetter(index);
+
+                index = "";
             }
         }
         return output;

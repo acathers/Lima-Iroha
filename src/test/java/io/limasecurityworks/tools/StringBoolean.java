@@ -4,7 +4,7 @@ public class StringBoolean {
 
     // In Autokey
 
-    public boolean isAlpha(String input) {
+    public static boolean isAlpha(String input) {
 
         char[] chars = input.toCharArray();
 
@@ -21,7 +21,7 @@ public class StringBoolean {
 
     // In Autokey
 
-    public boolean hasSpaces(String input) {
+    public static boolean hasSpaces(String input) {
 
         char[] chars = input.toCharArray();
 
