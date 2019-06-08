@@ -15,7 +15,6 @@ public class ADFGX {
 
     private String[] keySquareOutput = {"AA", "AD", "AF", "AG", "AX", "DA", "DD", "DF", "DG", "DX", "FA", "FD", "FF", "FG", "FX", "GA", "GD", "GF", "GG", "GX", "XA", "XD", "XF", "XG", "XX"};
 
-
     public ADFGX(String function, String key, String help, String about) {
         this.function = function;
         this.key = key;
@@ -29,10 +28,10 @@ public class ADFGX {
 
         if (help != null) {
             if (function != null && key != null) {
-                System.out.println("\n" + "You have entered a command for ADFVGX Cipher with a function and a key. The only two options for a function is to encrypt or decrypt. The key is only one part of the encryption. The key square is like a second key that is equally important.");
+                System.out.println("\n" + "You have entered a command for ADFGX Cipher with a function and a key. The only two options for a function is to encrypt or decrypt. The key is only one part of the encryption. The key square is like a second key that is equally important.");
             }
             else if (function != null) {
-                System.out.println("\n" + "You have entered a command for ADFVGX Cipher to encrypt or decrypt a message. Since you did not specify a key, you will be prompted to do so if this same command is typed without being followed by the help command. Messages are only allowed to have the alphabet and numbers 0 through 9.");
+                System.out.println("\n" + "You have entered a command for ADFGX Cipher to encrypt or decrypt a message. Since you did not specify a key, you will be prompted to do so if this same command is typed without being followed by the help command. Messages are only allowed to have the alphabet and numbers 0 through 9.");
             }
             else {
                 System.out.println("\n" + "The ADFGX cipher requires a key and a key square which is means that it needs two keys, however the key square must contain all letters of the alphabet once except the letter 'j'. So you should have 25 characters. The order of the characters is what is used for the key square. Your key is just as important in the encryption and decryption process. Just know that you MUST remember both the key and the key square. You are prompted to either use the default key square that the program provides, generate a new one, or to use a custom key square at the first.");
@@ -51,12 +50,12 @@ public class ADFGX {
             this.function = io.limasecurityworks.ui.Iroha.sc.nextLine();
 
             while (!this.function.equalsIgnoreCase("encrypt") && !this.function.equalsIgnoreCase("decrypt")){
-                System.out.print("\n" + "Invalid function for ADFVGX Cipher. Please enter 'Encrypt' or 'Decrypt':  ");
+                System.out.print("\n" + "Invalid function for ADFGX Cipher. Please enter 'Encrypt' or 'Decrypt':  ");
 
                 String encDecResponseNull = io.limasecurityworks.ui.Iroha.sc.nextLine();
 
                 if (!encDecResponseNull.equalsIgnoreCase("encrypt") && !encDecResponseNull.equalsIgnoreCase("decrypt")) {
-                    System.out.print("\n" + "Invalid function for ADFVGX Cipher. Please enter 'Encrypt' or 'Decrypt':  ");
+                    System.out.print("\n" + "Invalid function for ADFGX Cipher. Please enter 'Encrypt' or 'Decrypt':  ");
                 }
                 else {
                     this.function = encDecResponseNull;
@@ -184,9 +183,7 @@ public class ADFGX {
             if (this.key == null) {
                 System.out.print("Enter key: ");
                 setKey(io.limasecurityworks.ui.Iroha.sc.nextLine());
-
             }
-
             if (this.function.equalsIgnoreCase("encrypt")) {
                     System.out.print("Encrypted Text:  " + encryptText(input) + "\n");
             }
@@ -207,7 +204,6 @@ public class ADFGX {
         if (input.length() == 25) {
             this.keySquare = input;
         }
-
     }
 
     public void setKey(String inputKey) {
