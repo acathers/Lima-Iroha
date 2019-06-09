@@ -110,6 +110,8 @@ public class Caesar {
 
             }
 
+            
+
             if (this.function.equalsIgnoreCase("encrypt")) {
                     System.out.print("Encrypted Text:  " + encryptText(input) + "\n");
             }

@@ -4,6 +4,7 @@ import java.lang.StringBuilder;
 import java.lang.Math;
 import java.util.HashMap;
 import io.limasecurityworks.tools.*;
+import io.limasecurityworks.printables.*;
 
 
 public class Bifid {
@@ -47,7 +48,7 @@ public class Bifid {
         //Next, check to see if a function was provided. if not, get the function.
 
         else if (function == null) {
-            System.out.print("\n" + "Would you like to Encrypt or Decrypt your text?: ");
+            System.out.print("Would you like to Encrypt or Decrypt your text?: ");
 
             this.function = io.limasecurityworks.ui.Iroha.sc.nextLine();
 
@@ -88,7 +89,6 @@ public class Bifid {
         if (this.help == null && this.about == null) {
             boolean option = false;
 
-            System.out.println();
             System.out.print("Key Square - Default, new, or custom?: ");
 
             String keySqOption = io.limasecurityworks.ui.Iroha.sc.nextLine();
@@ -171,7 +171,6 @@ public class Bifid {
         // Get input text and complete the encryption or decryption. ccHelp == null in the if statement is necessary to prevent it from running after a help command is entered.
 
         if (help == null && about == null) {
-            System.out.println();
             System.out.print("Input Text: ");
 
             String input = io.limasecurityworks.ui.Iroha.sc.nextLine();
@@ -182,18 +181,18 @@ public class Bifid {
 
             input = RepChars.replaceCharacter(input, "j", "i");
 
-            System.out.println(input);
-
             if (this.key == null) {
                 System.out.print("Enter key: ");
                 setKey(io.limasecurityworks.ui.Iroha.sc.nextLine());
             }
 
             if (this.function.equalsIgnoreCase("encrypt")) {
-                System.out.print("Input:          " + "\n" + "Key Square:     " + "\n" + "Key:            " + "\n" + "Encrypted Text: " + encryptText(input) + "\n");
+                Headers.translationHeader();
+                System.out.print("Input:          " + input + "\n" + "Key Square:     " + keySquare + "\n" + "Key:            " + key + "\n" + "Encrypted Text: " + encryptText(input) + "\n");
             }
             else if (this.function.equalsIgnoreCase("decrypt")) {
-                System.out.print("Input:          " + "\n" + "Key Square:     " + "\n" + "Key:            " + "\n" + "Decrypted Text: " + decryptText(input) + "\n");
+                Headers.translationHeader();
+                System.out.print("Input:          " + input + "\n" + "Key Square:     " + keySquare + "\n" + "Key:            " + key + "\n" + "Decrypted Text: " + decryptText(input) + "\n");
             }
             else if (this.function.equalsIgnoreCase("help")) {
                 System.out.println("You should get help, but I have yet to develop help for this part of the program at this time.");
@@ -315,7 +314,7 @@ public class Bifid {
 
         // Produce one long string of digits.
  
-        for (int i = 0; i < Integer.parseInt(this.key); i++) {
+        for (int i = 0; i < periodsPerArray; i++) {
 
             numberOutput += periodArrayRow[i];
             numberOutput += periodArrayColumn[i];
