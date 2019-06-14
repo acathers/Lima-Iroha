@@ -10,15 +10,19 @@ Current Version: 0.12.02
 How to run this program on Linux.
 --------------------------------------
 
-Download the repository Lima-Iroha. Once downloaded, cd to the java folder within the main folder in the program. I have the Lima-Iroha folder in /Documents/JAtom so cd for my looks like this.
+Download the repository Lima-Iroha. Once downloaded, the file will be called "Lima-Iroha-master cd to that folder. I have the Lima-Iroha-master folder in /Downloads/Lima-Iroha-master so cd for my looks like this.
 
-/Documents/JAtom/Lima-Iroha/src/main/java
+cd /home/Iskra/Downloads/Lima-Iroha-master/
 
-Next compile the packages with the following.
+Next compile the packages with the following. The "-sourcepath" is where you will be getting the files from, if you cd to the Lima-Iroha-master file, then you should not need to change this. -d is the destination, the .class files will be sent here. There is already a target/classes file made for them to be sent to.
 
-javac io/limasecurityworks/ciphers/*.java io/limasecurityworks/ui/*.java
+javac -sourcepath src/main/java -d target/classes src/main/java/io/limasecurityworks/ciphers/*.java src/main/java/io/limasecurityworks/ui/*.java src/main/java/io/limasecurityworks/tools/*.java src/main/java/io/limasecurityworks/printables/*.java src/main/java/io/limasecurityworks/processes/*.java src/main/java/io/limasecurityworks/info/*.java
 
-Next run the program with the follwing.
+Next use "cd" again to get to the io file, like this.
+
+cd test/classes
+
+Now, start the program.
 
 java io/limasecurityworks/ui/Iroha
 
