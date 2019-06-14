@@ -10,7 +10,7 @@ Current Version: 0.12.02
 How to run this program on Linux.
 --------------------------------------
 
-Download the repository Lima-Iroha. Once downloaded, the file will be called "Lima-Iroha-master cd to that folder. I have the Lima-Iroha-master folder in /Downloads/Lima-Iroha-master so cd for my looks like this.
+Download the repository Lima-Iroha. Once downloaded, the file will be called "Lima-Iroha-master cd to that folder. I have the Lima-Iroha-master folder in /Downloads/Lima-Iroha-master so cd for my looks like this. (Also know that you can type cd and hit space then drag and drop the "Lima-Iroha-master" file into your terminal window and it will do it for you, but remember to his space after cd.)
 
 cd /home/Iskra/Downloads/Lima-Iroha-master/
 
