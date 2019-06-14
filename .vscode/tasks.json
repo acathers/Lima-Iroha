@@ -15,5 +15,17 @@
             "command": "mvn -B test",
             "group": "test"
         }
+        {
+            "label": "testRun",
+            "type": "shell",
+            "command": "mvn exec:java -Dexec.mainClass=\"io.limasecurityworks.ui.Iroha\" -Dexec.classpathScope=\"test\"",
+            "group": "test"
+        }
+        {
+            "label": "Run",
+            "type": "shell",
+            "command": "mvn exec:java",
+            "group": "test"
+        }
     ]
 }

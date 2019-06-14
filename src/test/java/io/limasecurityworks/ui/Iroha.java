@@ -27,6 +27,8 @@ public class Iroha {
 
         boolean welcomeDisplayed = false;
 
+        System.out.println("This is the test program");
+
         while (!exit) {
 
             if (welcomeDisplayed == true) {

@@ -52,10 +52,12 @@
           <version>3.0.2</version>
         </plugin>
         <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-compiler-plugin</artifactId>
-          <version>3.8.0</version>
+          <version>3.8.1</version>
           <configuration>
-                <release>12.0.1</release>
+            <source>11</source>
+            <target>11</target>
           </configuration>
         </plugin>
         <plugin>
@@ -89,6 +91,14 @@
             <version>0.0.1</version>
             <configuration>
                 <mainClass>IrohaFX</mainClass>
+            </configuration>
+        </plugin>
+        <plugin>
+            <groupId>org.codehaus.mojo</groupId>
+            <artifactId>exec-maven-plugin</artifactId>
+            <version>1.4.0</version>
+            <configuration>
+              <mainClass>io.limasecurityworks.ui.Iroha</mainClass>
             </configuration>
         </plugin>
       </plugins>
