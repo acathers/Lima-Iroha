@@ -1,5 +1,6 @@
 package io.limasecurityworks.ui;
 
+import io.limasecurityworks.info.Help;
 import io.limasecurityworks.ciphers.*;
 
 public class ComTree {
@@ -11,6 +12,8 @@ public class ComTree {
     private String about;
     private int iKeyA;
     private int iKeyB;
+    private String input;
+    private String keySquare;
 
     //Breaks up full command line into variables.
 
@@ -113,7 +116,10 @@ public class ComTree {
 
     public void execute() {
 
-        if (command.equalsIgnoreCase("Help")) {
+        if (command.equalsIgnoreCase("Window")) {
+
+        }
+        else if (command.equalsIgnoreCase("Help")) {
             Help.help();
         }
         else if (command.equalsIgnoreCase("About")) {

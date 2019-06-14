@@ -5,6 +5,7 @@ import java.lang.Math;
 import java.util.HashMap;
 import io.limasecurityworks.tools.*;
 import io.limasecurityworks.printables.*;
+import io.limasecurityworks.processes.*;
 
 
 public class Bifid {
@@ -48,40 +49,13 @@ public class Bifid {
         //Next, check to see if a function was provided. if not, get the function.
 
         else if (function == null) {
-            System.out.print("Would you like to Encrypt or Decrypt your text?: ");
-
-            this.function = io.limasecurityworks.ui.Iroha.sc.nextLine();
-
-            while (!this.function.equalsIgnoreCase("encrypt") && !this.function.equalsIgnoreCase("decrypt")){
-                System.out.print("\n" + "Invalid function for Bifid Cipher. Please enter 'Encrypt' or 'Decrypt':  ");
-
-                String encDecResponseNull = io.limasecurityworks.ui.Iroha.sc.nextLine();
-
-                if (!encDecResponseNull.equalsIgnoreCase("encrypt") && !encDecResponseNull.equalsIgnoreCase("decrypt")) {
-                    System.out.print("\n" + "Invalid function for Bifid Cipher. Please enter 'Encrypt' or 'Decrypt':  ");
-                }
-                else {
-                    this.function = encDecResponseNull;
-                }
-            }
+            function = Function.getFunction();
         }
 
         //If there is a fuction and the function is not valid, get a new function.
 
         else if (!this.function.equalsIgnoreCase("encrypt") && !this.function.equalsIgnoreCase("decrypt")) {
-            System.out.print("\n" + "Invalid function for Bifid Cipher. Please enter 'Encrypt' or 'Decrypt':  ");
-
-            while (!this.function.equalsIgnoreCase("encrypt") && !this.function.equalsIgnoreCase("decrypt")){
-
-                String encDecResponseNull = io.limasecurityworks.ui.Iroha.sc.nextLine();
-
-                if (!encDecResponseNull.equalsIgnoreCase("encrypt") && !encDecResponseNull.equalsIgnoreCase("decrypt")) {
-                    System.out.print("\n" + "Invalid function for Bifid Cipher. Please enter 'Encrypt' or 'Decrypt':  ");
-                }
-                else {
-                    this.function = encDecResponseNull;
-                }
-            }
+            function = Function.checkFunction(function);
         }
 
         // This section will allow the user to use the default key square, generate a new random keysquare, or use a custom key square.
@@ -278,7 +252,7 @@ public class Bifid {
         int fullPeriodsPerArray = (input.length() * 2) / (Integer.parseInt(this.key) * 2);
         int periodsPerArray = fullPeriodsPerArray;
 
-        // Determin if there will be a partial period at the end.
+        // Determine if there will be a partial period at the end.
 
         if ((input.length() * 2) % (Integer.parseInt(this.key) * 2) > 0) {
             periodsPerArray += 1;

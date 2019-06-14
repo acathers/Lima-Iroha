@@ -14,7 +14,8 @@
 package io.limasecurityworks.ui;
 
 import java.util.Scanner;
-import io.limasecurityworks.ciphers.*;
+import io.limasecurityworks.tools.*;
+import io.limasecurityworks.info.Help;
 
 public class Iroha {
 
@@ -48,7 +49,7 @@ public class Iroha {
             }
         }
 
-        System.out.println("\n" + "Program terminated.");
+        System.out.println("\n" + ConsoleColors.RED + "Program terminated." + ConsoleColors.RESET);
         sc.close();
     }
 }

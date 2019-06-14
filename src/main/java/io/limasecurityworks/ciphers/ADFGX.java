@@ -3,6 +3,7 @@ package io.limasecurityworks.ciphers;
 import java.lang.StringBuilder;
 import java.lang.Math;
 import java.util.Arrays;
+import io.limasecurityworks.processes.*;
 
 
 public class ADFGX {
@@ -45,40 +46,13 @@ public class ADFGX {
         //Next, check to see if a function was provided. if not, get the function.
 
         else if (function == null) {
-            System.out.print("\n" + "Would you like to Encrypt or Decrypt your text?: ");
-
-            this.function = io.limasecurityworks.ui.Iroha.sc.nextLine();
-
-            while (!this.function.equalsIgnoreCase("encrypt") && !this.function.equalsIgnoreCase("decrypt")){
-                System.out.print("\n" + "Invalid function for ADFGX Cipher. Please enter 'Encrypt' or 'Decrypt':  ");
-
-                String encDecResponseNull = io.limasecurityworks.ui.Iroha.sc.nextLine();
-
-                if (!encDecResponseNull.equalsIgnoreCase("encrypt") && !encDecResponseNull.equalsIgnoreCase("decrypt")) {
-                    System.out.print("\n" + "Invalid function for ADFGX Cipher. Please enter 'Encrypt' or 'Decrypt':  ");
-                }
-                else {
-                    this.function = encDecResponseNull;
-                }
-            }
+            function = Function.getFunction();
         }
 
         //If there is a fuction and the function is not valid, get a new function.
 
         else if (!this.function.equalsIgnoreCase("encrypt") && !this.function.equalsIgnoreCase("decrypt")) {
-            System.out.print("\n" + "Invalid function for ADFGX Cipher. Please enter 'Encrypt' or 'Decrypt':  ");
-
-            while (!this.function.equalsIgnoreCase("encrypt") && !this.function.equalsIgnoreCase("decrypt")){
-
-                String encDecResponseNull = io.limasecurityworks.ui.Iroha.sc.nextLine();
-
-                if (!encDecResponseNull.equalsIgnoreCase("encrypt") && !encDecResponseNull.equalsIgnoreCase("decrypt")) {
-                    System.out.print("\n" + "Invalid function for ADFGX Cipher. Please enter 'Encrypt' or 'Decrypt':  ");
-                }
-                else {
-                    this.function = encDecResponseNull;
-                }
-            }
+            function = Function.checkFunction(function);
         }
 
         // This section will allow the user to use the default key square, generate a new random keysquare, or use a custom key square.

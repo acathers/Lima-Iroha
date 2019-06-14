@@ -1,6 +1,7 @@
 package io.limasecurityworks.ciphers;
 
 import java.lang.StringBuilder;
+import io.limasecurityworks.processes.*;
 
 public class ROT13 {
 
@@ -41,41 +42,13 @@ public class ROT13 {
         //Next, check to see if a function was provided. if not, get the function.
 
         else if (function == null) {
-            System.out.print("\n" + "Would you like to Encrypt or Decrypt your text?: ");
-
-            this.function = io.limasecurityworks.ui.Iroha.sc.nextLine();
-
-            while (!this.function.equalsIgnoreCase("encrypt") && !this.function.equalsIgnoreCase("decrypt")){
-                System.out.print("\n" + "Invalid function for ROT13. Please enter 'Encrypt' or 'Decrypt':  ");
-
-                String encDecResponseNull = io.limasecurityworks.ui.Iroha.sc.nextLine();
-
-                if (!encDecResponseNull.equalsIgnoreCase("encrypt") && !encDecResponseNull.equalsIgnoreCase("decrypt")) {
-                    System.out.print("\n" + "Invalid function for ROT13. Please enter 'Encrypt' or 'Decrypt':  ");
-                }
-                else {
-                    this.function = encDecResponseNull;
-                }
-            }
-
+            function = Function.getFunction();
         }
 
         //If there is a fuction and the function is not valid, get a new function.
 
         else if (!this.function.equalsIgnoreCase("encrypt") && !this.function.equalsIgnoreCase("decrypt")) {
-            System.out.print("\n" + "Invalid function for ROT13. Please enter 'Encrypt' or 'Decrypt':  ");
-
-            while (!this.function.equalsIgnoreCase("encrypt") && !this.function.equalsIgnoreCase("decrypt")){
-
-                String encDecResponseNull = io.limasecurityworks.ui.Iroha.sc.nextLine();
-
-                if (!encDecResponseNull.equalsIgnoreCase("encrypt") && !encDecResponseNull.equalsIgnoreCase("decrypt")) {
-                    System.out.print("\n" + "Invalid function for ROT13. Please enter 'Encrypt' or 'Decrypt':  ");
-                }
-                else {
-                    this.function = encDecResponseNull;
-                }
-            }
+            function = Function.checkFunction(function);
         }
 
         // Get input text and complete the encryption or decryption. help == null in the if statement is necessary to prevent it from running after a help command is entered.

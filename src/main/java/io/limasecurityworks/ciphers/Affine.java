@@ -1,5 +1,7 @@
 package io.limasecurityworks.ciphers;
 
+import io.limasecurityworks.processes.*;
+
 public class Affine {
 
     private String function;
@@ -43,19 +45,7 @@ public class Affine {
             // Find out if there is a function, if not, get it.
 
             if (this.function == null) {
-
-                System.out.print("Would you like to encrypt or decrypt?: ");
-
-                String functionChoice = io.limasecurityworks.ui.Iroha.sc.nextLine();
-
-                while (!functionChoice.equalsIgnoreCase("encrypt") && !functionChoice.equalsIgnoreCase("decrypt")) {
-
-                    System.out.print("\n" + "Invalid command for function, use either encrypt or decrypt: ");
-
-                    functionChoice = io.limasecurityworks.ui.Iroha.sc.nextLine();
-                }
-
-                this.function = functionChoice;
+                function = Function.getFunction();
             }
 
             /*

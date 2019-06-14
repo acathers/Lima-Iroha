@@ -1,6 +1,7 @@
 package io.limasecurityworks.ciphers;
 
 import io.limasecurityworks.tools.*;
+import io.limasecurityworks.processes.*;
 
 public class Autokey {
 
@@ -41,78 +42,70 @@ public class Autokey {
             "This program uses the more pupular version which uses the tabula recta and allows full words as a key.");
         }
 
-        else {
+        //Next, check to see if a function was provided. if not, get the function. If there is a function, ensure that it is a correct function.
 
-            // Find out if there is a function, if not, get it.
+        else if (function == null) {
+            function = Function.getFunction();
 
-            if (this.function == null) {
+        }
 
-                System.out.print("Would you like to encrypt or decrypt?: ");
+        //If there is a fuction and the function is not valid, get a new function.
 
-                String functionChoice = io.limasecurityworks.ui.Iroha.sc.nextLine();
+        else if (!this.function.equalsIgnoreCase("encrypt") && !this.function.equalsIgnoreCase("decrypt")) {
+            function = Function.checkFunction(function);
+        }
 
-                while (!functionChoice.equalsIgnoreCase("encrypt") && !functionChoice.equalsIgnoreCase("decrypt")) {
+        // Find out if key have been suplemented, if not, get them.
 
-                    System.out.print("\n" + "Invalid command for function, use either encrypt or decrypt: ");
+        if (this.key == null) {
 
-                    functionChoice = io.limasecurityworks.ui.Iroha.sc.nextLine();
-                }
+            System.out.print("Input key: ");
 
-                this.function = functionChoice;
-            }
-
-            // Find out if key have been suplemented, if not, get them.
-
-            if (this.key == null) {
-
-                System.out.print("Input key: ");
+            this.key = io.limasecurityworks.ui.Iroha.sc.nextLine();
+        
+            while (!StringBoolean.isAlpha(this.key) || StringBoolean.hasSpaces(this.key)) {
+                System.out.print("The key must contain only letters with no spaces and it must be shorter than the text to be encrypted. Enter key: ");
 
                 this.key = io.limasecurityworks.ui.Iroha.sc.nextLine();
-
-                while (!StringBoolean.isAlpha(this.key) || StringBoolean.hasSpaces(this.key)) {
-
-                    System.out.print("The key must contain only letters with no spaces and it must be shorter than the text to be encrypted. Enter key: ");
-
-                    this.key = io.limasecurityworks.ui.Iroha.sc.nextLine();
-                }
-            }
-
-            // Get input text and execute cipher.
-
-            System.out.print("Input text: ");
-
-            String inputText = io.limasecurityworks.ui.Iroha.sc.nextLine();
-
-            StringBuilder inputTextSB = new StringBuilder(inputText);
-
-            for (int i = 0; i < inputTextSB.length(); i++) {
-
-                if (!Character.isLetter(inputTextSB.charAt(i))) {
-
-                    inputTextSB.deleteCharAt(i);
-                }
-            }
-
-            String inputTextLetters = inputTextSB.toString();
-
-            if (this.function.equalsIgnoreCase("encrypt")) {
-
-                String encryptedText = encryptText(inputTextLetters);
-
-                System.out.println("\n" + "Function: " + this.function + "\n" + "Key:      " + this.key + "\n" + "Input:    " + inputText + "\n" + "Output:   " + encryptedText);
-            }
-
-            else if (this.function.equalsIgnoreCase("decrypt")) {
-
-                String decryptedText = decryptText(inputTextLetters);
-
-                System.out.println("\n" + "Function: " + this.function + "\n" + "Key:      " + this.key + "\n" + "Input:    " + inputText + "\n" + "Output:   " + decryptedText);
-            }
-
-            else {
-                System.out.println("Something has gone terribly wrong. Please report this to iskra0332@gmx.com");
             }
         }
+
+        // Get input text and execute cipher.
+
+        System.out.print("Input text: ");
+
+        String inputText = io.limasecurityworks.ui.Iroha.sc.nextLine();
+
+        StringBuilder inputTextSB = new StringBuilder(inputText);
+
+        for (int i = 0; i < inputTextSB.length(); i++) {
+
+            if (!Character.isLetter(inputTextSB.charAt(i))) {
+
+                inputTextSB.deleteCharAt(i);
+            }
+        }
+
+        String inputTextLetters = inputTextSB.toString();
+
+        if (this.function.equalsIgnoreCase("encrypt")) {
+
+            String encryptedText = encryptText(inputTextLetters);
+
+            System.out.println("\n" + "Function: " + this.function + "\n" + "Key:      " + this.key + "\n" + "Input:    " + inputText + "\n" + "Output:   " + encryptedText);
+        }
+
+        else if (this.function.equalsIgnoreCase("decrypt")) {
+
+            String decryptedText = decryptText(inputTextLetters);
+
+            System.out.println("\n" + "Function: " + this.function + "\n" + "Key:      " + this.key + "\n" + "Input:    " + inputText + "\n" + "Output:   " + decryptedText);
+        }
+
+        else {
+            System.out.println("Something has gone terribly wrong. Please report this to iskra0332@gmx.com");
+        }
+        
     }
 
     /*

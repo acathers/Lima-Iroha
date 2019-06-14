@@ -1,6 +1,7 @@
 package io.limasecurityworks.ciphers;
 
 import java.lang.StringBuilder;
+import io.limasecurityworks.processes.*;
 
 public class Caesar {
 
@@ -44,44 +45,17 @@ public class Caesar {
             System.out.println("\n" + "In cryptography, a Caesar cipher, also known as Caesar's cipher, the shift cipher, Caesar's code or Caesar shift, is one of the simplest and most widely known encryption techniques. It is a type of substitution cipher in which each letter in the plaintext is replaced by a letter some fixed number of positions down the alphabet. For example, with a left shift of 3, D would be replaced by A, E would become B, and so on. The method is named after Julius Caesar, who used it in his private correspondence" + "\n" + "\n" + "--Source: Suetonius, Vita Divi Julii 56.6");
         }
 
-        //Next, check to see if a function was provided. if not, get the function.
+        //Next, check to see if a function was provided. if not, get the function. If there is a function, ensure that it is a correct function.
 
         else if (function == null) {
-            System.out.print("\n" + "Would you like to Encrypt or Decrypt your text?: ");
-
-            this.function = io.limasecurityworks.ui.Iroha.sc.nextLine();
-
-            while (!this.function.equalsIgnoreCase("encrypt") && !this.function.equalsIgnoreCase("decrypt")){
-                System.out.print("\n" + "Invalid function for Caesar Cipher. Please enter 'Encrypt' or 'Decrypt':  ");
-
-                String encDecResponseNull = io.limasecurityworks.ui.Iroha.sc.nextLine();
-
-                if (!encDecResponseNull.equalsIgnoreCase("encrypt") && !encDecResponseNull.equalsIgnoreCase("decrypt")) {
-                    System.out.print("\n" + "Invalid function for Caesar Cipher. Please enter 'Encrypt' or 'Decrypt':  ");
-                }
-                else {
-                    this.function = encDecResponseNull;
-                }
-            }
+            function = Function.getFunction();
 
         }
 
         //If there is a fuction and the function is not valid, get a new function.
 
         else if (!this.function.equalsIgnoreCase("encrypt") && !this.function.equalsIgnoreCase("decrypt")) {
-            System.out.print("\n" + "Invalid function for Caesar Cipher. Please enter 'Encrypt' or 'Decrypt':  ");
-
-            while (!this.function.equalsIgnoreCase("encrypt") && !this.function.equalsIgnoreCase("decrypt")){
-
-                String encDecResponseNull = io.limasecurityworks.ui.Iroha.sc.nextLine();
-
-                if (!encDecResponseNull.equalsIgnoreCase("encrypt") && !encDecResponseNull.equalsIgnoreCase("decrypt")) {
-                    System.out.print("\n" + "Invalid function for Caesar Cipher. Please enter 'Encrypt' or 'Decrypt':  ");
-                }
-                else {
-                    this.function = encDecResponseNull;
-                }
-            }
+            function = Function.checkFunction(function);
         }
 
         // Get input text and complete the encryption or decryption. help == null in the if statement is necessary to prevent it from running after a help command is entered.
@@ -119,7 +93,7 @@ public class Caesar {
                 System.out.print("Decrypted Text:  " + decryptText(input) + "\n");
             }
             else {
-                System.out.println("This should be an impossible function error.");
+                System.out.println("This should be an impossible function error. Function is not encrypt or decrypt");
             }
         }
     }

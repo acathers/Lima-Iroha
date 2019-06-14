@@ -4,6 +4,7 @@
     // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
     "version": "0.2.0",
     "configurations": [
+        
         {
             "type": "java",
             "name": "CodeLens (Launch) - Iroha",
@@ -12,23 +13,32 @@
             "projectName": "Lima-Iroha"
         },
         {
-            "name": "Debug Java",
             "type": "java",
+            "name": "Debug (Launch) - Main External Terminal",
             "request": "launch",
-            "externalConsole": true,
-            "stopOnEntry": true,
-            "preLaunchTask": "build",
-            "jdkPath": "${env:JAVA_HOME}/bin",
-            "cwd": "${workspaceRoot}",
-            "startupClass": "${workspaceRoot}${file}",
-            "sourcePath": [
-                "${workspaceRoot}"
-            ],
-            "classpath": [
-                "${workspaceRoot}"
-            ],
-            "options": [],
-            "args": []
+            "console": "externalTerminal",
+            "mainClass": ""
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch) - Test External Terminal",
+            "request": "launch",
+            "console": "externalTerminal",
+            "mainClass": "/home/iskra/Documents/JAtom/Lima-Iroha/src/test/java/io/limasecurityworks/ui/Iroha.java"
+
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch) - Test GUI",
+            "request": "launch",
+            "mainClass": "${workspaceFolder}/src/test/java/io/limasecurityworks/gui/IrohaFX.java"
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch)-App<Lima-Iroha>",
+            "request": "launch",
+            "mainClass": "io.limasecurityworks.gui.IrohaFX.java",
+            "projectName": "Lima-Iroha"
         }
     ]
 }
