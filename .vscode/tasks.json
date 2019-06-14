@@ -14,18 +14,32 @@
             "type": "shell",
             "command": "mvn -B test",
             "group": "test"
-        }
+        },
         {
-            "label": "testRun",
+            "label": "RunIroha",
+            "type": "shell",
+            "command": "mvn exec:java -Dexec.mainClass=io.limasecurityworks.ui.Iroha",
+            "group": "test"
+        },
+        {
+            "label": "RunFX",
+            "type": "shell",
+            "command": "mvn exec:java -Dexec.mainClass=io.limasecurityworks.gui.IrohaFX",
+            "group": "test"
+        },
+        {
+            "label": "testRunFX",
+            "type": "shell",
+            "command": "mvn exec:java -Dexec.mainClass=\"io.limasecurityworks.gui.IrohaFX\" -Dexec.classpathScope=\"test\"",
+            "group": "test"
+        },
+        {
+            "label": "testRunIroha",
             "type": "shell",
             "command": "mvn exec:java -Dexec.mainClass=\"io.limasecurityworks.ui.Iroha\" -Dexec.classpathScope=\"test\"",
             "group": "test"
         }
-        {
-            "label": "Run",
-            "type": "shell",
-            "command": "mvn exec:java",
-            "group": "test"
-        }
     ]
 }
+
+

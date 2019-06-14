@@ -17,7 +17,7 @@ public class IrohaFX extends Application {
 
     Stage window;
 
-    public static void Main(String[] args) {
+    public static void main(String[] args) {
         launch(args);
     }
 
@@ -57,7 +57,7 @@ public class IrohaFX extends Application {
         grid.getChildren().addAll(nameLabel, nameInput, passLabel, passInput, loginButton);
 
         Scene scene = new Scene(grid, 300, 200);
-        scene.getStylesheets().add("FlatRed.css");
+        scene.getStylesheets().add("resources/FlatRed.css");
         window.setScene(scene);
         window.show();
 
