@@ -26,6 +26,8 @@ Now, start the program.
 
 java io/limasecurityworks/ui/Iroha
 
+You may start the file again in the future without compiling by simply cd to the classes folder and typing that same command we used to start it.
+
 -------------------------------------
 
 Below is a quick overview of what has been done and what still needs to be done.
