@@ -4,21 +4,28 @@
  * Author   : Gerrit Grunwald
  *
  */
+
+  @font-face {
+    font-family: 'Ubuntu-B';
+    src: url("Ubuntu-B.ttf") format('truetype');
+  }
+
  .root {
-    -dark                        : #27292D;
-    -standard                    : #913B3B;
-    -bright                      : #DF5B5B;
+    -dark                        : rgb(29, 34, 44);
+    -darker                      : rgb(24, 33, 39);
+    -darkerFade                  : rgba(24, 33, 39, 0.575);
+    -standard                    : rgb(211, 210, 135);
+    -bright                      : rgb(241, 76, 0);
+    -brightFade                  : rgb(243, 104, 49);
     -text-color                  : #FFFEFE;
     -highlight-effect            : dropshadow(two-pass-box, rgba(255, 255, 255, 1.0), 20, 0.5, 0, 0);
-    -fx-background               : #34383B;
+    -fx-background               : rgb(41, 54, 65);
+    -fx-font-family              : 'Ubuntu Bold';
+    -fx-font-size                : 14px;
     -fx-base                     : -standard;
-    -fx-font-family              : "Roboto Light";
-    -fx-font-size                : 16px;
-    -fx-font-weight              : lighter;
     -fx-selection-bar            : -standard;
     -fx-selection-bar-non-focused: derive(-standard, 20%);
   }
-  
   
   .menu-bar {
     -fx-background-color: -standard, -bright;
@@ -70,19 +77,19 @@
     -fx-text-fill        : -text-color;
     -fx-outer-border     : linear-gradient(to bottom, derive(-standard, 30%) 0%, derive(-standard, -30%) 100%);
     -fx-inner-border     : derive(-bright, 10%);
-    -fx-body-color       : -bright;
+    -fx-body-color       : -darker;
     -fx-border-color     : transparent;
     -fx-border-radius    : 0;
-    -fx-background-insets: 0,0,0,1 0 0 0;
+    -fx-background-insets: 0,0,0,0 0 0 0;
     -fx-padding          : 10 15 10 15;
-    -fx-font-family      : "Roboto Light";
-    -fx-font-size        : 16px;
-    -fx-font-style       : normal;
-    -fx-font-weight      : lighter;
+    /* -fx-font-family      : "Ubuntu Medium"; */
+    -fx-font-size        : 14px;
+    /* -fx-font-style       : normal; */
+    /* -fx-font-weight      : lighter; */
     -fx-effect           : dropshadow(two-pass-box, rgba(0, 0, 0, 0.3), 2, 0, -2, 2);
   }
   .button:pressed {
-    -fx-body-color  : -standard;
+    -fx-body-color  : -darkerFade;
     -fx-inner-border: derive(-standard, 10%);
   }
   .button:disabled {
@@ -101,10 +108,10 @@
     -fx-border-radius    : 0;
     -fx-background-insets: 0, 0, 0, 1 0 0 0;
     -fx-padding          : 10 15 10 15;
-    -fx-font-family      : "Roboto Light";
-    -fx-font-size        : 16px;
-    -fx-font-style       : normal;
-    -fx-font-weight      : lighter;
+    /* -fx-font-family      : "Ubuntu Medium"; */
+    -fx-font-size        : 14px;
+    /*-fx-font-style       : normal; */
+    /*-fx-font-weight      : lighter; */
   }
   .toggle-button:pressed {
     -fx-body-color  : -standard;
