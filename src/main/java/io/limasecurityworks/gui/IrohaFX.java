@@ -5,18 +5,27 @@ import javafx.geometry.Insets;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.Scene;
+import javafx.stage.Stage;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.StackPane;
-import javafx.stage.Stage;
-import io.limasecurityworks.ui.*;
+import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.VBox;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.ColumnConstraints;
+import javafx.scene.layout.RowConstraints;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 
 public class IrohaFX extends Application {
 
     Stage window;
-    Double menuButtons = 175.0;
+    Double menuButtonsW = 175.0;
+    Double menuButtonsH = 50.0;
+    Double topButtonsW = 100.0;
 
     public static void main(String[] args) {
         launch(args);
@@ -26,13 +35,15 @@ public class IrohaFX extends Application {
     public void start(Stage primaryStage) throws Exception {
         window = primaryStage;
         window.setTitle("limaSecurityWorks - Iroha");
+        window.getIcons().add(new Image("FullColorOrangeIcon.png"));
 
         //GridPane with 10px padding around edge
-        GridPane grid = new GridPane();
-        grid.setPadding(new Insets(30, 10, 10, 0));
-        grid.setVgap(0);
-        grid.setHgap(0);
-
+        BorderPane splash = new BorderPane();
+        BorderPane splashInner = new BorderPane();
+        
+        splash.setLeft(addVBox("splash"));
+        splash.setCenter(splashInner);
+        splashInner.setTop(addHBox("splash"));
         //Name Label - constrains use (child, column, row)
         Label nameLabel = new Label("Iroha");
         GridPane.setConstraints(nameLabel, 0, 0);
@@ -41,56 +52,107 @@ public class IrohaFX extends Application {
         //Name Input
         TextField nameInput = new TextField("Bucky");
         GridPane.setConstraints(nameInput, 1, 0);
-
         //Password Label
         Label passLabel = new Label("Password:");
         GridPane.setConstraints(passLabel, 1, 1);
-
         //Password Input
         TextField passInput = new TextField();
         passInput.setPromptText("password");
         GridPane.setConstraints(passInput, 1, 1);
-
         */
 
-        //Dashboard button
-        Button dashButton = new Button("Dash Board");
-        GridPane.setConstraints(dashButton, 0, 1);
-        dashButton.setPrefWidth(menuButtons);
-        dashButton.setStyle("-fx-background-radius: 0");
-
-        //Ciphers button
-        Button ciphersButton = new Button("Ciphers");
-        GridPane.setConstraints(ciphersButton, 0, 2);
-        ciphersButton.setPrefWidth(menuButtons);
-        ciphersButton.setStyle("-fx-background-radius: 0");
-
-        //Settings button
-        Button settingsButton = new Button("Settings");
-        GridPane.setConstraints(settingsButton, 0, 3);
-        settingsButton.setPrefWidth(menuButtons);
-        settingsButton.setStyle("-fx-background-radius: 0");
-
-        //Help button
-        Button helpButton = new Button("Help");
-        GridPane.setConstraints(helpButton, 0, 4);
-        helpButton.setPrefWidth(menuButtons);
-        helpButton.setStyle("-fx-background-radius: 0");
-
-        //About button
-        Button aboutButton = new Button("About");
-        GridPane.setConstraints(aboutButton, 0, 5);
-        aboutButton.setPrefWidth(menuButtons);
-        aboutButton.setStyle("-fx-background-radius: 0");
-
-        //Add everything to grid
-        grid.getChildren().addAll(nameLabel, dashButton, ciphersButton, settingsButton, helpButton, aboutButton);
-
-        Scene scene = new Scene(grid, 800, 600);
+        Scene scene = new Scene(splash, 1475, 800);
         scene.getStylesheets().add("FlatRed.css");
         window.setScene(scene);
         window.show();
+    }
 
+    /*
+    * Creates a VBox with a list of links for the left region
+    */
+    private VBox addVBox(String input) {
 
+        int choice;
+
+        switch(input) {
+            case "ciphers":
+                choice = 1;
+                break;
+            case "settings":
+                choice = 2;
+                break;
+            case "help":
+                choice = 3;
+                break;
+            case "about":
+                choice = 4;
+                break;
+            default:
+                choice = 0;
+        }
+            
+        VBox vbox = new VBox();
+        vbox.setStyle("-fx-background-color: rgb(50, 66, 80);");
+
+        Image logo = new Image("FullColorOrangeR.png");
+        ImageView logoIV = new ImageView();
+        logoIV.setImage(logo);
+        logoIV.setFitWidth(menuButtonsW);
+        logoIV.setPreserveRatio(true);
+        logoIV.setSmooth(true);
+        logoIV.setCache(true);
+
+        vbox.getChildren().add(0, logoIV);
+        
+        Button options[] = new Button[] {
+            new Button("Dashboard"),
+            new Button("Ciphers"),
+            new Button("Settings"),
+            new Button("Help"),
+            new Button("About")};
+
+        for (int i=0; i<5; i++) {
+            // Add offset to left side to indent from title
+            VBox.setMargin(options[i], new Insets(0, 0, 0, 0));
+            options[i].setPrefWidth(menuButtonsW);
+            options[i].setPrefHeight(menuButtonsH);
+
+            if (i == choice) {
+                options[i].setStyle("-fx-background-color: rgb(41, 54, 65);");
+            }
+            vbox.getChildren().addAll(options[i]);
+        }
+        
+        return vbox;
+    }
+
+    /*
+    * Creates an HBox with two buttons for the top region
+    */
+
+    private HBox addHBox(String input) {
+
+        String topBarBack = "-fx-background-color: rgba(66, 93, 117, 0.5);";
+        String topBarBackHex = "-fx-background-color: #36495B";
+
+        HBox hbox = new HBox();
+        hbox.setPadding(new Insets(0, 0, 0, 0));
+        hbox.setStyle(topBarBackHex);
+
+        Button spacer1 = new Button("");
+        spacer1.setPrefSize(topButtonsW, menuButtonsH);
+        spacer1.setStyle(topBarBackHex);
+
+        Button buttonCurrent = new Button("Current");
+        buttonCurrent.setPrefSize(topButtonsW, menuButtonsH);
+        buttonCurrent.setStyle(topBarBackHex);
+
+        Button buttonProjected = new Button("Projected");
+        buttonProjected.setPrefSize(topButtonsW, menuButtonsH);
+        buttonProjected.setStyle(topBarBackHex);
+        
+        hbox.getChildren().addAll(spacer1, buttonCurrent, buttonProjected);
+        
+        return hbox;
     }
 }

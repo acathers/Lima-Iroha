@@ -12,7 +12,10 @@
 
  .root {
     -dark                        : rgb(29, 34, 44);
-    -darker                      : rgb(24, 33, 39);
+    -backBlue                    : rgb(41, 54, 65);
+    -menuBlue                    : rgb(50, 66, 80);
+    -topBlue                     : rgb(66, 93, 117);
+    -topBlueTest                 : rgba(66, 93, 117, 0.5);
     -darkerFade                  : rgba(24, 33, 39, 0.575);
     -standard                    : rgb(211, 210, 135);
     -bright                      : rgb(241, 76, 0);
@@ -77,16 +80,17 @@
     -fx-text-fill        : -text-color;
     -fx-outer-border     : linear-gradient(to bottom, derive(-standard, 30%) 0%, derive(-standard, -30%) 100%);
     -fx-inner-border     : derive(-bright, 10%);
-    -fx-body-color       : -darker;
+    -fx-body-color       : -menuBlue;
     -fx-border-color     : transparent;
     -fx-border-radius    : 0;
+    -fx-background-radius: 0;
     -fx-background-insets: 0,0,0,0 0 0 0;
     -fx-padding          : 10 15 10 15;
     /* -fx-font-family      : "Ubuntu Medium"; */
     -fx-font-size        : 14px;
     /* -fx-font-style       : normal; */
     /* -fx-font-weight      : lighter; */
-    -fx-effect           : dropshadow(two-pass-box, rgba(0, 0, 0, 0.3), 2, 0, -2, 2);
+    /*-fx-effect           : dropshadow(two-pass-box, rgba(0, 0, 0, 0.3), 2, 0, -2, 2);*/
   }
   .button:pressed {
     -fx-body-color  : -darkerFade;
