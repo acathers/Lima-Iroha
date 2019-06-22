@@ -2,6 +2,7 @@ package io.limasecurityworks.gui;
 
 import javafx.application.Application;
 import javafx.geometry.Insets;
+import javafx.geometry.Pos;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.Scene;
@@ -19,13 +20,20 @@ import javafx.scene.layout.ColumnConstraints;
 import javafx.scene.layout.RowConstraints;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import static io.limasecurityworks.guicomponents.AboutFX;
+import static io.limasecurityworks.guicomponents.CiphersFX;
+import static io.limasecurityworks.guicomponents.DashFX.buildDash;
+import static io.limasecurityworks.guicomponents.HelpFX;
+import static io.limasecurityworks.guicomponents.SettingsFX;
+import static io.limasecurityworks.guicomponents.MenuBar.addVBox;
+import static io.limasecurityworks.guicomponents.TopBar.addHBox;
+import javafx.application.HostServices; 
+
 
 public class IrohaFX extends Application {
 
-    Stage window;
-    Double menuButtonsW = 175.0;
-    Double menuButtonsH = 50.0;
-    Double topButtonsW = 100.0;
+    Stage primaryStage;
+    Scene menu, dash, ciphers, settings, help, about;
 
     public static void main(String[] args) {
         launch(args);
@@ -33,20 +41,33 @@ public class IrohaFX extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        window = primaryStage;
-        window.setTitle("limaSecurityWorks - Iroha");
-        window.getIcons().add(new Image("FullColorOrangeIcon.png"));
 
-        //GridPane with 10px padding around edge
+        GridPane workingScene = buildDash();
+        primaryStage.setTitle("limaSecurityWorks - Iroha");
+        primaryStage.getIcons().add(new Image("FullColorOrangeIcon.png"));
+
+
         BorderPane splash = new BorderPane();
         BorderPane splashInner = new BorderPane();
         
-        splash.setLeft(addVBox("splash"));
+        splash.setLeft(addVBox("dash"));
         splash.setCenter(splashInner);
-        splashInner.setTop(addHBox("splash"));
-        //Name Label - constrains use (child, column, row)
-        Label nameLabel = new Label("Iroha");
-        GridPane.setConstraints(nameLabel, 0, 0);
+        splashInner.setTop(addHBox("dash"));
+        splashInner.setCenter(workingScene);
+        BorderPane.setMargin(workingScene, new Insets(25, 25, 25, 25));
+    
+        Scene scene = new Scene(splash, 1475, 800);
+        scene.getStylesheets().add("FlatRed.css");
+        primaryStage.setScene(scene);
+        primaryStage.show();
+    } 
+
+    public void openBrowser(final String url) {
+        getHostServices().showDocument(url);
+    }
+
+
+}
 
         /*
         //Name Input
@@ -60,99 +81,3 @@ public class IrohaFX extends Application {
         passInput.setPromptText("password");
         GridPane.setConstraints(passInput, 1, 1);
         */
-
-        Scene scene = new Scene(splash, 1475, 800);
-        scene.getStylesheets().add("FlatRed.css");
-        window.setScene(scene);
-        window.show();
-    }
-
-    /*
-    * Creates a VBox with a list of links for the left region
-    */
-    private VBox addVBox(String input) {
-
-        int choice;
-
-        switch(input) {
-            case "ciphers":
-                choice = 1;
-                break;
-            case "settings":
-                choice = 2;
-                break;
-            case "help":
-                choice = 3;
-                break;
-            case "about":
-                choice = 4;
-                break;
-            default:
-                choice = 0;
-        }
-            
-        VBox vbox = new VBox();
-        vbox.setStyle("-fx-background-color: rgb(50, 66, 80);");
-
-        Image logo = new Image("FullColorOrangeR.png");
-        ImageView logoIV = new ImageView();
-        logoIV.setImage(logo);
-        logoIV.setFitWidth(menuButtonsW);
-        logoIV.setPreserveRatio(true);
-        logoIV.setSmooth(true);
-        logoIV.setCache(true);
-
-        vbox.getChildren().add(0, logoIV);
-        
-        Button options[] = new Button[] {
-            new Button("Dashboard"),
-            new Button("Ciphers"),
-            new Button("Settings"),
-            new Button("Help"),
-            new Button("About")};
-
-        for (int i=0; i<5; i++) {
-            // Add offset to left side to indent from title
-            VBox.setMargin(options[i], new Insets(0, 0, 0, 0));
-            options[i].setPrefWidth(menuButtonsW);
-            options[i].setPrefHeight(menuButtonsH);
-
-            if (i == choice) {
-                options[i].setStyle("-fx-background-color: rgb(41, 54, 65);");
-            }
-            vbox.getChildren().addAll(options[i]);
-        }
-        
-        return vbox;
-    }
-
-    /*
-    * Creates an HBox with two buttons for the top region
-    */
-
-    private HBox addHBox(String input) {
-
-        String topBarBack = "-fx-background-color: rgba(66, 93, 117, 0.5);";
-        String topBarBackHex = "-fx-background-color: #36495B";
-
-        HBox hbox = new HBox();
-        hbox.setPadding(new Insets(0, 0, 0, 0));
-        hbox.setStyle(topBarBackHex);
-
-        Button spacer1 = new Button("");
-        spacer1.setPrefSize(topButtonsW, menuButtonsH);
-        spacer1.setStyle(topBarBackHex);
-
-        Button buttonCurrent = new Button("Current");
-        buttonCurrent.setPrefSize(topButtonsW, menuButtonsH);
-        buttonCurrent.setStyle(topBarBackHex);
-
-        Button buttonProjected = new Button("Projected");
-        buttonProjected.setPrefSize(topButtonsW, menuButtonsH);
-        buttonProjected.setStyle(topBarBackHex);
-        
-        hbox.getChildren().addAll(spacer1, buttonCurrent, buttonProjected);
-        
-        return hbox;
-    }
-}

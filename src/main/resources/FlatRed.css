@@ -10,6 +10,11 @@
     src: url("Ubuntu-B.ttf") format('truetype');
   }
 
+  @font-face{
+    font-family: 'Ubuntu-L';
+    src: url("ubuntu-L.ttf") format('truetype');
+  }
+
  .root {
     -dark                        : rgb(29, 34, 44);
     -backBlue                    : rgb(41, 54, 65);
@@ -17,69 +22,27 @@
     -topBlue                     : rgb(66, 93, 117);
     -topBlueTest                 : rgba(66, 93, 117, 0.5);
     -darkerFade                  : rgba(24, 33, 39, 0.575);
-    -standard                    : rgb(211, 210, 135);
-    -bright                      : rgb(241, 76, 0);
-    -brightFade                  : rgb(243, 104, 49);
+    -limaYellow                  : beige;
+    -limaRed                     : rgb(241, 76, 0);
+    -limaOrange                  : rgb(243, 104, 49);
     -text-color                  : #FFFEFE;
     -highlight-effect            : dropshadow(two-pass-box, rgba(255, 255, 255, 1.0), 20, 0.5, 0, 0);
     -fx-background               : rgb(41, 54, 65);
     -fx-font-family              : 'Ubuntu Bold';
     -fx-font-size                : 14px;
-    -fx-base                     : -standard;
-    -fx-selection-bar            : -standard;
-    -fx-selection-bar-non-focused: derive(-standard, 20%);
+    -fx-base                     : -limaYellow;
+    -fx-selection-bar            : -limaYellow;
+    -fx-selection-bar-non-focused: derive(-limaYellow, 20%);
   }
-  
-  .menu-bar {
-    -fx-background-color: -standard, -bright;
+
+  .dark-text {
+    -fx-text-fill        : -backBlue;
   }
-  .menu-bar .menu:selected {
-    -fx-background      : -bright;
-    -fx-background-color: -standard;
-    -fx-text-fill       : -text-color;
-  }
-  .menu-bar .menu-item {
-    -fx-text-fill: -text-color;
-  }
-  
-  .menu:pressed {
-    -fx-background      : -standard;
-    -fx-background-color: -standard;
-    -fx-text-fill       : -text-color;
-  }
-  .menu:hover > .label {
-    -fx-background-color: -standard;
-  }
-  .menu .menu-button {
-    -fx-background      : -standard;
-    -fx-background-color: -standard;
-  }
-  
-  .context-menu {
-    -fx-background-color: -bright;
-  }
-  
-  .titled-pane {
-    -fx-mark-color          : -standard;
-    -fx-mark-highlight-color: transparent;
-    -fx-text-fill           : -text-color;
-  }
-  .titled-pane:focused > .title > .arrow-button > .arrow {
-    -fx-mark-color : white;
-    -fx-focus-color: transparent;
-  }
-  .titled-pane > .title {
-    -fx-background-color : -standard, -bright;
-    -fx-background-insets: 0, 1 0 0 0;
-  }
-  .titled-pane >.title:hover {
-    -fx-background-color: -standard, derive(-bright, -10%);
-  }
-  
-  .button{
-    -fx-text-fill        : -text-color;
-    -fx-outer-border     : linear-gradient(to bottom, derive(-standard, 30%) 0%, derive(-standard, -30%) 100%);
-    -fx-inner-border     : derive(-bright, 10%);
+
+  .text-field {
+    -fx-text-fill        : -backBlue;
+    -fx-outer-border     : linear-gradient(to bottom, derive(-limaYellow, 30%) 0%, derive(-limaYellow, -30%) 100%);
+    -fx-inner-border     : derive(-limaRed, 10%);
     -fx-body-color       : -menuBlue;
     -fx-border-color     : transparent;
     -fx-border-radius    : 0;
@@ -92,9 +55,97 @@
     /* -fx-font-weight      : lighter; */
     /*-fx-effect           : dropshadow(two-pass-box, rgba(0, 0, 0, 0.3), 2, 0, -2, 2);*/
   }
+
+  .yellow-rect {
+    -fx-fill: -limaYellow;
+    -fx-text-fill        : backBlue;
+    -fx-border-radius    : 0;
+    -fx-background-radius: 0;
+    -fx-padding          : 10 15 10 15;
+    /* -fx-font-family      : "Ubuntu Medium"; */
+    -fx-font-size        : 14px;
+    /* -fx-font-style       : normal; */
+    /* -fx-font-weight      : lighter; */
+    /*-fx-effect           : dropshadow(two-pass-box, rgba(0, 0, 0, 0.3), 2, 0, -2, 2);*/
+  }
+  
+  .background-text-title {
+    -fx-font-family     : 'Ubuntu Light';
+    -fx-fill       : white;
+    -fx-font-size       : 55px;
+  }
+
+  .background-text {
+    -fx-font-family     : 'Ubuntu Medium';
+    -fx-fill       : white;
+    -fx-font-size       : 16px;
+  }
+
+  .discord-button {
+
+  }
+
+  .menu-bar {
+    -fx-background-color: -limaYellow, -limaRed;
+  }
+  .menu-bar .menu:selected {
+    -fx-background      : -limaRed;
+    -fx-background-color: -limaYellow;
+    -fx-text-fill       : -text-color;
+  }
+  .menu-bar .menu-item {
+    -fx-text-fill: -text-color;
+  }
+  
+  .menu:pressed {
+    -fx-background      : -limaYellow;
+    -fx-background-color: -limaYellow;
+    -fx-text-fill       : -text-color;
+  }
+  .menu:hover > .label {
+    -fx-background-color: -limaYellow;
+  }
+  .menu .menu-button {
+    -fx-background      : -limaYellow;
+    -fx-background-color: -limaYellow;
+  }
+  
+  .context-menu {
+    -fx-background-color: -limaRed;
+  }
+  
+  .titled-pane {
+    -fx-mark-color          : -limaYellow;
+    -fx-mark-highlight-color: transparent;
+    -fx-text-fill           : -text-color;
+  }
+  .titled-pane:focused > .title > .arrow-button > .arrow {
+    -fx-mark-color : white;
+    -fx-focus-color: transparent;
+  }
+  .titled-pane > .title {
+    -fx-background-color : -limaYellow, -limaRed;
+    -fx-background-insets: 0, 1 0 0 0;
+  }
+  .titled-pane >.title:hover {
+    -fx-background-color: -limaYellow, derive(-limaRed, -10%);
+  }
+  
+  .button{
+    -fx-text-fill        : -text-color;
+    -fx-body-color       : -menuBlue;
+    -fx-border-color     : transparent;
+    -fx-border-radius    : 0;
+    -fx-background-radius: 0;
+    -fx-background-insets: 0,0,0,0 0 0 0;
+    /* -fx-font-family      : "Ubuntu Medium"; */
+    -fx-font-size        : 14px;
+    /* -fx-font-style       : normal; */
+    /* -fx-font-weight      : lighter; */
+    /*-fx-effect           : dropshadow(two-pass-box, rgba(0, 0, 0, 0.3), 2, 0, -2, 2);*/
+  }
   .button:pressed {
-    -fx-body-color  : -darkerFade;
-    -fx-inner-border: derive(-standard, 10%);
+    
   }
   .button:disabled {
     -fx-body-color: -dark;
@@ -105,9 +156,9 @@
   
   .toggle-button{
     -fx-text-fill        : -text-color;
-    -fx-outer-border     : linear-gradient(to bottom, derive(-standard, 30%) 0%, derive(-standard, -30%) 100%);
-    -fx-inner-border     : derive(-bright, 10%);
-    -fx-body-color       : -bright;
+    -fx-outer-border     : linear-gradient(to bottom, derive(-limaYellow, 30%) 0%, derive(-limaYellow, -30%) 100%);
+    -fx-inner-border     : derive(-limaRed, 10%);
+    -fx-body-color       : -limaRed;
     -fx-border-color     : transparent;
     -fx-border-radius    : 0;
     -fx-background-insets: 0, 0, 0, 1 0 0 0;
@@ -118,31 +169,31 @@
     /*-fx-font-weight      : lighter; */
   }
   .toggle-button:pressed {
-    -fx-body-color  : -standard;
-    -fx-inner-border: derive(-standard, 10%);
+    -fx-body-color  : -limaYellow;
+    -fx-inner-border: derive(-limaYellow, 10%);
   }
   .toggle-button:selected {
-    -fx-body-color      : -standard;
-    -fx-inner-border    : derive(-standard, 10%);
+    -fx-body-color      : -limaYellow;
+    -fx-inner-border    : derive(-limaYellow, 10%);
     -fx-background-color: -fx-focus-color, -fx-outer-border, -fx-inner-border, -fx-body-color;
   }
   
   .radio-button .radio {
     -fx-background-radius: 1em;
-    -fx-background-color : -bright, -fx-background;
+    -fx-background-color : -limaRed, -fx-background;
     -fx-background-insets: 0, 2;
     -fx-pref-width       : 21;
     -fx-pref-height      : 21;
   }
   .radio-button:selected .radio .dot {
-    -fx-background-color : -bright;
+    -fx-background-color : -limaRed;
     -fx-background-insets: 0;
     -fx-padding          : 0.4em;
   }
   
   .check-box > .box {
     -fx-background-radius: 0;
-    -fx-background-color : -bright, -fx-background;
+    -fx-background-color : -limaRed, -fx-background;
     -fx-background-insets: 0, 2;
     -fx-pref-width       : 21;
     -fx-pref-height      : 21;
@@ -151,19 +202,19 @@
     -fx-background-insets: 0, 2;
   }
   .check-box > .box > .mark {
-    -fx-mark-highlight-color: -bright;
-    -fx-mark-color          : -bright;
+    -fx-mark-highlight-color: -limaRed;
+    -fx-mark-color          : -limaRed;
     -fx-scale-shape         : false;
     -fx-shape               : "M 4.023 10.8633 L 4.0259 10.9843 L 11.9863 2.9926 L 10.1048 -0.014 L 4.0049 7.9774 L 1.3589 5.9741 L -0.0884 8.0153 L 4.023 10.8633 Z";
     -fx-pref-width          : 12px;
     -fx-pref-height         : 11px;
   }
   .check-box:selected .mark {
-    -fx-background-color: -bright;
+    -fx-background-color: -limaRed;
   }
   
   .scroll-bar:horizontal {
-    -fx-background-color : -bright;
+    -fx-background-color : -limaRed;
     -fx-background-radius: 0;
     -fx-padding          : 0;
     -fx-background-insets: 0;
@@ -187,7 +238,7 @@
     -fx-effect          : dropshadow(two-pass-box , -fx-shadow-highlight-color, 1, 0.0 , 0, 1.4);
   }
   .scroll-bar:vertical {
-    -fx-background-color : -bright;
+    -fx-background-color : -limaRed;
     -fx-background-radius: 0;
     -fx-padding          : 0;
     -fx-background-insets: 0;
@@ -217,18 +268,18 @@
   }
   .scroll-bar > .increment-button:hover > .increment-arrow,
   .scroll-bar > .decrement-button:hover > .decrement-arrow {
-    -fx-background-color: -bright;
+    -fx-background-color: -limaRed;
   }
   .scroll-bar > .increment-button:pressed > .increment-arrow,
   .scroll-bar > .decrement-button:pressed > .decrement-arrow {
-    -fx-background-color: -bright;
+    -fx-background-color: -limaRed;
   }
   .scroll-bar .thumb:pressed {
     -fx-effect: -highlight-effect;
   }
   
   .slider .track {
-    -fx-background-color : -bright;
+    -fx-background-color : -limaRed;
     -fx-background-radius: 1em;
     -fx-padding          : 0.8em;
   }
@@ -243,7 +294,7 @@
   }
   
   .progress-bar .track {
-    -fx-background-color : -bright;
+    -fx-background-color : -limaRed;
     -fx-background-insets: 0;
     -fx-background-radius: 0;
     -fx-padding          : 0.8em;
@@ -251,14 +302,14 @@
   .progress-bar .bar {
     -fx-background-insets: 0;
     -fx-background-radius: 0;
-    -fx-box-border       : -bright;
-    -fx-accent           : -standard;
+    -fx-box-border       : -limaRed;
+    -fx-accent           : -limaYellow;
   }
   .progress-indicator {
-    -fx-progress-color  : -standard;
+    -fx-progress-color  : -limaYellow;
   }
   .progress-indicator > .determinate-indicator > .indicator {
-    -fx-background-color : -bright;
+    -fx-background-color : -limaRed;
     -fx-background-insets: 0, 1, 5 2 1 2;
     -fx-padding          : 0;
   }
