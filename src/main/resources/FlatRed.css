@@ -131,7 +131,7 @@
     -fx-background-color: -limaYellow, derive(-limaRed, -10%);
   }
   
-  .button{
+  .button {
     -fx-text-fill        : -text-color;
     -fx-body-color       : -menuBlue;
     -fx-border-color     : transparent;
@@ -144,6 +144,21 @@
     /* -fx-font-weight      : lighter; */
     /*-fx-effect           : dropshadow(two-pass-box, rgba(0, 0, 0, 0.3), 2, 0, -2, 2);*/
   }
+
+  .button-transparent {
+    -fx-text-fill        : -text-color;
+    -fx-body-color       : transparent;
+    -fx-border-color     : transparent;
+    -fx-border-radius    : 0;
+    -fx-background-radius: 0;
+    -fx-background-insets: 0,0,0,0 0 0 0;
+    /* -fx-font-family      : "Ubuntu Medium"; */
+    -fx-font-size        : 14px;
+    /* -fx-font-style       : normal; */
+    /* -fx-font-weight      : lighter; */
+    /*-fx-effect           : dropshadow(two-pass-box, rgba(0, 0, 0, 0.3), 2, 0, -2, 2);*/
+  }
+
   .button:pressed {
     
   }
