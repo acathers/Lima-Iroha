@@ -70,14 +70,14 @@ public class DashFX extends IrohaFX{
         StackPane.setAlignment(discordLabel, Pos.TOP_CENTER);
         discordLabel.setPadding(new Insets(20, 10, 10, 10));
 
-        Image discordInvite = new Image("LimaDiscord.png");
+        Image discordInvite = new Image("DiscordLogoBlack.png");
         Button discordButton = new Button();
-        discordButton.getStyleClass().add("button-transparent");
+        discordButton.getStyleClass().add("discord-button");
         discordButton.setGraphic(new ImageView(discordInvite));
         discordButton.setPrefWidth(175);
         discordButton.setPrefHeight(50);
         StackPane.setAlignment(discordButton, Pos.BOTTOM_CENTER);
-        discordButton.setTranslateY(-50);
+        discordButton.setTranslateY(-55);
         discordButton.setPadding(Insets.EMPTY);
 
         discordButton.setOnAction(e -> {

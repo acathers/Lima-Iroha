@@ -1,43 +1,30 @@
 package io.limasecurityworks.guicomponents;
 
-import javafx.application.Application;
 import javafx.geometry.Insets;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
-import javafx.scene.Scene;
-import javafx.stage.Stage;
 import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
-import javafx.scene.layout.GridPane;
-import javafx.scene.layout.StackPane;
-import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.VBox;
 import javafx.scene.layout.HBox;
-import javafx.scene.layout.ColumnConstraints;
-import javafx.scene.layout.RowConstraints;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import io.limasecurityworks.gui.IrohaFX;
+import javafx.geometry.Pos;
 
-public class TopBar {
+public class TopBar extends IrohaFX {
 
     private static Double menuButtonsW = 175.0;
     private static Double menuButtonsH = 50.0;
     private static Double topButtonsW = 100.0;
 
     /*
-    * Creates an HBox with two buttons for the top region
+    * Creates an HBox with buttons if needed for the left side of inner BorderPane top
     */
 
-    public static HBox addHBox(String input) {
+    public static HBox addHBoxButtons(String input) {
 
-        String topBarBack = "-fx-background-color: rgba(66, 93, 117, 0.5);";
-        String topBarBackHex = "-fx-background-color: #36495B";
+        String topBarBackHex = "-fx-background-color: -limaBlueLight";
 
-        HBox hbox = new HBox();
-        hbox.setPadding(new Insets(0, 0, 0, 0));
-        hbox.setStyle(topBarBackHex);
+        HBox hboxButtons = new HBox();
+        hboxButtons.setPadding(new Insets(0, 0, 0, 0));
+        hboxButtons.setStyle(topBarBackHex);
 
         Button spacer1 = new Button("");
         spacer1.setPrefSize(topButtonsW, menuButtonsH);
@@ -51,8 +38,60 @@ public class TopBar {
         buttonProjected.setPrefSize(topButtonsW, menuButtonsH);
         buttonProjected.setStyle(topBarBackHex);
         
-        hbox.getChildren().addAll(spacer1, buttonCurrent, buttonProjected);
+        hboxButtons.getChildren().addAll(spacer1, buttonCurrent, buttonProjected);
         
-        return hbox;
+        return hboxButtons;
+    }
+
+    /*
+    * Creates social icons to go on right side of the inner borderpane top bar.
+    */
+
+    public static HBox addHBoxSocial(String input) {
+
+        String topBarBackHex = "-fx-background-color: -limaBlueLight";
+
+        // Build HBox for the social icons.
+        HBox hboxSocial = new HBox();
+        hboxSocial.setPadding(new Insets(0, 0, 0, 0));
+        hboxSocial.setStyle(topBarBackHex);
+
+        // Build Discord Button.
+        Image discordTopBarImage = new Image("Discord-Logo-White.png");
+        Button discordTopBar = new Button();
+        discordTopBar.getStyleClass().add("discord-button");
+        discordTopBar.setGraphic(new ImageView(discordTopBarImage));
+        discordTopBar.setPadding(Insets.EMPTY);
+        discordTopBar.setPrefSize(menuButtonsH, menuButtonsH);
+        discordTopBar.setStyle(topBarBackHex);
+
+        // Set Discord Button Action
+
+        discordTopBar.setOnAction(e -> {
+            IrohaFX show = new IrohaFX();
+            show.openBrowser("https://discord.gg/pt5V336");
+            });
+
+        // Build GitHub Button.
+        Image githubTopBarImage = new Image("GitHub-Mark-Light.png");
+        Button githubTopBar = new Button();
+        githubTopBar.getStyleClass().add("discord-button");
+        githubTopBar.setGraphic(new ImageView(githubTopBarImage));
+        githubTopBar.setPadding(Insets.EMPTY);
+        githubTopBar.setPrefSize(menuButtonsH, menuButtonsH);
+        githubTopBar.setStyle(topBarBackHex);
+
+        // Set Github Button Action
+
+        githubTopBar.setOnAction(e -> {
+            IrohaFX show = new IrohaFX();
+            show.openBrowser("https://github.com/iskra0332/Lima-Iroha");
+            });
+
+        // Get Buttons.
+        hboxSocial.getChildren().addAll(discordTopBar, githubTopBar);
+        hboxSocial.setAlignment(Pos. CENTER_RIGHT);
+
+        return hboxSocial;
     }
 }

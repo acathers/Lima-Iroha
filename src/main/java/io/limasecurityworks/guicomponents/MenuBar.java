@@ -1,26 +1,13 @@
 package io.limasecurityworks.guicomponents;
 
-import javafx.application.Application;
 import javafx.geometry.Insets;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
-import javafx.scene.Scene;
-import javafx.stage.Stage;
 import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
-import javafx.scene.layout.GridPane;
-import javafx.scene.layout.StackPane;
-import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
-import javafx.scene.layout.HBox;
-import javafx.scene.layout.ColumnConstraints;
-import javafx.scene.layout.RowConstraints;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import io.limasecurityworks.gui.IrohaFX;
 
-public class MenuBar {
+public class MenuBar extends IrohaFX {
 
     private static Double menuButtonsW = 175.0;
     private static Double menuButtonsH = 50.0;
@@ -36,24 +23,30 @@ public class MenuBar {
         switch(input) {
             case "dash":
                 choice = 0;
+                break;
             case "ciphers":
                 choice = 1;
                 break;
-            case "settings":
+            case "keyring":
                 choice = 2;
                 break;
-            case "help":
+            case "settings":
                 choice = 3;
                 break;
-            case "about":
+            case "help":
                 choice = 4;
+                break;
+            case "about":
+                choice = 5;
                 break;
             default:
                 choice = 0;
         }
+
+        System.out.println(choice);
             
         VBox vbox = new VBox();
-        vbox.setStyle("-fx-background-color: rgb(50, 66, 80);");
+        vbox.setStyle("-fx-background-color: -limaBlueMedium");
 
         Image logo = new Image("FullColorOrangeR.png");
         ImageView logoIV = new ImageView();
@@ -68,15 +61,34 @@ public class MenuBar {
         Button options[] = new Button[] {
             new Button("Dashboard"),
             new Button("Ciphers"),
+            new Button("Key Ring"),
             new Button("Settings"),
             new Button("Help"),
-            new Button("About")};
+            new Button("About")
+        };
 
-        for (int i=0; i<5; i++) {
+        String optionNames[] = new String[] {
+            new String("dash"),
+            new String("ciphers"),
+            new String("keyring"),
+            new String("settings"),
+            new String("help"),
+            new String("about")
+        };
+
+        for (int i=0; i<6; i++) {
             // Add offset to left side to indent from title
             VBox.setMargin(options[i], new Insets(0, 0, 0, 0));
             options[i].setPrefWidth(menuButtonsW);
             options[i].setPrefHeight(menuButtonsH);
+
+            final int count = i;
+
+            options[i].setOnAction(e -> {
+                io.limasecurityworks.gui.IrohaFX.currentSceneChoice = optionNames[count];
+                io.limasecurityworks.gui.IrohaFX.splash.setLeft(addVBox(currentSceneChoice));
+                io.limasecurityworks.gui.IrohaFX.splashInner.setCenter(buildCurrentSceneChoice(currentSceneChoice));
+            });
 
             if (i == choice) {
                 options[i].setStyle("-fx-background-color: rgb(41, 54, 65);");

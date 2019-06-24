@@ -16,13 +16,13 @@ import javafx.scene.text.TextAlignment;
 import javafx.scene.text.Font;
 import io.limasecurityworks.gui.*;
 
-public class CiphersFX {
+public class KeyRingFX {
     
-    public static GridPane buildCiphers() {
+    public static GridPane buildKeyRing() {
 
-        GridPane ciphersGridPane = new GridPane();
+        GridPane keyringGridPane = new GridPane();
 
-        return ciphersGridPane;
+        return keyringGridPane;
 
     }
 }

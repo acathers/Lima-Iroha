@@ -17,12 +17,13 @@
 
  .root {
     -dark                        : rgb(29, 34, 44);
-    -backBlue                    : rgb(41, 54, 65);
-    -menuBlue                    : rgb(50, 66, 80);
-    -topBlue                     : rgb(66, 93, 117);
-    -topBlueTest                 : rgba(66, 93, 117, 0.5);
-    -darkerFade                  : rgba(24, 33, 39, 0.575);
+    -limaBlueDark                : rgb(41, 54, 65);
+    -limaBlueMedium              : rgb(50, 66, 80);
+    -limaBlueLighter             : rgb(66, 93, 117);
+    -limaBlueLight               : rgba(54, 73, 91);
     -limaYellow                  : beige;
+    -limaPurpleDark              : rgb(50, 41, 65);
+    -limaRedDark                 : rgb(65, 41, 41);
     -limaRed                     : rgb(241, 76, 0);
     -limaOrange                  : rgb(243, 104, 49);
     -text-color                  : #FFFEFE;
@@ -36,14 +37,14 @@
   }
 
   .dark-text {
-    -fx-text-fill        : -backBlue;
+    -fx-text-fill        : -limaBlueDark;
   }
 
   .text-field {
-    -fx-text-fill        : -backBlue;
+    -fx-text-fill        : -limaBlueDark;
     -fx-outer-border     : linear-gradient(to bottom, derive(-limaYellow, 30%) 0%, derive(-limaYellow, -30%) 100%);
     -fx-inner-border     : derive(-limaRed, 10%);
-    -fx-body-color       : -menuBlue;
+    -fx-body-color       : -limaBlueMedium;
     -fx-border-color     : transparent;
     -fx-border-radius    : 0;
     -fx-background-radius: 0;
@@ -58,7 +59,7 @@
 
   .yellow-rect {
     -fx-fill: -limaYellow;
-    -fx-text-fill        : backBlue;
+    -fx-text-fill        : limaBlueDark;
     -fx-border-radius    : 0;
     -fx-background-radius: 0;
     -fx-padding          : 10 15 10 15;
@@ -82,7 +83,18 @@
   }
 
   .discord-button {
-
+    -fx-text-fill        : -text-color;
+    -fx-body-color       : transparent;
+    -fx-border-color     : transparent;
+    -fx-background-color : beige;
+    -fx-border-radius    : 0;
+    -fx-background-radius: 0;
+    -fx-background-insets: 0,0,0,0 0 0 0;
+    /* -fx-font-family      : "Ubuntu Medium"; */
+    -fx-font-size        : 14px;
+    /* -fx-font-style       : normal; */
+    /* -fx-font-weight      : lighter; */
+    /*-fx-effect           : dropshadow(two-pass-box, rgba(0, 0, 0, 0.3), 2, 0, -2, 2);*/
   }
 
   .menu-bar {
@@ -133,7 +145,7 @@
   
   .button {
     -fx-text-fill        : -text-color;
-    -fx-body-color       : -menuBlue;
+    -fx-body-color       : -limaBlueMedium;
     -fx-border-color     : transparent;
     -fx-border-radius    : 0;
     -fx-background-radius: 0;
@@ -160,6 +172,13 @@
   }
 
   .button:pressed {
+    -fx-body-color       : -limaOrange;
+    -fx-border-color     : -limaBlueMedium;
+    -fx-stroke: green;
+    -fx-stroke-width: 5;
+    -fx-stroke-dash-array: 12 2 4 2;
+    -fx-stroke-dash-offset: 6;
+    -fx-stroke-line-cap: butt;
     
   }
   .button:disabled {
