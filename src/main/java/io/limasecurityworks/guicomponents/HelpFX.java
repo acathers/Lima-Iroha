@@ -4,7 +4,7 @@ import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.layout.GridPane;
+import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.ColumnConstraints;
 import javafx.scene.layout.RowConstraints;
@@ -18,11 +18,11 @@ import io.limasecurityworks.gui.*;
 
 public class HelpFX {
     
-    public static GridPane buildHelp() {
+    public static BorderPane buildHelp() {
 
-        GridPane helpGridPane = new GridPane();
+        BorderPane helpBorderPane = new BorderPane();
 
-        return helpGridPane;
+        return helpBorderPane;
 
     }
 }

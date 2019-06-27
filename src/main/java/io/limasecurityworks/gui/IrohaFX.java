@@ -15,8 +15,9 @@ import static io.limasecurityworks.guicomponents.DashFX.buildDash;
 import static io.limasecurityworks.guicomponents.HelpFX.buildHelp;
 import static io.limasecurityworks.guicomponents.SettingsFX.buildSettings;
 import static io.limasecurityworks.guicomponents.MenuBar.addVBox;
+import static io.limasecurityworks.guicomponents.MenuBar.addHBoxSocial;
 import static io.limasecurityworks.guicomponents.TopBar.addHBoxButtons;
-import static io.limasecurityworks.guicomponents.TopBar.addHBoxSocial;
+
 
 
 public class IrohaFX extends Application {
@@ -27,6 +28,7 @@ public class IrohaFX extends Application {
     public static BorderPane splash = new BorderPane();
     public static BorderPane splashInner = new BorderPane();
     public static BorderPane splashInnerTop = new BorderPane();
+    public static BorderPane splashInnerLeft = new BorderPane();
 
     public static void main(String[] args) {
         launch(args);
@@ -40,25 +42,26 @@ public class IrohaFX extends Application {
         primaryStage.getIcons().add(new Image("FullColorOrangeIcon.png"));
 
         //Build menu bar on left.
-        splash.setLeft(addVBox(currentSceneChoice));
+        splash.setLeft(splashInnerLeft);
+        splashInnerLeft.setTop(addVBox(currentSceneChoice));
+        splashInnerLeft.setBottom(addHBoxSocial(currentSceneChoice));
+        splashInnerLeft.setStyle("-fx-background-color: -limaBlueMedium");
 
         // Build inner BorderPane.
         splash.setCenter(splashInner);
 
         // Build inner BorderPane and add borderpane to the top and build top bar.
         splashInner.setTop(splashInnerTop);
-        splashInnerTop.setRight(addHBoxSocial(currentSceneChoice));
         splashInnerTop.setLeft(addHBoxButtons(currentSceneChoice));
         splashInnerTop.setStyle("-fx-background-color: -limaBlueLight");
 
 
         // Build inner BorderPane Center.
-        GridPane workingScene = buildCurrentSceneChoice(currentSceneChoice);
+        BorderPane workingScene = buildCurrentSceneChoice(currentSceneChoice);
         splashInner.setCenter(workingScene);
-        BorderPane.setMargin(workingScene, new Insets(25, 25, 25, 25));
 
         // Set the Scene.
-        Scene scene = new Scene(splash, 1475, 800);
+        Scene scene = new Scene(splash, 1300, 700);
         scene.getStylesheets().add("limaBlue.css");
         primaryStage.setScene(scene);
         primaryStage.show();
@@ -70,7 +73,7 @@ public class IrohaFX extends Application {
     }
 
     //Method used to build the Center of the inner BorderPane.
-    public static GridPane buildCurrentSceneChoice(String input) {
+    public static BorderPane buildCurrentSceneChoice(String input) {
 
         switch(input) {
             case "dash":

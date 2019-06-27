@@ -22,13 +22,14 @@
     -limaBlueLighter             : rgb(66, 93, 117);
     -limaBlueLight               : rgba(54, 73, 91);
     -limaYellow                  : beige;
-    -limaPurpleDark              : rgb(50, 41, 65);
+    -limaPurpleDark              : rgb(39, 27, 59);
     -limaRedDark                 : rgb(65, 41, 41);
     -limaRed                     : rgb(241, 76, 0);
-    -limaOrange                  : rgb(243, 104, 49);
+    -limaOrange                  : rgb(247, 70, 0);
+    -limaPurple                  : rgb(168, 68, 2);
     -text-color                  : #FFFEFE;
     -highlight-effect            : dropshadow(two-pass-box, rgba(255, 255, 255, 1.0), 20, 0.5, 0, 0);
-    -fx-background               : rgb(41, 54, 65);
+    -fx-background               : -limaBlueDark;
     -fx-font-family              : 'Ubuntu Bold';
     -fx-font-size                : 14px;
     -fx-base                     : -limaYellow;

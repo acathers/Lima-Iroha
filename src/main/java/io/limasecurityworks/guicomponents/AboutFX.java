@@ -2,15 +2,13 @@ package io.limasecurityworks.guicomponents;
 
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
-import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.ColumnConstraints;
 import javafx.scene.layout.RowConstraints;
 import javafx.scene.shape.Rectangle;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
 import javafx.scene.text.Text;
 import javafx.scene.text.TextAlignment;
 import javafx.scene.text.Font;
@@ -20,13 +18,15 @@ import javafx.scene.control.Hyperlink;
 
 public class AboutFX extends IrohaFX {
     
-    public static GridPane buildAbout() {
+    public static BorderPane buildAbout() {
 
         // Set up GridPane for about.
 
+        BorderPane aboutBorderPane = new BorderPane();
+
         GridPane aboutGridPane = new GridPane();
 
-        aboutGridPane.setAlignment(Pos.TOP_CENTER);
+        aboutGridPane.setAlignment(Pos. CENTER);
         aboutGridPane.setVgap(50);
         aboutGridPane.setHgap(15);
 
@@ -43,7 +43,7 @@ public class AboutFX extends IrohaFX {
         welcome.getStyleClass().add("background-text-title");
         aboutGridPane.add(welcome, 1, 0, 3, 1);
         welcome.setWrappingWidth(600);
-        welcome.setTextAlignment(TextAlignment.CENTER);
+        welcome.setTextAlignment(TextAlignment. CENTER);
 
         // Build hyperlink for readme
 
@@ -61,10 +61,13 @@ public class AboutFX extends IrohaFX {
 
         intro.getStyleClass().add("background-text");
         aboutGridPane.add(intro, 1, 1, 3, 1);
-        intro.setWrappingWidth(600);
-        intro.setTextAlignment(TextAlignment.CENTER);
+        intro.setWrappingWidth(1000);
+        intro.setTextAlignment(TextAlignment. CENTER);
 
-        return aboutGridPane;
+        //Add aboutGridPane to the BorderPane
+        aboutBorderPane.setCenter(aboutGridPane);
+
+        return aboutBorderPane;
 
     }
 }

@@ -15,18 +15,22 @@ import javafx.scene.text.Text;
 import javafx.scene.text.TextAlignment;
 import javafx.scene.text.Font;
 import io.limasecurityworks.gui.*;
+import javafx.scene.layout.BorderPane;
 
 public class DashFX extends IrohaFX{
 
-    public static GridPane buildDash() {
+    public static BorderPane buildDash() {
 
         // Set up GridPane for dash.
+
+        BorderPane dashBorderPane = new BorderPane();
 
         GridPane dashGridPane = new GridPane();
 
         dashGridPane.setAlignment(Pos.TOP_CENTER);
         dashGridPane.setVgap(50);
         dashGridPane.setHgap(15);
+        BorderPane.setMargin(dashGridPane, new Insets(25, 25, 25, 25));
 
         for (int i = 0; i < 5; i++) {
             ColumnConstraints column = new ColumnConstraints(200);
@@ -126,7 +130,11 @@ public class DashFX extends IrohaFX{
         readmeStackPane.getChildren().addAll(readmeBox, readmeLabel, readmeButton);
         dashGridPane.add(readmeStackPane, 3, 3, 2, 1);
 
-        return dashGridPane;
+        //Add all to dashGridPane
+
+        dashBorderPane.setCenter(dashGridPane);
+
+        return dashBorderPane;
     }
     
 }
