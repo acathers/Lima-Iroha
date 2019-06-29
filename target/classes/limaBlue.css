@@ -21,13 +21,13 @@
     -limaBlueMedium              : rgb(50, 66, 80);
     -limaBlueLighter             : rgb(66, 93, 117);
     -limaBlueLight               : rgba(54, 73, 91);
-    -limaYellow                  : beige;
+    -limaYellow                  : rgb(196, 196, 196);
     -limaPurpleDark              : rgb(39, 27, 59);
     -limaRedDark                 : rgb(65, 41, 41);
     -limaRed                     : rgb(241, 76, 0);
     -limaOrange                  : rgb(247, 70, 0);
     -limaPurple                  : rgb(168, 68, 2);
-    -text-color                  : #FFFEFE;
+    -text-color                  : rgb(230, 230, 230);
     -highlight-effect            : dropshadow(two-pass-box, rgba(255, 255, 255, 1.0), 20, 0.5, 0, 0);
     -fx-background               : -limaBlueDark;
     -fx-font-family              : 'Ubuntu Bold';
@@ -43,7 +43,8 @@
 
   .text-field {
     -fx-text-fill        : -limaBlueDark;
-    -fx-outer-border     : linear-gradient(to bottom, derive(-limaYellow, 30%) 0%, derive(-limaYellow, -30%) 100%);
+    -fx-outer-border     : -limaYellow;
+    -fx-background-color            : -limaYellow;
     -fx-inner-border     : derive(-limaRed, 10%);
     -fx-body-color       : -limaBlueMedium;
     -fx-border-color     : transparent;
@@ -87,7 +88,7 @@
     -fx-text-fill        : -text-color;
     -fx-body-color       : transparent;
     -fx-border-color     : transparent;
-    -fx-background-color : beige;
+    -fx-background-color : -limaYellow;
     -fx-border-radius    : 0;
     -fx-background-radius: 0;
     -fx-background-insets: 0,0,0,0 0 0 0;
