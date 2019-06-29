@@ -20,7 +20,7 @@ javac -sourcepath src/main/java -d target/classes src/main/java/io/limasecurityw
 
 Next use "cd" again to get to the io file, like this.
 
-cd test/classes
+cd target/classes
 
 Now, start the program.
 
