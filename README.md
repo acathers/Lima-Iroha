@@ -52,19 +52,19 @@ The following ciphers have yet to be added but in progress:
     Version 0.13.0 - Codes and Nomenclators
     Version 0.14.0 - Columnar Transposition
     Version 0.15.0 - Enigma
-    Version 0.15.0 - Four-Square
-    Version 0.16.0 - Fractionated Morse
-    Version 0.17.0 - Hill
-    Version 0.18.0 - Homophonic Substitution
-    Version 0.19.0 - Lorenze
-    Version 0.20.0 - Playfair
-    Version 0.21.0 - Polybius Square
-    Version 0.22.0 - Porta
-    Version 0.23.0 - Rail-fence
-    Version 0.24.0 - Running Key
-    Version 0.25.0 - Simple Substitution
-    Version 0.26.0 - Straddle Checkerboard
-    Version 0.27.0 - Trifid
+    Version 0.16.0 - Four-Square
+    Version 0.17.0 - Fractionated Morse
+    Version 0.18.0 - Hill
+    Version 0.19.0 - Homophonic Substitution
+    Version 0.20.0 - Lorenze
+    Version 0.21.0 - Playfair
+    Version 0.22.0 - Polybius Square
+    Version 0.23.0 - Porta
+    Version 0.24.0 - Rail-fence
+    Version 0.25.0 - Running Key
+    Version 0.26.0 - Simple Substitution
+    Version 0.27.0 - Straddle Checkerboard
+    Version 0.28.0 - Trifid
 
     Other possible ciphers (Probably after GUI is completed).
 
