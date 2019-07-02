@@ -67,12 +67,6 @@ public class Caesar {
         // Get input text and complete the encryption or decryption. help == null in the if statement is necessary to prevent it from running after a help command is entered.
 
         if (help == null && about == null) {
-            System.out.println();
-            System.out.print("Input Text:      ");
-
-            //This is where text to be encrypted or decrypted is put in.
-
-            String input = io.limasecurityworks.ui.Iroha.sc.nextLine();
 
             // if statment that uses the variables function and key to determine what to do to the text.
 
@@ -83,6 +77,28 @@ public class Caesar {
                 else {
                     key = "-3";
                 }
+            }
+
+            else {
+                while(!checkKey(key)) {
+                    System.out.println();
+                    System.out.println("The key may only contain numbers");
+                    System.out.print("Input key without Numbers: ");
+                    key = io.limasecurityworks.ui.Iroha.sc.nextLine();
+                }
+            }
+
+            // Get text to be encrypted.
+            System.out.print("Input Text:      ");
+
+            String input = io.limasecurityworks.ui.Iroha.sc.nextLine();
+
+            while(!checkInput(input)) {
+                System.out.println();
+                System.out.println("Numbers can not be encrypted with Caesars Cipher, please spell them out.");
+                System.out.print("input text without numbers:");
+
+                input = io.limasecurityworks.ui.Iroha.sc.nextLine();
             }
 
             if (this.function.equalsIgnoreCase("encrypt")) {
