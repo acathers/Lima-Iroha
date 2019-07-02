@@ -80,7 +80,7 @@ public class Caesar {
             }
 
             else {
-                while(!checkKey(key)) {
+                while (!checkKey(key)) {
                     System.out.println();
                     System.out.println("The key may only contain numbers");
                     System.out.print("Input key without Numbers: ");
@@ -93,7 +93,7 @@ public class Caesar {
 
             String input = io.limasecurityworks.ui.Iroha.sc.nextLine();
 
-            while(!checkInput(input)) {
+            while (!checkInput(input)) {
                 System.out.println();
                 System.out.println("Numbers can not be encrypted with Caesars Cipher, please spell them out.");
                 System.out.print("input text without numbers:");
@@ -118,7 +118,7 @@ public class Caesar {
     //check the key to ensure it is valid, must be all numbers.
     public static boolean checkKey(String input) {
 
-        if(StringBoolean.isNumeric(input)) {
+        if (StringBoolean.isNumeric(input)) {
             return true;
         }
         else {
@@ -129,7 +129,7 @@ public class Caesar {
     //check the input to ensure it is valid (no numbers), the rest aside from letters will be deleted.
     public static boolean checkInput(String input) {
 
-        if(StringBoolean.hasDigits(input)) {
+        if (StringBoolean.hasDigits(input)) {
             return false;
         } 
         else {
