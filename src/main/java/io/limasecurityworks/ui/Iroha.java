@@ -9,8 +9,6 @@
 *
 */
 
-
-
 package io.limasecurityworks.ui;
 
 import java.util.Scanner;

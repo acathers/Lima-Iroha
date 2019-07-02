@@ -31,4 +31,19 @@ public class ReChars {
 
         return output;
     }
+
+    public static String reAllNonLettersLeaveSpaces(String input) {
+        String output = "";
+
+        for (int i = 0; i < input.length(); i++) {
+            if ((input.charAt(i) >= 'a' && input.charAt(i) <= 'z') || (input.charAt(i) >= 'A' && input.charAt(i) <= 'Z')) {
+                output += Character.toString(input.charAt(i));
+            }
+            else if (Character.toString(input.charAt(i)).equalsIgnoreCase(" ")) {
+                output += Character.toString(input.charAt(i));
+            }
+        }
+
+        return output;
+    }
 }

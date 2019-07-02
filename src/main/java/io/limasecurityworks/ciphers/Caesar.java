@@ -2,6 +2,8 @@ package io.limasecurityworks.ciphers;
 
 import java.lang.StringBuilder;
 import io.limasecurityworks.processes.*;
+import io.limasecurityworks.printables.*;
+import io.limasecurityworks.tools.*;
 
 public class Caesar {
 
@@ -21,6 +23,10 @@ public class Caesar {
         this.key = key;
         this.help = help;
         this.about = about;
+    }
+
+    public void runCCGui() {
+        
     }
 
     //Class is ran from here, this method should execute anything in the class needed from the command. The if statment sorts out the command and executes the methods as needed.
@@ -62,8 +68,6 @@ public class Caesar {
 
         if (help == null && about == null) {
             System.out.println();
-            System.out.println("Input text. Letters and spaces only.");
-            System.out.println();
             System.out.print("Input Text:      ");
 
             //This is where text to be encrypted or decrypted is put in.
@@ -72,25 +76,22 @@ public class Caesar {
 
             // if statment that uses the variables function and key to determine what to do to the text.
 
-            if (this.key != null) {
+            if (key == null) {
                 if (this.function.equalsIgnoreCase("encrypt")) {
-                    int keyInt = Integer.parseInt(this.key);
-                    setEncryptKey(keyInt);
+                    key = "3";
                 }
                 else {
-                    int keyInt = Integer.parseInt(this.key);
-                    setDecryptKey(keyInt);
+                    key = "-3";
                 }
-
             }
-
-            
 
             if (this.function.equalsIgnoreCase("encrypt")) {
-                    System.out.print("Encrypted Text:  " + encryptText(input) + "\n");
+                Headers.translationHeader();
+                System.out.print("Input:          " + input + "\n" + "Key:            " + key + "\n" + "Encrypted Text: " + encryptText(input) + "\n");
             }
             else if (this.function.equalsIgnoreCase("decrypt")) {
-                System.out.print("Decrypted Text:  " + decryptText(input) + "\n");
+                Headers.translationHeader();
+                System.out.print("Input:          " + input + "\n" + "Key:            " + key + "\n" + "Decrypted Text: " + decryptText(input) + "\n");
             }
             else {
                 System.out.println("This should be an impossible function error. Function is not encrypt or decrypt");
@@ -98,15 +99,39 @@ public class Caesar {
         }
     }
 
-    //Used to set the key for encryption.
+    //check the key to ensure it is valid, must be all numbers.
+    public static boolean checkKey(String input) {
 
-    public static void setEncryptKey(int x) {
-        Caesar.encryDef = x;
+        if(StringBoolean.isNumeric(input)) {
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
+
+    //check the input to ensure it is valid (no numbers), the rest aside from letters will be deleted.
+    public static boolean checkInput(String input) {
+
+        if(StringBoolean.hasDigits(input)) {
+            return false;
+        } 
+        else {
+            return true;
+        }
+    }
+
+    public static String cleanInput(String input) {
+
+        input = ReChars.reAllNonLettersLeaveSpaces(input);
+        return input;
     }
 
     //Used to encrypt your text.
 
     public String encryptText(String input) {
+
+        encryDef = Integer.parseInt(key);
 
         String inputUC = input.toUpperCase();
 
@@ -132,15 +157,12 @@ public class Caesar {
         return output.toString();
     }
 
-    //Used to set the key for decryption.
-
-    public static void setDecryptKey(int x) {
-        Caesar.decryDef = -x;
-    }
-
     //Used to decrypt your text.
 
     public String decryptText(String input) {
+
+
+        decryDef = -1 * Integer.parseInt(key);
 
         String inputUC = input.toUpperCase();
 
