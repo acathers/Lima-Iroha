@@ -12,8 +12,6 @@ public class ComTree {
     private String about;
     private int iKeyA;
     private int iKeyB;
-    private String input;
-    private String keySquare;
 
     //Breaks up full command line into variables.
 

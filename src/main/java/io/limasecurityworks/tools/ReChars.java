@@ -4,8 +4,6 @@
 
 package io.limasecurityworks.tools;
 
-import io.limasecurityworks.tools.*;
-
 public class ReChars {
 
     public static String reSpaces(String input) {

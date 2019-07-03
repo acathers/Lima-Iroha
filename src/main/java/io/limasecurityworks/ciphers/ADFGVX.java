@@ -4,6 +4,7 @@ import java.lang.StringBuilder;
 import java.lang.Math;
 import java.util.Arrays;
 import io.limasecurityworks.processes.*;
+import io.limasecurityworks.tools.*;
 import io.limasecurityworks.tools.StringBoolean;
 
 public class ADFGVX {
@@ -236,12 +237,14 @@ public class ADFGVX {
         return complete;
     }
 
-    public static boolean checkInput(String input) {
+    public static String cleanInput(String input) {
 
+        return ReChars.reAllNonLetters(input);
     }
 
     public static boolean checkKey(String input) {
 
+        return StringBoolean.isAlpha(input);
     }
 
 
