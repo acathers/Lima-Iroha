@@ -4,7 +4,7 @@ import java.lang.StringBuilder;
 import java.lang.Math;
 import java.util.Arrays;
 import io.limasecurityworks.processes.*;
-
+import io.limasecurityworks.tools.StringBoolean;
 
 public class ADFGVX {
 
@@ -13,6 +13,8 @@ public class ADFGVX {
     private String keySquare = "avjzt7n5iwgm8u0q9dhb2rfcxyke4s13p6ol";
     private String help;
     private String about;
+
+    final static String lettersDigits = "abcdefghijklmnopqrstuvwxyz1234567890";
 
     private String[] keySquareOutput = {"AA", "AD", "AF", "AG", "AV", "AX", "DA", "DD", "DF", "DG", "DV", "DX", "FA", "FD", "FF", "FG", "FV", "FX", "GA", "GD", "GF", "GG", "GV", "GX", "VA", "VD", "VF", "VG", "VV", "VX", "XA", "XD", "XF", "XG", "XV", "XX"};
 
@@ -86,7 +88,6 @@ public class ADFGVX {
                     restart:
                     while (keySqReq == false) {
 
-                        String lettersDigits = "abcdefghijklmnopqrstuvwxyz1234567890";
                         StringBuilder lettersDigitsSB = new StringBuilder(lettersDigits);
 
                         System.out.println();
@@ -203,6 +204,44 @@ public class ADFGVX {
                 max--;
             }
         return this.keySquare = newKeySquare.toString();
+    }
+
+    //Checks the keysquare to ensure it contains every letter and digit once.
+    public static boolean checkKeySquare(String input) {
+
+        boolean complete = false;
+
+        StringBuilder lettersDigitsSB = new StringBuilder(lettersDigits);
+        int counter = 36;
+
+        if (input.length() == 36) {
+            for (int i = 0; i < 36; i++) {
+                if (!StringBoolean.isAlpha(Character.toString(input.charAt(i))) && !Character.isDigit(input.charAt(i))) {
+                    break;
+                }
+                else {
+                    for (int j = 0; j < counter; j++) {
+                        if (Character.toString(input.charAt(i)).equalsIgnoreCase(Character.toString(lettersDigitsSB.charAt(j)))) {
+
+                            lettersDigitsSB.deleteCharAt(j);
+                            counter--;
+                            if (lettersDigitsSB.length() == 0) {
+                                return true;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        return complete;
+    }
+
+    public static boolean checkInput(String input) {
+
+    }
+
+    public static boolean checkKey(String input) {
+
     }
 
 

@@ -139,8 +139,11 @@ public class Caesar {
 
     public static String cleanInput(String input) {
 
-        input = ReChars.reAllNonLettersLeaveSpaces(input);
-        return input;
+        String cleanInput;
+
+        cleanInput = ReChars.reAllNonLettersLeaveSpaces(input);
+        
+        return cleanInput;
     }
 
     //Used to encrypt your text.
@@ -168,7 +171,6 @@ public class Caesar {
                 char encryPlace = (char)(place + encryDef);
                 output.append(encryPlace);
             }
-
         }
         return output.toString();
     }
@@ -176,7 +178,6 @@ public class Caesar {
     //Used to decrypt your text.
 
     public String decryptText(String input) {
-
 
         decryDef = -1 * Integer.parseInt(key);
 
@@ -199,7 +200,6 @@ public class Caesar {
                 char decryPlace = (char)(place + decryDef);
                 output.append(decryPlace);
             }
-
         }
         return output.toString();
     }

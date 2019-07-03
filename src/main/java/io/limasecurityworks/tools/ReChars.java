@@ -4,6 +4,8 @@
 
 package io.limasecurityworks.tools;
 
+import io.limasecurityworks.tools.*;
+
 public class ReChars {
 
     public static String reSpaces(String input) {
@@ -24,7 +26,7 @@ public class ReChars {
         String output = "";
 
         for (int i = 0; i < input.length(); i++) {
-            if (Character.isLetter(input.charAt(i))) {
+            if (StringBoolean.isAlpha(Character.toString(input.charAt(i)))) {
                 output += Character.toString(input.charAt(i));
             }
         }
@@ -36,14 +38,13 @@ public class ReChars {
         String output = "";
 
         for (int i = 0; i < input.length(); i++) {
-            if ((input.charAt(i) >= 'a' && input.charAt(i) <= 'z') || (input.charAt(i) >= 'A' && input.charAt(i) <= 'Z')) {
+            if (StringBoolean.isAlpha(Character.toString(input.charAt(i)))) {
                 output += Character.toString(input.charAt(i));
             }
             else if (Character.toString(input.charAt(i)).equalsIgnoreCase(" ")) {
                 output += Character.toString(input.charAt(i));
             }
         }
-
         return output;
     }
 }

@@ -9,7 +9,7 @@ public class StringBoolean {
         boolean allLetters = true;
 
         for (char c : chars) {
-            if (!Character.isLetter(c) && c != ' ') {
+            if (!(c >= 'a' && c <= 'z') && !(c >= 'A' && c <= 'Z')) {
                 allLetters = false;
                 break;
             }
