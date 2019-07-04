@@ -11,7 +11,7 @@ public class ADFGVX {
 
     private String function;
     private String key;
-    private String keySquare = "avjzt7n5iwgm8u0q9dhb2rfcxyke4s13p6ol";
+    private String keySquare;
     private String help;
     private String about;
 
@@ -20,9 +20,10 @@ public class ADFGVX {
     private String[] keySquareOutput = {"AA", "AD", "AF", "AG", "AV", "AX", "DA", "DD", "DF", "DG", "DV", "DX", "FA", "FD", "FF", "FG", "FV", "FX", "GA", "GD", "GF", "GG", "GV", "GX", "VA", "VD", "VF", "VG", "VV", "VX", "XA", "XD", "XF", "XG", "XV", "XX"};
 
 
-    public ADFGVX(String function, String key, String help, String about) {
+    public ADFGVX(String function, String key, String keySquare, String help, String about) {
         this.function = function;
         this.key = key;
+        this.keySquare = keySquare;
         this.help = help;
         this.about = about;
     }
@@ -74,6 +75,7 @@ public class ADFGVX {
             while (option == false) {
 
                 if (keySqOption.equalsIgnoreCase("default")) {
+                    keySquare = "avjzt7n5iwgm8u0q9dhb2rfcxyke4s13p6ol";
                     option = true;
                 }
                 else if (keySqOption.equalsIgnoreCase("new")) {

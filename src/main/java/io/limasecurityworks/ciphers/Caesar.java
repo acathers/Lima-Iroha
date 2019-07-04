@@ -25,10 +25,6 @@ public class Caesar {
         this.about = about;
     }
 
-    public void runCCGui() {
-        
-    }
-
     //Class is ran from here, this method should execute anything in the class needed from the command. The if statment sorts out the command and executes the methods as needed.
 
     public void runCC() {

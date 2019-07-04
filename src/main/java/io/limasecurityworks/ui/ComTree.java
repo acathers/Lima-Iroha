@@ -12,6 +12,7 @@ public class ComTree {
     private String about;
     private int iKeyA;
     private int iKeyB;
+    private String keySquare;
 
     //Breaks up full command line into variables.
 
@@ -134,7 +135,7 @@ public class ComTree {
         }
         else if (command.equalsIgnoreCase("ADFGVX")) {
 
-            ADFGVX newAVC = new ADFGVX(this.function, this.key, this.help, this.about);
+            ADFGVX newAVC = new ADFGVX(this.function, this.key, this.keySquare, this.help, this.about);
 
             newAVC.runAVC();
         }
