@@ -4,7 +4,7 @@ The development goal of this program is to create a program that can be used in 
 
 Check out the webpage for Lima Security Works at limasecurityworks.io
 
-Current Version: 0.12.03
+Current Version: 0.12.04
 
 --------------------------------------
 How to run this program on Linux.

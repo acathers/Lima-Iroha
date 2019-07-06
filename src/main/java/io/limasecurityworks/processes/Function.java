@@ -8,7 +8,7 @@ public class Function {
 
         System.out.print("\n" + "Would you like to Encrypt or Decrypt your text?: ");
             function = io.limasecurityworks.ui.Iroha.sc.nextLine();
-            checkFunction(function);
+            function = checkFunction(function);
             
         return function;
     }
