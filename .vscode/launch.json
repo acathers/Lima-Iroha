@@ -4,7 +4,6 @@
     // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
     "version": "0.2.0",
     "configurations": [
-        
         {
             "type": "java",
             "name": "CodeLens (Launch) - Iroha",
@@ -14,30 +13,10 @@
         },
         {
             "type": "java",
-            "name": "Debug (Launch) - Main External Terminal",
+            "name": "Debug (Launch) - Current File",
             "request": "launch",
-            "console": "externalTerminal",
-            "mainClass": "io.limasecurityworks.ui.Iroha"
-        },
-        {
-            "type": "java",
-            "name": "Debug (Launch) - Test External Terminal",
-            "request": "launch",
-            "console": "externalTerminal",
-            "mainClass": "/home/iskra/Documents/JAtom/Lima-Iroha/target/test-classes/io/limasecurityworks/ui/Iroha.class"
-        },
-        {
-            "type": "java",
-            "name": "Debug (Launch) - Test GUI",
-            "request": "launch",
-            "mainClass": "${workspaceFolder}/src/test/java/io/limasecurityworks/gui/IrohaFX.java"
-        },
-        {
-            "type": "java",
-            "name": "Debug (Launch)-App<Lima-Iroha>",
-            "request": "launch",
-            "mainClass": "io.limasecurityworks.gui.IrohaFX.java",
-            "projectName": "Lima-Iroha"
+            "mainClass": "${file}",
+            "console": "externalTerminal"
         }
     ]
 }

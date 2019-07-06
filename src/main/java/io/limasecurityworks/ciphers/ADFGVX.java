@@ -354,26 +354,20 @@ public class ADFGVX {
 
     public String decryptText(String input) {
 
-        // New array to hold the encrypted columns. Need to fill this array with the right number of columns.
-
+        // New array to hold the encrypted columns. Need to build this array with the correct number of columns.
         StringBuilder inputSB = new StringBuilder(input);
         StringBuilder[][] fractInputCTD = new StringBuilder[2][this.key.length()];
 
         // By deviding the input length by the number of keys, we find out how many columns will have an extra character by the value of the remainder. We will call this value modulus.
-
         int modulus = inputSB.length() % key.length();
 
         // By dividing the length of the input by the key, without a remainder, we find out how many chars a non modulus column will have.
-
         int columnLength = inputSB.length() / key.length();
 
-
-        // maker to show what place we are in with our encrypted text string.
-
+        // marker to show what place we are in with our encrypted text string.
         int charPlaceMarkerD = 0;
 
         // The for loop will add the characters of the key that will contain an extra letter. The letters of the key that will contain an extra letter are the first ones. If modulus is 2, then the first two characters of the key will have an extra letter.
-
         StringBuilder modulusChars = new StringBuilder();
 
         for (int i = 0; i < modulus; i++) {
@@ -381,22 +375,17 @@ public class ADFGVX {
         }
 
         // Sort the key alphabetically into variable named "sortedKey".
-
         char[] charAlpha = this.key.toCharArray();
         Arrays.sort(charAlpha);
         String sortedKey = new String(charAlpha);
 
         // This for loop will fill each letter of the key with the letters from the encrypted text.
-
         for (int i = 0; i < this.key.length(); i++) {
 
             // This for loop runs if the character of the key is a modulus.
-
-
             if (modulusChars.indexOf(Character.toString(sortedKey.charAt(i))) != -1) {
 
                 // Remove the modulusChar so as to not be reused.
-
                 modulusChars.deleteCharAt(modulusChars.indexOf(Character.toString(sortedKey.charAt(i))));
 
                 for (int j = 0; j < columnLength + 1; j++) {
@@ -412,7 +401,6 @@ public class ADFGVX {
             }
 
             // If not a modulusChars
-
             else {
                 for (int k = 0; k < columnLength; k++) {
                     if (fractInputCTD[1][i] == null) {
@@ -428,15 +416,19 @@ public class ADFGVX {
         }
 
         // Now move columns out of alphabetical order to the key.
-
         StringBuilder[][] fractInputCTDAlpha = new StringBuilder[2][this.key.length()];
 
         for (int i = 0; i < this.key.length(); i++) {
             fractInputCTDAlpha[1][i] = new StringBuilder(fractInputCTD[1][sortedKey.indexOf(Character.toString(this.key.charAt(i)))]);
+            sortedKey.replace(sortedKey.charAt(sortedKey.indexOf(Character.toString(this.key.charAt(i)))), ' ');
+
+            //Needed to removed characters so that keys with duplicate characters may be used.
+            char[] sortedKeyChars = sortedKey.toCharArray();
+            sortedKeyChars[sortedKey.indexOf(Character.toString(this.key.charAt(i)))] = ' ';
+            sortedKey = String.valueOf(sortedKeyChars);
         }
 
         //got columns in the array in the alphabetized places
-
         StringBuilder outputSBD = new StringBuilder("");
         charPlaceMarkerD = 0;
         int forLength;
@@ -461,7 +453,6 @@ public class ADFGVX {
         }
 
         //outputSBD now contains fractionated message that needs unfractionated.
-
         StringBuilder currentCharD = new StringBuilder();
         StringBuilder outputSBDU = new StringBuilder("");
 

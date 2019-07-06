@@ -326,7 +326,6 @@ public class ADFGX {
 
         int columnLength = inputSB.length() / key.length();
 
-
         // maker to show what place we are in with our encrypted text string.
 
         int charPlaceMarkerD = 0;
@@ -392,6 +391,11 @@ public class ADFGX {
 
         for (int i = 0; i < this.key.length(); i++) {
             fractInputCTDAlpha[1][i] = new StringBuilder(fractInputCTD[1][sortedKey.indexOf(Character.toString(this.key.charAt(i)))]);
+
+            //Needed to removed characters so that keys with duplicate characters may be used.
+            char[] sortedKeyChars = sortedKey.toCharArray();
+            sortedKeyChars[sortedKey.indexOf(Character.toString(this.key.charAt(i)))] = ' ';
+            sortedKey = String.valueOf(sortedKeyChars);
         }
 
         //got columns in the array in the alphabetized places

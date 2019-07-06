@@ -4,7 +4,7 @@ The development goal of this program is to create a program that can be used in 
 
 Check out the webpage for Lima Security Works at limasecurityworks.io
 
-Current Version: 0.12.04
+Current Version: 0.12.05
 
 --------------------------------------
 How to run this program on Linux.
@@ -103,22 +103,6 @@ The following ciphers have yet to be added but in progress:
     Version 5 - Cipher breaker.
 
     Current TODO list:
-
-    Caesar Cipher:
-
-    Is not ignoring periods on input for encryption.
-
-    ADFGVX:
-
-    Fix formatting
-    Add more documentation
-    Add ability to quickly generate multiple new key squares.
-
-    ADFGX:
-
-    Fix formatting
-    Add more documentation
-    Add ability to quickly generate multiple new key squares.
 
     Affine Cipher:
 
