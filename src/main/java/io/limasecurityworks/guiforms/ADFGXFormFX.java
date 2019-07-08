@@ -4,9 +4,9 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.control.TextArea;
 import javafx.scene.control.Button;
 import javafx.geometry.Insets;
-import javafx.geometry.Pos;
 import javafx.geometry.VPos;
 import javafx.geometry.HPos;
 import io.limasecurityworks.ciphers.ADFGX;
@@ -31,12 +31,12 @@ public class ADFGXFormFX {
         adfgxFormFX.add(input, 0, 0);
         
         //Create TextField for input Label.
-        TextField inputTF = new TextField();
-        inputTF.setPromptText("Text to be encrypted or decrypted, click the function button to switch.");
-        inputTF.setPrefWidth(700);
-        inputTF.setPrefHeight(200);
-        inputTF.setAlignment(Pos.TOP_LEFT);
-        adfgxFormFX.add(inputTF, 1, 0, 4, 1);
+        TextArea inputTA = new TextArea();
+        inputTA.setPromptText("Text to be encrypted or decrypted, click the function button to switch.");
+        inputTA.setWrapText(true);
+        inputTA.setPrefWidth(700);
+        inputTA.setPrefHeight(200);
+        adfgxFormFX.add(inputTA, 1, 0, 4, 1);
         
         //Create Label for function.
         Label function = new Label("Function Selection: ");
@@ -65,7 +65,7 @@ public class ADFGXFormFX {
 
         //Create a TexField for shift.
         TextField keySquareTF = new TextField();
-        keySquareTF.setText("abcdefghiklmnopqrstuvwxyz");
+        keySquareTF.setText("avztniwgmuqdhbrfcxykespol");
         adfgxFormFX.add(keySquareTF, 3, 1, 2, 1);
 
         //Create Generate KeySquare button;
@@ -87,7 +87,7 @@ public class ADFGXFormFX {
 
         //Create Key text field.
         TextField keyTF = new TextField();
-        inputTF.setPromptText("Enter key");
+        inputTA.setPromptText("Enter key");
         adfgxFormFX.add(keyTF, 3, 2);
 
         //Create an Execute Button.
@@ -106,60 +106,69 @@ public class ADFGXFormFX {
         adfgxFormFX.add(output, 0, 3);
 
         //Create TextField for output.
-        TextField outputTF = new TextField();
-        outputTF.setPromptText("Output text.");
-        outputTF.setEditable(false);
-        outputTF.setPrefWidth(500);
-        outputTF.setPrefHeight(200);
-        outputTF.setAlignment(Pos.TOP_LEFT);
-        GridPane.setMargin(outputTF, new Insets(20, 0, 0, 0));
-        adfgxFormFX.add(outputTF, 1, 3, 4, 1);
+        TextArea outputTA = new TextArea();
+        outputTA.setPromptText("Output text.");
+        outputTA.setWrapText(true);
+        outputTA.setEditable(false);
+        outputTA.setPrefWidth(700);
+        outputTA.setPrefHeight(200);
+        GridPane.setMargin(outputTA, new Insets(20, 0, 0, 0));
+        adfgxFormFX.add(outputTA, 1, 3, 4, 1);
 
         // Removes focus from TextFeild if background is clicked
-
-        /*
-        adfgxFormFX.setOnMousePressed(e -> {
-            if (!inputTF.equals(e.getSource())) {
-                        inputTF.getParent().requestFocus();
-            }
-        });
-        */
-
         adfgxFormFX.setOnMousePressed(e-> adfgxFormFX.requestFocus());
 
+        // Set action for execute button.
         execute.setOnAction(e -> {
-
-            boolean complete = false;
 
             String help = null;
             String about = null;
 
-            // If true, key has characters other than numbers and must be fixed.
-            if(!ADFGX.checkKey(keySquareTF.getText())) {
+            String inputError = "Input Error: You must enter text to be encrypted or decrypted." + "\n" + "\n";
 
-            }
-            if(!ADFGX.checkKeySquare(keySquareTF.getText())) {
-
-            }
-
-            // Checks are good, ready to complete encryption or decryption.
-            if(ADFGX.checkKey(keyTF.getText())) {
-                complete = true;
-            }
+            String keySquareError = "Key Square Error: The keysquare must all letters of the alphabet once. Fix the key square or press the 'Random Key Sq.' button to generate one." + "\n" + "\n";
+            String keySquareBlank = "Key Square Error: You must enter a key square" + "\n" + "\n";
             
-            // If checks were good, then execute.
-            if(complete) {
+            String keyError = "Key Error: The key must contain only letters and no spaces.";
+            String keyBlank = "Key Error: You must enter a key";
 
-                ADFGX newAVC = new ADFGX(functionButton.getText(), keyTF.getText(), keySquareTF.getText(), help, about);
+            String outputErrorList = "";
+
+            if (inputTA.getText().trim().length() == 0 || keySquareTF.getText().trim().length() == 0 || !ADFGX.checkKeySquare(keySquareTF.getText()) ||  keyTF.getText().trim().length() == 0 || !ADFGX.checkKey(keyTF.getText())) {
+
+                if (inputTA.getText().trim().length() == 0) {
+                    outputErrorList += inputError;
+                }
+
+                if (keySquareTF.getText().trim().length() == 0) {
+                    outputErrorList += keySquareBlank;
+                }
+
+                else if (!ADFGX.checkKeySquare(keySquareTF.getText())) {
+                    outputErrorList += keySquareError;
+                }
+
+                if (keyTF.getText().trim().length() == 0) {
+                    outputErrorList += keyBlank;
+                }
+                
+                else if (!ADFGX.checkKey(keyTF.getText())) {
+                    outputErrorList += keyError;
+                }
+
+                outputTA.setText(outputErrorList);
+            } 
+
+            else {
+
+                ADFGX newAVC = new ADFGX(execute.getText(), keyTF.getText(), keySquareTF.getText(), help, about);
 
                 switch(functionButton.getText()) {
                     case "Encrypt":
-                    outputTF.setText(newAVC.encryptText(ADFGX.cleanInput(inputTF.getText())));
-                    System.out.println("Tried encrypt");
+                    outputTA.setText(newAVC.encryptText(ADFGX.cleanInput(inputTA.getText())));
                     break;
                     case "Decrypt":
-                    outputTF.setText(newAVC.decryptText(ADFGX.cleanInput(inputTF.getText())));
-                    System.out.println("Tried Decrypt");
+                    outputTA.setText(newAVC.decryptText(ADFGX.cleanInput(inputTA.getText())));
                     break;
                     default:
                 }

@@ -4,9 +4,9 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.control.TextArea;
 import javafx.scene.control.Button;
 import javafx.geometry.Insets;
-import javafx.geometry.Pos;
 import javafx.geometry.VPos;
 import javafx.geometry.HPos;
 import io.limasecurityworks.ciphers.Caesar;
@@ -31,12 +31,12 @@ public class CaesarsFormFX {
         caesarsFormFX.add(input, 0, 0);
         
         //Create TextField for input Label.
-        TextField inputTF = new TextField();
-        inputTF.setPromptText("Text to be encrypted or decrypted, click the function button to switch.");
-        inputTF.setPrefWidth(600);
-        inputTF.setPrefHeight(200);
-        inputTF.setAlignment(Pos.TOP_LEFT);
-        caesarsFormFX.add(inputTF, 1, 0, 3, 1);
+        TextArea inputTA = new TextArea();
+        inputTA.setPromptText("Text to be encrypted or decrypted, click the function button to switch.");
+        inputTA.setWrapText(true);
+        inputTA.setPrefWidth(700);
+        inputTA.setPrefHeight(200);
+        caesarsFormFX.add(inputTA, 1, 0, 3, 1);
         
         //Create Label for function.
         Label function = new Label("Function Selection: ");
@@ -59,15 +59,15 @@ public class CaesarsFormFX {
             }
         });
 
-        //Create a Label for shift.
-        Label shift = new Label("Shift: ");
-        caesarsFormFX.add(shift, 2, 1);
+        //Create a Label for key.
+        Label key = new Label("Key: ");
+        caesarsFormFX.add(key, 2, 1);
 
-        //Create a TexField for shift.
-        TextField shiftTF = new TextField();
-        shiftTF.setPrefWidth(175);
-        shiftTF.setText("3");
-        caesarsFormFX.add(shiftTF, 3, 1);
+        //Create a TexField for key.
+        TextField keyTF = new TextField();
+        keyTF.setPrefWidth(175);
+        keyTF.setText("3");
+        caesarsFormFX.add(keyTF, 3, 1);
 
         //Create an Execute Button.
         Button execute = new Button("Execute");
@@ -85,58 +85,64 @@ public class CaesarsFormFX {
         caesarsFormFX.add(output, 0, 3);
 
         //Create TextField for output.
-        TextField outputTF = new TextField();
-        outputTF.setPromptText("Output text.");
-        outputTF.setEditable(false);
-        outputTF.setPrefWidth(500);
-        outputTF.setPrefHeight(200);
-        outputTF.setAlignment(Pos.TOP_LEFT);
-        GridPane.setMargin(outputTF, new Insets(20, 0, 0, 0));
-        caesarsFormFX.add(outputTF, 1, 3, 3, 1);
+        TextArea outputTA = new TextArea();
+        outputTA.setPromptText("Output text.");
+        outputTA.setWrapText(true);
+        outputTA.setEditable(false);
+        outputTA.setPrefWidth(700);
+        outputTA.setPrefHeight(200);
+        GridPane.setMargin(outputTA, new Insets(20, 0, 0, 0));
+        caesarsFormFX.add(outputTA, 1, 3, 3, 1);
 
         // Removes focus from TextFeild if background is clicked
-
-        /*
-        caesarsFormFX.setOnMousePressed(e -> {
-            if (!inputTF.equals(e.getSource())) {
-                       inputTF.getParent().requestFocus();
-            }
-        });
-        */
-
         caesarsFormFX.setOnMousePressed(e-> caesarsFormFX.requestFocus());
 
+        // Set action for execute button.
         execute.setOnAction(e -> {
 
-            boolean complete = false;
             String help = null;
             String about = null;
 
-            // If true, key has characters other than numbers and must be fixed.
-            if (!Caesar.checkKey(shiftTF.getText())) {
-                System.out.println("error key");
-            }
+            String inputError = "Input Error: Input may only contain letters." + "\n" + "\n";
+            String inputErrorBlank = "Input Error: You must enter text to be encrypted or decrypted." + "\n" + "\n";
 
-            // If true, input has numbers and must be fixed.
-            if (!Caesar.checkInput(inputTF.getText())) {
-                System.out.println("errorInput");
-            }
+            String keyError = "Key Error: The key must contain only letters and no spaces.";
+            String keyBlank = "Key Error: You must enter a key";
 
-            if (Caesar.checkKey(shiftTF.getText()) && Caesar.checkInput(inputTF.getText())) {
-                complete = true;
+            String outputErrorList = "";
+
+            if (inputTA.getText().trim().length() == 0 || !Caesar.checkInput(inputTA.getText()) || keyTF.getText().trim().length() == 0 || !Caesar.checkKey(keyTF.getText())) {
+
+                if (inputTA.getText().trim().length() == 0){
+                    outputErrorList += inputErrorBlank;
+                }
+
+                else if (!Caesar.checkInput(inputTA.getText())) {
+                    outputErrorList += inputError;
+                }
+
+                if (keyTF.getText().trim().length() == 0) {
+                    outputErrorList += keyBlank;
+                }
+
+                else if (!Caesar.checkKey(keyTF.getText())) {
+                    outputErrorList += keyError;
+                }
+
+                outputTA.setText(outputErrorList);
             }
             
-            if (complete) {
+            else {
 
-                Caesar newCC = new Caesar(functionButton.getText(), shiftTF.getText(), help, about);
+                Caesar newCC = new Caesar(functionButton.getText(), keyTF.getText(), help, about);
 
                 switch(functionButton.getText()) {
 
                     case "Encrypt":
-                    outputTF.setText(newCC.encryptText(Caesar.cleanInput(inputTF.getText())));
+                    outputTA.setText(newCC.encryptText(Caesar.cleanInput(inputTA.getText())));
                     break;
                     case "Decrypt":
-                    outputTF.setText(newCC.decryptText(Caesar.cleanInput(inputTF.getText())));
+                    outputTA.setText(newCC.decryptText(Caesar.cleanInput(inputTA.getText())));
                     break;
                 }   
             }   
