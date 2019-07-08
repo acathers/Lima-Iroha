@@ -29,7 +29,9 @@ public class Iroha {
 
             if (welcomeDisplayed == true) {
                 System.out.print("\n" + "Command: ");
-            } else {
+            } 
+            
+            else {
                 Help.welcomeMessage();
                 welcomeDisplayed = true;
             }
