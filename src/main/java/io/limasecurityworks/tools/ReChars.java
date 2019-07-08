@@ -32,6 +32,19 @@ public class ReChars {
         return output;
     }
 
+    public static String reAllNonLettersLeaveDigits(String input) {
+
+        String output = "";
+
+        for (int i = 0; i < input.length(); i++) {
+            if (StringBoolean.isAlpha(Character.toString(input.charAt(i))) || Character.isDigit(input.charAt(i))) {
+                output += Character.toString(input.charAt(i));
+            }
+        }
+
+        return output;
+    }
+
     public static String reAllNonLettersLeaveSpaces(String input) {
         String output = "";
 

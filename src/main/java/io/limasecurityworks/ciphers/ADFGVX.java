@@ -79,7 +79,7 @@ public class ADFGVX {
                     option = true;
                 }
                 else if (keySqOption.equalsIgnoreCase("new")) {
-                    generateKeySquare();
+                    this.keySquare = generateKeySquare();
                     System.out.println();
                     System.out.println(this.keySquare);
                     option = true;
@@ -191,7 +191,7 @@ public class ADFGVX {
         this.key = inputKey;
     }
 
-    public String generateKeySquare() {
+    public static String generateKeySquare() {
 
         String charLibrary = "abcdefghijklmnopqrstuvwxyz1234567890";
         int max = 36;
@@ -206,7 +206,7 @@ public class ADFGVX {
                 charLibrarySB.deleteCharAt(random);
                 max--;
             }
-        return this.keySquare = newKeySquare.toString();
+        return newKeySquare.toString();
     }
 
     //Checks the keysquare to ensure it contains every letter and digit once.

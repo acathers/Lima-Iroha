@@ -4,6 +4,8 @@ import java.lang.StringBuilder;
 import java.lang.Math;
 import java.util.Arrays;
 import io.limasecurityworks.processes.*;
+import io.limasecurityworks.tools.*;
+import io.limasecurityworks.tools.StringBoolean;
 
 
 public class ADFGX {
@@ -71,7 +73,7 @@ public class ADFGX {
                     option = true;
                 }
                 else if (keySqOption.equalsIgnoreCase("new")) {
-                    generateKeySquare();
+                    this.keySquare = generateKeySquare();
                     System.out.println();
                     System.out.println(this.keySquare);
                     option = true;
@@ -184,7 +186,7 @@ public class ADFGX {
         this.key = inputKey;
     }
 
-    public String generateKeySquare() {
+    public static String generateKeySquare() {
 
         String charLibrary = "abcdefghiklmnopqrstuvwxyz";
         int max = 25;
@@ -199,10 +201,48 @@ public class ADFGX {
                 charLibrarySB.deleteCharAt(random);
                 max--;
             }
-        return this.keySquare = newKeySquare.toString();
+        return newKeySquare.toString();
     }
 
+    //Checks the keysquare to ensure it contains every letter and digit once.
+    public static boolean checkKeySquare(String input) {
 
+        boolean complete = false;
+
+        StringBuilder lettersDigitsSB = new StringBuilder(lettersDigits);
+        int counter = 36;
+
+        if (input.length() == 36) {
+            for (int i = 0; i < 36; i++) {
+                if (!StringBoolean.isAlpha(Character.toString(input.charAt(i))) && !Character.isDigit(input.charAt(i))) {
+                    break;
+                }
+                else {
+                    for (int j = 0; j < counter; j++) {
+                        if (Character.toString(input.charAt(i)).equalsIgnoreCase(Character.toString(lettersDigitsSB.charAt(j)))) {
+
+                            lettersDigitsSB.deleteCharAt(j);
+                            counter--;
+                            if (lettersDigitsSB.length() == 0) {
+                                return true;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        return complete;
+    }
+
+    public static String cleanInput(String input) {
+
+        return ReChars.reAllNonLetters(input);
+    }
+
+    public static boolean checkKey(String input) {
+
+        return StringBoolean.isAlpha(input);
+    }
 
     /*
     * Method used to encrypt a message. This method uses the following steps.
