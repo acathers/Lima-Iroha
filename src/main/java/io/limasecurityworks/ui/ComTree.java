@@ -141,7 +141,7 @@ public class ComTree {
         }
         else if (command.equalsIgnoreCase("ADFGX")) {
 
-            ADFGX newAC = new ADFGX(this.function, this.key, this.help, this.about);
+            ADFGX newAC = new ADFGX(this.function, this.key, this.keySquare, this.help, this.about);
 
             newAC.runAC();
         }

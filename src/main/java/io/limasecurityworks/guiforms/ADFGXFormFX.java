@@ -150,7 +150,7 @@ public class ADFGXFormFX {
             // If checks were good, then execute.
             if(complete) {
 
-                ADFGX newAVC = new ADFGX(execute.getText(), keyTF.getText(), keySquareTF.getText(), help, about);
+                ADFGX newAVC = new ADFGX(functionButton.getText(), keyTF.getText(), keySquareTF.getText(), help, about);
 
                 switch(functionButton.getText()) {
                     case "Encrypt":

@@ -12,15 +12,18 @@ public class ADFGX {
 
     private String function;
     private String key;
-    private String keySquare = "avztniwgmuqdhbrfcxykespol";
+    private String keySquare;
     private String help;
     private String about;
 
+    final static String charLibrary = "abcdefghiklmnopqrstuvwxyz";
+
     private String[] keySquareOutput = {"AA", "AD", "AF", "AG", "AX", "DA", "DD", "DF", "DG", "DX", "FA", "FD", "FF", "FG", "FX", "GA", "GD", "GF", "GG", "GX", "XA", "XD", "XF", "XG", "XX"};
 
-    public ADFGX(String function, String key, String help, String about) {
+    public ADFGX(String function, String key, String keySquare, String help, String about) {
         this.function = function;
         this.key = key;
+        this.keySquare = keySquare;
         this.help = help;
         this.about = about;
     }
@@ -70,6 +73,7 @@ public class ADFGX {
             while (option == false) {
 
                 if (keySqOption.equalsIgnoreCase("default")) {
+                    keySquare = "avztniwgmuqdhbrfcxykespol";
                     option = true;
                 }
                 else if (keySqOption.equalsIgnoreCase("new")) {
@@ -207,23 +211,25 @@ public class ADFGX {
     //Checks the keysquare to ensure it contains every letter and digit once.
     public static boolean checkKeySquare(String input) {
 
+        String charLibrary = "abcdefghiklmnopqrstuvwxyz";
+
         boolean complete = false;
 
-        StringBuilder lettersDigitsSB = new StringBuilder(lettersDigits);
-        int counter = 36;
+        StringBuilder charLibrarySB = new StringBuilder(charLibrary);
+        int counter = 25;
 
-        if (input.length() == 36) {
-            for (int i = 0; i < 36; i++) {
-                if (!StringBoolean.isAlpha(Character.toString(input.charAt(i))) && !Character.isDigit(input.charAt(i))) {
+        if (input.length() == 25) {
+            for (int i = 0; i < 25; i++) {
+                if (!StringBoolean.isAlpha(Character.toString(input.charAt(i)))) {
                     break;
                 }
                 else {
                     for (int j = 0; j < counter; j++) {
-                        if (Character.toString(input.charAt(i)).equalsIgnoreCase(Character.toString(lettersDigitsSB.charAt(j)))) {
+                        if (Character.toString(input.charAt(i)).equalsIgnoreCase(Character.toString(charLibrarySB.charAt(j)))) {
 
-                            lettersDigitsSB.deleteCharAt(j);
+                            charLibrarySB.deleteCharAt(j);
                             counter--;
-                            if (lettersDigitsSB.length() == 0) {
+                            if (charLibrarySB.length() == 0) {
                                 return true;
                             }
                         }
