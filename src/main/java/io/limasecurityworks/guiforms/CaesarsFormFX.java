@@ -16,60 +16,59 @@ public class CaesarsFormFX {
 
     public static GridPane caesarsFormFX() {
 
-        //Create top bar buttons
+        // Create top bar buttons
         TopBar.addHBoxButtons("caesars");
 
-        //Create Gridpane for Caesars Form.
+        // Create Gridpane for Caesars Form.
         GridPane caesarsFormFX = new GridPane();
         BorderPane.setMargin(caesarsFormFX, new Insets(50, 15, 15, 50));
         caesarsFormFX.setHgap(15);
         caesarsFormFX.setVgap(15);
 
-        //Create Label for input TextFeild.
+        // Create Label for input TextFeild.
         Label input = new Label("Input: ");
         GridPane.setValignment(input, VPos.TOP);
         caesarsFormFX.add(input, 0, 0);
-        
-        //Create TextField for input Label.
+
+        // Create TextField for input Label.
         TextArea inputTA = new TextArea();
         inputTA.setPromptText("Text to be encrypted or decrypted, click the function button to switch.");
         inputTA.setWrapText(true);
         inputTA.setPrefWidth(700);
         inputTA.setPrefHeight(200);
         caesarsFormFX.add(inputTA, 1, 0, 3, 1);
-        
-        //Create Label for function.
+
+        // Create Label for function.
         Label function = new Label("Function Selection: ");
         caesarsFormFX.add(function, 0, 1);
-        
-        //Create a button for encrypt or decrypt.
+
+        // Create a button for encrypt or decrypt.
         Button functionButton = new Button("Encrypt");
         functionButton.setPrefWidth(175);
         functionButton.setPrefHeight(50);
         functionButton.setStyle("-fx-background-color: -limaBlueLight");
         functionButton.setStyle(".button:pressed");
         caesarsFormFX.add(functionButton, 1, 1);
-        
+
         functionButton.setOnAction(e -> {
             if (functionButton.getText().equals("Encrypt")) {
                 functionButton.setText("Decrypt");
-            }
-            else {
+            } else {
                 functionButton.setText("Encrypt");
             }
         });
 
-        //Create a Label for key.
+        // Create a Label for key.
         Label key = new Label("Key: ");
         caesarsFormFX.add(key, 2, 1);
 
-        //Create a TexField for key.
+        // Create a TexField for key.
         TextField keyTF = new TextField();
         keyTF.setPrefWidth(175);
         keyTF.setText("3");
         caesarsFormFX.add(keyTF, 3, 1);
 
-        //Create an Execute Button.
+        // Create an Execute Button.
         Button execute = new Button("Execute");
         execute.setPrefWidth(175);
         execute.setPrefHeight(50);
@@ -78,13 +77,13 @@ public class CaesarsFormFX {
         GridPane.setHalignment(execute, HPos.RIGHT);
         caesarsFormFX.add(execute, 3, 2);
 
-        //Create Label for output.
+        // Create Label for output.
         Label output = new Label("Output: ");
         GridPane.setValignment(output, VPos.TOP);
         GridPane.setMargin(output, new Insets(20, 0, 0, 0));
         caesarsFormFX.add(output, 0, 3);
 
-        //Create TextField for output.
+        // Create TextField for output.
         TextArea outputTA = new TextArea();
         outputTA.setPromptText("Output text.");
         outputTA.setWrapText(true);
@@ -95,7 +94,7 @@ public class CaesarsFormFX {
         caesarsFormFX.add(outputTA, 1, 3, 3, 1);
 
         // Removes focus from TextFeild if background is clicked
-        caesarsFormFX.setOnMousePressed(e-> caesarsFormFX.requestFocus());
+        caesarsFormFX.setOnMousePressed(e -> caesarsFormFX.requestFocus());
 
         // Set action for execute button.
         execute.setOnAction(e -> {
@@ -111,9 +110,10 @@ public class CaesarsFormFX {
 
             String outputErrorList = "";
 
-            if (inputTA.getText().trim().length() == 0 || !Caesar.checkInput(inputTA.getText()) || keyTF.getText().trim().length() == 0 || !Caesar.checkKey(keyTF.getText())) {
+            if (inputTA.getText().trim().length() == 0 || !Caesar.checkInput(inputTA.getText())
+                    || keyTF.getText().trim().length() == 0 || !Caesar.checkKey(keyTF.getText())) {
 
-                if (inputTA.getText().trim().length() == 0){
+                if (inputTA.getText().trim().length() == 0) {
                     outputErrorList += inputErrorBlank;
                 }
 
@@ -131,21 +131,21 @@ public class CaesarsFormFX {
 
                 outputTA.setText(outputErrorList);
             }
-            
+
             else {
 
                 Caesar newCC = new Caesar(functionButton.getText(), keyTF.getText(), help, about);
 
-                switch(functionButton.getText()) {
+                switch (functionButton.getText()) {
 
-                    case "Encrypt":
+                case "Encrypt":
                     outputTA.setText(newCC.encryptText(Caesar.cleanInput(inputTA.getText())));
                     break;
-                    case "Decrypt":
+                case "Decrypt":
                     outputTA.setText(newCC.decryptText(Caesar.cleanInput(inputTA.getText())));
                     break;
-                }   
-            }   
+                }
+            }
         });
 
         return caesarsFormFX;

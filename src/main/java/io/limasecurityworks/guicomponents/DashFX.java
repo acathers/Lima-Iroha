@@ -1,4 +1,4 @@
-package io.limasecurityworks.guicomponents; 
+package io.limasecurityworks.guicomponents;
 
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
@@ -17,7 +17,7 @@ import javafx.scene.text.Font;
 import io.limasecurityworks.gui.*;
 import javafx.scene.layout.BorderPane;
 
-public class DashFX extends IrohaFX{
+public class DashFX extends IrohaFX {
 
     public static BorderPane buildDash() {
 
@@ -85,8 +85,8 @@ public class DashFX extends IrohaFX{
         discordButton.setPadding(Insets.EMPTY);
 
         discordButton.setOnAction(e -> {
-        IrohaFX show = new IrohaFX();
-        show.openBrowser("https://discord.gg/pt5V336");
+            IrohaFX show = new IrohaFX();
+            show.openBrowser("https://discord.gg/pt5V336");
         });
 
         // Add all discord to the discordStackPane and dashGridPane.
@@ -94,7 +94,7 @@ public class DashFX extends IrohaFX{
         discordStackPane.getChildren().addAll(discordBox, discordLabel, discordButton);
         dashGridPane.add(discordStackPane, 0, 3, 2, 1);
 
-        //Build right box for dash.
+        // Build right box for dash.
 
         StackPane readmeStackPane = new StackPane();
 
@@ -114,27 +114,27 @@ public class DashFX extends IrohaFX{
         Button readmeButton = new Button();
         readmeButton.getStyleClass().add("button-transparent");
         readmeButton.setGraphic(new ImageView(readmeLink));
-        
+
         readmeButton.setPrefHeight(50);
         StackPane.setAlignment(readmeButton, Pos.BOTTOM_CENTER);
         readmeButton.setTranslateY(-35);
         readmeButton.setPadding(Insets.EMPTY);
 
         readmeButton.setOnAction(e -> {
-        IrohaFX show = new IrohaFX();
-        show.openBrowser("https://limasecurityworks.dev");
+            IrohaFX show = new IrohaFX();
+            show.openBrowser("https://limasecurityworks.dev");
         });
 
-        //Add all readme to the readmeStackPane and dashGridPane
+        // Add all readme to the readmeStackPane and dashGridPane
 
         readmeStackPane.getChildren().addAll(readmeBox, readmeLabel, readmeButton);
         dashGridPane.add(readmeStackPane, 3, 3, 2, 1);
 
-        //Add all to dashGridPane
+        // Add all to dashGridPane
 
         dashBorderPane.setCenter(dashGridPane);
 
         return dashBorderPane;
     }
-    
+
 }

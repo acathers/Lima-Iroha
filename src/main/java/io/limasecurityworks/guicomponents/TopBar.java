@@ -12,8 +12,9 @@ public class TopBar extends IrohaFX {
     private static Double menuButtonsH = 50.0;
 
     /*
-    * Creates an HBox with buttons if needed for the left side of inner BorderPane top
-    */
+     * Creates an HBox with buttons if needed for the left side of inner BorderPane
+     * top
+     */
 
     public static HBox addHBoxButtons(String input) {
 
@@ -25,520 +26,520 @@ public class TopBar extends IrohaFX {
         hboxButtons.setPadding(new Insets(0, 0, 0, 100));
         hboxButtons.setStyle(topBarBackHex);
 
-        //Build Buttons for TopBar.
-        switch(input) {
+        // Build Buttons for TopBar.
+        switch (input) {
 
-            case "dash":
-                Button dashboardButton = new Button("Dashboard");
-                dashboardButton.setPrefSize(menuButtonsW, menuButtonsH);
-                dashboardButton.setStyle(topBarDark);
-                hboxButtons.getChildren().add(dashboardButton);
-                break;
+        case "dash":
+            Button dashboardButton = new Button("Dashboard");
+            dashboardButton.setPrefSize(menuButtonsW, menuButtonsH);
+            dashboardButton.setStyle(topBarDark);
+            hboxButtons.getChildren().add(dashboardButton);
+            break;
 
-            case "ciphers":
-                Button ciphersButton = new Button("Ciphers");
-                ciphersButton.setPrefSize(menuButtonsW, menuButtonsH);
-                ciphersButton.setStyle(topBarDark);
-                hboxButtons.getChildren().add(ciphersButton);
-                break;
+        case "ciphers":
+            Button ciphersButton = new Button("Ciphers");
+            ciphersButton.setPrefSize(menuButtonsW, menuButtonsH);
+            ciphersButton.setStyle(topBarDark);
+            hboxButtons.getChildren().add(ciphersButton);
+            break;
 
-            case "keyring":
-                Button keyringCiphers = new Button("Ciphers");
-                keyringCiphers.setPrefSize(menuButtonsW, menuButtonsH);
-                keyringCiphers.setStyle(topBarDark);
-                hboxButtons.getChildren().add(keyringCiphers);
-                break;
+        case "keyring":
+            Button keyringCiphers = new Button("Ciphers");
+            keyringCiphers.setPrefSize(menuButtonsW, menuButtonsH);
+            keyringCiphers.setStyle(topBarDark);
+            hboxButtons.getChildren().add(keyringCiphers);
+            break;
 
-            case "settings":
-                Button settingsButton = new Button("Settings");
-                settingsButton.setPrefSize(menuButtonsW, menuButtonsH);
-                settingsButton.setStyle(topBarDark);
-                hboxButtons.getChildren().add(settingsButton);
-                break;
+        case "settings":
+            Button settingsButton = new Button("Settings");
+            settingsButton.setPrefSize(menuButtonsW, menuButtonsH);
+            settingsButton.setStyle(topBarDark);
+            hboxButtons.getChildren().add(settingsButton);
+            break;
 
-            case "help":
-                Button helpButton = new Button("Help");
-                helpButton.setPrefSize(menuButtonsW, menuButtonsH);
-                helpButton.setStyle(topBarDark);
-                hboxButtons.getChildren().add(helpButton);
-                break;
+        case "help":
+            Button helpButton = new Button("Help");
+            helpButton.setPrefSize(menuButtonsW, menuButtonsH);
+            helpButton.setStyle(topBarDark);
+            hboxButtons.getChildren().add(helpButton);
+            break;
 
-            case "about":
-                Button aboutButton = new Button("About");
-                aboutButton.setPrefSize(menuButtonsW, menuButtonsH);
-                aboutButton.setStyle(topBarDark);
-                hboxButtons.getChildren().add(aboutButton);
-                break;
+        case "about":
+            Button aboutButton = new Button("About");
+            aboutButton.setPrefSize(menuButtonsW, menuButtonsH);
+            aboutButton.setStyle(topBarDark);
+            hboxButtons.getChildren().add(aboutButton);
+            break;
 
-            case "ADFGVX":
-                Button ADFGVXButton = new Button("ADFGVX Cipher");
-                ADFGVXButton.setPrefSize(menuButtonsW, menuButtonsH);
+        case "ADFGVX":
+            Button ADFGVXButton = new Button("ADFGVX Cipher");
+            ADFGVXButton.setPrefSize(menuButtonsW, menuButtonsH);
+            ADFGVXButton.setStyle(topBarDark);
+
+            Button ADFGVXHelp = new Button("Help");
+            ADFGVXHelp.setPrefSize(menuButtonsW, menuButtonsH);
+            ADFGVXHelp.setStyle(topBarLight);
+
+            Button ADFGVXAbout = new Button("About");
+            ADFGVXAbout.setPrefSize(menuButtonsW, menuButtonsH);
+            ADFGVXAbout.setStyle(topBarLight);
+
+            // Add buttons to HBox.
+            hboxButtons.getChildren().addAll(ADFGVXButton, ADFGVXHelp, ADFGVXAbout);
+
+            // Set actions for each button.
+            ADFGVXButton.setOnAction(e -> {
                 ADFGVXButton.setStyle(topBarDark);
-
-                Button ADFGVXHelp = new Button("Help");
-                ADFGVXHelp.setPrefSize(menuButtonsW, menuButtonsH);
                 ADFGVXHelp.setStyle(topBarLight);
-
-                Button ADFGVXAbout = new Button("About");
-                ADFGVXAbout.setPrefSize(menuButtonsW, menuButtonsH);
                 ADFGVXAbout.setStyle(topBarLight);
+                splashInner.setCenter(ADFGVXFormFX.adfgvxFormFX());
+            });
 
-                //Add buttons to HBox.
-                hboxButtons.getChildren().addAll(ADFGVXButton, ADFGVXHelp, ADFGVXAbout);
+            ADFGVXHelp.setOnAction(e -> {
+                ADFGVXButton.setStyle(topBarLight);
+                ADFGVXHelp.setStyle(topBarDark);
+                ADFGVXAbout.setStyle(topBarLight);
+                splashInner.setCenter(ADFGVXFormFX.adfgvxHelp());
+            });
 
-                //Set actions for each button.
-                ADFGVXButton.setOnAction(e -> {
-                    ADFGVXButton.setStyle(topBarDark);
-                    ADFGVXHelp.setStyle(topBarLight);
-                    ADFGVXAbout.setStyle(topBarLight);
-                    splashInner.setCenter(ADFGVXFormFX.adfgvxFormFX());
-                });
+            ADFGVXAbout.setOnAction(e -> {
+                ADFGVXButton.setStyle(topBarLight);
+                ADFGVXHelp.setStyle(topBarLight);
+                ADFGVXAbout.setStyle(topBarDark);
+                splashInner.setCenter(ADFGVXFormFX.adfgvxAbout());
+            });
+            break;
 
-                ADFGVXHelp.setOnAction(e -> {
-                    ADFGVXButton.setStyle(topBarLight);
-                    ADFGVXHelp.setStyle(topBarDark);
-                    ADFGVXAbout.setStyle(topBarLight);
-                    splashInner.setCenter(ADFGVXFormFX.adfgvxHelp());
-                });
+        case "ADFGX":
+            Button ADFGXButton = new Button("ADFGX Cipher");
+            ADFGXButton.setPrefSize(menuButtonsW, menuButtonsH);
+            ADFGXButton.setStyle(topBarDark);
 
-                ADFGVXAbout.setOnAction(e -> {
-                    ADFGVXButton.setStyle(topBarLight);
-                    ADFGVXHelp.setStyle(topBarLight);
-                    ADFGVXAbout.setStyle(topBarDark);
-                    splashInner.setCenter(ADFGVXFormFX.adfgvxAbout());
-                });
-                break;
+            Button ADFGXHelp = new Button("Help");
+            ADFGXHelp.setPrefSize(menuButtonsW, menuButtonsH);
+            ADFGXHelp.setStyle(topBarLight);
 
-            case "ADFGX":
-                Button ADFGXButton = new Button("ADFGX Cipher");
-                ADFGXButton.setPrefSize(menuButtonsW, menuButtonsH);
+            Button ADFGXAbout = new Button("About");
+            ADFGXAbout.setPrefSize(menuButtonsW, menuButtonsH);
+            ADFGXAbout.setStyle(topBarLight);
+
+            // Add buttons to HBox.
+            hboxButtons.getChildren().addAll(ADFGXButton, ADFGXHelp, ADFGXAbout);
+
+            // Set actions for each button.
+            ADFGXButton.setOnAction(e -> {
                 ADFGXButton.setStyle(topBarDark);
-
-                Button ADFGXHelp = new Button("Help");
-                ADFGXHelp.setPrefSize(menuButtonsW, menuButtonsH);
                 ADFGXHelp.setStyle(topBarLight);
-
-                Button ADFGXAbout = new Button("About");
-                ADFGXAbout.setPrefSize(menuButtonsW, menuButtonsH);
                 ADFGXAbout.setStyle(topBarLight);
+                splashInner.setCenter(ADFGXFormFX.adfgxFormFX());
+            });
 
-                //Add buttons to HBox.
-                hboxButtons.getChildren().addAll(ADFGXButton, ADFGXHelp, ADFGXAbout);
+            ADFGXHelp.setOnAction(e -> {
+                ADFGXButton.setStyle(topBarLight);
+                ADFGXHelp.setStyle(topBarDark);
+                ADFGXAbout.setStyle(topBarLight);
+                splashInner.setCenter(ADFGXFormFX.adfgxHelp());
+            });
 
-                //Set actions for each button.
-                ADFGXButton.setOnAction(e -> {
-                    ADFGXButton.setStyle(topBarDark);
-                    ADFGXHelp.setStyle(topBarLight);
-                    ADFGXAbout.setStyle(topBarLight);
-                    splashInner.setCenter(ADFGXFormFX.adfgxFormFX());
-                });
+            ADFGXAbout.setOnAction(e -> {
+                ADFGXButton.setStyle(topBarLight);
+                ADFGXHelp.setStyle(topBarLight);
+                ADFGXAbout.setStyle(topBarDark);
+                splashInner.setCenter(ADFGXFormFX.adfgxAbout());
+            });
+            break;
 
-                ADFGXHelp.setOnAction(e -> {
-                    ADFGXButton.setStyle(topBarLight);
-                    ADFGXHelp.setStyle(topBarDark);
-                    ADFGXAbout.setStyle(topBarLight);
-                    splashInner.setCenter(ADFGXFormFX.adfgxHelp());
-                });
+        case "affine":
+            Button affineButton = new Button("affine Cipher");
+            affineButton.setPrefSize(menuButtonsW, menuButtonsH);
+            affineButton.setStyle(topBarDark);
 
-                ADFGXAbout.setOnAction(e -> {
-                    ADFGXButton.setStyle(topBarLight);
-                    ADFGXHelp.setStyle(topBarLight);
-                    ADFGXAbout.setStyle(topBarDark);
-                    splashInner.setCenter(ADFGXFormFX.adfgxAbout());
-                });
-                break;
+            Button affineHelp = new Button("Help");
+            affineHelp.setPrefSize(menuButtonsW, menuButtonsH);
+            affineHelp.setStyle(topBarLight);
 
-            case "affine":
-                Button affineButton = new Button("affine Cipher");
-                affineButton.setPrefSize(menuButtonsW, menuButtonsH);
+            Button affineAbout = new Button("About");
+            affineAbout.setPrefSize(menuButtonsW, menuButtonsH);
+            affineAbout.setStyle(topBarLight);
+
+            // Add buttons to HBox.
+            hboxButtons.getChildren().addAll(affineButton, affineHelp, affineAbout);
+
+            // Set actions for each button.
+            affineButton.setOnAction(e -> {
                 affineButton.setStyle(topBarDark);
-
-                Button affineHelp = new Button("Help");
-                affineHelp.setPrefSize(menuButtonsW, menuButtonsH);
                 affineHelp.setStyle(topBarLight);
-
-                Button affineAbout = new Button("About");
-                affineAbout.setPrefSize(menuButtonsW, menuButtonsH);
                 affineAbout.setStyle(topBarLight);
+                splashInner.setCenter(AffineFormFX.affineFormFX());
+            });
 
-                //Add buttons to HBox.
-                hboxButtons.getChildren().addAll(affineButton, affineHelp, affineAbout);
+            affineHelp.setOnAction(e -> {
+                affineButton.setStyle(topBarLight);
+                affineHelp.setStyle(topBarDark);
+                affineAbout.setStyle(topBarLight);
+                splashInner.setCenter(AffineFormFX.affineHelp());
+            });
 
-                //Set actions for each button.
-                affineButton.setOnAction(e -> {
-                    affineButton.setStyle(topBarDark);
-                    affineHelp.setStyle(topBarLight);
-                    affineAbout.setStyle(topBarLight);
-                    splashInner.setCenter(AffineFormFX.affineFormFX());
-                });
+            affineAbout.setOnAction(e -> {
+                affineButton.setStyle(topBarLight);
+                affineHelp.setStyle(topBarLight);
+                affineAbout.setStyle(topBarDark);
+                splashInner.setCenter(AffineFormFX.affineAbout());
+            });
+            break;
 
-                affineHelp.setOnAction(e -> {
-                    affineButton.setStyle(topBarLight);
-                    affineHelp.setStyle(topBarDark);
-                    affineAbout.setStyle(topBarLight);
-                    splashInner.setCenter(AffineFormFX.affineHelp());
-                });
+        case "atbash":
+            Button atbashButton = new Button("atbash Cipher");
+            atbashButton.setPrefSize(menuButtonsW, menuButtonsH);
+            atbashButton.setStyle(topBarDark);
 
-                affineAbout.setOnAction(e -> {
-                    affineButton.setStyle(topBarLight);
-                    affineHelp.setStyle(topBarLight);
-                    affineAbout.setStyle(topBarDark);
-                    splashInner.setCenter(AffineFormFX.affineAbout());
-                });
-                break;
+            Button atbashHelp = new Button("Help");
+            atbashHelp.setPrefSize(menuButtonsW, menuButtonsH);
+            atbashHelp.setStyle(topBarLight);
 
-            case "atbash":
-                Button atbashButton = new Button("atbash Cipher");
-                atbashButton.setPrefSize(menuButtonsW, menuButtonsH);
+            Button atbashAbout = new Button("About");
+            atbashAbout.setPrefSize(menuButtonsW, menuButtonsH);
+            atbashAbout.setStyle(topBarLight);
+
+            // Add buttons to HBox.
+            hboxButtons.getChildren().addAll(atbashButton, atbashHelp, atbashAbout);
+
+            // Set actions for each button.
+            atbashButton.setOnAction(e -> {
                 atbashButton.setStyle(topBarDark);
-
-                Button atbashHelp = new Button("Help");
-                atbashHelp.setPrefSize(menuButtonsW, menuButtonsH);
                 atbashHelp.setStyle(topBarLight);
-
-                Button atbashAbout = new Button("About");
-                atbashAbout.setPrefSize(menuButtonsW, menuButtonsH);
                 atbashAbout.setStyle(topBarLight);
+                splashInner.setCenter(AtbashFormFX.atbashFormFX());
+            });
 
-                //Add buttons to HBox.
-                hboxButtons.getChildren().addAll(atbashButton, atbashHelp, atbashAbout);
+            atbashHelp.setOnAction(e -> {
+                atbashButton.setStyle(topBarLight);
+                atbashHelp.setStyle(topBarDark);
+                atbashAbout.setStyle(topBarLight);
+                splashInner.setCenter(AtbashFormFX.atbashHelp());
+            });
 
-                //Set actions for each button.
-                atbashButton.setOnAction(e -> {
-                    atbashButton.setStyle(topBarDark);
-                    atbashHelp.setStyle(topBarLight);
-                    atbashAbout.setStyle(topBarLight);
-                    splashInner.setCenter(AtbashFormFX.atbashFormFX());
-                });
+            atbashAbout.setOnAction(e -> {
+                atbashButton.setStyle(topBarLight);
+                atbashHelp.setStyle(topBarLight);
+                atbashAbout.setStyle(topBarDark);
+                splashInner.setCenter(AtbashFormFX.atbashAbout());
+            });
+            break;
 
-                atbashHelp.setOnAction(e -> {
-                    atbashButton.setStyle(topBarLight);
-                    atbashHelp.setStyle(topBarDark);
-                    atbashAbout.setStyle(topBarLight);
-                    splashInner.setCenter(AtbashFormFX.atbashHelp());
-                });
+        case "autokey":
+            Button autokeyButton = new Button("autokey Cipher");
+            autokeyButton.setPrefSize(menuButtonsW, menuButtonsH);
+            autokeyButton.setStyle(topBarDark);
 
-                atbashAbout.setOnAction(e -> {
-                    atbashButton.setStyle(topBarLight);
-                    atbashHelp.setStyle(topBarLight);
-                    atbashAbout.setStyle(topBarDark);
-                    splashInner.setCenter(AtbashFormFX.atbashAbout());
-                });
-                break;
+            Button autokeyHelp = new Button("Help");
+            autokeyHelp.setPrefSize(menuButtonsW, menuButtonsH);
+            autokeyHelp.setStyle(topBarLight);
 
-            case "autokey":
-                Button autokeyButton = new Button("autokey Cipher");
-                autokeyButton.setPrefSize(menuButtonsW, menuButtonsH);
+            Button autokeyAbout = new Button("About");
+            autokeyAbout.setPrefSize(menuButtonsW, menuButtonsH);
+            autokeyAbout.setStyle(topBarLight);
+
+            // Add buttons to HBox.
+            hboxButtons.getChildren().addAll(autokeyButton, autokeyHelp, autokeyAbout);
+
+            // Set actions for each button.
+            autokeyButton.setOnAction(e -> {
                 autokeyButton.setStyle(topBarDark);
-
-                Button autokeyHelp = new Button("Help");
-                autokeyHelp.setPrefSize(menuButtonsW, menuButtonsH);
                 autokeyHelp.setStyle(topBarLight);
-
-                Button autokeyAbout = new Button("About");
-                autokeyAbout.setPrefSize(menuButtonsW, menuButtonsH);
                 autokeyAbout.setStyle(topBarLight);
+                splashInner.setCenter(AutokeyFormFX.autokeyFormFX());
+            });
 
-                //Add buttons to HBox.
-                hboxButtons.getChildren().addAll(autokeyButton, autokeyHelp, autokeyAbout);
+            autokeyHelp.setOnAction(e -> {
+                autokeyButton.setStyle(topBarLight);
+                autokeyHelp.setStyle(topBarDark);
+                autokeyAbout.setStyle(topBarLight);
+                splashInner.setCenter(AutokeyFormFX.autokeyHelp());
+            });
 
-                //Set actions for each button.
-                autokeyButton.setOnAction(e -> {
-                    autokeyButton.setStyle(topBarDark);
-                    autokeyHelp.setStyle(topBarLight);
-                    autokeyAbout.setStyle(topBarLight);
-                    splashInner.setCenter(AutokeyFormFX.autokeyFormFX());
-                });
+            autokeyAbout.setOnAction(e -> {
+                autokeyButton.setStyle(topBarLight);
+                autokeyHelp.setStyle(topBarLight);
+                autokeyAbout.setStyle(topBarDark);
+                splashInner.setCenter(AutokeyFormFX.autokeyAbout());
+            });
+            break;
 
-                autokeyHelp.setOnAction(e -> {
-                    autokeyButton.setStyle(topBarLight);
-                    autokeyHelp.setStyle(topBarDark);
-                    autokeyAbout.setStyle(topBarLight);
-                    splashInner.setCenter(AutokeyFormFX.autokeyHelp());
-                });
+        case "baconian":
+            Button baconianButton = new Button("baconian Cipher");
+            baconianButton.setPrefSize(menuButtonsW, menuButtonsH);
+            baconianButton.setStyle(topBarDark);
 
-                autokeyAbout.setOnAction(e -> {
-                    autokeyButton.setStyle(topBarLight);
-                    autokeyHelp.setStyle(topBarLight);
-                    autokeyAbout.setStyle(topBarDark);
-                    splashInner.setCenter(AutokeyFormFX.autokeyAbout());
-                });
-                break;
+            Button baconianHelp = new Button("Help");
+            baconianHelp.setPrefSize(menuButtonsW, menuButtonsH);
+            baconianHelp.setStyle(topBarLight);
 
-            case "baconian":
-                Button baconianButton = new Button("baconian Cipher");
-                baconianButton.setPrefSize(menuButtonsW, menuButtonsH);
+            Button baconianAbout = new Button("About");
+            baconianAbout.setPrefSize(menuButtonsW, menuButtonsH);
+            baconianAbout.setStyle(topBarLight);
+
+            // Add buttons to HBox.
+            hboxButtons.getChildren().addAll(baconianButton, baconianHelp, baconianAbout);
+
+            // Set actions for each button.
+            baconianButton.setOnAction(e -> {
                 baconianButton.setStyle(topBarDark);
-
-                Button baconianHelp = new Button("Help");
-                baconianHelp.setPrefSize(menuButtonsW, menuButtonsH);
                 baconianHelp.setStyle(topBarLight);
-
-                Button baconianAbout = new Button("About");
-                baconianAbout.setPrefSize(menuButtonsW, menuButtonsH);
                 baconianAbout.setStyle(topBarLight);
+                splashInner.setCenter(BaconianFormFX.baconianFormFX());
+            });
 
-                //Add buttons to HBox.
-                hboxButtons.getChildren().addAll(baconianButton, baconianHelp, baconianAbout);
+            baconianHelp.setOnAction(e -> {
+                baconianButton.setStyle(topBarLight);
+                baconianHelp.setStyle(topBarDark);
+                baconianAbout.setStyle(topBarLight);
+                splashInner.setCenter(BaconianFormFX.baconianHelp());
+            });
 
-                //Set actions for each button.
-                baconianButton.setOnAction(e -> {
-                    baconianButton.setStyle(topBarDark);
-                    baconianHelp.setStyle(topBarLight);
-                    baconianAbout.setStyle(topBarLight);
-                    splashInner.setCenter(BaconianFormFX.baconianFormFX());
-                });
+            baconianAbout.setOnAction(e -> {
+                baconianButton.setStyle(topBarLight);
+                baconianHelp.setStyle(topBarLight);
+                baconianAbout.setStyle(topBarDark);
+                splashInner.setCenter(BaconianFormFX.baconianAbout());
+            });
+            break;
 
-                baconianHelp.setOnAction(e -> {
-                    baconianButton.setStyle(topBarLight);
-                    baconianHelp.setStyle(topBarDark);
-                    baconianAbout.setStyle(topBarLight);
-                    splashInner.setCenter(BaconianFormFX.baconianHelp());
-                });
+        case "base64":
+            Button base64Button = new Button("base64 Cipher");
+            base64Button.setPrefSize(menuButtonsW, menuButtonsH);
+            base64Button.setStyle(topBarDark);
 
-                baconianAbout.setOnAction(e -> {
-                    baconianButton.setStyle(topBarLight);
-                    baconianHelp.setStyle(topBarLight);
-                    baconianAbout.setStyle(topBarDark);
-                    splashInner.setCenter(BaconianFormFX.baconianAbout());
-                });
-                break;
+            Button base64Help = new Button("Help");
+            base64Help.setPrefSize(menuButtonsW, menuButtonsH);
+            base64Help.setStyle(topBarLight);
 
-            case "base64":
-                Button base64Button = new Button("base64 Cipher");
-                base64Button.setPrefSize(menuButtonsW, menuButtonsH);
+            Button base64About = new Button("About");
+            base64About.setPrefSize(menuButtonsW, menuButtonsH);
+            base64About.setStyle(topBarLight);
+
+            // Add buttons to HBox.
+            hboxButtons.getChildren().addAll(base64Button, base64Help, base64About);
+
+            // Set actions for each button.
+            base64Button.setOnAction(e -> {
                 base64Button.setStyle(topBarDark);
-
-                Button base64Help = new Button("Help");
-                base64Help.setPrefSize(menuButtonsW, menuButtonsH);
                 base64Help.setStyle(topBarLight);
-
-                Button base64About = new Button("About");
-                base64About.setPrefSize(menuButtonsW, menuButtonsH);
                 base64About.setStyle(topBarLight);
+                splashInner.setCenter(Base64FormFX.base64FormFX());
+            });
 
-                //Add buttons to HBox.
-                hboxButtons.getChildren().addAll(base64Button, base64Help, base64About);
+            base64Help.setOnAction(e -> {
+                base64Button.setStyle(topBarLight);
+                base64Help.setStyle(topBarDark);
+                base64About.setStyle(topBarLight);
+                splashInner.setCenter(Base64FormFX.base64Help());
+            });
 
-                //Set actions for each button.
-                base64Button.setOnAction(e -> {
-                    base64Button.setStyle(topBarDark);
-                    base64Help.setStyle(topBarLight);
-                    base64About.setStyle(topBarLight);
-                    splashInner.setCenter(Base64FormFX.base64FormFX());
-                });
+            base64About.setOnAction(e -> {
+                base64Button.setStyle(topBarLight);
+                base64Help.setStyle(topBarLight);
+                base64About.setStyle(topBarDark);
+                splashInner.setCenter(Base64FormFX.base64About());
+            });
+            break;
 
-                base64Help.setOnAction(e -> {
-                    base64Button.setStyle(topBarLight);
-                    base64Help.setStyle(topBarDark);
-                    base64About.setStyle(topBarLight);
-                    splashInner.setCenter(Base64FormFX.base64Help());
-                });
+        case "beaufort":
+            Button beaufortButton = new Button("beaufort Cipher");
+            beaufortButton.setPrefSize(menuButtonsW, menuButtonsH);
+            beaufortButton.setStyle(topBarDark);
 
-                base64About.setOnAction(e -> {
-                    base64Button.setStyle(topBarLight);
-                    base64Help.setStyle(topBarLight);
-                    base64About.setStyle(topBarDark);
-                    splashInner.setCenter(Base64FormFX.base64About());
-                });
-                break;
+            Button beaufortHelp = new Button("Help");
+            beaufortHelp.setPrefSize(menuButtonsW, menuButtonsH);
+            beaufortHelp.setStyle(topBarLight);
 
-            case "beaufort":
-                Button beaufortButton = new Button("beaufort Cipher");
-                beaufortButton.setPrefSize(menuButtonsW, menuButtonsH);
+            Button beaufortAbout = new Button("About");
+            beaufortAbout.setPrefSize(menuButtonsW, menuButtonsH);
+            beaufortAbout.setStyle(topBarLight);
+
+            // Add buttons to HBox.
+            hboxButtons.getChildren().addAll(beaufortButton, beaufortHelp, beaufortAbout);
+
+            // Set actions for each button.
+            beaufortButton.setOnAction(e -> {
                 beaufortButton.setStyle(topBarDark);
-
-                Button beaufortHelp = new Button("Help");
-                beaufortHelp.setPrefSize(menuButtonsW, menuButtonsH);
                 beaufortHelp.setStyle(topBarLight);
-
-                Button beaufortAbout = new Button("About");
-                beaufortAbout.setPrefSize(menuButtonsW, menuButtonsH);
                 beaufortAbout.setStyle(topBarLight);
+                splashInner.setCenter(BeaufortFormFX.beaufortFormFX());
+            });
 
-                //Add buttons to HBox.
-                hboxButtons.getChildren().addAll(beaufortButton, beaufortHelp, beaufortAbout);
+            beaufortHelp.setOnAction(e -> {
+                beaufortButton.setStyle(topBarLight);
+                beaufortHelp.setStyle(topBarDark);
+                beaufortAbout.setStyle(topBarLight);
+                splashInner.setCenter(BeaufortFormFX.beaufortHelp());
+            });
 
-                //Set actions for each button.
-                beaufortButton.setOnAction(e -> {
-                    beaufortButton.setStyle(topBarDark);
-                    beaufortHelp.setStyle(topBarLight);
-                    beaufortAbout.setStyle(topBarLight);
-                    splashInner.setCenter(BeaufortFormFX.beaufortFormFX());
-                });
+            beaufortAbout.setOnAction(e -> {
+                beaufortButton.setStyle(topBarLight);
+                beaufortHelp.setStyle(topBarLight);
+                beaufortAbout.setStyle(topBarDark);
+                splashInner.setCenter(BeaufortFormFX.beaufortAbout());
+            });
+            break;
 
-                beaufortHelp.setOnAction(e -> {
-                    beaufortButton.setStyle(topBarLight);
-                    beaufortHelp.setStyle(topBarDark);
-                    beaufortAbout.setStyle(topBarLight);
-                    splashInner.setCenter(BeaufortFormFX.beaufortHelp());
-                });
+        case "bifid":
+            Button bifidButton = new Button("bifid Cipher");
+            bifidButton.setPrefSize(menuButtonsW, menuButtonsH);
+            bifidButton.setStyle(topBarDark);
 
-                beaufortAbout.setOnAction(e -> {
-                    beaufortButton.setStyle(topBarLight);
-                    beaufortHelp.setStyle(topBarLight);
-                    beaufortAbout.setStyle(topBarDark);
-                    splashInner.setCenter(BeaufortFormFX.beaufortAbout());
-                });
-                break;
+            Button bifidHelp = new Button("Help");
+            bifidHelp.setPrefSize(menuButtonsW, menuButtonsH);
+            bifidHelp.setStyle(topBarLight);
 
-            case "bifid":
-                Button bifidButton = new Button("bifid Cipher");
-                bifidButton.setPrefSize(menuButtonsW, menuButtonsH);
+            Button bifidAbout = new Button("About");
+            bifidAbout.setPrefSize(menuButtonsW, menuButtonsH);
+            bifidAbout.setStyle(topBarLight);
+
+            // Add buttons to HBox.
+            hboxButtons.getChildren().addAll(bifidButton, bifidHelp, bifidAbout);
+
+            // Set actions for each button.
+            bifidButton.setOnAction(e -> {
                 bifidButton.setStyle(topBarDark);
-
-                Button bifidHelp = new Button("Help");
-                bifidHelp.setPrefSize(menuButtonsW, menuButtonsH);
                 bifidHelp.setStyle(topBarLight);
-
-                Button bifidAbout = new Button("About");
-                bifidAbout.setPrefSize(menuButtonsW, menuButtonsH);
                 bifidAbout.setStyle(topBarLight);
+                splashInner.setCenter(BifidFormFX.bifidFormFX());
+            });
 
-                //Add buttons to HBox.
-                hboxButtons.getChildren().addAll(bifidButton, bifidHelp, bifidAbout);
+            bifidHelp.setOnAction(e -> {
+                bifidButton.setStyle(topBarLight);
+                bifidHelp.setStyle(topBarDark);
+                bifidAbout.setStyle(topBarLight);
+                splashInner.setCenter(BifidFormFX.bifidHelp());
+            });
 
-                //Set actions for each button.
-                bifidButton.setOnAction(e -> {
-                    bifidButton.setStyle(topBarDark);
-                    bifidHelp.setStyle(topBarLight);
-                    bifidAbout.setStyle(topBarLight);
-                    splashInner.setCenter(BifidFormFX.bifidFormFX());
-                });
+            bifidAbout.setOnAction(e -> {
+                bifidButton.setStyle(topBarLight);
+                bifidHelp.setStyle(topBarLight);
+                bifidAbout.setStyle(topBarDark);
+                splashInner.setCenter(BifidFormFX.bifidAbout());
+            });
+            break;
 
-                bifidHelp.setOnAction(e -> {
-                    bifidButton.setStyle(topBarLight);
-                    bifidHelp.setStyle(topBarDark);
-                    bifidAbout.setStyle(topBarLight);
-                    splashInner.setCenter(BifidFormFX.bifidHelp());
-                });
+        case "caesars":
+            Button caesarsButton = new Button("Caesar's Cipher");
+            caesarsButton.setPrefSize(menuButtonsW, menuButtonsH);
+            caesarsButton.setStyle(topBarDark);
 
-                bifidAbout.setOnAction(e -> {
-                    bifidButton.setStyle(topBarLight);
-                    bifidHelp.setStyle(topBarLight);
-                    bifidAbout.setStyle(topBarDark);
-                    splashInner.setCenter(BifidFormFX.bifidAbout());
-                });
-                break;
+            Button caesarsHelp = new Button("Help");
+            caesarsHelp.setPrefSize(menuButtonsW, menuButtonsH);
+            caesarsHelp.setStyle(topBarLight);
 
-            case "caesars":
-                Button caesarsButton = new Button("Caesar's Cipher");
-                caesarsButton.setPrefSize(menuButtonsW, menuButtonsH);
+            Button caesarsAbout = new Button("About");
+            caesarsAbout.setPrefSize(menuButtonsW, menuButtonsH);
+            caesarsAbout.setStyle(topBarLight);
+
+            // Add buttons to HBox.
+            hboxButtons.getChildren().addAll(caesarsButton, caesarsHelp, caesarsAbout);
+
+            // Set actions for each button.
+            caesarsButton.setOnAction(e -> {
                 caesarsButton.setStyle(topBarDark);
-
-                Button caesarsHelp = new Button("Help");
-                caesarsHelp.setPrefSize(menuButtonsW, menuButtonsH);
                 caesarsHelp.setStyle(topBarLight);
-
-                Button caesarsAbout = new Button("About");
-                caesarsAbout.setPrefSize(menuButtonsW, menuButtonsH);
                 caesarsAbout.setStyle(topBarLight);
+                splashInner.setCenter(CaesarsFormFX.caesarsFormFX());
+            });
 
-                //Add buttons to HBox.
-                hboxButtons.getChildren().addAll(caesarsButton, caesarsHelp, caesarsAbout);
+            caesarsHelp.setOnAction(e -> {
+                caesarsButton.setStyle(topBarLight);
+                caesarsHelp.setStyle(topBarDark);
+                caesarsAbout.setStyle(topBarLight);
+                splashInner.setCenter(CaesarsFormFX.caesarsHelp());
+            });
 
-                //Set actions for each button.
-                caesarsButton.setOnAction(e -> {
-                    caesarsButton.setStyle(topBarDark);
-                    caesarsHelp.setStyle(topBarLight);
-                    caesarsAbout.setStyle(topBarLight);
-                    splashInner.setCenter(CaesarsFormFX.caesarsFormFX());
-                });
+            caesarsAbout.setOnAction(e -> {
+                caesarsButton.setStyle(topBarLight);
+                caesarsHelp.setStyle(topBarLight);
+                caesarsAbout.setStyle(topBarDark);
+                splashInner.setCenter(CaesarsFormFX.caesarsAbout());
+            });
+            break;
 
-                caesarsHelp.setOnAction(e -> {
-                    caesarsButton.setStyle(topBarLight);
-                    caesarsHelp.setStyle(topBarDark);
-                    caesarsAbout.setStyle(topBarLight);
-                    splashInner.setCenter(CaesarsFormFX.caesarsHelp());
-                });
+        case "ROT13":
+            Button ROT13Button = new Button("ROT13 Cipher");
+            ROT13Button.setPrefSize(menuButtonsW, menuButtonsH);
+            ROT13Button.setStyle(topBarDark);
 
-                caesarsAbout.setOnAction(e -> {
-                    caesarsButton.setStyle(topBarLight);
-                    caesarsHelp.setStyle(topBarLight);
-                    caesarsAbout.setStyle(topBarDark);
-                    splashInner.setCenter(CaesarsFormFX.caesarsAbout());
-                });
-                break;
+            Button ROT13Help = new Button("Help");
+            ROT13Help.setPrefSize(menuButtonsW, menuButtonsH);
+            ROT13Help.setStyle(topBarLight);
 
-                case "ROT13":
-                Button ROT13Button = new Button("ROT13 Cipher");
-                ROT13Button.setPrefSize(menuButtonsW, menuButtonsH);
+            Button ROT13About = new Button("About");
+            ROT13About.setPrefSize(menuButtonsW, menuButtonsH);
+            ROT13About.setStyle(topBarLight);
+
+            // Add buttons to HBox.
+            hboxButtons.getChildren().addAll(ROT13Button, ROT13Help, ROT13About);
+
+            // Set actions for each button.
+            ROT13Button.setOnAction(e -> {
                 ROT13Button.setStyle(topBarDark);
-
-                Button ROT13Help = new Button("Help");
-                ROT13Help.setPrefSize(menuButtonsW, menuButtonsH);
                 ROT13Help.setStyle(topBarLight);
-
-                Button ROT13About = new Button("About");
-                ROT13About.setPrefSize(menuButtonsW, menuButtonsH);
                 ROT13About.setStyle(topBarLight);
+                splashInner.setCenter(ROT13FormFX.rot13FormFX());
+            });
 
-                //Add buttons to HBox.
-                hboxButtons.getChildren().addAll(ROT13Button, ROT13Help, ROT13About);
+            ROT13Help.setOnAction(e -> {
+                ROT13Button.setStyle(topBarLight);
+                ROT13Help.setStyle(topBarDark);
+                ROT13About.setStyle(topBarLight);
+                splashInner.setCenter(ROT13FormFX.rot13Help());
+            });
 
-                //Set actions for each button.
-                ROT13Button.setOnAction(e -> {
-                    ROT13Button.setStyle(topBarDark);
-                    ROT13Help.setStyle(topBarLight);
-                    ROT13About.setStyle(topBarLight);
-                    splashInner.setCenter(ROT13FormFX.rot13FormFX());
-                });
+            ROT13About.setOnAction(e -> {
+                ROT13Button.setStyle(topBarLight);
+                ROT13Help.setStyle(topBarLight);
+                ROT13About.setStyle(topBarDark);
+                splashInner.setCenter(ROT13FormFX.rot13About());
+            });
+            break;
 
-                ROT13Help.setOnAction(e -> {
-                    ROT13Button.setStyle(topBarLight);
-                    ROT13Help.setStyle(topBarDark);
-                    ROT13About.setStyle(topBarLight);
-                    splashInner.setCenter(ROT13FormFX.rot13Help());
-                });
+        case "vegenere":
+            Button vegenereButton = new Button("vegenere Cipher");
+            vegenereButton.setPrefSize(menuButtonsW, menuButtonsH);
+            vegenereButton.setStyle(topBarDark);
 
-                ROT13About.setOnAction(e -> {
-                    ROT13Button.setStyle(topBarLight);
-                    ROT13Help.setStyle(topBarLight);
-                    ROT13About.setStyle(topBarDark);
-                    splashInner.setCenter(ROT13FormFX.rot13About());
-                });
-                break;
+            Button vegenereHelp = new Button("Help");
+            vegenereHelp.setPrefSize(menuButtonsW, menuButtonsH);
+            vegenereHelp.setStyle(topBarLight);
 
-            case "vegenere":
-                Button vegenereButton = new Button("vegenere Cipher");
-                vegenereButton.setPrefSize(menuButtonsW, menuButtonsH);
+            Button vegenereAbout = new Button("About");
+            vegenereAbout.setPrefSize(menuButtonsW, menuButtonsH);
+            vegenereAbout.setStyle(topBarLight);
+
+            // Add buttons to HBox.
+            hboxButtons.getChildren().addAll(vegenereButton, vegenereHelp, vegenereAbout);
+
+            // Set actions for each button.
+            vegenereButton.setOnAction(e -> {
                 vegenereButton.setStyle(topBarDark);
-
-                Button vegenereHelp = new Button("Help");
-                vegenereHelp.setPrefSize(menuButtonsW, menuButtonsH);
                 vegenereHelp.setStyle(topBarLight);
-
-                Button vegenereAbout = new Button("About");
-                vegenereAbout.setPrefSize(menuButtonsW, menuButtonsH);
                 vegenereAbout.setStyle(topBarLight);
+                splashInner.setCenter(VegenereFormFX.vegenereFormFX());
+            });
 
-                //Add buttons to HBox.
-                hboxButtons.getChildren().addAll(vegenereButton, vegenereHelp, vegenereAbout);
+            vegenereHelp.setOnAction(e -> {
+                vegenereButton.setStyle(topBarLight);
+                vegenereHelp.setStyle(topBarDark);
+                vegenereAbout.setStyle(topBarLight);
+                splashInner.setCenter(VegenereFormFX.vegenereHelp());
+            });
 
-                //Set actions for each button.
-                vegenereButton.setOnAction(e -> {
-                    vegenereButton.setStyle(topBarDark);
-                    vegenereHelp.setStyle(topBarLight);
-                    vegenereAbout.setStyle(topBarLight);
-                    splashInner.setCenter(VegenereFormFX.vegenereFormFX());
-                });
+            vegenereAbout.setOnAction(e -> {
+                vegenereButton.setStyle(topBarLight);
+                vegenereHelp.setStyle(topBarLight);
+                vegenereAbout.setStyle(topBarDark);
+                splashInner.setCenter(VegenereFormFX.vegenereAbout());
+            });
+            break;
 
-                vegenereHelp.setOnAction(e -> {
-                    vegenereButton.setStyle(topBarLight);
-                    vegenereHelp.setStyle(topBarDark);
-                    vegenereAbout.setStyle(topBarLight);
-                    splashInner.setCenter(VegenereFormFX.vegenereHelp());
-                });
-
-                vegenereAbout.setOnAction(e -> {
-                    vegenereButton.setStyle(topBarLight);
-                    vegenereHelp.setStyle(topBarLight);
-                    vegenereAbout.setStyle(topBarDark);
-                    splashInner.setCenter(VegenereFormFX.vegenereAbout());
-                });
-                break;
-
-            default:
+        default:
         }
         return hboxButtons;
     }

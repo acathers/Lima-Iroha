@@ -80,15 +80,17 @@ public class Baconian {
         if (this.help != null) {
 
             if (this.function != null) {
-                System.out.println("You have entered a command with a function to either encrypt or decrypt. There are no keys for the Baconian Cipher at this time. The translation of a letter to 1s and 0s can be found on the wikipedia page for Baconian Cipher. May add a feature to change that up in the future.");
-            }
-            else {
-                System.out.println("Baconian Cipher will ask you if you would like to encrypt or decrypt and then it will ask for input. There is not a key to be input for this cipher. The translation of a letter to 1s and 0s can be found on the wikipedia page for Baconian Cipher. May add a feature to change that up in the future.");
+                System.out.println(
+                        "You have entered a command with a function to either encrypt or decrypt. There are no keys for the Baconian Cipher at this time. The translation of a letter to 1s and 0s can be found on the wikipedia page for Baconian Cipher. May add a feature to change that up in the future.");
+            } else {
+                System.out.println(
+                        "Baconian Cipher will ask you if you would like to encrypt or decrypt and then it will ask for input. There is not a key to be input for this cipher. The translation of a letter to 1s and 0s can be found on the wikipedia page for Baconian Cipher. May add a feature to change that up in the future.");
             }
         }
 
         else if (this.about != null) {
-            System.out.println("Bacon’s cipher or the Baconian cipher is a method of steganography (a method of hiding a secret message as opposed to just a cipher) devised by Francis Bacon in 1605. Geeks for Geeks. Baconian Cipher.");
+            System.out.println(
+                    "Bacon’s cipher or the Baconian cipher is a method of steganography (a method of hiding a secret message as opposed to just a cipher) devised by Francis Bacon in 1605. Geeks for Geeks. Baconian Cipher.");
         }
 
         else {
@@ -109,14 +111,16 @@ public class Baconian {
 
                 String encryptedText = encryptText(inputText);
 
-                System.out.println("\n" + "Function: " + this.function + "\n" + "Input:    " + inputText + "\n" + "Output:   " + encryptedText);
+                System.out.println("\n" + "Function: " + this.function + "\n" + "Input:    " + inputText + "\n"
+                        + "Output:   " + encryptedText);
             }
 
             else if (this.function.equalsIgnoreCase("decrypt")) {
 
                 String decryptedText = decryptText(inputText);
 
-                System.out.println("\n" + "Function: " + this.function + "\n" + "Input:    " + inputText + "\n" + "Output:   " + decryptedText);
+                System.out.println("\n" + "Function: " + this.function + "\n" + "Input:    " + inputText + "\n"
+                        + "Output:   " + decryptedText);
             }
 
             else {
@@ -126,8 +130,9 @@ public class Baconian {
     }
 
     /*
-    * This encryption method will take in any string, remove any non letters, and complete the encryption.
-    */
+     * This encryption method will take in any string, remove any non letters, and
+     * complete the encryption.
+     */
 
     public String encryptText(String input) {
 
@@ -137,7 +142,6 @@ public class Baconian {
 
         char[] inputArray = input.toCharArray();
         char[] inputLetters = new char[input.length()];
-        
 
         for (int i = 0; i < input.length(); i++) {
 
@@ -150,12 +154,12 @@ public class Baconian {
         }
 
         String output = "";
-        
+
         for (int i = 0; i < counter; i++) {
 
             output = output + encryptionMap.get(inputLetters[i]);
         }
-        
+
         return output;
     }
 

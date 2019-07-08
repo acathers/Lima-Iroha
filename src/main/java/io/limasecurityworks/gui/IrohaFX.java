@@ -15,8 +15,6 @@ import static io.limasecurityworks.guicomponents.MenuBar.addVBox;
 import static io.limasecurityworks.guicomponents.MenuBar.addHBoxSocial;
 import static io.limasecurityworks.guicomponents.TopBar.addHBoxButtons;
 
-
-
 public class IrohaFX extends Application {
 
     Stage primaryStage;
@@ -34,11 +32,11 @@ public class IrohaFX extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
 
-        //Build Stage and set the Logo to the top left of the Stage.
+        // Build Stage and set the Logo to the top left of the Stage.
         primaryStage.setTitle("limaSecurityWorks - Iroha");
         primaryStage.getIcons().add(new Image("FullColorOrangeIcon.png"));
 
-        //Build menu bar on left.
+        // Build menu bar on left.
         splash.setLeft(splashInnerLeft);
         splashInnerLeft.setTop(addVBox(currentSceneChoice));
         splashInnerLeft.setBottom(addHBoxSocial(currentSceneChoice));
@@ -52,7 +50,6 @@ public class IrohaFX extends Application {
         splashInnerTop.setLeft(addHBoxButtons(currentSceneChoice));
         splashInnerTop.setStyle("-fx-background-color: -limaBlueLight");
 
-
         // Build inner BorderPane Center.
         BorderPane workingScene = buildCurrentSceneChoice(currentSceneChoice);
         splashInner.setCenter(workingScene);
@@ -62,31 +59,31 @@ public class IrohaFX extends Application {
         scene.getStylesheets().add("limaBlue.css");
         primaryStage.setScene(scene);
         primaryStage.show();
-    } 
+    }
 
-    //Method used to opening the browser and going to a link.
+    // Method used to opening the browser and going to a link.
     public void openBrowser(final String url) {
         getHostServices().showDocument(url);
     }
 
-    //Method used to build the Center of the inner BorderPane.
+    // Method used to build the Center of the inner BorderPane.
     public static BorderPane buildCurrentSceneChoice(String input) {
 
-        switch(input) {
-            case "dash":
-                return buildDash();
-            case "ciphers":
-                return buildCiphers();
-            case "keyring":
-                return buildKeyRing();
-            case "settings":
-                return buildSettings();
-            case "help":
-                return buildHelp();
-            case "about":
-                return buildAbout();
-            default:
-                return buildDash();
+        switch (input) {
+        case "dash":
+            return buildDash();
+        case "ciphers":
+            return buildCiphers();
+        case "keyring":
+            return buildKeyRing();
+        case "settings":
+            return buildSettings();
+        case "help":
+            return buildHelp();
+        case "about":
+            return buildAbout();
+        default:
+            return buildDash();
         }
     }
 }

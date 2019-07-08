@@ -51,8 +51,7 @@ public class ReChars {
         for (int i = 0; i < input.length(); i++) {
             if (StringBoolean.isAlpha(Character.toString(input.charAt(i)))) {
                 output += Character.toString(input.charAt(i));
-            }
-            else if (Character.toString(input.charAt(i)).equalsIgnoreCase(" ")) {
+            } else if (Character.toString(input.charAt(i)).equalsIgnoreCase(" ")) {
                 output += Character.toString(input.charAt(i));
             }
         }

@@ -17,5 +17,5 @@ public class RepChars {
         }
         return output;
     }
-    
+
 }
