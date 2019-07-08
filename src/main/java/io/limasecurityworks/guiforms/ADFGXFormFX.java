@@ -65,7 +65,7 @@ public class ADFGXFormFX {
 
         //Create a TexField for shift.
         TextField keySquareTF = new TextField();
-        keySquareTF.setText("avjzt7n5iwgm8u0q9dhb2rfcxyke4s13p6ol");
+        keySquareTF.setText("abcdefghiklmnopqrstuvwxyz");
         adfgxFormFX.add(keySquareTF, 3, 1, 2, 1);
 
         //Create Generate KeySquare button;
