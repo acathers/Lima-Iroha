@@ -85,7 +85,7 @@
           <artifactId>javafx-maven-plugin</artifactId>
           <version>0.0.2</version>
           <configuration>
-              <mainClass>IrohaFX</mainClass>
+              <mainClass>io.limasecurityworks.gui.IrohaFX</mainClass>
           </configuration>
         </plugin>
       </plugins>
