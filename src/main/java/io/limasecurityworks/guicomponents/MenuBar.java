@@ -58,15 +58,32 @@ public class MenuBar extends IrohaFX {
 
         vbox.getChildren().add(0, logoIV);
 
-        Button options[] = new Button[] { new Button("Dashboard"), new Button("Ciphers"), new Button("Key Ring"),
-                new Button("Settings"), new Button("Help"), new Button("About") };
+        Button options[] = new Button[] { 
+            new Button("Dashboard"), 
+            new Button("Ciphers"), 
+            new Button("Key Ring"), 
+            new Button("Settings"), 
+            new Button("Help"), 
+            new Button("About") 
+        };
 
-        String optionNames[] = new String[] { new String("dash"), new String("ciphers"), new String("keyring"),
-                new String("settings"), new String("help"), new String("about") };
+        String optionNames[] = new String[] { 
+            new String("dash"), 
+            new String("ciphers"), 
+            new String("keyring"), 
+            new String("settings"), 
+            new String("help"), 
+            new String("about") 
+        };
 
-        HBox ciphersTopBar[] = new HBox[] { TopBar.addHBoxButtons("dash"), TopBar.addHBoxButtons("ciphers"),
-                TopBar.addHBoxButtons("keyring"), TopBar.addHBoxButtons("settings"), TopBar.addHBoxButtons("help"),
-                TopBar.addHBoxButtons("about") };
+        HBox ciphersTopBar[] = new HBox[] { 
+            TopBar.addHBoxButtons("dash"), 
+            TopBar.addHBoxButtons("ciphers"), 
+            TopBar.addHBoxButtons("keyring"), 
+            TopBar.addHBoxButtons("settings"), 
+            TopBar.addHBoxButtons("help"),
+            TopBar.addHBoxButtons("about") 
+        };
 
         for (int i = 0; i < 6; i++) {
             // Add offset to left side to indent from title
@@ -90,7 +107,6 @@ public class MenuBar extends IrohaFX {
             }
             vbox.getChildren().addAll(options[i]);
         }
-
         return vbox;
     }
 

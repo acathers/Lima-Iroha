@@ -50,13 +50,16 @@ public class ComTree {
                 if (index3 >= 0) {
                     this.key = nativeBuilder.substring(index2 + 1, index3);
                     this.help = nativeBuilder.substring(index3 + 1, nativeBuilder.length());
-                } else {
+                }
+                else {
                     this.key = nativeBuilder.substring(index2 + 1, nativeBuilder.length());
                 }
-            } else {
+            }
+            else {
                 this.function = nativeBuilder.substring(index1 + 1, nativeBuilder.length());
             }
-        } else {
+        }
+        else {
             this.command = nativeBuilder.toString();
         }
 
@@ -77,7 +80,8 @@ public class ComTree {
                     if (this.about != null) {
                         this.help = this.about;
                         this.about = null;
-                    } else {
+                    }
+                    else {
                         System.out.println("The only command that can be given after two int keys is help.");
                     }
                 }

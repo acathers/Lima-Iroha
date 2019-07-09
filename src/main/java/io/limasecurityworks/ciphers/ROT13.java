@@ -35,7 +35,8 @@ public class ROT13 {
             if (function != null) {
                 System.out.println("\n"
                         + "You have entered a command for ROT13 with a funtion. You may use any characters, but only letters will be encrypted, characters such as periods and exclamation points will just be printed in original order.");
-            } else {
+            }
+            else {
                 System.out.println("\n"
                         + "Starting command for ROT13 will be in the format of 'ROT13 encrypt'. You can either encrypt or decrypt on the second word but you may just enter 'ROT13' and you will be prompted to answer whether you would like to encrypt to decrypt. There is no key for ROT13, that can be edited anyway. ROT13 works like a Caesar Cipher that is shifted to the right 13 characters on encryption. You may use any characters, but only letters will be encrypted, characters such as periods and exclamation points will just be printed in original order.");
             }
@@ -77,9 +78,11 @@ public class ROT13 {
 
             if (this.function.equalsIgnoreCase("encrypt")) {
                 System.out.print("Encrypted Text:  " + encryptText(input) + "\n");
-            } else if (this.function.equalsIgnoreCase("decrypt")) {
+            }
+            else if (this.function.equalsIgnoreCase("decrypt")) {
                 System.out.print("Decrypted Text:  " + encryptText(input) + "\n");
-            } else {
+            }
+            else {
                 System.out.println("This should be an impossible function error.");
             }
         }
@@ -98,24 +101,28 @@ public class ROT13 {
                     char encryPlace = (char) (place + encryDef);
                     char encryPlaceWrap = (char) (encryPlace - 26);
                     output.append(encryPlaceWrap);
-                } else {
+                }
+                else {
                     char place = input.charAt(i);
                     char encryPlace = (char) (place + encryDef);
                     output.append(encryPlace);
                 }
-            } else if (Character.isUpperCase(input.charAt(i))) {
+            }
+            else if (Character.isUpperCase(input.charAt(i))) {
 
                 if (input.charAt(i) > 90 - encryDef) {
                     char place = input.charAt(i);
                     char encryPlace = (char) (place + encryDef);
                     char encryPlaceWrap = (char) (encryPlace - 26);
                     output.append(encryPlaceWrap);
-                } else {
+                }
+                else {
                     char place = input.charAt(i);
                     char encryPlace = (char) (place + encryDef);
                     output.append(encryPlace);
                 }
-            } else if (!Character.isUpperCase(input.charAt(i)) && !Character.isLowerCase(input.charAt(i))) {
+            }
+            else if (!Character.isUpperCase(input.charAt(i)) && !Character.isLowerCase(input.charAt(i))) {
                 output.append(input.charAt(i));
             }
         }

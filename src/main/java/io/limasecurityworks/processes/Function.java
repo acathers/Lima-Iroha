@@ -22,7 +22,8 @@ public class Function {
 
             if (!encDecResponseNull.equalsIgnoreCase("encrypt") && !encDecResponseNull.equalsIgnoreCase("decrypt")) {
                 System.out.print("\n" + "Invalid function. Please enter 'Encrypt' or 'Decrypt':  ");
-            } else {
+            }
+            else {
                 function = encDecResponseNull;
             }
         }

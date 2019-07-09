@@ -24,9 +24,9 @@ public class Atbash {
 
         if (this.help != null) {
             if (this.function != null) {
-                System.out.println("\n"
-                        + "You have entered a command for Atbash Cipher with a function. The only two options for a function is to encrypt or decrypt. ");
-            } else {
+                System.out.println("\n" + "You have entered a command for Atbash Cipher with a function. The only two options for a function is to encrypt or decrypt. ");
+            }
+            else {
                 System.out.println(
                         "This cipher does not allow you to use a key, the key is set and the same every time because the key is the alphabet in reverse order. So you will just need to put in the text using only letters to encrypt and put in encrypted text to decrypt.");
             }
@@ -73,9 +73,11 @@ public class Atbash {
 
             if (this.function.equalsIgnoreCase("encrypt")) {
                 System.out.print("Encrypted Text:  " + encryptText(input) + "\n");
-            } else if (this.function.equalsIgnoreCase("decrypt")) {
+            }
+            else if (this.function.equalsIgnoreCase("decrypt")) {
                 System.out.print("Decrypted Text:  " + decryptText(input) + "\n");
-            } else {
+            }
+            else {
                 System.out.println(encryptText("This should be an impossible function error."));
             }
         }
@@ -94,19 +96,17 @@ public class Atbash {
             if (Character.toString(inputUC.charAt(i)).equalsIgnoreCase(" ")) {
 
                 outputSB.append(Character.toString(inputUC.charAt(i)));
-            } else {
+            }
+            else {
                 for (int j = 0; j < this.charLibrary.length(); j++) {
-                    if (Character.toString(inputUC.charAt(i))
-                            .equalsIgnoreCase(Character.toString(this.charLibrary.charAt(j)))) {
+                    if (Character.toString(inputUC.charAt(i)).equalsIgnoreCase(Character.toString(this.charLibrary.charAt(j)))) {
 
                         outputSB.append(this.key.charAt(j));
                     }
                 }
             }
         }
-
         return outputSB.toString();
-
     }
 
     // Used to decrypt text.
@@ -122,10 +122,10 @@ public class Atbash {
             if (Character.toString(inputUC.charAt(i)).equalsIgnoreCase(" ")) {
 
                 outputSB.append(Character.toString(inputUC.charAt(i)));
-            } else {
+            }
+            else {
                 for (int j = 0; j < this.charLibrary.length(); j++) {
-                    if (Character.toString(inputUC.charAt(i))
-                            .equalsIgnoreCase(Character.toString(this.key.charAt(j)))) {
+                    if (Character.toString(inputUC.charAt(i)).equalsIgnoreCase(Character.toString(this.key.charAt(j)))) {
 
                         outputSB.append(this.charLibrary.charAt(j));
                     }
@@ -133,8 +133,6 @@ public class Atbash {
             }
 
         }
-
         return outputSB.toString();
-
     }
 }

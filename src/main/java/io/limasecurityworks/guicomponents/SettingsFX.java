@@ -9,6 +9,5 @@ public class SettingsFX {
         BorderPane settingsBorderPane = new BorderPane();
 
         return settingsBorderPane;
-
     }
 }

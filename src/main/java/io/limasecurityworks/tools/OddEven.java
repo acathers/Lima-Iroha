@@ -5,7 +5,8 @@ public class OddEven {
     public static boolean isOdd(int input) {
         if (input % 2 == 0) {
             return false;
-        } else {
+        }
+        else {
             return true;
         }
     }
@@ -13,7 +14,7 @@ public class OddEven {
     public static boolean isEven(int input) {
         if (input % 2 == 0) {
             return true;
-        } else
-            return false;
+        }
+        else return false;
     }
 }

@@ -10,21 +10,27 @@ public class Base64 {
     private String about;
     private String string64 = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/";
 
-    private HashMap<String, String> encryptionMap = new HashMap<String, String>(26, 1); {{
+    private HashMap<String, String> encryptionMap = new HashMap<String, String>(26, 1);
+    {
+        {
 
-        for (int i = 0; i < 64; i++) {
+            for (int i = 0; i < 64; i++) {
 
-            encryptionMap.put(String.format("%6s", Integer.toBinaryString(i)).replace(' ', '0'), Character.toString(string64.charAt(i)));
+                encryptionMap.put(String.format("%6s", Integer.toBinaryString(i)).replace(' ', '0'), Character.toString(string64.charAt(i)));
+            }
         }
-    }} 
-    
-    private HashMap<String, String> decryptionMap = new HashMap<String, String>(64, 1); {{
+    }
 
-        for (int i = 0; i < 64; i++) {
+    private HashMap<String, String> decryptionMap = new HashMap<String, String>(64, 1);
+    {
+        {
 
-            decryptionMap.put(Character.toString(string64.charAt(i)), String.format("%6s", Integer.toBinaryString(i)).replace(' ', '0'));
+            for (int i = 0; i < 64; i++) {
+
+                decryptionMap.put(Character.toString(string64.charAt(i)), String.format("%6s", Integer.toBinaryString(i)).replace(' ', '0'));
+            }
         }
-    }}
+    }
 
     public Base64(String function, String help, String about) {
         this.function = function;
@@ -39,7 +45,8 @@ public class Base64 {
             if (this.function != null) {
                 System.out.println(
                         "You have entered a command with a function to either encrypt or decrypt. There are no keys for the Base64 Cipher. You will next be prompted to input your text to be encrypted or decrypted after this command - help.");
-            } else {
+            }
+            else {
                 System.out.println(
                         "Base64 Cipher will ask you if you would like to encrypt or decrypt and then it will ask for input. There is not a key to be input for this cipher. You will first be prompted to specify if you would like to encrypt or decrypt after entering this command - help.");
             }
@@ -66,19 +73,17 @@ public class Base64 {
             String inputText = io.limasecurityworks.ui.Iroha.sc.nextLine();
 
             if (this.function.equalsIgnoreCase("encrypt")) {
-
+                
                 String encryptedText = encryptText(inputText);
 
-                System.out.println("\n" + "Function: " + this.function + "\n" + "Input:    " + inputText + "\n"
-                        + "Output:   " + encryptedText);
+                System.out.println("\n" + "Function: " + this.function + "\n" + "Input:    " + inputText + "\n" + "Output:   " + encryptedText);
             }
 
             else if (this.function.equalsIgnoreCase("decrypt")) {
 
                 String decryptedText = decryptText(inputText);
 
-                System.out.println("\n" + "Function: " + this.function + "\n" + "Input:    " + inputText + "\n"
-                        + "Output:   " + decryptedText);
+                System.out.println("\n" + "Function: " + this.function + "\n" + "Input:    " + inputText + "\n" + "Output:   " + decryptedText);
             }
 
             else {
@@ -128,7 +133,6 @@ public class Base64 {
                 }
             }
         }
-
         return output;
     }
 

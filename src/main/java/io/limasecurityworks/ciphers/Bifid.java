@@ -15,8 +15,7 @@ public class Bifid {
     private String help;
     private String about;
 
-    private String[] keySquareOutput = { "11", "12", "13", "14", "15", "21", "22", "23", "24", "25", "31", "32", "33",
-            "34", "35", "41", "42", "43", "44", "45", "51", "52", "53", "54", "55" };
+    private String[] keySquareOutput = { "11", "12", "13", "14", "15", "21", "22", "23", "24", "25", "31", "32", "33", "34", "35", "41", "42", "43", "44", "45", "51", "52", "53", "54", "55" };
 
     public Bifid(String function, String key, String help, String about) {
         this.function = function;
@@ -33,10 +32,12 @@ public class Bifid {
             if (function != null && key != null) {
                 System.out.println("\n"
                         + "You have entered a command for Bifid Cipher with a function and a key. The only two options for a function is to encrypt or decrypt. The key is only one part of the encryption. The key square is like a second key that is equally important.");
-            } else if (function != null) {
+            }
+            else if (function != null) {
                 System.out.println("\n"
                         + "You have entered a command for Bifid Cipher to encrypt or decrypt a message. Since you did not specify a key, you will be prompted to do so if this same command is typed without being followed by the help command. Messages are only allowed have letters.");
-            } else {
+            }
+            else {
                 System.out.println("\n"
                         + "The Bifid cipher requires a key and a key square which is means that it needs two keys, however the key square must contain all letters of the alphabet once except the letter 'j'. So you should have 25 characters. The order of the characters is what is used for the key square. Your key is just as important in the encryption and decryption process. Just know that you MUST remember both the key and the key square. You are prompted to either use the default key square that the program provides, generate a new one, or to use a custom key square at the first.");
             }
@@ -73,12 +74,14 @@ public class Bifid {
 
                 if (keySqOption.equalsIgnoreCase("default")) {
                     option = true;
-                } else if (keySqOption.equalsIgnoreCase("new")) {
+                }
+                else if (keySqOption.equalsIgnoreCase("new")) {
                     generateKeySquare();
                     System.out.println();
                     System.out.println(this.keySquare);
                     option = true;
-                } else if (keySqOption.equalsIgnoreCase("custom")) {
+                }
+                else if (keySqOption.equalsIgnoreCase("custom")) {
 
                     boolean keySqReq = false;
 
@@ -100,18 +103,15 @@ public class Bifid {
 
                             for (int i = 0; i < 25; i++) {
 
-                                if (!Character.isLetter(customKeySq.charAt(i))
-                                        || Character.toString(customKeySq.charAt(i)).equalsIgnoreCase("j")) {
-                                    System.out.println("\n"
-                                            + "The key square can contain only letters and must contain all letters of the alphabet once except for the letter 'j' for a total character count of 25");
+                                if (!Character.isLetter(customKeySq.charAt(i)) || Character.toString(customKeySq.charAt(i)).equalsIgnoreCase("j")) {
+                                    System.out.println("\n" + "The key square can contain only letters and must contain all letters of the alphabet once except for the letter 'j' for a total character count of 25");
 
                                     break restart;
                                 }
 
                                 else {
                                     for (int j = 0; j < counter; j++) {
-                                        if (Character.toString(customKeySq.charAt(i))
-                                                .equalsIgnoreCase(Character.toString(lettersDigitsSB.charAt(j)))) {
+                                        if (Character.toString(customKeySq.charAt(i)).equalsIgnoreCase(Character.toString(lettersDigitsSB.charAt(j)))) {
 
                                             lettersDigitsSB.deleteCharAt(j);
                                             counter--;
@@ -126,17 +126,17 @@ public class Bifid {
                                     // Will display when duplicate letters.
 
                                     if (lettersDigitsSB.length() != 0 && i == 24) {
-                                        System.out.println("\n"
-                                                + "Something went wrong, your key square may have had duplicate letters.");
+                                        System.out.println("\n" + "Something went wrong, your key square may have had duplicate letters.");
                                     }
                                 }
                             }
-                        } else {
-                            System.out.println("\n"
-                                    + "Key square length must be 25 characters and contain each letter of the alphabet except 'j'.");
+                        }
+                        else {
+                            System.out.println("\n" + "Key square length must be 25 characters and contain each letter of the alphabet except 'j'.");
                         }
                     }
-                } else {
+                }
+                else {
                     System.out.print("\n" + "Invalid Command, please enter default, new or custom: ");
 
                     keySqOption = io.limasecurityworks.ui.Iroha.sc.nextLine();
@@ -166,16 +166,16 @@ public class Bifid {
 
             if (this.function.equalsIgnoreCase("encrypt")) {
                 Headers.translationHeader();
-                System.out.print("Input:          " + input + "\n" + "Key Square:     " + keySquare + "\n"
-                        + "Key:            " + key + "\n" + "Encrypted Text: " + encryptText(input) + "\n");
-            } else if (this.function.equalsIgnoreCase("decrypt")) {
+                System.out.print("Input:          " + input + "\n" + "Key Square:     " + keySquare + "\n" + "Key:            " + key + "\n" + "Encrypted Text: " + encryptText(input) + "\n");
+            }
+            else if (this.function.equalsIgnoreCase("decrypt")) {
                 Headers.translationHeader();
-                System.out.print("Input:          " + input + "\n" + "Key Square:     " + keySquare + "\n"
-                        + "Key:            " + key + "\n" + "Decrypted Text: " + decryptText(input) + "\n");
-            } else if (this.function.equalsIgnoreCase("help")) {
-                System.out.println(
-                        "You should get help, but I have yet to develop help for this part of the program at this time.");
-            } else {
+                System.out.print("Input:          " + input + "\n" + "Key Square:     " + keySquare + "\n" + "Key:            " + key + "\n" + "Decrypted Text: " + decryptText(input) + "\n");
+            }
+            else if (this.function.equalsIgnoreCase("help")) {
+                System.out.println("You should get help, but I have yet to develop help for this part of the program at this time.");
+            }
+            else {
                 System.out.println(encryptText("Would you like to encrypt or decrypt a message?"));
             }
         }
@@ -214,27 +214,31 @@ public class Bifid {
 
         //Set up HashMaps toLetter and toNumber.
 
-        HashMap<String, String> toNumber = new HashMap<String, String>(25, 1); {{
+        HashMap<String, String> toNumber = new HashMap<String, String>(25, 1);
+        {
+            {
 
-            for (int i = 0; i < 25; i++) {
-    
-                toNumber.put(Character.toString(keySquare.charAt(i)), keySquareOutput[i]);
+                for (int i = 0; i < 25; i++) {
+
+                    toNumber.put(Character.toString(keySquare.charAt(i)), keySquareOutput[i]);
+                }
             }
-        }} 
-
+        }
         return toNumber.get(input);
     }
 
     public String toLetter(String input) {
 
-        HashMap<String, String> toLetter = new HashMap<String, String>(25, 1); {{
-    
-            for (int i = 0; i < 25; i++) {
-    
-                toLetter.put(keySquareOutput[i], Character.toString(keySquare.charAt(i)));
-            }
-        }}
+        HashMap<String, String> toLetter = new HashMap<String, String>(25, 1);
+        {
+            {
 
+                for (int i = 0; i < 25; i++) {
+
+                    toLetter.put(keySquareOutput[i], Character.toString(keySquare.charAt(i)));
+                }
+            }
+        }
         return toLetter.get(input);
     }
 
@@ -405,7 +409,6 @@ public class Bifid {
             output += toLetter(index);
             index = "";
         }
-
         return output;
     }
 }

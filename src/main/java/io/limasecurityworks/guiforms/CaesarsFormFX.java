@@ -53,7 +53,8 @@ public class CaesarsFormFX {
         functionButton.setOnAction(e -> {
             if (functionButton.getText().equals("Encrypt")) {
                 functionButton.setText("Decrypt");
-            } else {
+            }
+            else {
                 functionButton.setText("Encrypt");
             }
         });
@@ -110,8 +111,7 @@ public class CaesarsFormFX {
 
             String outputErrorList = "";
 
-            if (inputTA.getText().trim().length() == 0 || !Caesar.checkInput(inputTA.getText())
-                    || keyTF.getText().trim().length() == 0 || !Caesar.checkKey(keyTF.getText())) {
+            if (inputTA.getText().trim().length() == 0 || !Caesar.checkInput(inputTA.getText()) || keyTF.getText().trim().length() == 0 || !Caesar.checkKey(keyTF.getText())) {
 
                 if (inputTA.getText().trim().length() == 0) {
                     outputErrorList += inputErrorBlank;

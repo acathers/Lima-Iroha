@@ -5,6 +5,7 @@ import javafx.scene.layout.GridPane;
 public class AffineFormFX {
 
     public static GridPane affineFormFX() {
+
         GridPane affineGridPane = new GridPane();
 
         return affineGridPane;

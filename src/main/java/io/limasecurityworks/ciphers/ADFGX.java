@@ -17,8 +17,7 @@ public class ADFGX {
 
     final static String charLibrary = "abcdefghiklmnopqrstuvwxyz";
 
-    private String[] keySquareOutput = { "AA", "AD", "AF", "AG", "AX", "DA", "DD", "DF", "DG", "DX", "FA", "FD", "FF",
-            "FG", "FX", "GA", "GD", "GF", "GG", "GX", "XA", "XD", "XF", "XG", "XX" };
+    private String[] keySquareOutput = { "AA", "AD", "AF", "AG", "AX", "DA", "DD", "DF", "DG", "DX", "FA", "FD", "FF", "FG", "FX", "GA", "GD", "GF", "GG", "GX", "XA", "XD", "XF", "XG", "XX" };
 
     public ADFGX(String function, String key, String keySquare, String help, String about) {
         this.function = function;
@@ -36,18 +35,19 @@ public class ADFGX {
             if (function != null && key != null) {
                 System.out.println("\n"
                         + "You have entered a command for ADFGX Cipher with a function and a key. The only two options for a function is to encrypt or decrypt. The key is only one part of the encryption. The key square is like a second key that is equally important.");
-            } else if (function != null) {
+            }
+            else if (function != null) {
                 System.out.println("\n"
                         + "You have entered a command for ADFGX Cipher to encrypt or decrypt a message. Since you did not specify a key, you will be prompted to do so if this same command is typed without being followed by the help command. Messages are only allowed to have the alphabet and numbers 0 through 9.");
-            } else {
+            }
+            else {
                 System.out.println("\n"
                         + "The ADFGX cipher requires a key and a key square which is means that it needs two keys, however the key square must contain all letters of the alphabet once except the letter 'j'. So you should have 25 characters. The order of the characters is what is used for the key square. Your key is just as important in the encryption and decryption process. Just know that you MUST remember both the key and the key square. You are prompted to either use the default key square that the program provides, generate a new one, or to use a custom key square at the first.");
             }
         }
 
         else if (about != null) {
-            System.out.println("\n"
-                    + "ADFGX Cipher is an ealier version of the ADFGVX Cipher. Use command 'ADFGVX Help' for more information");
+            System.out.println("\n" + "ADFGX Cipher is an ealier version of the ADFGVX Cipher. Use command 'ADFGVX Help' for more information");
         }
 
         // Next, check to see if a function was provided. if not, get the function.
@@ -78,12 +78,14 @@ public class ADFGX {
                 if (keySqOption.equalsIgnoreCase("default")) {
                     keySquare = "avztniwgmuqdhbrfcxykespol";
                     option = true;
-                } else if (keySqOption.equalsIgnoreCase("new")) {
+                }
+                else if (keySqOption.equalsIgnoreCase("new")) {
                     this.keySquare = generateKeySquare();
                     System.out.println();
                     System.out.println(this.keySquare);
                     option = true;
-                } else if (keySqOption.equalsIgnoreCase("custom")) {
+                }
+                else if (keySqOption.equalsIgnoreCase("custom")) {
 
                     boolean keySqReq = false;
 
@@ -105,18 +107,15 @@ public class ADFGX {
 
                             for (int i = 0; i < 25; i++) {
 
-                                if (!Character.isLetter(customKeySq.charAt(i))
-                                        || Character.toString(customKeySq.charAt(i)).equalsIgnoreCase("j")) {
-                                    System.out.println("\n"
-                                            + "The key square can contain only letters and must contain all letters of the alphabet once except for the letter 'j' for a total character count of 25");
+                                if (!Character.isLetter(customKeySq.charAt(i)) || Character.toString(customKeySq.charAt(i)).equalsIgnoreCase("j")) {
+                                    System.out.println("\n" + "The key square can contain only letters and must contain all letters of the alphabet once except for the letter 'j' for a total character count of 25");
 
                                     break restart;
                                 }
 
                                 else {
                                     for (int j = 0; j < counter; j++) {
-                                        if (Character.toString(customKeySq.charAt(i))
-                                                .equalsIgnoreCase(Character.toString(lettersDigitsSB.charAt(j)))) {
+                                        if (Character.toString(customKeySq.charAt(i)).equalsIgnoreCase(Character.toString(lettersDigitsSB.charAt(j)))) {
 
                                             lettersDigitsSB.deleteCharAt(j);
                                             counter--;
@@ -131,17 +130,17 @@ public class ADFGX {
                                     // Will display when duplicate letters.
 
                                     if (lettersDigitsSB.length() != 0 && i == 24) {
-                                        System.out.println("\n"
-                                                + "Something went wrong, your key square may have had duplicate letters.");
+                                        System.out.println("\n" + "Something went wrong, your key square may have had duplicate letters.");
                                     }
                                 }
                             }
-                        } else {
-                            System.out.println("\n"
-                                    + "Key square length must be 25 characters and contain each letter of the alphabet except 'j'.");
+                        }
+                        else {
+                            System.out.println("\n" + "Key square length must be 25 characters and contain each letter of the alphabet except 'j'.");
                         }
                     }
-                } else {
+                }
+                else {
                     System.out.print("\n" + "Invalid Command, please enter default, new or custom: ");
 
                     keySqOption = io.limasecurityworks.ui.Iroha.sc.nextLine();
@@ -170,12 +169,14 @@ public class ADFGX {
             }
             if (this.function.equalsIgnoreCase("encrypt")) {
                 System.out.print("Encrypted Text:  " + encryptText(input) + "\n");
-            } else if (this.function.equalsIgnoreCase("decrypt")) {
+            }
+            else if (this.function.equalsIgnoreCase("decrypt")) {
                 System.out.print("Decrypted Text:  " + decryptText(input) + "\n");
-            } else if (this.function.equalsIgnoreCase("help")) {
-                System.out.println(
-                        "You should get help, but I have yet to develop help for this part of the program at this time.");
-            } else {
+            }
+            else if (this.function.equalsIgnoreCase("help")) {
+                System.out.println("You should get help, but I have yet to develop help for this part of the program at this time.");
+            }
+            else {
                 System.out.println(encryptText("Would you like to encrypt or decrypt a message?"));
             }
         }
@@ -224,10 +225,10 @@ public class ADFGX {
             for (int i = 0; i < 25; i++) {
                 if (!StringBoolean.isAlpha(Character.toString(input.charAt(i)))) {
                     break;
-                } else {
+                }
+                else {
                     for (int j = 0; j < counter; j++) {
-                        if (Character.toString(input.charAt(i))
-                                .equalsIgnoreCase(Character.toString(charLibrarySB.charAt(j)))) {
+                        if (Character.toString(input.charAt(i)).equalsIgnoreCase(Character.toString(charLibrarySB.charAt(j)))) {
 
                             charLibrarySB.deleteCharAt(j);
                             counter--;
@@ -283,7 +284,8 @@ public class ADFGX {
             if (Character.isLetter(currentChar.charAt(0)) || Character.isDigit(currentChar.charAt(0))) {
                 if (Character.toString(currentChar.charAt(0)).equalsIgnoreCase("j")) {
                     fractionatedInput.append(this.keySquareOutput[keySquareSB.indexOf("i")]);
-                } else {
+                }
+                else {
                     fractionatedInput.append(this.keySquareOutput[keySquareSB.indexOf(currentChar)]);
                 }
 
@@ -311,11 +313,11 @@ public class ADFGX {
         while (charPlaceMarker < fractionatedInput.length()) {
             for (int i = 0; i < this.key.length() && charPlaceMarker < fractionatedInput.length(); i++) {
                 if (fractInputCT[1][i] == null) {
-                    fractInputCT[1][i] = new StringBuilder(
-                            Character.toString(fractionatedInput.charAt(charPlaceMarker)));
+                    fractInputCT[1][i] = new StringBuilder(Character.toString(fractionatedInput.charAt(charPlaceMarker)));
 
                     charPlaceMarker++;
-                } else {
+                }
+                else {
                     fractInputCT[1][i].append(Character.toString(fractionatedInput.charAt(charPlaceMarker)));
 
                     charPlaceMarker++;
@@ -371,7 +373,7 @@ public class ADFGX {
         // By deviding the input length by the number of keys, we find out how many
         // columns will have an extra character by the value of the remainder. We will
         // call this value modulus.
-        
+
         int modulus = inputSB.length() % key.length();
 
         // By dividing the length of the input by the key, without a remainder, we find
@@ -417,7 +419,8 @@ public class ADFGX {
                     if (fractInputCTD[1][i] == null) {
                         fractInputCTD[1][i] = new StringBuilder(Character.toString(inputSB.charAt(charPlaceMarkerD)));
                         charPlaceMarkerD++;
-                    } else {
+                    }
+                    else {
                         fractInputCTD[1][i].append(inputSB.charAt(charPlaceMarkerD));
                         charPlaceMarkerD++;
                     }
@@ -431,7 +434,8 @@ public class ADFGX {
                     if (fractInputCTD[1][i] == null) {
                         fractInputCTD[1][i] = new StringBuilder(Character.toString(inputSB.charAt(charPlaceMarkerD)));
                         charPlaceMarkerD++;
-                    } else {
+                    }
+                    else {
                         fractInputCTD[1][i].append(inputSB.charAt(charPlaceMarkerD));
                         charPlaceMarkerD++;
                     }
@@ -444,8 +448,7 @@ public class ADFGX {
         StringBuilder[][] fractInputCTDAlpha = new StringBuilder[2][this.key.length()];
 
         for (int i = 0; i < this.key.length(); i++) {
-            fractInputCTDAlpha[1][i] = new StringBuilder(
-                    fractInputCTD[1][sortedKey.indexOf(Character.toString(this.key.charAt(i)))]);
+            fractInputCTDAlpha[1][i] = new StringBuilder(fractInputCTD[1][sortedKey.indexOf(Character.toString(this.key.charAt(i)))]);
 
             // Needed to removed characters so that keys with duplicate characters may be
             // used.

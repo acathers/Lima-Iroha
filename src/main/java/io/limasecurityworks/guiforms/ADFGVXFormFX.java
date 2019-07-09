@@ -53,7 +53,8 @@ public class ADFGVXFormFX {
         functionButton.setOnAction(e -> {
             if (functionButton.getText().equals("Encrypt")) {
                 functionButton.setText("Decrypt");
-            } else {
+            }
+            else {
                 functionButton.setText("Encrypt");
             }
         });
@@ -124,17 +125,14 @@ public class ADFGVXFormFX {
             String about = null;
 
             String inputError = "Input Error: You must enter text to be encrypted or decrypted." + "\n" + "\n";
-            String keySquareError = "Key Square Error: The keysquare must contain numbers 0-9 and all letters of the alphabet once. Fix the key square or press the 'Random Key Sq.' button to generate one."
-                    + "\n" + "\n";
+            String keySquareError = "Key Square Error: The keysquare must contain numbers 0-9 and all letters of the alphabet once. Fix the key square or press the 'Random Key Sq.' button to generate one." + "\n" + "\n";
             String keySquareBlank = "Key Square Error: You must enter a key square" + "\n" + "\n";
             String keyError = "Key Error: The key must contain only letters and no spaces.";
             String keyBlank = "Key Error: You must enter a key";
 
             String outputErrorList = "";
 
-            if (inputTA.getText().trim().length() == 0 || keySquareTF.getText().trim().length() == 0
-                    || !ADFGVX.checkKeySquare(keySquareTF.getText()) || keyTF.getText().trim().length() == 0
-                    || !ADFGVX.checkKey(keyTF.getText())) {
+            if (inputTA.getText().trim().length() == 0 || keySquareTF.getText().trim().length() == 0 || !ADFGVX.checkKeySquare(keySquareTF.getText()) || keyTF.getText().trim().length() == 0 || !ADFGVX.checkKey(keyTF.getText())) {
 
                 if (inputTA.getText().trim().length() == 0) {
                     outputErrorList += inputError;
