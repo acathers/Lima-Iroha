@@ -82,7 +82,7 @@ public class ROT13 {
                 Printables.createPrintout(input, function, null, encryptText(input));
             }
             else if (this.function.equalsIgnoreCase("decrypt")) {
-                Printables.createPrintout(input, function, null, decryptText(input));
+                Printables.createPrintout(input, function, null, encryptText(input));
             }
             else {
                 System.out.println("This should be an impossible function error.");

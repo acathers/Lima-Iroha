@@ -109,8 +109,6 @@ public class Beaufort {
                 }
             }
 
-            String inputTextLetters = inputTextSB.toString();
-
             if (this.function.equalsIgnoreCase("encrypt")) {
                 Printables.createPrintout(inputText, function, null, encryptText(inputText), key);
             }

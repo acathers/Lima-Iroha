@@ -1,7 +1,5 @@
 package io.limasecurityworks.printables;
 
-import io.limasecurityworks.tools.ConsoleColors;
-
 public class Printables {
 
 	private final static String format = "%-20s%s%n";
