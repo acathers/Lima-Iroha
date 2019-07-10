@@ -16,7 +16,7 @@ public class Help {
         // method for the "Help" command.
 
         public static void help() {
-                Printables.helpHeader();
+                Headers.helpHeader();
                 System.out.println("Iroha is a simple text encryption and decryption program. With the following commands you can encrypt or decrypt a message with           the default encryption of +3 to the char value.");
                 System.out.println();
                 System.out.println("Below is a list of available commands. Type the command followed by help for more help with each command." + "\n" + "\n" + "Ex: Caesar help" + "\n" + "\n"

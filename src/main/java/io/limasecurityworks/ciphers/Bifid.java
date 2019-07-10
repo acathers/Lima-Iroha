@@ -165,10 +165,12 @@ public class Bifid {
             }
 
             if (this.function.equalsIgnoreCase("encrypt")) {
-                Printables.createPrintout(input, function, keySquare, encryptText(input), key);
+                Headers.translationHeader();
+                System.out.print("Input:          " + input + "\n" + "Key Square:     " + keySquare + "\n" + "Key:            " + key + "\n" + "Encrypted Text: " + encryptText(input) + "\n");
             }
             else if (this.function.equalsIgnoreCase("decrypt")) {
-                Printables.createPrintout(input, function, keySquare, encryptText(input), key);
+                Headers.translationHeader();
+                System.out.print("Input:          " + input + "\n" + "Key Square:     " + keySquare + "\n" + "Key:            " + key + "\n" + "Decrypted Text: " + decryptText(input) + "\n");
             }
             else if (this.function.equalsIgnoreCase("help")) {
                 System.out.println("You should get help, but I have yet to develop help for this part of the program at this time.");
