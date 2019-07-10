@@ -7,7 +7,7 @@ public class Affine {
     private String function;
     private int iKeyA;
     private int iKeyB;
-    private int modulo;
+    private static int modulo;
     private String help;
     private String about;
 
@@ -37,15 +37,11 @@ public class Affine {
                         "Affine Cipher will ask you to encrypt or decrypt and will require two keys, both being numbers and the first key must be a coprime of the total number of available characters. Total number of characters must be 26, 52, or 95 for this program.");
             }
         }
-
         else if (this.about != null) {
             System.out.println("About Affine Cipher.");
         }
-
         else {
-
             // Find out if there is a function, if not, get it.
-
             if (this.function == null) {
                 function = Function.getFunction();
             }
@@ -61,14 +57,12 @@ public class Affine {
             String moduloChoice = io.limasecurityworks.ui.Iroha.sc.nextLine();
 
             while (!validModulo) {
-
                 if (moduloChoice.equals("26") || moduloChoice.equals("52") || moduloChoice.equals("95")) {
 
-                    this.modulo = Integer.parseInt(moduloChoice);
+                    modulo = Integer.parseInt(moduloChoice);
 
                     validModulo = true;
                 }
-
                 else {
 
                     System.out.print("Invalid input, enter either 26, 52, or 95: ");
@@ -85,7 +79,7 @@ public class Affine {
 
                 this.iKeyA = io.limasecurityworks.ui.Iroha.sc.nextInt();
 
-                while (!isCoprime(this.iKeyA, this.modulo)) {
+                while (!isCoprime(this.iKeyA, modulo)) {
 
                     System.out.println();
                     System.out.print("That number is not a coprime with the mod. You have selected " + modulo + " as the mod. Your first key must have a greatest common factor with the mod of '1'. Enter input for key 1: ");
@@ -97,10 +91,10 @@ public class Affine {
 
                 this.iKeyB = io.limasecurityworks.ui.Iroha.sc.nextInt();
 
-                while (this.iKeyB <= 0 || this.iKeyB >= this.modulo) {
+                while (this.iKeyB <= 0 || this.iKeyB >= modulo) {
 
                     System.out.println();
-                    System.out.print("The second key must be greater than 0 and less than the mod. Your have selected " + this.modulo + "as the mod. Enter input for key 2: ");
+                    System.out.print("The second key must be greater than 0 and less than the mod. You have selected " + modulo + " as the mod. Enter input for key 2: ");
 
                     this.iKeyB = io.limasecurityworks.ui.Iroha.sc.nextInt();
                 }
@@ -122,7 +116,7 @@ public class Affine {
                 String encryptedText = encryptText(inputText);
 
                 System.out.println(
-                        "\n" + "Function: " + this.function + "\n" + "Key 1:    " + this.iKeyA + "\n" + "Key 2:    " + this.iKeyB + "\n" + "Mod:      " + this.modulo + "\n" + "Input:    " + inputText + "\n" + "Output:   " + encryptedText);
+                        "\n" + "Function: " + this.function + "\n" + "Key 1:    " + this.iKeyA + "\n" + "Key 2:    " + this.iKeyB + "\n" + "Mod:      " + modulo + "\n" + "Input:    " + inputText + "\n" + "Output:   " + encryptedText);
             }
 
             else if (this.function.equalsIgnoreCase("decrypt")) {
@@ -134,7 +128,7 @@ public class Affine {
                 }
 
                 System.out.println(
-                        "\n" + "Function: " + this.function + "\n" + "Key 1:    " + this.iKeyA + "\n" + "Key 2:    " + this.iKeyB + "\n" + "Mod:      " + this.modulo + "\n" + "Input:    " + inputText + "\n" + "Output:   " + decryptedText);
+                        "\n" + "Function: " + this.function + "\n" + "Key 1:    " + this.iKeyA + "\n" + "Key 2:    " + this.iKeyB + "\n" + "Mod:      " + modulo + "\n" + "Input:    " + inputText + "\n" + "Output:   " + decryptedText);
             }
 
             else {
@@ -143,25 +137,21 @@ public class Affine {
         }
     }
 
-    public boolean isCoprime(int key, int mod) {
+    public static boolean isCoprime(int key, int mod) {
 
         boolean isCoprime = false;
 
         if (isEven(key) && isEven(mod)) {
             return isCoprime;
         }
-
         else if (key == 1) {
             isCoprime = true;
             return isCoprime;
         }
-
         else if (key <= 0) {
             return isCoprime;
         }
-
         else {
-
             int coprimeMod = 777;
             while (coprimeMod != 0) {
 
@@ -180,7 +170,7 @@ public class Affine {
         }
     }
 
-    public boolean isEven(int input) {
+    public static boolean isEven(int input) {
 
         boolean even = false;
 
@@ -194,6 +184,10 @@ public class Affine {
 
         this.iKeyA = keyA;
         this.iKeyB = keyB;
+    }
+
+    public static void setModulo(int input) {
+        modulo = input;
     }
 
     /*
@@ -238,9 +232,7 @@ public class Affine {
 
         for (int i = 0; i < input.length(); i++) {
             if (charArray[i] != ' ') {
-
                 if (modulo95.indexOf(charArray[i]) >= iKeyB) {
-
                     output[i] = modulo95.charAt((iKeyAInverse * (modulo95.indexOf(charArray[i]) - iKeyB)) % modulo);
                 }
                 else {
