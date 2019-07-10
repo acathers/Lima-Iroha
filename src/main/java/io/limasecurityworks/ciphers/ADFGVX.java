@@ -164,7 +164,6 @@ public class ADFGVX {
                 setKey(io.limasecurityworks.ui.Iroha.sc.nextLine());
 
             }
-          //  public static void createPrintout(String input, String function, String keySquare, String output, String... keys) {
             if (this.function.equalsIgnoreCase("encrypt")) {
                  Printables.createPrintout(input, function, keySquare, encryptText(input), key);
             }
