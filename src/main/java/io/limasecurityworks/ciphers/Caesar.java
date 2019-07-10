@@ -112,12 +112,12 @@ public class Caesar {
             }
 
             if (this.function.equalsIgnoreCase("encrypt")) {
-                Headers.translationHeader();
-                System.out.print("Input:          " + input + "\n" + "Key:            " + key + "\n" + "Encrypted Text: " + encryptText(input) + "\n");
+                Printables.createPrintout(input, function, null, encryptText(input), key);
+
             }
             else if (this.function.equalsIgnoreCase("decrypt")) {
-                Headers.translationHeader();
-                System.out.print("Input:          " + input + "\n" + "Key:            " + key + "\n" + "Decrypted Text: " + decryptText(input) + "\n");
+                Printables.createPrintout(input, function, null, decryptText(input), key);
+
             }
             else {
                 System.out.println("This should be an impossible function error. Function is not encrypt or decrypt");

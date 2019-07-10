@@ -1,6 +1,8 @@
 package io.limasecurityworks.ciphers;
 
 import java.lang.StringBuilder;
+
+import io.limasecurityworks.printables.Printables;
 import io.limasecurityworks.processes.*;
 
 public class ROT13 {
@@ -77,10 +79,10 @@ public class ROT13 {
             // to the text.
 
             if (this.function.equalsIgnoreCase("encrypt")) {
-                System.out.print("Encrypted Text:  " + encryptText(input) + "\n");
+                Printables.createPrintout(input, function, null, encryptText(input));
             }
             else if (this.function.equalsIgnoreCase("decrypt")) {
-                System.out.print("Decrypted Text:  " + encryptText(input) + "\n");
+                Printables.createPrintout(input, function, null, encryptText(input));
             }
             else {
                 System.out.println("This should be an impossible function error.");

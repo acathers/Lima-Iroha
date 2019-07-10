@@ -26,7 +26,6 @@ public class CiphersFX extends IrohaFX {
         TilePane ciphersTilePane = new TilePane();
         ciphersTilePane.setHgap(15);
         ciphersTilePane.setVgap(15);
-        ciphersTilePane.setPrefColumns(2);
         GridPane.setMargin(ciphersTilePane, new Insets(50,15,15,50));
         
         //Create Buttons.
@@ -82,6 +81,7 @@ public class CiphersFX extends IrohaFX {
             ciphers[i].setPrefHeight(menuButtonsH);
             ciphers[i].setStyle("-fx-background-color: -limaBlueLight");
             ciphers[i].setStyle(".button:pressed");
+            
 
             final int count = i;
 
