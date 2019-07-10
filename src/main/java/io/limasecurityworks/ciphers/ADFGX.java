@@ -3,6 +3,8 @@ package io.limasecurityworks.ciphers;
 import java.lang.StringBuilder;
 import java.lang.Math;
 import java.util.Arrays;
+
+import io.limasecurityworks.printables.Printables;
 import io.limasecurityworks.processes.*;
 import io.limasecurityworks.tools.*;
 import io.limasecurityworks.tools.StringBoolean;
@@ -168,10 +170,12 @@ public class ADFGX {
                 setKey(io.limasecurityworks.ui.Iroha.sc.nextLine());
             }
             if (this.function.equalsIgnoreCase("encrypt")) {
-                System.out.print("Encrypted Text:  " + encryptText(input) + "\n");
+                Printables.createPrintout(input, function, keySquare, encryptText(input), key);
+
             }
             else if (this.function.equalsIgnoreCase("decrypt")) {
-                System.out.print("Decrypted Text:  " + decryptText(input) + "\n");
+                Printables.createPrintout(input, function, keySquare, decryptText(input), key);
+
             }
             else if (this.function.equalsIgnoreCase("help")) {
                 System.out.println("You should get help, but I have yet to develop help for this part of the program at this time.");

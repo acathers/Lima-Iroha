@@ -166,17 +166,10 @@ public class ADFGVX {
             }
           //  public static void createPrintout(String input, String function, String keySquare, String output, String... keys) {
             if (this.function.equalsIgnoreCase("encrypt")) {
-                System.out.println();
-                System.out.println("Encrypted Text:  " + encryptText(input));
-                System.out.println("Key Square:      " + this.keySquare);
-                System.out.println("Key:             " + this.key);
-                Printables.createPrintout(input, function, keySquare, encryptText(input), key);
+                 Printables.createPrintout(input, function, keySquare, encryptText(input), key);
             }
             else if (this.function.equalsIgnoreCase("decrypt")) {
-                System.out.println();
-                System.out.println("Decrypted Text:  " + decryptText(input));
-                System.out.println("Key Square:      " + this.keySquare);
-                System.out.println("Key:             " + this.key);
+                Printables.createPrintout(input, function, keySquare, decryptText(input), key);
             }
             else if (this.function.equalsIgnoreCase("help")) {
                 System.out.println("You should get help, but I have yet to develop help for this part of the program at this time.");

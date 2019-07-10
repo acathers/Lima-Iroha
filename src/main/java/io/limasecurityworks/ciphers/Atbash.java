@@ -1,6 +1,8 @@
 package io.limasecurityworks.ciphers;
 
 import java.lang.StringBuilder;
+
+import io.limasecurityworks.printables.Printables;
 import io.limasecurityworks.processes.*;
 
 public class Atbash {
@@ -72,10 +74,12 @@ public class Atbash {
             // to the text.
 
             if (this.function.equalsIgnoreCase("encrypt")) {
-                System.out.print("Encrypted Text:  " + encryptText(input) + "\n");
+                Printables.createPrintout(input, function, null, encryptText(input), key);
+
             }
             else if (this.function.equalsIgnoreCase("decrypt")) {
-                System.out.print("Decrypted Text:  " + decryptText(input) + "\n");
+                Printables.createPrintout(input, function, null, decryptText(input), key);
+
             }
             else {
                 System.out.println(encryptText("This should be an impossible function error."));

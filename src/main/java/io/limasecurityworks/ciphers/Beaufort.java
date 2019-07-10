@@ -1,5 +1,6 @@
 package io.limasecurityworks.ciphers;
 
+import io.limasecurityworks.printables.Printables;
 import io.limasecurityworks.processes.*;
 
 public class Beaufort {
@@ -111,17 +112,11 @@ public class Beaufort {
             String inputTextLetters = inputTextSB.toString();
 
             if (this.function.equalsIgnoreCase("encrypt")) {
-
-                String encryptedText = encryptText(inputTextLetters);
-
-                System.out.println("\n" + "Function: " + this.function + "\n" + "Key:      " + this.key + "\n" + "Input:    " + inputText + "\n" + "Output:   " + encryptedText);
+                Printables.createPrintout(inputText, function, null, encryptText(inputText), key);
             }
 
             else if (this.function.equalsIgnoreCase("decrypt")) {
-
-                String decryptedText = decryptText(inputTextLetters);
-
-                System.out.println("\n" + "Function: " + this.function + "\n" + "Key:      " + this.key + "\n" + "Input:    " + inputText + "\n" + "Output:   " + decryptedText);
+                Printables.createPrintout(inputText, function, null, decryptText(inputText), key);
             }
 
             else {

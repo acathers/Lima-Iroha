@@ -1,6 +1,8 @@
 package io.limasecurityworks.ciphers;
 
 import java.util.HashMap;
+
+import io.limasecurityworks.printables.Printables;
 import io.limasecurityworks.processes.*;
 
 public class Base64 {
@@ -74,16 +76,12 @@ public class Base64 {
 
             if (this.function.equalsIgnoreCase("encrypt")) {
                 
-                String encryptedText = encryptText(inputText);
+                Printables.createPrintout(inputText, function, null, encryptText(inputText));
 
-                System.out.println("\n" + "Function: " + this.function + "\n" + "Input:    " + inputText + "\n" + "Output:   " + encryptedText);
             }
 
             else if (this.function.equalsIgnoreCase("decrypt")) {
-
-                String decryptedText = decryptText(inputText);
-
-                System.out.println("\n" + "Function: " + this.function + "\n" + "Input:    " + inputText + "\n" + "Output:   " + decryptedText);
+                Printables.createPrintout(inputText, function, null, encryptText(inputText));
             }
 
             else {

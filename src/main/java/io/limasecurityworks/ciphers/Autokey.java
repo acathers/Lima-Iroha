@@ -1,6 +1,7 @@
 package io.limasecurityworks.ciphers;
 
 import io.limasecurityworks.tools.*;
+import io.limasecurityworks.printables.Printables;
 import io.limasecurityworks.processes.*;
 
 public class Autokey {
@@ -119,17 +120,10 @@ public class Autokey {
                 String inputTextLetters = inputTextSB.toString();
 
                 if (this.function.equalsIgnoreCase("encrypt")) {
-
-                        String encryptedText = encryptText(inputTextLetters);
-
-                        System.out.println("\n" + "Function: " + this.function + "\n" + "Key:      " + this.key + "\n" + "Input:    " + inputText + "\n" + "Output:   " + encryptedText);
+                    Printables.createPrintout(inputTextLetters, function, null, encryptText(inputTextLetters), key);
                 }
-
                 else if (this.function.equalsIgnoreCase("decrypt")) {
-
-                        String decryptedText = decryptText(inputTextLetters);
-
-                        System.out.println("\n" + "Function: " + this.function + "\n" + "Key:      " + this.key + "\n" + "Input:    " + inputText + "\n" + "Output:   " + decryptedText);
+                    Printables.createPrintout(inputText, function, null, decryptText(inputText), key);
                 }
 
                 else {

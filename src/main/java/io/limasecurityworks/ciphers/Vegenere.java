@@ -1,5 +1,6 @@
 package io.limasecurityworks.ciphers;
 
+import io.limasecurityworks.printables.Printables;
 import io.limasecurityworks.processes.*;
 
 public class Vegenere {
@@ -114,17 +115,13 @@ public class Vegenere {
             String inputTextLetters = inputTextSB.toString();
 
             if (this.function.equalsIgnoreCase("encrypt")) {
+                Printables.createPrintout(inputText, function, null, encryptText(inputText), key);
 
-                String encryptedText = encryptText(inputTextLetters);
-
-                System.out.println("\n" + "Function: " + this.function + "\n" + "Key:      " + this.key + "\n" + "Input:    " + inputText + "\n" + "Output:   " + encryptedText);
             }
 
             else if (this.function.equalsIgnoreCase("decrypt")) {
+                Printables.createPrintout(inputText, function, null, decryptText(inputText), key);
 
-                String decryptedText = decryptText(inputTextLetters);
-
-                System.out.println("\n" + "Function: " + this.function + "\n" + "Key:      " + this.key + "\n" + "Input:    " + inputText + "\n" + "Output:   " + decryptedText);
             }
 
             else {
