@@ -1,6 +1,7 @@
 package io.limasecurityworks.ciphers;
 
 import java.lang.StringBuilder;
+import io.limasecurityworks.printables.*;
 import java.lang.Math;
 import java.util.Arrays;
 import io.limasecurityworks.processes.*;
@@ -163,12 +164,13 @@ public class ADFGVX {
                 setKey(io.limasecurityworks.ui.Iroha.sc.nextLine());
 
             }
-
+          //  public static void createPrintout(String input, String function, String keySquare, String output, String... keys) {
             if (this.function.equalsIgnoreCase("encrypt")) {
                 System.out.println();
                 System.out.println("Encrypted Text:  " + encryptText(input));
                 System.out.println("Key Square:      " + this.keySquare);
                 System.out.println("Key:             " + this.key);
+                Printables.createPrintout(input, function, keySquare, encryptText(input), key);
             }
             else if (this.function.equalsIgnoreCase("decrypt")) {
                 System.out.println();
