@@ -36,7 +36,6 @@ public class CommandRunner {
 		default:
 			Menu.displayInvalidCommand();
 		}
-
 		commandFocus = command;
 	}
 

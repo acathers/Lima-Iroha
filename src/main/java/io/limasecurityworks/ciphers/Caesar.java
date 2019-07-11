@@ -30,7 +30,6 @@ public class Caesar extends Cipher {
 	public void run() {
 
 		if (key == null) {
-			System.out.println("Current function is " + function.toString());
 			if (function.equals(Command.ENCRYPT)) {
 				key = "3";
 			} else {

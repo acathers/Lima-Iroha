@@ -26,7 +26,6 @@ public class Iroha {
 		do {
 			Menu.displayCommandPrompt();
 			currentCommand = Command.valueOf(sc.nextLine().toUpperCase());
-			System.out.println(currentCommand.toString()); // test remove
 			commandRunner.execute(currentCommand);
 		} while (!currentCommand.equals(Command.EXIT));
 
