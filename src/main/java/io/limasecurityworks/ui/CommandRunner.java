@@ -4,46 +4,57 @@ import java.util.Arrays;
 import java.util.List;
 
 import io.limasecurityworks.ciphers.Caesar;
+import io.limasecurityworks.ciphers.Cipher;
 import io.limasecurityworks.info.Help;
 
 public class CommandRunner {
-	
-	Command function;
 
+	private Command commandFocus = Command.NONE; // current command we're focused on for additional options
+	private Cipher currentCipher = null;
 
-	public void execute(Command... commandsArray) {
-		
+	public void execute(Command command) {
 
-		if (commandsArray.length > 4) {
-			throw new Exception("Too many arguments");
+		switch (command) {
+		case EXIT:
+			return;
+		case HELP:
+			executeHelp();
+			break;
+		case ABOUT:
+			Help.about();
+			break;
+		case CAESAR:
+			currentCipher = new Caesar();
+			Menu.displayEncryptDecryptPrompt();
+			break;
+		case ENCRYPT:
+			executeCipherFunction(Command.ENCRYPT);
+			break;
+		case DECRYPT:
+			executeCipherFunction(Command.DECRYPT);
+			break;
+		default:
+			Menu.displayInvalidCommand();
 		}
 
-		List<Command> commands = Arrays.asList(commandsArray);
+		commandFocus = command;
+	}
 
-		if (commands.contains(Command.HELP) && commands.contains(Command.ABOUT)) {
-			throw new Exception("Invalid arguments, cannot use help and about in same command sequence");
-		}
-
-		for (Command command : commands) {
-
-			switch (command) {
-			case EXIT:
-				return;
-			case HELP:
-				Help.help();
-				break;
-			case ABOUT:
-				Help.about();
-				break;
-			case CAESAR:
-				new Caesar(this.function, this.key, this.help, this.about).runCC();
-
-			default:
-				Menu.displayInvalidCommand();
-			}
+	private void executeHelp() {
+		if (commandFocus.equals(Command.NONE)) {
+			Help.help();
+		} else {
+			currentCipher.displayHelp();
 		}
 	}
-	
-	
+
+	private void executeCipherFunction(Command command) {
+		if (currentCipher != null) {
+			currentCipher.setFunction(command);
+			currentCipher.run();
+		} else {
+			Menu.displayEncryptDecryptSelectionErrorMessage();
+		}
+	}
 
 }
