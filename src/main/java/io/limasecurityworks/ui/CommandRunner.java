@@ -21,7 +21,7 @@ public class CommandRunner {
 			executeHelp();
 			break;
 		case ABOUT:
-			Help.about();
+			executeAbout();
 			break;
 		case CAESAR:
 			currentCipher = new Caesar();
@@ -55,5 +55,14 @@ public class CommandRunner {
 			Menu.displayEncryptDecryptSelectionErrorMessage();
 		}
 	}
+	
+	private void executeAbout() {
+		if (commandFocus.equals(Command.NONE)) {
+			Help.about();
+		} else {
+			currentCipher.displayAbout();
+		}
+	}
+	
 
 }

@@ -23,7 +23,7 @@ public class Menu {
 
 	public static void displayEncryptDecryptPrompt() {
 
-		System.out.print("\r\n" + "Next enter your choice to Encrypt or Decrypt ");
+		System.out.print("\r\n" + "Next enter your choice to Encrypt or Decrypt \n");
 	}
 	
 	public static void displayEncryptDecryptSelectionErrorMessage() {
