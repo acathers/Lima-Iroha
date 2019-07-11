@@ -12,42 +12,25 @@
 package io.limasecurityworks.ui;
 
 import java.util.Scanner;
-import io.limasecurityworks.tools.*;
-import io.limasecurityworks.info.Help;
 
 public class Iroha {
 
-    public static final Scanner sc = new Scanner(System.in);
-    public static boolean invalid = false;
-    public static boolean exit = false;
+	public static final Scanner sc = new Scanner(System.in);
 
-    public static void main(String[] args) {
+	public static void main(String[] args) {
+		Command currentCommand;
+		CommandRunner commandRunner = new CommandRunner();
 
-        boolean welcomeDisplayed = false;
+		Menu.displayWelcomeMessage();
 
-        while (!exit) {
+		do {
 
-            if (welcomeDisplayed == true) {
-                System.out.print("\n" + "Command: ");
-            }
-            else {
-                Help.welcomeMessage();
-                welcomeDisplayed = true;
-            }
+			Menu.displayCommandPrompt();
+			currentCommand = Command.valueOf(sc.nextLine().toUpperCase());
+			commandRunner.execute(currentCommand);
+		} while (!currentCommand.equals(Command.EXIT));
 
-            String command = sc.nextLine();
+		Menu.displayExitMessage();
 
-            ComTree action = new ComTree(command);
-
-            action.execute();
-
-            if (invalid == true) {
-                invalid = false;
-                continue;
-            }
-        }
-
-        System.out.println("\n" + ConsoleColors.RED + "Program terminated." + ConsoleColors.RESET);
-        sc.close();
-    }
+	}
 }

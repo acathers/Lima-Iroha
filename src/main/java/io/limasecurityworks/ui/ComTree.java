@@ -16,7 +16,7 @@ public class ComTree {
 
     // Breaks up full command line into variables.
 
-    ComTree(String stringCommand) {
+    ComTree(Command command) {
 
         StringBuilder nativeBuilder = new StringBuilder(stringCommand);
         String breakOfCom = " ";
